@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="src/Reticleave.Reflection/Reticleave.Reflection.csproj" Id="5ce7fa55-035a-42b6-a725-8b4469a70efd" />
+  <Project Path="src/Reticleave.Roslyn/Reticleave.Roslyn.csproj" Id="9c6d2423-8c7a-4570-86fa-07eec2240ee2" />
+  <Project Path="src/Reticleave/Reticleave.csproj" />
+  <Project Path="tests/Reticleave.Tests/Reticleave.Tests.csproj" Id="4badf8d3-2b88-4b86-9d77-e746fb219ee0" />
+</Solution>

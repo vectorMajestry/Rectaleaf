@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.0;net10.0</TargetFrameworks>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+	<ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
+		
+		<!-- System.HashCode backport -->
+		<PackageReference Include="Microsoft.Bcl.HashCode" Version="1.1.1" />
+		
+		<!-- Unsafe backport  -->
+		<PackageReference Include="System.Runtime.CompilerServices.Unsafe" Version="6.1.2" />
+
+		<!-- Span/Memory backport -->
+		<PackageReference Include="System.Memory" Version="4.6.3" />
+		
+		<!-- Polyfills for modern C# language features -->
+		<PackageReference Include="PolySharp" Version="1.15.0">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		
+	</ItemGroup>
+</Project>
