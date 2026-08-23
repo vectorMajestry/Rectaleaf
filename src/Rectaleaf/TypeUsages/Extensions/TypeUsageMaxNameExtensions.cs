@@ -99,12 +99,8 @@ public static class TypeUsageMaxNameExtensions
         public string MaximumQualifiedName => inner switch
         {
             IPlaceholderType p => p.LocalName,
-            IDeclTypeUsage<IIncomplete> decl => decl switch
-            {
-                IBoundGenericType<IIncomplete, IHasGenericParameters> g => g.MaximumQualifiedName,
-                _ => throw new InvalidOperationException("Unreachable case.")
-            },
-            IFunctionPointerType<IIncomplete> funcPtr => funcPtr.LocalName,
+            IDeclTypeUsage<IIncomplete> decl => decl.MaximumQualifiedName,
+            IFunctionPointerType<IIncomplete> funcPtr => funcPtr.MaximumQualifiedName,
             ITupleType<IIncomplete> tuple => tuple.MaximumQualifiedName,
             _ => throw new InvalidOperationException("Unreachable case.")
         };
@@ -124,8 +120,17 @@ public static class TypeUsageMaxNameExtensions
     {
         public string MaximumQualifiedName => wrapper switch
         {
-            IPointerType<IIncomplete> p => p.MaximumQualifiedName,
-            IArrayType<IIncomplete, IFlatOrNot> arr => arr.MaximumQualifiedName,
+            IPointerType<IIncomplete> pointer => pointer.MaximumQualifiedName,
+            IArrayType<IIncomplete, IFlatOrNot> array => array.MaximumQualifiedName,
+            _ => throw new InvalidOperationException("Unreachable case.")
+        };
+    }
+
+    extension(IDeclTypeUsage<IIncomplete, IDeclaredType> decl)
+    {
+        public string MaximumQualifiedName => decl switch
+        {
+            IBoundGenericType<IIncomplete, IHasGenericParameters> boundGeneric => boundGeneric.MaximumQualifiedName,
             _ => throw new InvalidOperationException("Unreachable case.")
         };
     }
@@ -148,7 +153,7 @@ public static class TypeUsageMaxNameExtensions
             {
                 string baseName = tuple switch
                 {
-                    IRichTupleType<IIncomplete> rich => $"({string.Join(", ", rich.Elements.Select(e => e.Name is not null ? $"{e.Type.MaximumQualifiedName} {e.Name}" : e.Type.MaximumQualifiedName))})",
+                    IRichTupleType<IIncomplete> rich => WrapperNameFormatter.RichTupleName(rich.Elements.Select(e => (e.Type.MaximumQualifiedName, e.Name))),
                     IChainTupleType<IIncomplete> => tuple.UnderlyingValueTupleType.MaximumQualifiedName,
                     _ => throw new InvalidOperationException("Unreachable case.")
                 };
@@ -158,5 +163,22 @@ public static class TypeUsageMaxNameExtensions
                     : baseName;
             }
         }
+    }
+
+    extension(IFunctionPointerType<IIncomplete> funcPtr)
+    {
+        public string MaximumQualifiedName => funcPtr switch
+        {
+            IManagedFunctionPointerType<IIncomplete> man
+                => WrapperNameFormatter.ManagedFunctionPointerName(
+                    man.Parameters.Select(p => p.Type.MaximumQualifiedName),
+                    man.ReturnType.MaximumQualifiedName),
+            IUnmanagedFunctionPointerType<IIncomplete> unman
+                => WrapperNameFormatter.UnmanagedFunctionPointerName(
+                    unman.Parameters.Select(p => p.Type.MaximumQualifiedName),
+                    unman.ReturnType.MaximumQualifiedName,
+                    unman.CallingConventions),
+            _ => throw new InvalidOperationException("Unreachable case.")
+        };
     }
 }

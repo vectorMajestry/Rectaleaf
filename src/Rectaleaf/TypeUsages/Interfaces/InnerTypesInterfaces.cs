@@ -1,5 +1,6 @@
 using Rectaleaf.Components;
 using Rectaleaf.Metadata.DeclaredTypes;
+using Rectaleaf.Metadata;
 
 namespace Rectaleaf.Metadata.TypeUsages.Interfaces;
 
@@ -97,11 +98,10 @@ public interface IUnmanagedFunctionPointerType<out TKind> : IFunctionPointerType
     where TKind : IKnownOrNot
 {
     /// <summary>
-    /// Gets the list of calling convention types applied to this unmanaged function pointer 
-    /// (e.g., <see cref="System.Runtime.CompilerServices.CallConvCdecl"/>).
-    /// If calling conventions were omitted (`<![CDATA[delegate* unmanaged<...>]]>`), this list will be empty.
+    /// Gets the calling convention flags applied to this unmanaged function pointer.
+    /// If calling conventions were omitted (`<![CDATA[delegate* unmanaged<...>]]>`), this will be <see cref="CallConvFlags.None"/>.
     /// </summary>
-    IReadOnlyList<IDeclaredType> CallingConventions { get; }
+    CallConvFlags CallingConventions { get; }
 }
 
 /// <summary>
@@ -157,7 +157,8 @@ public interface IChainTupleType<out TKind> : ITupleType<TKind>
     /// <summary>
     /// Gets the collection of types contained within this tuple.
     /// </summary>
-    IReadOnlyList<IComposableType<TKind>> ElementTypes { get; }
+    [Obsolete("Use 'ElementTypes' extension property instead.")]
+    IReadOnlyList<IComposableType<IKnownOrNot>> ElementTypesMixed { get; }
 }
 
 /// <summary>

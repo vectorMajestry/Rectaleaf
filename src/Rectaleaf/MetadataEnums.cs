@@ -1,15 +1,15 @@
-﻿namespace Rectaleaf.Metadata;
+namespace Rectaleaf.Metadata;
 
 [Flags]
 public enum ParameterModifiers
 {
-    None = 0,
-    This = 1,
-    Ref = 1<< 1,
-    RefReadOnly = 1<< 2,
-    Out = 1<< 3,
-    In = 1<< 4,
-    Params = 1<< 5,
+    None,
+    This,
+    Ref = 1 << 1,
+    RefReadOnly = 1 << 2,
+    Out = 1 << 3,
+    In = 1 << 4,
+    Params = 1 << 5,
     Scoped = 1 << 6,
 }
 
@@ -64,6 +64,19 @@ public enum EnumUnderlyingTypeEnum
     UInt = PredefinedTypeKind.UInt,
     Long = PredefinedTypeKind.Long,
     ULong = PredefinedTypeKind.ULong
+}
+
+[Flags]
+public enum CallConvFlags : uint
+{
+    None = 0,
+    Cdecl = 1,
+    Stdcall = 1 << 1,
+    Thiscall = 1 << 2,
+    Fastcall = 1 << 3,
+    Swift = 1 << 4,
+    MemberFunction = 1 << 5,
+    SuppressGCTransition = 1 << 6,
 }
 
 public enum AccessModifier
@@ -167,37 +180,37 @@ public enum UnaryOperatorKind
     /// <summary>
     /// Represents the '~' operator.
     /// </summary>
-    BitwiseNegation = 0x1,
+    BitwiseNegation,
 
     /// <summary>
     /// Represents the '!' operator.
     /// </summary>
-    Not = 0x2,
+    Not,
 
     /// <summary>
     /// Represents the unary '+' operator.
     /// </summary>
-    Plus = 0x3,
+    Plus,
 
     /// <summary>
     /// Represents the unary '-' operator.
     /// </summary>
-    Minus = 0x4,
+    Minus,
 
     /// <summary>
     /// Represents the 'true' operator.
     /// </summary>
-    True = 0x5,
+    True,
 
     /// <summary>
     /// Represents the 'false' operator.
     /// </summary>
-    False = 0x6,
+    False,
 
     /// <summary>
     /// Represents the '^' operator.
     /// </summary>
-    Hat = 0x7,
+    Hat,
 }
 
 public enum ConversionOperatorKind

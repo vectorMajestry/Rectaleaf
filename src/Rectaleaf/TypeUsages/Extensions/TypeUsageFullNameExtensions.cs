@@ -33,7 +33,7 @@ public static class TypeUsageFullNameExtensions
             IFixedSizeBufferType fsb => fsb.LocalName,
             IEnumUnderlyingType enumType => enumType.LocalName,
             IDeclTypeUsage<IKnown> declUsage => declUsage.FullyQualifiedName,
-            IFunctionPointerType<IKnown> funcPtr => funcPtr.LocalName,
+            IFunctionPointerType<IKnown> funcPtr => funcPtr.FullyQualifiedName,
             ITupleType<IKnown> tuple => tuple.FullyQualifiedName,
             _ => throw new InvalidOperationException("Unreachable case.")
         };
@@ -140,7 +140,7 @@ public static class TypeUsageFullNameExtensions
             {
                 string baseName = tuple switch
                 {
-                    IRichTupleType<IKnown> rich => $"({string.Join(", ", rich.Elements.Select(e => e.Name is not null ? $"{e.Type.FullyQualifiedName} {e.Name}" : e.Type.FullyQualifiedName))})",
+                    IRichTupleType<IKnown> rich => WrapperNameFormatter.RichTupleName(rich.Elements.Select(e => (e.Type.FullyQualifiedName, e.Name))),
                     IChainTupleType<IKnown> => tuple.UnderlyingValueTupleType.FullyQualifiedName,
                     _ => throw new InvalidOperationException("Unreachable case.")
                 };
@@ -150,5 +150,22 @@ public static class TypeUsageFullNameExtensions
                     : baseName;
             }
         }
+    }
+
+    extension(IFunctionPointerType<IKnown> funcPtr)
+    {
+        public string FullyQualifiedName => funcPtr switch
+        {
+            IManagedFunctionPointerType<IKnown> man
+                => WrapperNameFormatter.ManagedFunctionPointerName(
+                    man.Parameters.Select(p => ((ITypeUsage<IKnown>)p.Type).FullyQualifiedName),
+                    man.ReturnType.FullyQualifiedName),
+            IUnmanagedFunctionPointerType<IKnown> unman
+                => WrapperNameFormatter.UnmanagedFunctionPointerName(
+                    unman.Parameters.Select(p => ((ITypeUsage<IKnown>)p.Type).FullyQualifiedName),
+                    unman.ReturnType.FullyQualifiedName,
+                    unman.CallingConventions),
+            _ => throw new InvalidOperationException("Unreachable case.")
+        };
     }
 }

@@ -189,6 +189,18 @@ public static class Util
         _ when t == PredefinedTypeKind.String => "string",
         _ when t == PredefinedTypeKind.NInt => "nint",
         _ when t == PredefinedTypeKind.NUint => "nuint",
-        _ => throw new ArgumentOutOfRangeException($"Unknown predefined type: {t}."),
+        _ => throw new ArgumentOutOfRangeException($"Unknown predefined type: '{t}'."),
+    };
+
+    public static string CallConvKindToString(CallConvFlags c) => c switch
+    {
+        _ when c == CallConvFlags.Cdecl => "Cdecl",
+        _ when c == CallConvFlags.Stdcall => "Stdcall",
+        _ when c == CallConvFlags.Thiscall => "Thiscall",
+        _ when c == CallConvFlags.Fastcall => "Fastcall",
+        _ when c == CallConvFlags.Swift => "Swift",
+        _ when c == CallConvFlags.MemberFunction => "MemberFunction",
+        _ when c == CallConvFlags.SuppressGCTransition => "SuppressGCTransition",
+        _ => throw new ArgumentOutOfRangeException($"Unknown calling convention: '{c}'."),
     };
 }

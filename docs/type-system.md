@@ -1,6 +1,6 @@
-# Reticleave Type System & Type Usage Architecture
+# Rectaleaf Type System & Type Usage Architecture
 
-This document provides a comprehensive structural guide to the two core hierarchies of the `Reticleave` metadata layer:
+This document provides a comprehensive structural guide to the two core hierarchies of the `Rectaleaf` metadata layer:
 1. **The Declared Type Hierarchy (`IDeclaredType`)** — representing C# type definitions with their capability traits and member contracts.
 2. **The Type Usage Hierarchy (`ITypeUsage`)** — representing memory layouts, composable types, by-ref modifiers, arrays, generic bindings, tuples, function pointers, and predefined primitives.
 
@@ -321,5 +321,5 @@ classDiagram
 * **Implement Concrete Interfaces:** Backends must instantiate and return concrete leaf implementations (`IRegularClassType`, `IAbstractClassType`, `IRecordClassType`, `IStructType`, `IPlainType`, `IBoundGenericType`, `IRichTupleType`, `IExplicitValueTupleType`, `IObliviousTupleType`, `IManagedFunctionPointerType`, `IUnmanagedFunctionPointerType`, etc.).
 
 ### 2. Common Type Usage Implementations
-To minimize duplicate backend work, all type usage implementations (`ArrayType`, `PointerType`, `PlainType`, `BoundGenericType`, `PlaceholderType`, `PredefinedType`, `FixedSizeBufferType`, `EnumUnderlyingType`, `RichTupleType`, `ChainTupleType`, `ManagedFunctionPointerType`, `UnmanagedFunctionPointerType`) are provided in `Reticleave.Metadata.TypeUsages.CommonTypeUsageImpl`.
+To minimize duplicate backend work, all type usage implementations (`ArrayType`, `PointerType`, `PlainType`, `BoundGenericType`, `PlaceholderType`, `PredefinedType`, `FixedSizeBufferType`, `EnumUnderlyingType`, `RichTupleType`, `ChainTupleType`, `ManagedFunctionPointerType`, `UnmanagedFunctionPointerType`) are provided in `Rectaleaf.Metadata.TypeUsages.CommonTypeUsageImpl`.
 * Backends only need to instantiate these shared classes and focus their implementation effort on declared type models and member extraction.

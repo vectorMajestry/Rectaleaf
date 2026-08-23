@@ -14,6 +14,7 @@ public sealed class BoundGenericType<TKind, TDecl>(TDecl genericType, IReadOnlyL
         field ??= Nullability is NullabilityKind.Nullable
             ? WrapperNameFormatter.NullableName(GetNotNullName())
             : GetNotNullName();
+            
     public TDecl TypeDefinition { get; } = genericType;
     public NullabilityKind Nullability { get; } = nullability;
     public IReadOnlyList<IComposableType<IKnownOrNot>> TypeArgumentsMixed { get; } = typeArguments;
@@ -21,4 +22,3 @@ public sealed class BoundGenericType<TKind, TDecl>(TDecl genericType, IReadOnlyL
 
     string GetNotNullName() => WrapperNameFormatter.GenericName(TypeDefinition.LocalName, TypeArgumentsMixed.Select(t => t.LocalName));
 }
-
