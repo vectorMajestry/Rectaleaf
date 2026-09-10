@@ -1,0 +1,719 @@
+[
+  {
+    "kind": "InlineArray",
+    "localName": "InlineByteArray16",
+    "fullyQualifiedName": "TestCases.InlineByteArray16",
+    "namespace": "TestCases",
+    "accessModifier": "Public",
+    "containingType": null,
+    "length": 16,
+    "isReadOnly": false,
+    "elementType": {
+      "localName": "byte",
+      "nullability": "NonNullable",
+      "usageKind": "Predefined",
+      "predefinedKind": "Byte"
+    },
+    "genericParameters": [],
+    "directInterfaces": [],
+    "methods": [],
+    "properties": [],
+    "indexers": [],
+    "events": [],
+    "instanceConstructors": [
+      {
+        "declaringType": "TestCases.InlineByteArray16",
+        "accessModifier": "Public",
+        "isPrimary": false,
+        "parameters": [],
+        "attributes": [],
+        "localFunctions": []
+      }
+    ],
+    "staticConstructor": null,
+    "operators": [],
+    "attributes": [
+      {
+        "name": "InlineArrayAttribute",
+        "fullyQualifiedName": "System.Runtime.CompilerServices.InlineArrayAttribute",
+        "constructorArguments": [
+          "16"
+        ],
+        "namedArguments": {}
+      }
+    ],
+    "nestedTypes": []
+  },
+  {
+    "kind": "InlineArray",
+    "localName": "InlineIntArray4",
+    "fullyQualifiedName": "TestCases.InlineIntArray4",
+    "namespace": "TestCases",
+    "accessModifier": "Public",
+    "containingType": null,
+    "length": 4,
+    "isReadOnly": false,
+    "elementType": {
+      "localName": "int",
+      "nullability": "NonNullable",
+      "usageKind": "Predefined",
+      "predefinedKind": "Int"
+    },
+    "genericParameters": [],
+    "directInterfaces": [],
+    "methods": [],
+    "properties": [],
+    "indexers": [],
+    "events": [],
+    "instanceConstructors": [
+      {
+        "declaringType": "TestCases.InlineIntArray4",
+        "accessModifier": "Public",
+        "isPrimary": false,
+        "parameters": [],
+        "attributes": [],
+        "localFunctions": []
+      }
+    ],
+    "staticConstructor": null,
+    "operators": [],
+    "attributes": [
+      {
+        "name": "InlineArrayAttribute",
+        "fullyQualifiedName": "System.Runtime.CompilerServices.InlineArrayAttribute",
+        "constructorArguments": [
+          "4"
+        ],
+        "namedArguments": {}
+      }
+    ],
+    "nestedTypes": []
+  },
+  {
+    "kind": "RefStruct",
+    "localName": "PlainRefStruct",
+    "fullyQualifiedName": "TestCases.PlainRefStruct",
+    "namespace": "TestCases",
+    "accessModifier": "Public",
+    "containingType": null,
+    "isReadOnly": false,
+    "genericParameters": [],
+    "directInterfaces": [],
+    "fields": [
+      {
+        "name": "Value",
+        "declaringType": "TestCases.PlainRefStruct",
+        "accessModifier": "Public",
+        "attributes": [],
+        "fieldKind": "Regular",
+        "type": {
+          "localName": "int",
+          "nullability": "NonNullable",
+          "usageKind": "Predefined",
+          "predefinedKind": "Int"
+        },
+        "isReadOnly": false,
+        "isVolatile": false,
+        "isStatic": false,
+        "isRequired": false
+      },
+      {
+        "name": "DataSpan",
+        "declaringType": "TestCases.PlainRefStruct",
+        "accessModifier": "Public",
+        "attributes": [],
+        "fieldKind": "Regular",
+        "type": {
+          "localName": "Span<byte>",
+          "nullability": "NonNullable",
+          "usageKind": "BoundGeneric",
+          "typeDefinition": "System.Span<T>",
+          "typeArguments": [
+            {
+              "localName": "byte",
+              "nullability": "NonNullable",
+              "usageKind": "Predefined",
+              "predefinedKind": "Byte"
+            }
+          ]
+        },
+        "isReadOnly": false,
+        "isVolatile": false,
+        "isStatic": false,
+        "isRequired": false
+      }
+    ],
+    "methods": [],
+    "properties": [],
+    "indexers": [],
+    "events": [],
+    "instanceConstructors": [
+      {
+        "declaringType": "TestCases.PlainRefStruct",
+        "accessModifier": "Public",
+        "isPrimary": false,
+        "parameters": [
+          {
+            "name": "value",
+            "position": 0,
+            "modifiers": "None",
+            "type": {
+              "localName": "int",
+              "nullability": "NonNullable",
+              "usageKind": "Predefined",
+              "predefinedKind": "Int"
+            },
+            "hasDefaultValue": false,
+            "defaultValue": null,
+            "attributes": []
+          },
+          {
+            "name": "data",
+            "position": 1,
+            "modifiers": "None",
+            "type": {
+              "localName": "Span<byte>",
+              "nullability": "NonNullable",
+              "usageKind": "BoundGeneric",
+              "typeDefinition": "System.Span<T>",
+              "typeArguments": [
+                {
+                  "localName": "byte",
+                  "nullability": "NonNullable",
+                  "usageKind": "Predefined",
+                  "predefinedKind": "Byte"
+                }
+              ]
+            },
+            "hasDefaultValue": false,
+            "defaultValue": null,
+            "attributes": []
+          }
+        ],
+        "attributes": [],
+        "localFunctions": []
+      },
+      {
+        "declaringType": "TestCases.PlainRefStruct",
+        "accessModifier": "Public",
+        "isPrimary": false,
+        "parameters": [],
+        "attributes": [],
+        "localFunctions": []
+      }
+    ],
+    "staticConstructor": null,
+    "operators": [],
+    "attributes": [],
+    "nestedTypes": []
+  },
+  {
+    "kind": "RefStruct",
+    "localName": "ReadOnlyRefStructWithRefFields",
+    "fullyQualifiedName": "TestCases.ReadOnlyRefStructWithRefFields",
+    "namespace": "TestCases",
+    "accessModifier": "Public",
+    "containingType": null,
+    "isReadOnly": true,
+    "genericParameters": [],
+    "directInterfaces": [],
+    "fields": [
+      {
+        "name": "MutableTarget",
+        "declaringType": "TestCases.ReadOnlyRefStructWithRefFields",
+        "accessModifier": "Public",
+        "attributes": [],
+        "fieldKind": "Ref",
+        "type": {
+          "localName": "ref int",
+          "usageKind": "ByRef",
+          "isReadOnly": false,
+          "elementType": {
+            "localName": "int",
+            "nullability": "NonNullable",
+            "usageKind": "Predefined",
+            "predefinedKind": "Int"
+          }
+        }
+      },
+      {
+        "name": "ReadOnlyTarget",
+        "declaringType": "TestCases.ReadOnlyRefStructWithRefFields",
+        "accessModifier": "Public",
+        "attributes": [],
+        "fieldKind": "Ref",
+        "type": {
+          "localName": "ref readonly int",
+          "usageKind": "ByRef",
+          "isReadOnly": true,
+          "elementType": {
+            "localName": "int",
+            "nullability": "NonNullable",
+            "usageKind": "Predefined",
+            "predefinedKind": "Int"
+          }
+        }
+      }
+    ],
+    "methods": [],
+    "properties": [],
+    "indexers": [],
+    "events": [],
+    "instanceConstructors": [
+      {
+        "declaringType": "TestCases.ReadOnlyRefStructWithRefFields",
+        "accessModifier": "Public",
+        "isPrimary": false,
+        "parameters": [
+          {
+            "name": "mutableTarget",
+            "position": 0,
+            "modifiers": "Ref",
+            "type": {
+              "localName": "int",
+              "nullability": "NonNullable",
+              "usageKind": "Predefined",
+              "predefinedKind": "Int"
+            },
+            "hasDefaultValue": false,
+            "defaultValue": null,
+            "attributes": []
+          },
+          {
+            "name": "readOnlyTarget",
+            "position": 1,
+            "modifiers": "None",
+            "type": {
+              "localName": "int",
+              "nullability": "NonNullable",
+              "usageKind": "Predefined",
+              "predefinedKind": "Int"
+            },
+            "hasDefaultValue": false,
+            "defaultValue": null,
+            "attributes": []
+          }
+        ],
+        "attributes": [],
+        "localFunctions": []
+      },
+      {
+        "declaringType": "TestCases.ReadOnlyRefStructWithRefFields",
+        "accessModifier": "Public",
+        "isPrimary": false,
+        "parameters": [],
+        "attributes": [],
+        "localFunctions": []
+      }
+    ],
+    "staticConstructor": null,
+    "operators": [],
+    "attributes": [],
+    "nestedTypes": []
+  },
+  {
+    "kind": "RefStruct",
+    "localName": "InterfaceImplementingRefStruct",
+    "fullyQualifiedName": "TestCases.InterfaceImplementingRefStruct",
+    "namespace": "TestCases",
+    "accessModifier": "Public",
+    "containingType": null,
+    "isReadOnly": false,
+    "genericParameters": [],
+    "directInterfaces": [
+      {
+        "localName": "IDisposable",
+        "nullability": "Oblivious",
+        "usageKind": "Plain",
+        "typeDefinition": "System.IDisposable"
+      },
+      {
+        "localName": "IEquatable<InterfaceImplementingRefStruct>",
+        "nullability": "Oblivious",
+        "usageKind": "BoundGeneric",
+        "typeDefinition": "System.IEquatable<T>",
+        "typeArguments": [
+          {
+            "localName": "InterfaceImplementingRefStruct",
+            "nullability": "NonNullable",
+            "usageKind": "Plain",
+            "typeDefinition": "TestCases.InterfaceImplementingRefStruct"
+          }
+        ]
+      }
+    ],
+    "fields": [
+      {
+        "name": "State",
+        "declaringType": "TestCases.InterfaceImplementingRefStruct",
+        "accessModifier": "Public",
+        "attributes": [],
+        "fieldKind": "Regular",
+        "type": {
+          "localName": "int",
+          "nullability": "NonNullable",
+          "usageKind": "Predefined",
+          "predefinedKind": "Int"
+        },
+        "isReadOnly": false,
+        "isVolatile": false,
+        "isStatic": false,
+        "isRequired": false
+      }
+    ],
+    "methods": [
+      {
+        "name": "Dispose",
+        "declaringType": "TestCases.InterfaceImplementingRefStruct",
+        "returnInfo": {
+          "type": {
+            "localName": "void",
+            "nullability": "NonNullable",
+            "usageKind": "Predefined",
+            "predefinedKind": "Void"
+          },
+          "attributes": []
+        },
+        "isStatic": false,
+        "isGeneric": false,
+        "isReadOnly": false,
+        "hasArglistParameter": false,
+        "accessModifier": "Public",
+        "inheritance": {
+          "kind": "None"
+        },
+        "parameters": [],
+        "genericParameters": [],
+        "attributes": [],
+        "localFunctions": []
+      },
+      {
+        "name": "Equals",
+        "declaringType": "TestCases.InterfaceImplementingRefStruct",
+        "returnInfo": {
+          "type": {
+            "localName": "bool",
+            "nullability": "NonNullable",
+            "usageKind": "Predefined",
+            "predefinedKind": "Bool"
+          },
+          "attributes": []
+        },
+        "isStatic": false,
+        "isGeneric": false,
+        "isReadOnly": false,
+        "hasArglistParameter": false,
+        "accessModifier": "Public",
+        "inheritance": {
+          "kind": "None"
+        },
+        "parameters": [
+          {
+            "name": "other",
+            "position": 0,
+            "modifiers": "None",
+            "type": {
+              "localName": "InterfaceImplementingRefStruct",
+              "nullability": "NonNullable",
+              "usageKind": "Plain",
+              "typeDefinition": "TestCases.InterfaceImplementingRefStruct"
+            },
+            "hasDefaultValue": false,
+            "defaultValue": null,
+            "attributes": []
+          }
+        ],
+        "genericParameters": [],
+        "attributes": [],
+        "localFunctions": []
+      }
+    ],
+    "properties": [],
+    "indexers": [],
+    "events": [],
+    "instanceConstructors": [
+      {
+        "declaringType": "TestCases.InterfaceImplementingRefStruct",
+        "accessModifier": "Public",
+        "isPrimary": false,
+        "parameters": [],
+        "attributes": [],
+        "localFunctions": []
+      }
+    ],
+    "staticConstructor": null,
+    "operators": [],
+    "attributes": [],
+    "nestedTypes": []
+  },
+  {
+    "kind": "Struct",
+    "localName": "FixedBufferContainer",
+    "fullyQualifiedName": "TestCases.FixedBufferContainer",
+    "namespace": "TestCases",
+    "accessModifier": "Public",
+    "containingType": null,
+    "isReadOnly": false,
+    "genericParameters": [],
+    "directInterfaces": [],
+    "fields": [
+      {
+        "name": "IntBuffer",
+        "declaringType": "TestCases.FixedBufferContainer",
+        "accessModifier": "Public",
+        "attributes": [],
+        "fieldKind": "FixedSizeBuffer",
+        "type": {
+          "localName": "int",
+          "usageKind": "FixedSizeBuffer",
+          "bufferKind": "Int"
+        },
+        "length": 32
+      },
+      {
+        "name": "ByteBuffer",
+        "declaringType": "TestCases.FixedBufferContainer",
+        "accessModifier": "Public",
+        "attributes": [],
+        "fieldKind": "FixedSizeBuffer",
+        "type": {
+          "localName": "byte",
+          "usageKind": "FixedSizeBuffer",
+          "bufferKind": "Byte"
+        },
+        "length": 64
+      },
+      {
+        "name": "CharBuffer",
+        "declaringType": "TestCases.FixedBufferContainer",
+        "accessModifier": "Public",
+        "attributes": [],
+        "fieldKind": "FixedSizeBuffer",
+        "type": {
+          "localName": "char",
+          "usageKind": "FixedSizeBuffer",
+          "bufferKind": "Char"
+        },
+        "length": 128
+      },
+      {
+        "name": "LongBuffer",
+        "declaringType": "TestCases.FixedBufferContainer",
+        "accessModifier": "Public",
+        "attributes": [],
+        "fieldKind": "FixedSizeBuffer",
+        "type": {
+          "localName": "long",
+          "usageKind": "FixedSizeBuffer",
+          "bufferKind": "Long"
+        },
+        "length": 8
+      },
+      {
+        "name": "RegularField",
+        "declaringType": "TestCases.FixedBufferContainer",
+        "accessModifier": "Public",
+        "attributes": [],
+        "fieldKind": "Regular",
+        "type": {
+          "localName": "int",
+          "nullability": "NonNullable",
+          "usageKind": "Predefined",
+          "predefinedKind": "Int"
+        },
+        "isReadOnly": false,
+        "isVolatile": false,
+        "isStatic": false,
+        "isRequired": false
+      }
+    ],
+    "methods": [],
+    "properties": [],
+    "indexers": [],
+    "events": [],
+    "instanceConstructors": [
+      {
+        "declaringType": "TestCases.FixedBufferContainer",
+        "accessModifier": "Public",
+        "isPrimary": false,
+        "parameters": [],
+        "attributes": [],
+        "localFunctions": []
+      }
+    ],
+    "staticConstructor": null,
+    "operators": [],
+    "attributes": [],
+    "nestedTypes": []
+  },
+  {
+    "kind": "Struct",
+    "localName": "OverlappingUnionStruct",
+    "fullyQualifiedName": "TestCases.OverlappingUnionStruct",
+    "namespace": "TestCases",
+    "accessModifier": "Public",
+    "containingType": null,
+    "isReadOnly": false,
+    "genericParameters": [],
+    "directInterfaces": [],
+    "fields": [
+      {
+        "name": "IntValue",
+        "declaringType": "TestCases.OverlappingUnionStruct",
+        "accessModifier": "Public",
+        "attributes": [
+          {
+            "name": "FieldOffsetAttribute",
+            "fullyQualifiedName": "System.Runtime.InteropServices.FieldOffsetAttribute",
+            "constructorArguments": [
+              "0"
+            ],
+            "namedArguments": {}
+          }
+        ],
+        "fieldKind": "Regular",
+        "type": {
+          "localName": "int",
+          "nullability": "NonNullable",
+          "usageKind": "Predefined",
+          "predefinedKind": "Int"
+        },
+        "isReadOnly": false,
+        "isVolatile": false,
+        "isStatic": false,
+        "isRequired": false
+      },
+      {
+        "name": "FloatValue",
+        "declaringType": "TestCases.OverlappingUnionStruct",
+        "accessModifier": "Public",
+        "attributes": [
+          {
+            "name": "FieldOffsetAttribute",
+            "fullyQualifiedName": "System.Runtime.InteropServices.FieldOffsetAttribute",
+            "constructorArguments": [
+              "0"
+            ],
+            "namedArguments": {}
+          }
+        ],
+        "fieldKind": "Regular",
+        "type": {
+          "localName": "float",
+          "nullability": "NonNullable",
+          "usageKind": "Predefined",
+          "predefinedKind": "Float"
+        },
+        "isReadOnly": false,
+        "isVolatile": false,
+        "isStatic": false,
+        "isRequired": false
+      },
+      {
+        "name": "Byte0",
+        "declaringType": "TestCases.OverlappingUnionStruct",
+        "accessModifier": "Public",
+        "attributes": [
+          {
+            "name": "FieldOffsetAttribute",
+            "fullyQualifiedName": "System.Runtime.InteropServices.FieldOffsetAttribute",
+            "constructorArguments": [
+              "0"
+            ],
+            "namedArguments": {}
+          }
+        ],
+        "fieldKind": "Regular",
+        "type": {
+          "localName": "byte",
+          "nullability": "NonNullable",
+          "usageKind": "Predefined",
+          "predefinedKind": "Byte"
+        },
+        "isReadOnly": false,
+        "isVolatile": false,
+        "isStatic": false,
+        "isRequired": false
+      },
+      {
+        "name": "Byte1",
+        "declaringType": "TestCases.OverlappingUnionStruct",
+        "accessModifier": "Public",
+        "attributes": [
+          {
+            "name": "FieldOffsetAttribute",
+            "fullyQualifiedName": "System.Runtime.InteropServices.FieldOffsetAttribute",
+            "constructorArguments": [
+              "1"
+            ],
+            "namedArguments": {}
+          }
+        ],
+        "fieldKind": "Regular",
+        "type": {
+          "localName": "byte",
+          "nullability": "NonNullable",
+          "usageKind": "Predefined",
+          "predefinedKind": "Byte"
+        },
+        "isReadOnly": false,
+        "isVolatile": false,
+        "isStatic": false,
+        "isRequired": false
+      },
+      {
+        "name": "SecondaryValue",
+        "declaringType": "TestCases.OverlappingUnionStruct",
+        "accessModifier": "Public",
+        "attributes": [
+          {
+            "name": "FieldOffsetAttribute",
+            "fullyQualifiedName": "System.Runtime.InteropServices.FieldOffsetAttribute",
+            "constructorArguments": [
+              "4"
+            ],
+            "namedArguments": {}
+          }
+        ],
+        "fieldKind": "Regular",
+        "type": {
+          "localName": "uint",
+          "nullability": "NonNullable",
+          "usageKind": "Predefined",
+          "predefinedKind": "UInt"
+        },
+        "isReadOnly": false,
+        "isVolatile": false,
+        "isStatic": false,
+        "isRequired": false
+      }
+    ],
+    "methods": [],
+    "properties": [],
+    "indexers": [],
+    "events": [],
+    "instanceConstructors": [
+      {
+        "declaringType": "TestCases.OverlappingUnionStruct",
+        "accessModifier": "Public",
+        "isPrimary": false,
+        "parameters": [],
+        "attributes": [],
+        "localFunctions": []
+      }
+    ],
+    "staticConstructor": null,
+    "operators": [],
+    "attributes": [
+      {
+        "name": "StructLayoutAttribute",
+        "fullyQualifiedName": "System.Runtime.InteropServices.StructLayoutAttribute",
+        "constructorArguments": [
+          "LayoutKind.Explicit"
+        ],
+        "namedArguments": {}
+      }
+    ],
+    "nestedTypes": []
+  }
+]

@@ -146,7 +146,9 @@ public sealed class TypeUsageEqualityComparer : IEqualityComparer<ITypeUsage<IKn
         var hash = new HashCode();
         hash.Add(UnmanagedFuncPtrDiscriminator);
         hash.Add(GetHashCode(unman.ReturnType));
-        hash.Add((uint)unman.CallingConventions);
+
+        foreach (var cc in unman.CallingConventions)
+            hash.Add((int)cc);
 
         foreach (var param in unman.Parameters)
             hash.Add(ParameterEqualityComparer.Default.GetHashCode(param));
@@ -263,7 +265,8 @@ public sealed class TypeUsageEqualityComparer : IEqualityComparer<ITypeUsage<IKn
 
             (IUnmanagedFunctionPointerType<TKind> xUnman, IUnmanagedFunctionPointerType<TKind> yUnman)
                 => Equals(xUnman.ReturnType, yUnman.ReturnType)
-                && xUnman.CallingConventions == yUnman.CallingConventions
+                && xUnman.CallingConventionFlags == yUnman.CallingConventionFlags
+                && xUnman.CallingConventions.ZipAndCompare(yUnman.CallingConventions, (a, b) => a == b)
                 && xUnman.Parameters.ZipAndCompare(yUnman.Parameters, ParameterEqualityComparer.Default.Equals),
 
             _ => false

@@ -1,0 +1,599 @@
+[
+  {
+    "kind": "Struct",
+    "localName": "ModPoint",
+    "fullyQualifiedName": "TestCases.ModPoint",
+    "namespace": "TestCases",
+    "accessModifier": "Public",
+    "containingType": null,
+    "isReadOnly": false,
+    "genericParameters": [],
+    "directInterfaces": [],
+    "fields": [
+      {
+        "name": "X",
+        "declaringType": "TestCases.ModPoint",
+        "accessModifier": "Public",
+        "attributes": [],
+        "fieldKind": "Regular",
+        "type": {
+          "localName": "int",
+          "nullability": "NonNullable",
+          "usageKind": "Predefined",
+          "predefinedKind": "Int"
+        },
+        "isReadOnly": false,
+        "isVolatile": false,
+        "isStatic": false,
+        "isRequired": false
+      },
+      {
+        "name": "Y",
+        "declaringType": "TestCases.ModPoint",
+        "accessModifier": "Public",
+        "attributes": [],
+        "fieldKind": "Regular",
+        "type": {
+          "localName": "int",
+          "nullability": "NonNullable",
+          "usageKind": "Predefined",
+          "predefinedKind": "Int"
+        },
+        "isReadOnly": false,
+        "isVolatile": false,
+        "isStatic": false,
+        "isRequired": false
+      }
+    ],
+    "methods": [],
+    "properties": [],
+    "indexers": [],
+    "events": [],
+    "instanceConstructors": [
+      {
+        "declaringType": "TestCases.ModPoint",
+        "accessModifier": "Public",
+        "isPrimary": false,
+        "parameters": [
+          {
+            "name": "x",
+            "position": 0,
+            "modifiers": "None",
+            "type": {
+              "localName": "int",
+              "nullability": "NonNullable",
+              "usageKind": "Predefined",
+              "predefinedKind": "Int"
+            },
+            "hasDefaultValue": false,
+            "defaultValue": null,
+            "attributes": []
+          },
+          {
+            "name": "y",
+            "position": 1,
+            "modifiers": "None",
+            "type": {
+              "localName": "int",
+              "nullability": "NonNullable",
+              "usageKind": "Predefined",
+              "predefinedKind": "Int"
+            },
+            "hasDefaultValue": false,
+            "defaultValue": null,
+            "attributes": []
+          }
+        ],
+        "attributes": [],
+        "localFunctions": []
+      },
+      {
+        "declaringType": "TestCases.ModPoint",
+        "accessModifier": "Public",
+        "isPrimary": false,
+        "parameters": [],
+        "attributes": [],
+        "localFunctions": []
+      }
+    ],
+    "staticConstructor": null,
+    "operators": [],
+    "attributes": [],
+    "nestedTypes": []
+  },
+  {
+    "kind": "RegularClass",
+    "localName": "ModifiersAndNativeContainer",
+    "fullyQualifiedName": "TestCases.ModifiersAndNativeContainer",
+    "namespace": "TestCases",
+    "accessModifier": "Public",
+    "containingType": null,
+    "isSealed": false,
+    "baseType": null,
+    "genericParameters": [],
+    "directInterfaces": [],
+    "fields": [
+      {
+        "name": "VolatileState",
+        "declaringType": "TestCases.ModifiersAndNativeContainer",
+        "accessModifier": "Public",
+        "attributes": [],
+        "fieldKind": "Regular",
+        "type": {
+          "localName": "int",
+          "nullability": "NonNullable",
+          "usageKind": "Predefined",
+          "predefinedKind": "Int"
+        },
+        "isReadOnly": false,
+        "isVolatile": true,
+        "isStatic": false,
+        "isRequired": false
+      },
+      {
+        "name": "VolatileFlag",
+        "declaringType": "TestCases.ModifiersAndNativeContainer",
+        "accessModifier": "Public",
+        "attributes": [],
+        "fieldKind": "Regular",
+        "type": {
+          "localName": "bool",
+          "nullability": "NonNullable",
+          "usageKind": "Predefined",
+          "predefinedKind": "Bool"
+        },
+        "isReadOnly": false,
+        "isVolatile": true,
+        "isStatic": false,
+        "isRequired": false
+      },
+      {
+        "name": "ReadOnlyField",
+        "declaringType": "TestCases.ModifiersAndNativeContainer",
+        "accessModifier": "Public",
+        "attributes": [],
+        "fieldKind": "Regular",
+        "type": {
+          "localName": "int",
+          "nullability": "NonNullable",
+          "usageKind": "Predefined",
+          "predefinedKind": "Int"
+        },
+        "isReadOnly": true,
+        "isVolatile": false,
+        "isStatic": false,
+        "isRequired": false
+      },
+      {
+        "name": "StaticReadOnlyString",
+        "declaringType": "TestCases.ModifiersAndNativeContainer",
+        "accessModifier": "Public",
+        "attributes": [],
+        "fieldKind": "Regular",
+        "type": {
+          "localName": "string",
+          "nullability": "NonNullable",
+          "usageKind": "Predefined",
+          "predefinedKind": "String"
+        },
+        "isReadOnly": true,
+        "isVolatile": false,
+        "isStatic": true
+      },
+      {
+        "name": "NativeSignedInt",
+        "declaringType": "TestCases.ModifiersAndNativeContainer",
+        "accessModifier": "Public",
+        "attributes": [],
+        "fieldKind": "Regular",
+        "type": {
+          "localName": "nint",
+          "nullability": "NonNullable",
+          "usageKind": "Predefined",
+          "predefinedKind": "NInt"
+        },
+        "isReadOnly": false,
+        "isVolatile": false,
+        "isStatic": false,
+        "isRequired": false
+      },
+      {
+        "name": "NativeUnsignedInt",
+        "declaringType": "TestCases.ModifiersAndNativeContainer",
+        "accessModifier": "Public",
+        "attributes": [],
+        "fieldKind": "Regular",
+        "type": {
+          "localName": "nuint",
+          "nullability": "NonNullable",
+          "usageKind": "Predefined",
+          "predefinedKind": "NUint"
+        },
+        "isReadOnly": false,
+        "isVolatile": false,
+        "isStatic": false,
+        "isRequired": false
+      },
+      {
+        "name": "NullableNativeInt",
+        "declaringType": "TestCases.ModifiersAndNativeContainer",
+        "accessModifier": "Public",
+        "attributes": [],
+        "fieldKind": "Regular",
+        "type": {
+          "localName": "nint",
+          "nullability": "NonNullable",
+          "usageKind": "Predefined",
+          "predefinedKind": "NInt"
+        },
+        "isReadOnly": false,
+        "isVolatile": false,
+        "isStatic": false,
+        "isRequired": false
+      },
+      {
+        "name": "NativeIntArray",
+        "declaringType": "TestCases.ModifiersAndNativeContainer",
+        "accessModifier": "Public",
+        "attributes": [],
+        "fieldKind": "Regular",
+        "type": {
+          "localName": "nint[]",
+          "nullability": "NonNullable",
+          "usageKind": "Array",
+          "rank": 1,
+          "elementType": {
+            "localName": "nint",
+            "nullability": "NonNullable",
+            "usageKind": "Predefined",
+            "predefinedKind": "NInt"
+          }
+        },
+        "isReadOnly": false,
+        "isVolatile": false,
+        "isStatic": false,
+        "isRequired": false
+      },
+      {
+        "name": "NativeIntTuple",
+        "declaringType": "TestCases.ModifiersAndNativeContainer",
+        "accessModifier": "Public",
+        "attributes": [],
+        "fieldKind": "Regular",
+        "type": {
+          "localName": "(nint first, nuint second)",
+          "nullability": "NonNullable",
+          "usageKind": "RichTuple",
+          "elements": [
+            {
+              "name": "first",
+              "type": {
+                "localName": "nint",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "NInt"
+              }
+            },
+            {
+              "name": "second",
+              "type": {
+                "localName": "nuint",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "NUint"
+              }
+            }
+          ]
+        },
+        "isReadOnly": false,
+        "isVolatile": false,
+        "isStatic": false,
+        "isRequired": false
+      },
+      {
+        "name": "_backingStorage",
+        "declaringType": "TestCases.ModifiersAndNativeContainer",
+        "accessModifier": "Private",
+        "attributes": [],
+        "fieldKind": "Regular",
+        "type": {
+          "localName": "int",
+          "nullability": "NonNullable",
+          "usageKind": "Predefined",
+          "predefinedKind": "Int"
+        },
+        "isReadOnly": false,
+        "isVolatile": false,
+        "isStatic": false,
+        "isRequired": false
+      }
+    ],
+    "methods": [
+      {
+        "name": "ReturnByRef",
+        "declaringType": "TestCases.ModifiersAndNativeContainer",
+        "returnInfo": {
+          "type": {
+            "localName": "ref int",
+            "usageKind": "ByRef",
+            "isReadOnly": false,
+            "elementType": {
+              "localName": "int",
+              "nullability": "NonNullable",
+              "usageKind": "Predefined",
+              "predefinedKind": "Int"
+            }
+          },
+          "attributes": []
+        },
+        "isStatic": false,
+        "isGeneric": false,
+        "isReadOnly": false,
+        "hasArglistParameter": false,
+        "accessModifier": "Public",
+        "inheritance": {
+          "kind": "None"
+        },
+        "parameters": [],
+        "genericParameters": [],
+        "attributes": [],
+        "localFunctions": []
+      },
+      {
+        "name": "ReturnByRefReadOnly",
+        "declaringType": "TestCases.ModifiersAndNativeContainer",
+        "returnInfo": {
+          "type": {
+            "localName": "ref readonly int",
+            "usageKind": "ByRef",
+            "isReadOnly": true,
+            "elementType": {
+              "localName": "int",
+              "nullability": "NonNullable",
+              "usageKind": "Predefined",
+              "predefinedKind": "Int"
+            }
+          },
+          "attributes": []
+        },
+        "isStatic": false,
+        "isGeneric": false,
+        "isReadOnly": false,
+        "hasArglistParameter": false,
+        "accessModifier": "Public",
+        "inheritance": {
+          "kind": "None"
+        },
+        "parameters": [],
+        "genericParameters": [],
+        "attributes": [],
+        "localFunctions": []
+      },
+      {
+        "name": "ProcessParameters",
+        "declaringType": "TestCases.ModifiersAndNativeContainer",
+        "returnInfo": {
+          "type": {
+            "localName": "void",
+            "nullability": "NonNullable",
+            "usageKind": "Predefined",
+            "predefinedKind": "Void"
+          },
+          "attributes": []
+        },
+        "isStatic": false,
+        "isGeneric": false,
+        "isReadOnly": false,
+        "hasArglistParameter": false,
+        "accessModifier": "Public",
+        "inheritance": {
+          "kind": "None"
+        },
+        "parameters": [
+          {
+            "name": "inPoint",
+            "position": 0,
+            "modifiers": "In",
+            "type": {
+              "localName": "ModPoint",
+              "nullability": "NonNullable",
+              "usageKind": "Plain",
+              "typeDefinition": "TestCases.ModPoint"
+            },
+            "hasDefaultValue": false,
+            "defaultValue": null,
+            "attributes": []
+          },
+          {
+            "name": "refReadOnlyPoint",
+            "position": 1,
+            "modifiers": "None",
+            "type": {
+              "localName": "ModPoint",
+              "nullability": "NonNullable",
+              "usageKind": "Plain",
+              "typeDefinition": "TestCases.ModPoint"
+            },
+            "hasDefaultValue": false,
+            "defaultValue": null,
+            "attributes": []
+          },
+          {
+            "name": "refPoint",
+            "position": 2,
+            "modifiers": "Ref",
+            "type": {
+              "localName": "ModPoint",
+              "nullability": "NonNullable",
+              "usageKind": "Plain",
+              "typeDefinition": "TestCases.ModPoint"
+            },
+            "hasDefaultValue": false,
+            "defaultValue": null,
+            "attributes": []
+          },
+          {
+            "name": "outPoint",
+            "position": 3,
+            "modifiers": "Out, Scoped",
+            "type": {
+              "localName": "ModPoint",
+              "nullability": "NonNullable",
+              "usageKind": "Plain",
+              "typeDefinition": "TestCases.ModPoint"
+            },
+            "hasDefaultValue": false,
+            "defaultValue": null,
+            "attributes": []
+          }
+        ],
+        "genericParameters": [],
+        "attributes": [],
+        "localFunctions": []
+      },
+      {
+        "name": "ProcessScopedParameters",
+        "declaringType": "TestCases.ModifiersAndNativeContainer",
+        "returnInfo": {
+          "type": {
+            "localName": "void",
+            "nullability": "NonNullable",
+            "usageKind": "Predefined",
+            "predefinedKind": "Void"
+          },
+          "attributes": []
+        },
+        "isStatic": false,
+        "isGeneric": false,
+        "isReadOnly": false,
+        "hasArglistParameter": false,
+        "accessModifier": "Public",
+        "inheritance": {
+          "kind": "None"
+        },
+        "parameters": [
+          {
+            "name": "scopedRefPoint",
+            "position": 0,
+            "modifiers": "Ref, Scoped",
+            "type": {
+              "localName": "ModPoint",
+              "nullability": "NonNullable",
+              "usageKind": "Plain",
+              "typeDefinition": "TestCases.ModPoint"
+            },
+            "hasDefaultValue": false,
+            "defaultValue": null,
+            "attributes": []
+          },
+          {
+            "name": "scopedInPoint",
+            "position": 1,
+            "modifiers": "In, Scoped",
+            "type": {
+              "localName": "ModPoint",
+              "nullability": "NonNullable",
+              "usageKind": "Plain",
+              "typeDefinition": "TestCases.ModPoint"
+            },
+            "hasDefaultValue": false,
+            "defaultValue": null,
+            "attributes": []
+          }
+        ],
+        "genericParameters": [],
+        "attributes": [],
+        "localFunctions": []
+      },
+      {
+        "name": "ComputeWithNative",
+        "declaringType": "TestCases.ModifiersAndNativeContainer",
+        "returnInfo": {
+          "type": {
+            "localName": "nint",
+            "nullability": "NonNullable",
+            "usageKind": "Predefined",
+            "predefinedKind": "NInt"
+          },
+          "attributes": []
+        },
+        "isStatic": false,
+        "isGeneric": false,
+        "isReadOnly": false,
+        "hasArglistParameter": false,
+        "accessModifier": "Public",
+        "inheritance": {
+          "kind": "None"
+        },
+        "parameters": [
+          {
+            "name": "point",
+            "position": 0,
+            "modifiers": "In, Scoped",
+            "type": {
+              "localName": "ModPoint",
+              "nullability": "NonNullable",
+              "usageKind": "Plain",
+              "typeDefinition": "TestCases.ModPoint"
+            },
+            "hasDefaultValue": false,
+            "defaultValue": null,
+            "attributes": []
+          },
+          {
+            "name": "multiplier",
+            "position": 1,
+            "modifiers": "None",
+            "type": {
+              "localName": "nint",
+              "nullability": "NonNullable",
+              "usageKind": "Predefined",
+              "predefinedKind": "NInt"
+            },
+            "hasDefaultValue": false,
+            "defaultValue": null,
+            "attributes": []
+          },
+          {
+            "name": "absoluteMagnitude",
+            "position": 2,
+            "modifiers": "Out, Scoped",
+            "type": {
+              "localName": "nuint",
+              "nullability": "NonNullable",
+              "usageKind": "Predefined",
+              "predefinedKind": "NUint"
+            },
+            "hasDefaultValue": false,
+            "defaultValue": null,
+            "attributes": []
+          }
+        ],
+        "genericParameters": [],
+        "attributes": [],
+        "localFunctions": []
+      }
+    ],
+    "properties": [],
+    "indexers": [],
+    "events": [],
+    "instanceConstructors": [
+      {
+        "declaringType": "TestCases.ModifiersAndNativeContainer",
+        "accessModifier": "Public",
+        "isPrimary": false,
+        "parameters": [],
+        "attributes": [],
+        "localFunctions": []
+      }
+    ],
+    "staticConstructor": {
+      "declaringType": "TestCases.ModifiersAndNativeContainer",
+      "attributes": [],
+      "localFunctions": []
+    },
+    "operators": [],
+    "attributes": [],
+    "nestedTypes": []
+  }
+]

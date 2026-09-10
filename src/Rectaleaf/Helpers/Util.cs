@@ -1,7 +1,7 @@
-﻿using Rectaleaf.Metadata;
+using Rectaleaf.Metadata;
 using System.Text;
 
-namespace Geyser.Generation.Helpers;
+namespace Rectaleaf.Helpers;
 
 public static class Util
 {

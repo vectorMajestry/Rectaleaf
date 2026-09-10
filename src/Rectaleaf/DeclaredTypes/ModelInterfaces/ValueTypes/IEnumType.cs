@@ -1,7 +1,4 @@
-using Rectaleaf.Components;
 using Rectaleaf.Members;
-using Rectaleaf.Metadata;
-using Rectaleaf.Metadata.Members;
 using Rectaleaf.Metadata.TypeUsages.Interfaces;
 
 namespace Rectaleaf.Metadata.DeclaredTypes;
@@ -9,7 +6,7 @@ namespace Rectaleaf.Metadata.DeclaredTypes;
 /// <summary>
 /// Represents an enum definition.
 /// </summary>
-public interface IEnumType : IValueType, IHasSize, IHasNestedTypes, IValidConstraint
+public interface IEnumType : IValueType, IHasNestedTypes
 {
     IReadOnlyList<IEnumMember> Members { get; }
     IEnumUnderlyingType GetUnderlyingType();

@@ -1,7 +1,3 @@
-using Rectaleaf.Components;
-using Rectaleaf.Members;
-using Rectaleaf.Metadata.Members;
-
 namespace Rectaleaf.Metadata.DeclaredTypes;
 
 /// <summary>
@@ -9,7 +5,7 @@ namespace Rectaleaf.Metadata.DeclaredTypes;
 /// </summary>
 public interface IStructType : IValueType, IHasFields, IHasMethods, IHasProperties, IHasIndexers,
     IHasEvents, IHasGenericParameters, IHasInstanceConstructors, IHasStaticConstructor,
-    IHasNestedTypes, IHasInterfaces, IHasOperators, IValidConstraint
+    IHasNestedTypes, IHasInterfaces, IHasOperators
 {
     bool IsReadOnly { get; }
 }

@@ -1,4 +1,4 @@
-﻿using Rectaleaf.Metadata.TypeUsages.Interfaces;
+using Rectaleaf.Metadata.TypeUsages.Interfaces;
 
 namespace Rectaleaf.Metadata.Members.PropertyFamily.Properties;
 
@@ -95,10 +95,11 @@ public interface IInstanceProperty<out TKind, out TAccess> : IRegularProperty<TK
 /// <summary>
 /// Types of metadata objects that can be converted into a writable instance property metadata must implement this interface.
 /// </summary>
-internal interface IPropertyRequirement
+public interface IPropertyRequirement
 {
     bool IsRequired { get; }
 }
+
 
 public static class PropertyExtensions
 {

@@ -1,0 +1,873 @@
+[
+  {
+    "kind": "Struct",
+    "localName": "ExtPoint",
+    "fullyQualifiedName": "TestCases.ExtPoint",
+    "namespace": "TestCases",
+    "accessModifier": "Public",
+    "containingType": null,
+    "isReadOnly": false,
+    "genericParameters": [],
+    "directInterfaces": [],
+    "fields": [
+      {
+        "name": "X",
+        "declaringType": "TestCases.ExtPoint",
+        "accessModifier": "Public",
+        "attributes": [],
+        "fieldKind": "Regular",
+        "type": {
+          "localName": "double",
+          "nullability": "NonNullable",
+          "usageKind": "Predefined",
+          "predefinedKind": "Double"
+        },
+        "isReadOnly": false,
+        "isVolatile": false,
+        "isStatic": false,
+        "isRequired": false
+      },
+      {
+        "name": "Y",
+        "declaringType": "TestCases.ExtPoint",
+        "accessModifier": "Public",
+        "attributes": [],
+        "fieldKind": "Regular",
+        "type": {
+          "localName": "double",
+          "nullability": "NonNullable",
+          "usageKind": "Predefined",
+          "predefinedKind": "Double"
+        },
+        "isReadOnly": false,
+        "isVolatile": false,
+        "isStatic": false,
+        "isRequired": false
+      }
+    ],
+    "methods": [],
+    "properties": [],
+    "indexers": [],
+    "events": [],
+    "instanceConstructors": [
+      {
+        "declaringType": "TestCases.ExtPoint",
+        "accessModifier": "Public",
+        "isPrimary": false,
+        "parameters": [
+          {
+            "name": "x",
+            "position": 0,
+            "modifiers": "None",
+            "type": {
+              "localName": "double",
+              "nullability": "NonNullable",
+              "usageKind": "Predefined",
+              "predefinedKind": "Double"
+            },
+            "hasDefaultValue": false,
+            "defaultValue": null,
+            "attributes": []
+          },
+          {
+            "name": "y",
+            "position": 1,
+            "modifiers": "None",
+            "type": {
+              "localName": "double",
+              "nullability": "NonNullable",
+              "usageKind": "Predefined",
+              "predefinedKind": "Double"
+            },
+            "hasDefaultValue": false,
+            "defaultValue": null,
+            "attributes": []
+          }
+        ],
+        "attributes": [],
+        "localFunctions": []
+      },
+      {
+        "declaringType": "TestCases.ExtPoint",
+        "accessModifier": "Public",
+        "isPrimary": false,
+        "parameters": [],
+        "attributes": [],
+        "localFunctions": []
+      }
+    ],
+    "staticConstructor": null,
+    "operators": [],
+    "attributes": [],
+    "nestedTypes": []
+  },
+  {
+    "kind": "StaticClass",
+    "localName": "GeometryExtensions",
+    "fullyQualifiedName": "TestCases.GeometryExtensions",
+    "namespace": "TestCases",
+    "accessModifier": "Public",
+    "containingType": null,
+    "genericParameters": [],
+    "fields": [],
+    "methods": [],
+    "properties": [],
+    "events": [],
+    "staticConstructor": null,
+    "operators": [],
+    "extensionsBlocks": [
+      {
+        "declaringType": "TestCases.GeometryExtensions",
+        "isStatic": false,
+        "genericParameters": [],
+        "receiver": {
+          "name": "pt",
+          "position": 0,
+          "modifiers": "Ref",
+          "type": {
+            "localName": "ExtPoint",
+            "nullability": "NonNullable",
+            "usageKind": "Plain",
+            "typeDefinition": "TestCases.ExtPoint"
+          },
+          "hasDefaultValue": false,
+          "defaultValue": null,
+          "attributes": []
+        },
+        "methods": [
+          {
+            "name": "Translate",
+            "declaringType": "TestCases.GeometryExtensions",
+            "returnInfo": {
+              "type": {
+                "localName": "void",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "Void"
+              },
+              "attributes": []
+            },
+            "isStatic": false,
+            "isGeneric": false,
+            "isReadOnly": false,
+            "hasArglistParameter": false,
+            "accessModifier": "Public",
+            "inheritance": {
+              "kind": "None"
+            },
+            "parameters": [
+              {
+                "name": "dx",
+                "position": 0,
+                "modifiers": "None",
+                "type": {
+                  "localName": "double",
+                  "nullability": "NonNullable",
+                  "usageKind": "Predefined",
+                  "predefinedKind": "Double"
+                },
+                "hasDefaultValue": false,
+                "defaultValue": null,
+                "attributes": []
+              },
+              {
+                "name": "dy",
+                "position": 1,
+                "modifiers": "None",
+                "type": {
+                  "localName": "double",
+                  "nullability": "NonNullable",
+                  "usageKind": "Predefined",
+                  "predefinedKind": "Double"
+                },
+                "hasDefaultValue": false,
+                "defaultValue": null,
+                "attributes": []
+              }
+            ],
+            "genericParameters": [],
+            "attributes": [],
+            "localFunctions": []
+          }
+        ],
+        "properties": [
+          {
+            "name": "Magnitude",
+            "declaringType": "TestCases.GeometryExtensions",
+            "type": {
+              "localName": "double",
+              "nullability": "NonNullable",
+              "usageKind": "Predefined",
+              "predefinedKind": "Double"
+            },
+            "accessModifier": "Public",
+            "isStatic": false,
+            "inheritance": {
+              "kind": "None"
+            },
+            "attributes": [],
+            "accessors": [
+              {
+                "kind": "get",
+                "isReadOnly": false,
+                "returnInfo": {
+                  "type": {
+                    "localName": "double",
+                    "nullability": "NonNullable",
+                    "usageKind": "Predefined",
+                    "predefinedKind": "Double"
+                  },
+                  "attributes": []
+                },
+                "attributes": [],
+                "accessModifier": "Public",
+                "localFunctions": []
+              }
+            ]
+          },
+          {
+            "name": "Area",
+            "declaringType": "TestCases.GeometryExtensions",
+            "type": {
+              "localName": "double",
+              "nullability": "NonNullable",
+              "usageKind": "Predefined",
+              "predefinedKind": "Double"
+            },
+            "accessModifier": "Public",
+            "isStatic": false,
+            "inheritance": {
+              "kind": "None"
+            },
+            "attributes": [],
+            "accessors": [
+              {
+                "kind": "get",
+                "isReadOnly": false,
+                "returnInfo": {
+                  "type": {
+                    "localName": "double",
+                    "nullability": "NonNullable",
+                    "usageKind": "Predefined",
+                    "predefinedKind": "Double"
+                  },
+                  "attributes": []
+                },
+                "attributes": [],
+                "accessModifier": "Public",
+                "localFunctions": []
+              }
+            ]
+          }
+        ],
+        "indexers": []
+      },
+      {
+        "declaringType": "TestCases.GeometryExtensions",
+        "isStatic": false,
+        "genericParameters": [],
+        "receiver": {
+          "name": "pt",
+          "position": 0,
+          "modifiers": "In",
+          "type": {
+            "localName": "ExtPoint",
+            "nullability": "NonNullable",
+            "usageKind": "Plain",
+            "typeDefinition": "TestCases.ExtPoint"
+          },
+          "hasDefaultValue": false,
+          "defaultValue": null,
+          "attributes": []
+        },
+        "methods": [],
+        "properties": [
+          {
+            "name": "InMagnitude",
+            "declaringType": "TestCases.GeometryExtensions",
+            "type": {
+              "localName": "double",
+              "nullability": "NonNullable",
+              "usageKind": "Predefined",
+              "predefinedKind": "Double"
+            },
+            "accessModifier": "Public",
+            "isStatic": false,
+            "inheritance": {
+              "kind": "None"
+            },
+            "attributes": [],
+            "accessors": [
+              {
+                "kind": "get",
+                "isReadOnly": false,
+                "returnInfo": {
+                  "type": {
+                    "localName": "double",
+                    "nullability": "NonNullable",
+                    "usageKind": "Predefined",
+                    "predefinedKind": "Double"
+                  },
+                  "attributes": []
+                },
+                "attributes": [],
+                "accessModifier": "Public",
+                "localFunctions": []
+              }
+            ]
+          }
+        ],
+        "indexers": []
+      },
+      {
+        "declaringType": "TestCases.GeometryExtensions",
+        "isStatic": false,
+        "genericParameters": [],
+        "receiver": {
+          "name": "pt",
+          "position": 0,
+          "modifiers": "Ref, Scoped",
+          "type": {
+            "localName": "ExtPoint",
+            "nullability": "NonNullable",
+            "usageKind": "Plain",
+            "typeDefinition": "TestCases.ExtPoint"
+          },
+          "hasDefaultValue": false,
+          "defaultValue": null,
+          "attributes": []
+        },
+        "methods": [
+          {
+            "name": "Reset",
+            "declaringType": "TestCases.GeometryExtensions",
+            "returnInfo": {
+              "type": {
+                "localName": "void",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "Void"
+              },
+              "attributes": []
+            },
+            "isStatic": false,
+            "isGeneric": false,
+            "isReadOnly": false,
+            "hasArglistParameter": false,
+            "accessModifier": "Public",
+            "inheritance": {
+              "kind": "None"
+            },
+            "parameters": [],
+            "genericParameters": [],
+            "attributes": [],
+            "localFunctions": []
+          }
+        ],
+        "properties": [],
+        "indexers": []
+      },
+      {
+        "declaringType": "TestCases.GeometryExtensions",
+        "isStatic": false,
+        "genericParameters": [],
+        "receiver": {
+          "name": "s",
+          "position": 0,
+          "modifiers": "None",
+          "type": {
+            "localName": "string",
+            "nullability": "NonNullable",
+            "usageKind": "Predefined",
+            "predefinedKind": "String"
+          },
+          "hasDefaultValue": false,
+          "defaultValue": null,
+          "attributes": []
+        },
+        "methods": [
+          {
+            "name": "WordCount",
+            "declaringType": "TestCases.GeometryExtensions",
+            "returnInfo": {
+              "type": {
+                "localName": "int",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "Int"
+              },
+              "attributes": []
+            },
+            "isStatic": false,
+            "isGeneric": false,
+            "isReadOnly": false,
+            "hasArglistParameter": false,
+            "accessModifier": "Public",
+            "inheritance": {
+              "kind": "None"
+            },
+            "parameters": [],
+            "genericParameters": [],
+            "attributes": [],
+            "localFunctions": []
+          }
+        ],
+        "properties": [
+          {
+            "name": "IsBlank",
+            "declaringType": "TestCases.GeometryExtensions",
+            "type": {
+              "localName": "bool",
+              "nullability": "NonNullable",
+              "usageKind": "Predefined",
+              "predefinedKind": "Bool"
+            },
+            "accessModifier": "Public",
+            "isStatic": false,
+            "inheritance": {
+              "kind": "None"
+            },
+            "attributes": [],
+            "accessors": [
+              {
+                "kind": "get",
+                "isReadOnly": false,
+                "returnInfo": {
+                  "type": {
+                    "localName": "bool",
+                    "nullability": "NonNullable",
+                    "usageKind": "Predefined",
+                    "predefinedKind": "Bool"
+                  },
+                  "attributes": []
+                },
+                "attributes": [],
+                "accessModifier": "Public",
+                "localFunctions": []
+              }
+            ]
+          }
+        ],
+        "indexers": []
+      },
+      {
+        "declaringType": "TestCases.GeometryExtensions",
+        "isStatic": true,
+        "genericParameters": [],
+        "extendedType": {
+          "localName": "ExtPoint",
+          "nullability": "NonNullable",
+          "usageKind": "Plain",
+          "typeDefinition": "TestCases.ExtPoint"
+        },
+        "methods": [
+          {
+            "name": "Create",
+            "declaringType": "TestCases.GeometryExtensions",
+            "returnInfo": {
+              "type": {
+                "localName": "ExtPoint",
+                "nullability": "NonNullable",
+                "usageKind": "Plain",
+                "typeDefinition": "TestCases.ExtPoint"
+              },
+              "attributes": []
+            },
+            "isStatic": true,
+            "isGeneric": false,
+            "isReadOnly": false,
+            "hasArglistParameter": false,
+            "accessModifier": "Public",
+            "inheritance": {
+              "kind": "None"
+            },
+            "parameters": [
+              {
+                "name": "x",
+                "position": 0,
+                "modifiers": "None",
+                "type": {
+                  "localName": "double",
+                  "nullability": "NonNullable",
+                  "usageKind": "Predefined",
+                  "predefinedKind": "Double"
+                },
+                "hasDefaultValue": false,
+                "defaultValue": null,
+                "attributes": []
+              },
+              {
+                "name": "y",
+                "position": 1,
+                "modifiers": "None",
+                "type": {
+                  "localName": "double",
+                  "nullability": "NonNullable",
+                  "usageKind": "Predefined",
+                  "predefinedKind": "Double"
+                },
+                "hasDefaultValue": false,
+                "defaultValue": null,
+                "attributes": []
+              }
+            ],
+            "genericParameters": [],
+            "attributes": [],
+            "localFunctions": []
+          }
+        ],
+        "properties": [
+          {
+            "name": "Zero",
+            "declaringType": "TestCases.GeometryExtensions",
+            "type": {
+              "localName": "ExtPoint",
+              "nullability": "NonNullable",
+              "usageKind": "Plain",
+              "typeDefinition": "TestCases.ExtPoint"
+            },
+            "accessModifier": "Public",
+            "isStatic": true,
+            "inheritance": {
+              "kind": "None"
+            },
+            "attributes": [],
+            "accessors": [
+              {
+                "kind": "get",
+                "isReadOnly": false,
+                "returnInfo": {
+                  "type": {
+                    "localName": "ExtPoint",
+                    "nullability": "NonNullable",
+                    "usageKind": "Plain",
+                    "typeDefinition": "TestCases.ExtPoint"
+                  },
+                  "attributes": []
+                },
+                "attributes": [],
+                "accessModifier": "Public",
+                "localFunctions": []
+              }
+            ]
+          },
+          {
+            "name": "UnitX",
+            "declaringType": "TestCases.GeometryExtensions",
+            "type": {
+              "localName": "ExtPoint",
+              "nullability": "NonNullable",
+              "usageKind": "Plain",
+              "typeDefinition": "TestCases.ExtPoint"
+            },
+            "accessModifier": "Public",
+            "isStatic": true,
+            "inheritance": {
+              "kind": "None"
+            },
+            "attributes": [],
+            "accessors": [
+              {
+                "kind": "get",
+                "isReadOnly": false,
+                "returnInfo": {
+                  "type": {
+                    "localName": "ExtPoint",
+                    "nullability": "NonNullable",
+                    "usageKind": "Plain",
+                    "typeDefinition": "TestCases.ExtPoint"
+                  },
+                  "attributes": []
+                },
+                "attributes": [],
+                "accessModifier": "Public",
+                "localFunctions": []
+              }
+            ]
+          }
+        ],
+        "indexers": []
+      },
+      {
+        "declaringType": "TestCases.GeometryExtensions",
+        "isStatic": false,
+        "genericParameters": [
+          {
+            "name": "TKey",
+            "position": 0,
+            "variance": "Invariant",
+            "source": "ExtensionBlock",
+            "hasReferenceTypeConstraint": false,
+            "hasNullableReferenceTypeConstraint": false,
+            "hasNotNullConstraint": true,
+            "hasValueTypeConstraint": false,
+            "hasUnmanagedTypeConstraint": false,
+            "hasConstructorConstraint": false,
+            "hasAllowsRefStructConstraint": false,
+            "hasDefaultConstraint": false,
+            "constraintTypes": []
+          },
+          {
+            "name": "TValue",
+            "position": 1,
+            "variance": "Invariant",
+            "source": "ExtensionBlock",
+            "hasReferenceTypeConstraint": false,
+            "hasNullableReferenceTypeConstraint": false,
+            "hasNotNullConstraint": false,
+            "hasValueTypeConstraint": false,
+            "hasUnmanagedTypeConstraint": false,
+            "hasConstructorConstraint": false,
+            "hasAllowsRefStructConstraint": false,
+            "hasDefaultConstraint": false,
+            "constraintTypes": []
+          }
+        ],
+        "receiver": {
+          "name": "dict",
+          "position": 0,
+          "modifiers": "None",
+          "type": {
+            "localName": "Dictionary<TKey, TValue>",
+            "nullability": "NonNullable",
+            "usageKind": "BoundGeneric",
+            "typeDefinition": "System.Collections.Generic.Dictionary<TKey, TValue>",
+            "typeArguments": [
+              {
+                "localName": "TKey",
+                "nullability": "NonNullable",
+                "usageKind": "Placeholder",
+                "placeholderName": "TKey",
+                "placeholderPosition": 0,
+                "placeholderSource": "ExtensionBlock"
+              },
+              {
+                "localName": "TValue",
+                "nullability": "NonNullable",
+                "usageKind": "Placeholder",
+                "placeholderName": "TValue",
+                "placeholderPosition": 1,
+                "placeholderSource": "ExtensionBlock"
+              }
+            ]
+          },
+          "hasDefaultValue": false,
+          "defaultValue": null,
+          "attributes": []
+        },
+        "methods": [
+          {
+            "name": "GetValueOrFallback",
+            "declaringType": "TestCases.GeometryExtensions",
+            "returnInfo": {
+              "type": {
+                "localName": "TValue?",
+                "nullability": "Nullable",
+                "usageKind": "Placeholder",
+                "placeholderName": "TValue",
+                "placeholderPosition": 1,
+                "placeholderSource": "ExtensionBlock"
+              },
+              "attributes": []
+            },
+            "isStatic": false,
+            "isGeneric": false,
+            "isReadOnly": false,
+            "hasArglistParameter": false,
+            "accessModifier": "Public",
+            "inheritance": {
+              "kind": "None"
+            },
+            "parameters": [
+              {
+                "name": "key",
+                "position": 0,
+                "modifiers": "None",
+                "type": {
+                  "localName": "TKey",
+                  "nullability": "NonNullable",
+                  "usageKind": "Placeholder",
+                  "placeholderName": "TKey",
+                  "placeholderPosition": 0,
+                  "placeholderSource": "ExtensionBlock"
+                },
+                "hasDefaultValue": false,
+                "defaultValue": null,
+                "attributes": []
+              },
+              {
+                "name": "fallback",
+                "position": 1,
+                "modifiers": "None",
+                "type": {
+                  "localName": "TValue?",
+                  "nullability": "Nullable",
+                  "usageKind": "Placeholder",
+                  "placeholderName": "TValue",
+                  "placeholderPosition": 1,
+                  "placeholderSource": "ExtensionBlock"
+                },
+                "hasDefaultValue": true,
+                "defaultValue": null,
+                "attributes": []
+              }
+            ],
+            "genericParameters": [],
+            "attributes": [],
+            "localFunctions": []
+          }
+        ],
+        "properties": [
+          {
+            "name": "KeyCount",
+            "declaringType": "TestCases.GeometryExtensions",
+            "type": {
+              "localName": "int",
+              "nullability": "NonNullable",
+              "usageKind": "Predefined",
+              "predefinedKind": "Int"
+            },
+            "accessModifier": "Public",
+            "isStatic": false,
+            "inheritance": {
+              "kind": "None"
+            },
+            "attributes": [],
+            "accessors": [
+              {
+                "kind": "get",
+                "isReadOnly": false,
+                "returnInfo": {
+                  "type": {
+                    "localName": "int",
+                    "nullability": "NonNullable",
+                    "usageKind": "Predefined",
+                    "predefinedKind": "Int"
+                  },
+                  "attributes": []
+                },
+                "attributes": [],
+                "accessModifier": "Public",
+                "localFunctions": []
+              }
+            ]
+          }
+        ],
+        "indexers": []
+      },
+      {
+        "declaringType": "TestCases.GeometryExtensions",
+        "isStatic": false,
+        "genericParameters": [
+          {
+            "name": "T",
+            "position": 0,
+            "variance": "Invariant",
+            "source": "ExtensionBlock",
+            "hasReferenceTypeConstraint": false,
+            "hasNullableReferenceTypeConstraint": false,
+            "hasNotNullConstraint": false,
+            "hasValueTypeConstraint": false,
+            "hasUnmanagedTypeConstraint": false,
+            "hasConstructorConstraint": false,
+            "hasAllowsRefStructConstraint": false,
+            "hasDefaultConstraint": false,
+            "constraintTypes": []
+          }
+        ],
+        "receiver": {
+          "name": "list",
+          "position": 0,
+          "modifiers": "None",
+          "type": {
+            "localName": "List<T>",
+            "nullability": "NonNullable",
+            "usageKind": "BoundGeneric",
+            "typeDefinition": "System.Collections.Generic.List<T>",
+            "typeArguments": [
+              {
+                "localName": "T",
+                "nullability": "NonNullable",
+                "usageKind": "Placeholder",
+                "placeholderName": "T",
+                "placeholderPosition": 0,
+                "placeholderSource": "ExtensionBlock"
+              }
+            ]
+          },
+          "hasDefaultValue": false,
+          "defaultValue": null,
+          "attributes": []
+        },
+        "methods": [
+          {
+            "name": "FirstOrFallback",
+            "declaringType": "TestCases.GeometryExtensions",
+            "returnInfo": {
+              "type": {
+                "localName": "T?",
+                "nullability": "Nullable",
+                "usageKind": "Placeholder",
+                "placeholderName": "T",
+                "placeholderPosition": 0,
+                "placeholderSource": "ExtensionBlock"
+              },
+              "attributes": []
+            },
+            "isStatic": false,
+            "isGeneric": false,
+            "isReadOnly": false,
+            "hasArglistParameter": false,
+            "accessModifier": "Public",
+            "inheritance": {
+              "kind": "None"
+            },
+            "parameters": [],
+            "genericParameters": [],
+            "attributes": [],
+            "localFunctions": []
+          }
+        ],
+        "properties": [
+          {
+            "name": "IsEmpty",
+            "declaringType": "TestCases.GeometryExtensions",
+            "type": {
+              "localName": "bool",
+              "nullability": "NonNullable",
+              "usageKind": "Predefined",
+              "predefinedKind": "Bool"
+            },
+            "accessModifier": "Public",
+            "isStatic": false,
+            "inheritance": {
+              "kind": "None"
+            },
+            "attributes": [],
+            "accessors": [
+              {
+                "kind": "get",
+                "isReadOnly": false,
+                "returnInfo": {
+                  "type": {
+                    "localName": "bool",
+                    "nullability": "NonNullable",
+                    "usageKind": "Predefined",
+                    "predefinedKind": "Bool"
+                  },
+                  "attributes": []
+                },
+                "attributes": [],
+                "accessModifier": "Public",
+                "localFunctions": []
+              }
+            ]
+          }
+        ],
+        "indexers": []
+      }
+    ],
+    "attributes": [],
+    "nestedTypes": []
+  }
+]

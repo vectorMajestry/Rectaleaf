@@ -1,6 +1,6 @@
-using Rectaleaf.Metadata.DeclaredTypes;
 using Rectaleaf.Helpers;
 using Rectaleaf.Metadata;
+using Rectaleaf.Metadata.DeclaredTypes;
 using Rectaleaf.Metadata.Members;
 using Rectaleaf.Metadata.TypeUsages.Comparers;
 using Rectaleaf.Metadata.TypeUsages.Interfaces;
@@ -24,7 +24,7 @@ public interface IGenericParameter
 
     GenericVariance Variance { get; }
 
-    IReadOnlyList<IValidConstraint> ConstraintTypes { get; }
+    IReadOnlyList<ConstraintType> ConstraintTypes { get; }
 
     GenericParameterSource Source { get; }
 }
@@ -35,6 +35,11 @@ public enum GenericVariance
     Covariant,
     Contravariant
 }
+
+public abstract record ConstraintType;
+public record ConstraintPlaceholderType(IPlaceholderType Type) : ConstraintType;
+public record ConstraintDeclaredType(IDeclTypeUsage<IKnownOrNot, IValidConstraint> Type) : ConstraintType;
+
 
 public sealed class GenericParameterEqualityComparer : IEqualityComparer<IGenericParameter>
 {
@@ -74,12 +79,18 @@ public sealed class GenericParameterEqualityComparer : IEqualityComparer<IGeneri
         return x.ConstraintTypes.ZipAndCompare(y.ConstraintTypes, ConstraintEquals);
     }
 
-    static bool ConstraintEquals(IValidConstraint x, IValidConstraint y) => (x, y) switch
+    static bool ConstraintEquals(ConstraintType x, ConstraintType y) => (x, y) switch
     {
         _ when ReferenceEquals(x, y) => true,
         (null, _) or (_, null) => false,
-        (ITypeUsage<IKnownOrNot> tx, ITypeUsage<IKnownOrNot> ty) => TypeUsageEqualityComparer.Default.Equals(tx, ty),
-        _ => x.Equals(y)
+
+        (ConstraintPlaceholderType px, ConstraintPlaceholderType py)
+            => TypeUsageEqualityComparer.Default.Equals(px.Type, py.Type),
+
+        (ConstraintDeclaredType dx, ConstraintDeclaredType dy)
+            => TypeUsageEqualityComparer.Default.Equals(dx.Type, dy.Type),
+
+        _ => false
     };
 
     static int GetConstraintFlags(IGenericParameter p)
@@ -110,4 +121,5 @@ public abstract record GenericParameterSource;
 public record GenericType(IDeclaredType Type) : GenericParameterSource;
 public record GenericMethod(IMethod Method) : GenericParameterSource;
 public record GenericLocalFunction(ILocalFunction LocalFunction) : GenericParameterSource;
+public record GenericExtensionBlock(IExtensionsBlock Block) : GenericParameterSource;
 

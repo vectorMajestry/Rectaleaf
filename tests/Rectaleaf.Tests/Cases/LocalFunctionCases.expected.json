@@ -1,0 +1,624 @@
+{
+  "kind": "RegularClass",
+  "localName": "LocalFunctionContainer",
+  "fullyQualifiedName": "TestCases.LocalFunctionContainer",
+  "namespace": "TestCases",
+  "accessModifier": "Public",
+  "containingType": null,
+  "isSealed": false,
+  "baseType": null,
+  "genericParameters": [],
+  "directInterfaces": [],
+  "fields": [
+    {
+      "name": "_state",
+      "declaringType": "TestCases.LocalFunctionContainer",
+      "accessModifier": "Private",
+      "attributes": [],
+      "fieldKind": "Regular",
+      "type": {
+        "localName": "int",
+        "nullability": "NonNullable",
+        "usageKind": "Predefined",
+        "predefinedKind": "Int"
+      },
+      "isReadOnly": false,
+      "isVolatile": false,
+      "isStatic": false,
+      "isRequired": false
+    }
+  ],
+  "methods": [
+    {
+      "name": "ComplexProcess",
+      "declaringType": "TestCases.LocalFunctionContainer",
+      "returnInfo": {
+        "type": {
+          "localName": "int",
+          "nullability": "NonNullable",
+          "usageKind": "Predefined",
+          "predefinedKind": "Int"
+        },
+        "attributes": []
+      },
+      "isStatic": false,
+      "isGeneric": false,
+      "isReadOnly": false,
+      "hasArglistParameter": false,
+      "accessModifier": "Public",
+      "inheritance": {
+        "kind": "None"
+      },
+      "parameters": [
+        {
+          "name": "seed",
+          "position": 0,
+          "modifiers": "None",
+          "type": {
+            "localName": "int",
+            "nullability": "NonNullable",
+            "usageKind": "Predefined",
+            "predefinedKind": "Int"
+          },
+          "hasDefaultValue": false,
+          "defaultValue": null,
+          "attributes": []
+        }
+      ],
+      "genericParameters": [],
+      "attributes": [],
+      "localFunctions": [
+        {
+          "name": "OuterLocalFunction",
+          "ordinal": 0,
+          "isStatic": false,
+          "isGeneric": false,
+          "declaringEntity": "ComplexProcess",
+          "returnInfo": {
+            "type": {
+              "localName": "int",
+              "nullability": "NonNullable",
+              "usageKind": "Predefined",
+              "predefinedKind": "Int"
+            },
+            "attributes": []
+          },
+          "parameters": [
+            {
+              "name": "factor",
+              "position": 0,
+              "modifiers": "None",
+              "type": {
+                "localName": "int",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "Int"
+              },
+              "hasDefaultValue": false,
+              "defaultValue": null,
+              "attributes": []
+            }
+          ],
+          "genericParameters": [],
+          "attributes": [],
+          "localFunctions": [
+            {
+              "name": "InnerLocalFunction",
+              "ordinal": 0,
+              "isStatic": false,
+              "isGeneric": false,
+              "declaringEntity": "OuterLocalFunction",
+              "returnInfo": {
+                "type": {
+                  "localName": "int",
+                  "nullability": "NonNullable",
+                  "usageKind": "Predefined",
+                  "predefinedKind": "Int"
+                },
+                "attributes": []
+              },
+              "parameters": [
+                {
+                  "name": "innerStep",
+                  "position": 0,
+                  "modifiers": "None",
+                  "type": {
+                    "localName": "int",
+                    "nullability": "NonNullable",
+                    "usageKind": "Predefined",
+                    "predefinedKind": "Int"
+                  },
+                  "hasDefaultValue": false,
+                  "defaultValue": null,
+                  "attributes": []
+                }
+              ],
+              "genericParameters": [],
+              "attributes": [],
+              "localFunctions": [
+                {
+                  "name": "DeepLocalFunction",
+                  "ordinal": 0,
+                  "isStatic": false,
+                  "isGeneric": true,
+                  "declaringEntity": "InnerLocalFunction",
+                  "returnInfo": {
+                    "type": {
+                      "localName": "TResult",
+                      "nullability": "NonNullable",
+                      "usageKind": "Placeholder",
+                      "placeholderName": "TResult",
+                      "placeholderPosition": 0,
+                      "placeholderSource": "DeepLocalFunction"
+                    },
+                    "attributes": []
+                  },
+                  "parameters": [
+                    {
+                      "name": "val",
+                      "position": 0,
+                      "modifiers": "None",
+                      "type": {
+                        "localName": "TResult",
+                        "nullability": "NonNullable",
+                        "usageKind": "Placeholder",
+                        "placeholderName": "TResult",
+                        "placeholderPosition": 0,
+                        "placeholderSource": "DeepLocalFunction"
+                      },
+                      "hasDefaultValue": false,
+                      "defaultValue": null,
+                      "attributes": []
+                    }
+                  ],
+                  "genericParameters": [
+                    {
+                      "name": "TResult",
+                      "position": 0,
+                      "variance": "Invariant",
+                      "source": "DeepLocalFunction",
+                      "hasReferenceTypeConstraint": true,
+                      "hasNullableReferenceTypeConstraint": false,
+                      "hasNotNullConstraint": false,
+                      "hasValueTypeConstraint": false,
+                      "hasUnmanagedTypeConstraint": false,
+                      "hasConstructorConstraint": true,
+                      "hasAllowsRefStructConstraint": false,
+                      "hasDefaultConstraint": false,
+                      "constraintTypes": []
+                    }
+                  ],
+                  "attributes": [],
+                  "localFunctions": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "StaticLocalCalculation",
+          "ordinal": 1,
+          "isStatic": true,
+          "isGeneric": false,
+          "declaringEntity": "ComplexProcess",
+          "returnInfo": {
+            "type": {
+              "localName": "double",
+              "nullability": "NonNullable",
+              "usageKind": "Predefined",
+              "predefinedKind": "Double"
+            },
+            "attributes": []
+          },
+          "parameters": [
+            {
+              "name": "a",
+              "position": 0,
+              "modifiers": "None",
+              "type": {
+                "localName": "double",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "Double"
+              },
+              "hasDefaultValue": false,
+              "defaultValue": null,
+              "attributes": []
+            },
+            {
+              "name": "b",
+              "position": 1,
+              "modifiers": "None",
+              "type": {
+                "localName": "double",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "Double"
+              },
+              "hasDefaultValue": false,
+              "defaultValue": null,
+              "attributes": []
+            }
+          ],
+          "genericParameters": [],
+          "attributes": [],
+          "localFunctions": [
+            {
+              "name": "NestedStaticLocal",
+              "ordinal": 0,
+              "isStatic": true,
+              "isGeneric": false,
+              "declaringEntity": "StaticLocalCalculation",
+              "returnInfo": {
+                "type": {
+                  "localName": "double",
+                  "nullability": "NonNullable",
+                  "usageKind": "Predefined",
+                  "predefinedKind": "Double"
+                },
+                "attributes": []
+              },
+              "parameters": [
+                {
+                  "name": "x",
+                  "position": 0,
+                  "modifiers": "None",
+                  "type": {
+                    "localName": "double",
+                    "nullability": "NonNullable",
+                    "usageKind": "Predefined",
+                    "predefinedKind": "Double"
+                  },
+                  "hasDefaultValue": false,
+                  "defaultValue": null,
+                  "attributes": []
+                }
+              ],
+              "genericParameters": [],
+              "attributes": [],
+              "localFunctions": []
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "properties": [
+    {
+      "name": "ComputedProperty",
+      "declaringType": "TestCases.LocalFunctionContainer",
+      "type": {
+        "localName": "int",
+        "nullability": "NonNullable",
+        "usageKind": "Predefined",
+        "predefinedKind": "Int"
+      },
+      "accessModifier": "Public",
+      "isStatic": false,
+      "inheritance": {
+        "kind": "None"
+      },
+      "attributes": [],
+      "accessors": [
+        {
+          "kind": "get",
+          "isReadOnly": false,
+          "returnInfo": {
+            "type": {
+              "localName": "int",
+              "nullability": "NonNullable",
+              "usageKind": "Predefined",
+              "predefinedKind": "Int"
+            },
+            "attributes": []
+          },
+          "attributes": [],
+          "accessModifier": "Public",
+          "localFunctions": [
+            {
+              "name": "LocalGetterHelper",
+              "ordinal": 0,
+              "isStatic": false,
+              "isGeneric": false,
+              "declaringEntity": "get_ComputedProperty",
+              "returnInfo": {
+                "type": {
+                  "localName": "int",
+                  "nullability": "NonNullable",
+                  "usageKind": "Predefined",
+                  "predefinedKind": "Int"
+                },
+                "attributes": []
+              },
+              "parameters": [],
+              "genericParameters": [],
+              "attributes": [],
+              "localFunctions": []
+            }
+          ]
+        },
+        {
+          "kind": "set",
+          "isReadOnly": false,
+          "returnInfo": {
+            "type": {
+              "localName": "void",
+              "nullability": "NonNullable",
+              "usageKind": "Predefined",
+              "predefinedKind": "Void"
+            },
+            "attributes": []
+          },
+          "attributes": [],
+          "accessModifier": "Public",
+          "valueParameter": {
+            "name": "value",
+            "position": 0,
+            "modifiers": "None",
+            "type": {
+              "localName": "int",
+              "nullability": "NonNullable",
+              "usageKind": "Predefined",
+              "predefinedKind": "Int"
+            },
+            "hasDefaultValue": false,
+            "defaultValue": null,
+            "attributes": []
+          },
+          "localFunctions": [
+            {
+              "name": "ValidateValue",
+              "ordinal": 0,
+              "isStatic": true,
+              "isGeneric": false,
+              "declaringEntity": "set_ComputedProperty",
+              "returnInfo": {
+                "type": {
+                  "localName": "int",
+                  "nullability": "NonNullable",
+                  "usageKind": "Predefined",
+                  "predefinedKind": "Int"
+                },
+                "attributes": []
+              },
+              "parameters": [
+                {
+                  "name": "v",
+                  "position": 0,
+                  "modifiers": "None",
+                  "type": {
+                    "localName": "int",
+                    "nullability": "NonNullable",
+                    "usageKind": "Predefined",
+                    "predefinedKind": "Int"
+                  },
+                  "hasDefaultValue": false,
+                  "defaultValue": null,
+                  "attributes": []
+                }
+              ],
+              "genericParameters": [],
+              "attributes": [],
+              "localFunctions": []
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "indexers": [],
+  "events": [],
+  "instanceConstructors": [
+    {
+      "declaringType": "TestCases.LocalFunctionContainer",
+      "accessModifier": "Public",
+      "isPrimary": false,
+      "parameters": [
+        {
+          "name": "initial",
+          "position": 0,
+          "modifiers": "None",
+          "type": {
+            "localName": "int",
+            "nullability": "NonNullable",
+            "usageKind": "Predefined",
+            "predefinedKind": "Int"
+          },
+          "hasDefaultValue": false,
+          "defaultValue": null,
+          "attributes": []
+        }
+      ],
+      "attributes": [],
+      "localFunctions": [
+        {
+          "name": "ComputeInitial",
+          "ordinal": 0,
+          "isStatic": false,
+          "isGeneric": false,
+          "declaringEntity": ".ctor",
+          "returnInfo": {
+            "type": {
+              "localName": "int",
+              "nullability": "NonNullable",
+              "usageKind": "Predefined",
+              "predefinedKind": "Int"
+            },
+            "attributes": []
+          },
+          "parameters": [
+            {
+              "name": "val",
+              "position": 0,
+              "modifiers": "None",
+              "type": {
+                "localName": "int",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "Int"
+              },
+              "hasDefaultValue": false,
+              "defaultValue": null,
+              "attributes": []
+            }
+          ],
+          "genericParameters": [],
+          "attributes": [],
+          "localFunctions": []
+        }
+      ]
+    }
+  ],
+  "staticConstructor": null,
+  "operators": [
+    {
+      "accessModifier": "Public",
+      "inheritance": {
+        "kind": "None"
+      },
+      "operatorKind": "Binary",
+      "binaryKind": "Add",
+      "isChecked": false,
+      "leftOperand": {
+        "name": "a",
+        "position": 0,
+        "modifiers": "None",
+        "type": {
+          "localName": "LocalFunctionContainer",
+          "nullability": "NonNullable",
+          "usageKind": "Plain",
+          "typeDefinition": "TestCases.LocalFunctionContainer"
+        },
+        "hasDefaultValue": false,
+        "defaultValue": null,
+        "attributes": []
+      },
+      "rightOperand": {
+        "name": "b",
+        "position": 1,
+        "modifiers": "None",
+        "type": {
+          "localName": "LocalFunctionContainer",
+          "nullability": "NonNullable",
+          "usageKind": "Plain",
+          "typeDefinition": "TestCases.LocalFunctionContainer"
+        },
+        "hasDefaultValue": false,
+        "defaultValue": null,
+        "attributes": []
+      },
+      "returnInfo": {
+        "type": {
+          "localName": "LocalFunctionContainer",
+          "nullability": "NonNullable",
+          "usageKind": "Plain",
+          "typeDefinition": "TestCases.LocalFunctionContainer"
+        },
+        "attributes": []
+      },
+      "localFunctions": [
+        {
+          "name": "CombineStates",
+          "ordinal": 0,
+          "isStatic": true,
+          "isGeneric": false,
+          "declaringEntity": "op_Add",
+          "returnInfo": {
+            "type": {
+              "localName": "int",
+              "nullability": "NonNullable",
+              "usageKind": "Predefined",
+              "predefinedKind": "Int"
+            },
+            "attributes": []
+          },
+          "parameters": [
+            {
+              "name": "s1",
+              "position": 0,
+              "modifiers": "None",
+              "type": {
+                "localName": "int",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "Int"
+              },
+              "hasDefaultValue": false,
+              "defaultValue": null,
+              "attributes": []
+            },
+            {
+              "name": "s2",
+              "position": 1,
+              "modifiers": "None",
+              "type": {
+                "localName": "int",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "Int"
+              },
+              "hasDefaultValue": false,
+              "defaultValue": null,
+              "attributes": []
+            }
+          ],
+          "genericParameters": [],
+          "attributes": [],
+          "localFunctions": [
+            {
+              "name": "Add",
+              "ordinal": 0,
+              "isStatic": false,
+              "isGeneric": false,
+              "declaringEntity": "CombineStates",
+              "returnInfo": {
+                "type": {
+                  "localName": "int",
+                  "nullability": "NonNullable",
+                  "usageKind": "Predefined",
+                  "predefinedKind": "Int"
+                },
+                "attributes": []
+              },
+              "parameters": [
+                {
+                  "name": "x",
+                  "position": 0,
+                  "modifiers": "None",
+                  "type": {
+                    "localName": "int",
+                    "nullability": "NonNullable",
+                    "usageKind": "Predefined",
+                    "predefinedKind": "Int"
+                  },
+                  "hasDefaultValue": false,
+                  "defaultValue": null,
+                  "attributes": []
+                },
+                {
+                  "name": "y",
+                  "position": 1,
+                  "modifiers": "None",
+                  "type": {
+                    "localName": "int",
+                    "nullability": "NonNullable",
+                    "usageKind": "Predefined",
+                    "predefinedKind": "Int"
+                  },
+                  "hasDefaultValue": false,
+                  "defaultValue": null,
+                  "attributes": []
+                }
+              ],
+              "genericParameters": [],
+              "attributes": [],
+              "localFunctions": []
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "attributes": [],
+  "nestedTypes": []
+}

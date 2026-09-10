@@ -1,0 +1,899 @@
+{
+  "kind": "RegularClass",
+  "localName": "TupleTestContainer",
+  "fullyQualifiedName": "TestCases.TupleTestContainer",
+  "namespace": "TestCases",
+  "accessModifier": "Public",
+  "containingType": null,
+  "isSealed": false,
+  "baseType": null,
+  "genericParameters": [],
+  "directInterfaces": [],
+  "fields": [
+    {
+      "name": "RichTupleField",
+      "declaringType": "TestCases.TupleTestContainer",
+      "accessModifier": "Public",
+      "attributes": [],
+      "fieldKind": "Regular",
+      "type": {
+        "localName": "(int code, string message)",
+        "nullability": "NonNullable",
+        "usageKind": "RichTuple",
+        "elements": [
+          {
+            "name": "code",
+            "type": {
+              "localName": "int",
+              "nullability": "NonNullable",
+              "usageKind": "Predefined",
+              "predefinedKind": "Int"
+            }
+          },
+          {
+            "name": "message",
+            "type": {
+              "localName": "string",
+              "nullability": "NonNullable",
+              "usageKind": "Predefined",
+              "predefinedKind": "String"
+            }
+          }
+        ]
+      },
+      "isReadOnly": false,
+      "isVolatile": false,
+      "isStatic": false,
+      "isRequired": false
+    },
+    {
+      "name": "PartiallyNamedTuple",
+      "declaringType": "TestCases.TupleTestContainer",
+      "accessModifier": "Public",
+      "attributes": [],
+      "fieldKind": "Regular",
+      "type": {
+        "localName": "(int Item1, string name, bool isFlag)",
+        "nullability": "NonNullable",
+        "usageKind": "RichTuple",
+        "elements": [
+          {
+            "name": "Item1",
+            "type": {
+              "localName": "int",
+              "nullability": "NonNullable",
+              "usageKind": "Predefined",
+              "predefinedKind": "Int"
+            }
+          },
+          {
+            "name": "name",
+            "type": {
+              "localName": "string",
+              "nullability": "NonNullable",
+              "usageKind": "Predefined",
+              "predefinedKind": "String"
+            }
+          },
+          {
+            "name": "isFlag",
+            "type": {
+              "localName": "bool",
+              "nullability": "NonNullable",
+              "usageKind": "Predefined",
+              "predefinedKind": "Bool"
+            }
+          }
+        ]
+      },
+      "isReadOnly": false,
+      "isVolatile": false,
+      "isStatic": false,
+      "isRequired": false
+    },
+    {
+      "name": "ExplicitValueTupleField",
+      "declaringType": "TestCases.TupleTestContainer",
+      "accessModifier": "Public",
+      "attributes": [],
+      "fieldKind": "Regular",
+      "type": {
+        "localName": "(int Item1, string Item2)",
+        "nullability": "NonNullable",
+        "usageKind": "RichTuple",
+        "elements": [
+          {
+            "name": "Item1",
+            "type": {
+              "localName": "int",
+              "nullability": "NonNullable",
+              "usageKind": "Predefined",
+              "predefinedKind": "Int"
+            }
+          },
+          {
+            "name": "Item2",
+            "type": {
+              "localName": "string",
+              "nullability": "NonNullable",
+              "usageKind": "Predefined",
+              "predefinedKind": "String"
+            }
+          }
+        ]
+      },
+      "isReadOnly": false,
+      "isVolatile": false,
+      "isStatic": false,
+      "isRequired": false
+    },
+    {
+      "name": "LongTuple9",
+      "declaringType": "TestCases.TupleTestContainer",
+      "accessModifier": "Public",
+      "attributes": [],
+      "fieldKind": "Regular",
+      "type": {
+        "localName": "(int a, int b, int c, int d, int e, int f, int g, int h, int i)",
+        "nullability": "NonNullable",
+        "usageKind": "RichTuple",
+        "elements": [
+          {
+            "name": "a",
+            "type": {
+              "localName": "int",
+              "nullability": "NonNullable",
+              "usageKind": "Predefined",
+              "predefinedKind": "Int"
+            }
+          },
+          {
+            "name": "b",
+            "type": {
+              "localName": "int",
+              "nullability": "NonNullable",
+              "usageKind": "Predefined",
+              "predefinedKind": "Int"
+            }
+          },
+          {
+            "name": "c",
+            "type": {
+              "localName": "int",
+              "nullability": "NonNullable",
+              "usageKind": "Predefined",
+              "predefinedKind": "Int"
+            }
+          },
+          {
+            "name": "d",
+            "type": {
+              "localName": "int",
+              "nullability": "NonNullable",
+              "usageKind": "Predefined",
+              "predefinedKind": "Int"
+            }
+          },
+          {
+            "name": "e",
+            "type": {
+              "localName": "int",
+              "nullability": "NonNullable",
+              "usageKind": "Predefined",
+              "predefinedKind": "Int"
+            }
+          },
+          {
+            "name": "f",
+            "type": {
+              "localName": "int",
+              "nullability": "NonNullable",
+              "usageKind": "Predefined",
+              "predefinedKind": "Int"
+            }
+          },
+          {
+            "name": "g",
+            "type": {
+              "localName": "int",
+              "nullability": "NonNullable",
+              "usageKind": "Predefined",
+              "predefinedKind": "Int"
+            }
+          },
+          {
+            "name": "h",
+            "type": {
+              "localName": "int",
+              "nullability": "NonNullable",
+              "usageKind": "Predefined",
+              "predefinedKind": "Int"
+            }
+          },
+          {
+            "name": "i",
+            "type": {
+              "localName": "int",
+              "nullability": "NonNullable",
+              "usageKind": "Predefined",
+              "predefinedKind": "Int"
+            }
+          }
+        ]
+      },
+      "isReadOnly": false,
+      "isVolatile": false,
+      "isStatic": false,
+      "isRequired": false
+    },
+    {
+      "name": "NestedTupleField",
+      "declaringType": "TestCases.TupleTestContainer",
+      "accessModifier": "Public",
+      "attributes": [],
+      "fieldKind": "Regular",
+      "type": {
+        "localName": "(int a, (string b, int c) nested)",
+        "nullability": "NonNullable",
+        "usageKind": "RichTuple",
+        "elements": [
+          {
+            "name": "a",
+            "type": {
+              "localName": "int",
+              "nullability": "NonNullable",
+              "usageKind": "Predefined",
+              "predefinedKind": "Int"
+            }
+          },
+          {
+            "name": "nested",
+            "type": {
+              "localName": "(string b, int c)",
+              "nullability": "NonNullable",
+              "usageKind": "RichTuple",
+              "elements": [
+                {
+                  "name": "b",
+                  "type": {
+                    "localName": "string",
+                    "nullability": "NonNullable",
+                    "usageKind": "Predefined",
+                    "predefinedKind": "String"
+                  }
+                },
+                {
+                  "name": "c",
+                  "type": {
+                    "localName": "int",
+                    "nullability": "NonNullable",
+                    "usageKind": "Predefined",
+                    "predefinedKind": "Int"
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "isReadOnly": false,
+      "isVolatile": false,
+      "isStatic": false,
+      "isRequired": false
+    },
+    {
+      "name": "DeeplyNestedTuple",
+      "declaringType": "TestCases.TupleTestContainer",
+      "accessModifier": "Public",
+      "attributes": [],
+      "fieldKind": "Regular",
+      "type": {
+        "localName": "(int id, (string first, (int subId, string subName) inner) meta, double score)",
+        "nullability": "NonNullable",
+        "usageKind": "RichTuple",
+        "elements": [
+          {
+            "name": "id",
+            "type": {
+              "localName": "int",
+              "nullability": "NonNullable",
+              "usageKind": "Predefined",
+              "predefinedKind": "Int"
+            }
+          },
+          {
+            "name": "meta",
+            "type": {
+              "localName": "(string first, (int subId, string subName) inner)",
+              "nullability": "NonNullable",
+              "usageKind": "RichTuple",
+              "elements": [
+                {
+                  "name": "first",
+                  "type": {
+                    "localName": "string",
+                    "nullability": "NonNullable",
+                    "usageKind": "Predefined",
+                    "predefinedKind": "String"
+                  }
+                },
+                {
+                  "name": "inner",
+                  "type": {
+                    "localName": "(int subId, string subName)",
+                    "nullability": "NonNullable",
+                    "usageKind": "RichTuple",
+                    "elements": [
+                      {
+                        "name": "subId",
+                        "type": {
+                          "localName": "int",
+                          "nullability": "NonNullable",
+                          "usageKind": "Predefined",
+                          "predefinedKind": "Int"
+                        }
+                      },
+                      {
+                        "name": "subName",
+                        "type": {
+                          "localName": "string",
+                          "nullability": "NonNullable",
+                          "usageKind": "Predefined",
+                          "predefinedKind": "String"
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "name": "score",
+            "type": {
+              "localName": "double",
+              "nullability": "NonNullable",
+              "usageKind": "Predefined",
+              "predefinedKind": "Double"
+            }
+          }
+        ]
+      },
+      "isReadOnly": false,
+      "isVolatile": false,
+      "isStatic": false,
+      "isRequired": false
+    },
+    {
+      "name": "DefaultNameCollisionTuple",
+      "declaringType": "TestCases.TupleTestContainer",
+      "accessModifier": "Public",
+      "attributes": [],
+      "fieldKind": "Regular",
+      "type": {
+        "localName": "(int Item1, string item2, bool Item3)",
+        "nullability": "NonNullable",
+        "usageKind": "RichTuple",
+        "elements": [
+          {
+            "name": "Item1",
+            "type": {
+              "localName": "int",
+              "nullability": "NonNullable",
+              "usageKind": "Predefined",
+              "predefinedKind": "Int"
+            }
+          },
+          {
+            "name": "item2",
+            "type": {
+              "localName": "string",
+              "nullability": "NonNullable",
+              "usageKind": "Predefined",
+              "predefinedKind": "String"
+            }
+          },
+          {
+            "name": "Item3",
+            "type": {
+              "localName": "bool",
+              "nullability": "NonNullable",
+              "usageKind": "Predefined",
+              "predefinedKind": "Bool"
+            }
+          }
+        ]
+      },
+      "isReadOnly": false,
+      "isVolatile": false,
+      "isStatic": false,
+      "isRequired": false
+    },
+    {
+      "name": "TupleListField",
+      "declaringType": "TestCases.TupleTestContainer",
+      "accessModifier": "Public",
+      "attributes": [],
+      "fieldKind": "Regular",
+      "type": {
+        "localName": "List<(string key, int count)>",
+        "nullability": "NonNullable",
+        "usageKind": "BoundGeneric",
+        "typeDefinition": "System.Collections.Generic.List<T>",
+        "typeArguments": [
+          {
+            "localName": "(string key, int count)",
+            "nullability": "NonNullable",
+            "usageKind": "RichTuple",
+            "elements": [
+              {
+                "name": "key",
+                "type": {
+                  "localName": "string",
+                  "nullability": "NonNullable",
+                  "usageKind": "Predefined",
+                  "predefinedKind": "String"
+                }
+              },
+              {
+                "name": "count",
+                "type": {
+                  "localName": "int",
+                  "nullability": "NonNullable",
+                  "usageKind": "Predefined",
+                  "predefinedKind": "Int"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "isReadOnly": false,
+      "isVolatile": false,
+      "isStatic": false,
+      "isRequired": false
+    },
+    {
+      "name": "TupleKeyedDictionary",
+      "declaringType": "TestCases.TupleTestContainer",
+      "accessModifier": "Public",
+      "attributes": [],
+      "fieldKind": "Regular",
+      "type": {
+        "localName": "Dictionary<(int x, int y), (string tag, bool isVisible)>",
+        "nullability": "NonNullable",
+        "usageKind": "BoundGeneric",
+        "typeDefinition": "System.Collections.Generic.Dictionary<TKey, TValue>",
+        "typeArguments": [
+          {
+            "localName": "(int x, int y)",
+            "nullability": "NonNullable",
+            "usageKind": "RichTuple",
+            "elements": [
+              {
+                "name": "x",
+                "type": {
+                  "localName": "int",
+                  "nullability": "NonNullable",
+                  "usageKind": "Predefined",
+                  "predefinedKind": "Int"
+                }
+              },
+              {
+                "name": "y",
+                "type": {
+                  "localName": "int",
+                  "nullability": "NonNullable",
+                  "usageKind": "Predefined",
+                  "predefinedKind": "Int"
+                }
+              }
+            ]
+          },
+          {
+            "localName": "(string tag, bool isVisible)",
+            "nullability": "NonNullable",
+            "usageKind": "RichTuple",
+            "elements": [
+              {
+                "name": "tag",
+                "type": {
+                  "localName": "string",
+                  "nullability": "NonNullable",
+                  "usageKind": "Predefined",
+                  "predefinedKind": "String"
+                }
+              },
+              {
+                "name": "isVisible",
+                "type": {
+                  "localName": "bool",
+                  "nullability": "NonNullable",
+                  "usageKind": "Predefined",
+                  "predefinedKind": "Bool"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "isReadOnly": false,
+      "isVolatile": false,
+      "isStatic": false,
+      "isRequired": false
+    },
+    {
+      "name": "NullableTupleField",
+      "declaringType": "TestCases.TupleTestContainer",
+      "accessModifier": "Public",
+      "attributes": [],
+      "fieldKind": "Regular",
+      "type": {
+        "localName": "(int nullableInt, string? nullableString, (bool flag, object? obj) nested)",
+        "nullability": "NonNullable",
+        "usageKind": "RichTuple",
+        "elements": [
+          {
+            "name": "nullableInt",
+            "type": {
+              "localName": "int",
+              "nullability": "NonNullable",
+              "usageKind": "Predefined",
+              "predefinedKind": "Int"
+            }
+          },
+          {
+            "name": "nullableString",
+            "type": {
+              "localName": "string?",
+              "nullability": "Nullable",
+              "usageKind": "Predefined",
+              "predefinedKind": "String"
+            }
+          },
+          {
+            "name": "nested",
+            "type": {
+              "localName": "(bool flag, object? obj)",
+              "nullability": "NonNullable",
+              "usageKind": "RichTuple",
+              "elements": [
+                {
+                  "name": "flag",
+                  "type": {
+                    "localName": "bool",
+                    "nullability": "NonNullable",
+                    "usageKind": "Predefined",
+                    "predefinedKind": "Bool"
+                  }
+                },
+                {
+                  "name": "obj",
+                  "type": {
+                    "localName": "object?",
+                    "nullability": "Nullable",
+                    "usageKind": "Predefined",
+                    "predefinedKind": "Object"
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "isReadOnly": false,
+      "isVolatile": false,
+      "isStatic": false,
+      "isRequired": false
+    }
+  ],
+  "methods": [
+    {
+      "name": "ProcessRequest",
+      "declaringType": "TestCases.TupleTestContainer",
+      "returnInfo": {
+        "type": {
+          "localName": "(int statusCode, string statusMessage, (bool ok, string detail) details)",
+          "nullability": "NonNullable",
+          "usageKind": "RichTuple",
+          "elements": [
+            {
+              "name": "statusCode",
+              "type": {
+                "localName": "int",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "Int"
+              }
+            },
+            {
+              "name": "statusMessage",
+              "type": {
+                "localName": "string",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "String"
+              }
+            },
+            {
+              "name": "details",
+              "type": {
+                "localName": "(bool ok, string detail)",
+                "nullability": "NonNullable",
+                "usageKind": "RichTuple",
+                "elements": [
+                  {
+                    "name": "ok",
+                    "type": {
+                      "localName": "bool",
+                      "nullability": "NonNullable",
+                      "usageKind": "Predefined",
+                      "predefinedKind": "Bool"
+                    }
+                  },
+                  {
+                    "name": "detail",
+                    "type": {
+                      "localName": "string",
+                      "nullability": "NonNullable",
+                      "usageKind": "Predefined",
+                      "predefinedKind": "String"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "attributes": []
+      },
+      "isStatic": false,
+      "isGeneric": false,
+      "isReadOnly": false,
+      "hasArglistParameter": false,
+      "accessModifier": "Public",
+      "inheritance": {
+        "kind": "None"
+      },
+      "parameters": [
+        {
+          "name": "header",
+          "position": 0,
+          "modifiers": "None",
+          "type": {
+            "localName": "(string requestId, DateTime timestamp)",
+            "nullability": "NonNullable",
+            "usageKind": "RichTuple",
+            "elements": [
+              {
+                "name": "requestId",
+                "type": {
+                  "localName": "string",
+                  "nullability": "NonNullable",
+                  "usageKind": "Predefined",
+                  "predefinedKind": "String"
+                }
+              },
+              {
+                "name": "timestamp",
+                "type": {
+                  "localName": "DateTime",
+                  "nullability": "NonNullable",
+                  "usageKind": "Plain",
+                  "typeDefinition": "System.DateTime"
+                }
+              }
+            ]
+          },
+          "hasDefaultValue": false,
+          "defaultValue": null,
+          "attributes": []
+        },
+        {
+          "name": "payload",
+          "position": 1,
+          "modifiers": "None",
+          "type": {
+            "localName": "(int code, (string first, string last) user, double rating)",
+            "nullability": "NonNullable",
+            "usageKind": "RichTuple",
+            "elements": [
+              {
+                "name": "code",
+                "type": {
+                  "localName": "int",
+                  "nullability": "NonNullable",
+                  "usageKind": "Predefined",
+                  "predefinedKind": "Int"
+                }
+              },
+              {
+                "name": "user",
+                "type": {
+                  "localName": "(string first, string last)",
+                  "nullability": "NonNullable",
+                  "usageKind": "RichTuple",
+                  "elements": [
+                    {
+                      "name": "first",
+                      "type": {
+                        "localName": "string",
+                        "nullability": "NonNullable",
+                        "usageKind": "Predefined",
+                        "predefinedKind": "String"
+                      }
+                    },
+                    {
+                      "name": "last",
+                      "type": {
+                        "localName": "string",
+                        "nullability": "NonNullable",
+                        "usageKind": "Predefined",
+                        "predefinedKind": "String"
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "name": "rating",
+                "type": {
+                  "localName": "double",
+                  "nullability": "NonNullable",
+                  "usageKind": "Predefined",
+                  "predefinedKind": "Double"
+                }
+              }
+            ]
+          },
+          "hasDefaultValue": false,
+          "defaultValue": null,
+          "attributes": []
+        }
+      ],
+      "genericParameters": [],
+      "attributes": [],
+      "localFunctions": []
+    }
+  ],
+  "properties": [
+    {
+      "name": "CustomItem0Tuple",
+      "declaringType": "TestCases.TupleTestContainer",
+      "type": {
+        "localName": "(int item0, bool anotherItem)",
+        "nullability": "NonNullable",
+        "usageKind": "RichTuple",
+        "elements": [
+          {
+            "name": "item0",
+            "type": {
+              "localName": "int",
+              "nullability": "NonNullable",
+              "usageKind": "Predefined",
+              "predefinedKind": "Int"
+            }
+          },
+          {
+            "name": "anotherItem",
+            "type": {
+              "localName": "bool",
+              "nullability": "NonNullable",
+              "usageKind": "Predefined",
+              "predefinedKind": "Bool"
+            }
+          }
+        ]
+      },
+      "accessModifier": "Public",
+      "isStatic": false,
+      "inheritance": {
+        "kind": "None"
+      },
+      "attributes": [],
+      "accessors": [
+        {
+          "kind": "get",
+          "isReadOnly": false,
+          "returnInfo": {
+            "type": {
+              "localName": "(int item0, bool anotherItem)",
+              "nullability": "NonNullable",
+              "usageKind": "RichTuple",
+              "elements": [
+                {
+                  "name": "item0",
+                  "type": {
+                    "localName": "int",
+                    "nullability": "NonNullable",
+                    "usageKind": "Predefined",
+                    "predefinedKind": "Int"
+                  }
+                },
+                {
+                  "name": "anotherItem",
+                  "type": {
+                    "localName": "bool",
+                    "nullability": "NonNullable",
+                    "usageKind": "Predefined",
+                    "predefinedKind": "Bool"
+                  }
+                }
+              ]
+            },
+            "attributes": []
+          },
+          "attributes": [],
+          "accessModifier": "Public",
+          "localFunctions": []
+        },
+        {
+          "kind": "set",
+          "isReadOnly": false,
+          "returnInfo": {
+            "type": {
+              "localName": "void",
+              "nullability": "NonNullable",
+              "usageKind": "Predefined",
+              "predefinedKind": "Void"
+            },
+            "attributes": []
+          },
+          "attributes": [],
+          "accessModifier": "Public",
+          "valueParameter": {
+            "name": "value",
+            "position": 0,
+            "modifiers": "None",
+            "type": {
+              "localName": "(int item0, bool anotherItem)",
+              "nullability": "NonNullable",
+              "usageKind": "RichTuple",
+              "elements": [
+                {
+                  "name": "item0",
+                  "type": {
+                    "localName": "int",
+                    "nullability": "NonNullable",
+                    "usageKind": "Predefined",
+                    "predefinedKind": "Int"
+                  }
+                },
+                {
+                  "name": "anotherItem",
+                  "type": {
+                    "localName": "bool",
+                    "nullability": "NonNullable",
+                    "usageKind": "Predefined",
+                    "predefinedKind": "Bool"
+                  }
+                }
+              ]
+            },
+            "hasDefaultValue": false,
+            "defaultValue": null,
+            "attributes": []
+          },
+          "localFunctions": []
+        }
+      ],
+      "backingFieldName": "<CustomItem0Tuple>k__BackingField"
+    }
+  ],
+  "indexers": [],
+  "events": [],
+  "instanceConstructors": [
+    {
+      "declaringType": "TestCases.TupleTestContainer",
+      "accessModifier": "Public",
+      "isPrimary": false,
+      "parameters": [],
+      "attributes": [],
+      "localFunctions": []
+    }
+  ],
+  "staticConstructor": null,
+  "operators": [],
+  "attributes": [],
+  "nestedTypes": []
+}

@@ -70,13 +70,24 @@ public enum EnumUnderlyingTypeEnum
 public enum CallConvFlags : uint
 {
     None = 0,
-    Cdecl = 1,
-    Stdcall = 1 << 1,
-    Thiscall = 1 << 2,
-    Fastcall = 1 << 3,
-    Swift = 1 << 4,
-    MemberFunction = 1 << 5,
-    SuppressGCTransition = 1 << 6,
+    Cdecl = 1 << CallConvKind.Cdecl,
+    Stdcall = 1 << CallConvKind.Stdcall,
+    Thiscall = 1 << CallConvKind.Thiscall,
+    Fastcall = 1 << CallConvKind.Fastcall,
+    Swift = 1 << CallConvKind.Swift,
+    MemberFunction = 1 << CallConvKind.MemberFunction,
+    SuppressGCTransition = 1 << CallConvKind.SuppressGCTransition,
+}
+
+public enum CallConvKind : int
+{
+    Cdecl = 0,
+    Stdcall = 1,
+    Thiscall = 2,
+    Fastcall = 3,
+    Swift = 4,
+    MemberFunction = 5,
+    SuppressGCTransition = 6,
 }
 
 public enum AccessModifier
@@ -86,7 +97,8 @@ public enum AccessModifier
     Protected,
     Internal,
     ProtectedInternal,
-    PrivateProtected
+    PrivateProtected,
+    File,
 }
 
 public enum NullabilityKind

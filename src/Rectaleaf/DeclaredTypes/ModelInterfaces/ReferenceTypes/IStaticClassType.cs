@@ -8,4 +8,4 @@ namespace Rectaleaf.Metadata.DeclaredTypes;
 /// Represents a static class definition.
 /// </summary>
 public interface IStaticClassType : IReferenceType, IHasFields, IHasMethods, IHasProperties,
-    IHasEvents, IHasGenericParameters, IHasStaticConstructor, IHasNestedTypes, IHasOperators;
+    IHasEvents, IHasGenericParameters, IHasStaticConstructor, IHasNestedTypes, IHasOperators, IHasExtensionsBlocks;

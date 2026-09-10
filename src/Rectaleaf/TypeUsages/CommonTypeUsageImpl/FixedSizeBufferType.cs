@@ -1,4 +1,4 @@
-﻿using Geyser.Generation.Helpers;
+using Rectaleaf.Helpers;
 using Rectaleaf.Metadata.TypeUsages.Interfaces;
 
 namespace Rectaleaf.Metadata.TypeUsages.CommonTypeUsageImpl;

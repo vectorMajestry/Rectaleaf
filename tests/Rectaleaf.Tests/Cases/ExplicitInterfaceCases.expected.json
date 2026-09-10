@@ -1,0 +1,1491 @@
+[
+  {
+    "kind": "Interface",
+    "localName": "IWorker",
+    "fullyQualifiedName": "TestCases.IWorker",
+    "namespace": "TestCases",
+    "accessModifier": "Public",
+    "containingType": null,
+    "genericParameters": [],
+    "directInterfaces": [],
+    "methods": [
+      {
+        "name": "PerformWork",
+        "declaringType": "TestCases.IWorker",
+        "returnInfo": {
+          "type": {
+            "localName": "void",
+            "nullability": "NonNullable",
+            "usageKind": "Predefined",
+            "predefinedKind": "Void"
+          },
+          "attributes": []
+        },
+        "isStatic": false,
+        "isGeneric": false,
+        "isReadOnly": false,
+        "hasArglistParameter": false,
+        "accessModifier": "Public",
+        "inheritance": {
+          "kind": "Abstract"
+        },
+        "parameters": [
+          {
+            "name": "taskId",
+            "position": 0,
+            "modifiers": "None",
+            "type": {
+              "localName": "int",
+              "nullability": "NonNullable",
+              "usageKind": "Predefined",
+              "predefinedKind": "Int"
+            },
+            "hasDefaultValue": false,
+            "defaultValue": null,
+            "attributes": []
+          }
+        ],
+        "genericParameters": [],
+        "attributes": [],
+        "localFunctions": []
+      }
+    ],
+    "properties": [
+      {
+        "name": "WorkerName",
+        "declaringType": "TestCases.IWorker",
+        "type": {
+          "localName": "string",
+          "nullability": "NonNullable",
+          "usageKind": "Predefined",
+          "predefinedKind": "String"
+        },
+        "accessModifier": "Public",
+        "isStatic": false,
+        "inheritance": {
+          "kind": "Abstract"
+        },
+        "attributes": [],
+        "accessors": [
+          {
+            "kind": "get",
+            "isReadOnly": false,
+            "returnInfo": {
+              "type": {
+                "localName": "string",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "String"
+              },
+              "attributes": []
+            },
+            "attributes": [],
+            "accessModifier": "Public",
+            "localFunctions": []
+          }
+        ]
+      }
+    ],
+    "indexers": [
+      {
+        "name": "this[]",
+        "declaringType": "TestCases.IWorker",
+        "type": {
+          "localName": "int",
+          "nullability": "NonNullable",
+          "usageKind": "Predefined",
+          "predefinedKind": "Int"
+        },
+        "accessModifier": "Public",
+        "inheritance": {
+          "kind": "Abstract"
+        },
+        "parameters": [
+          {
+            "name": "priority",
+            "position": 0,
+            "modifiers": "None",
+            "type": {
+              "localName": "int",
+              "nullability": "NonNullable",
+              "usageKind": "Predefined",
+              "predefinedKind": "Int"
+            },
+            "hasDefaultValue": false,
+            "defaultValue": null,
+            "attributes": []
+          }
+        ],
+        "attributes": [],
+        "accessors": [
+          {
+            "kind": "get",
+            "isReadOnly": false,
+            "returnInfo": {
+              "type": {
+                "localName": "int",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "Int"
+              },
+              "attributes": []
+            },
+            "attributes": [],
+            "accessModifier": "Public",
+            "parameters": [
+              {
+                "name": "priority",
+                "position": 0,
+                "modifiers": "None",
+                "type": {
+                  "localName": "int",
+                  "nullability": "NonNullable",
+                  "usageKind": "Predefined",
+                  "predefinedKind": "Int"
+                },
+                "hasDefaultValue": false,
+                "defaultValue": null,
+                "attributes": []
+              }
+            ],
+            "localFunctions": []
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "name": "WorkCompleted",
+        "declaringType": "TestCases.IWorker",
+        "type": {
+          "localName": "Action?",
+          "nullability": "Nullable",
+          "usageKind": "Plain",
+          "typeDefinition": "System.Action?"
+        },
+        "accessModifier": "Public",
+        "isStatic": false,
+        "inheritance": {
+          "kind": "Abstract"
+        },
+        "attributes": [],
+        "accessors": [
+          {
+            "kind": "add",
+            "isReadOnly": false,
+            "returnInfo": {
+              "type": {
+                "localName": "void",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "Void"
+              },
+              "attributes": []
+            },
+            "attributes": [],
+            "valueParameter": {
+              "name": "value",
+              "position": 0,
+              "modifiers": "None",
+              "type": {
+                "localName": "Action?",
+                "nullability": "Nullable",
+                "usageKind": "Plain",
+                "typeDefinition": "System.Action?"
+              },
+              "hasDefaultValue": false,
+              "defaultValue": null,
+              "attributes": []
+            },
+            "localFunctions": []
+          },
+          {
+            "kind": "remove",
+            "isReadOnly": false,
+            "returnInfo": {
+              "type": {
+                "localName": "void",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "Void"
+              },
+              "attributes": []
+            },
+            "attributes": [],
+            "valueParameter": {
+              "name": "value",
+              "position": 0,
+              "modifiers": "None",
+              "type": {
+                "localName": "Action?",
+                "nullability": "Nullable",
+                "usageKind": "Plain",
+                "typeDefinition": "System.Action?"
+              },
+              "hasDefaultValue": false,
+              "defaultValue": null,
+              "attributes": []
+            },
+            "localFunctions": []
+          }
+        ]
+      }
+    ],
+    "staticConstructor": null,
+    "operators": [],
+    "attributes": [],
+    "nestedTypes": []
+  },
+  {
+    "kind": "Interface",
+    "localName": "ICustomInterfaceIndexer",
+    "fullyQualifiedName": "TestCases.ICustomInterfaceIndexer",
+    "namespace": "TestCases",
+    "accessModifier": "Public",
+    "containingType": null,
+    "genericParameters": [],
+    "directInterfaces": [],
+    "methods": [],
+    "properties": [],
+    "indexers": [
+      {
+        "name": "this[]",
+        "declaringType": "TestCases.ICustomInterfaceIndexer",
+        "type": {
+          "localName": "string",
+          "nullability": "NonNullable",
+          "usageKind": "Predefined",
+          "predefinedKind": "String"
+        },
+        "accessModifier": "Public",
+        "inheritance": {
+          "kind": "Abstract"
+        },
+        "parameters": [
+          {
+            "name": "index",
+            "position": 0,
+            "modifiers": "None",
+            "type": {
+              "localName": "int",
+              "nullability": "NonNullable",
+              "usageKind": "Predefined",
+              "predefinedKind": "Int"
+            },
+            "hasDefaultValue": false,
+            "defaultValue": null,
+            "attributes": []
+          }
+        ],
+        "attributes": [
+          {
+            "name": "IndexerNameAttribute",
+            "fullyQualifiedName": "System.Runtime.CompilerServices.IndexerNameAttribute",
+            "constructorArguments": [
+              "CustomInterfaceIndexer"
+            ],
+            "namedArguments": {}
+          }
+        ],
+        "accessors": [
+          {
+            "kind": "get",
+            "isReadOnly": false,
+            "returnInfo": {
+              "type": {
+                "localName": "string",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "String"
+              },
+              "attributes": []
+            },
+            "attributes": [],
+            "accessModifier": "Public",
+            "parameters": [
+              {
+                "name": "index",
+                "position": 0,
+                "modifiers": "None",
+                "type": {
+                  "localName": "int",
+                  "nullability": "NonNullable",
+                  "usageKind": "Predefined",
+                  "predefinedKind": "Int"
+                },
+                "hasDefaultValue": false,
+                "defaultValue": null,
+                "attributes": []
+              }
+            ],
+            "localFunctions": []
+          }
+        ]
+      }
+    ],
+    "events": [],
+    "staticConstructor": null,
+    "operators": [],
+    "attributes": [],
+    "nestedTypes": []
+  },
+  {
+    "kind": "Interface",
+    "localName": "ISecondaryIndexed",
+    "fullyQualifiedName": "TestCases.ISecondaryIndexed",
+    "namespace": "TestCases",
+    "accessModifier": "Public",
+    "containingType": null,
+    "genericParameters": [],
+    "directInterfaces": [],
+    "methods": [],
+    "properties": [],
+    "indexers": [
+      {
+        "name": "this[]",
+        "declaringType": "TestCases.ISecondaryIndexed",
+        "type": {
+          "localName": "double",
+          "nullability": "NonNullable",
+          "usageKind": "Predefined",
+          "predefinedKind": "Double"
+        },
+        "accessModifier": "Public",
+        "inheritance": {
+          "kind": "Abstract"
+        },
+        "parameters": [
+          {
+            "name": "key",
+            "position": 0,
+            "modifiers": "None",
+            "type": {
+              "localName": "string",
+              "nullability": "NonNullable",
+              "usageKind": "Predefined",
+              "predefinedKind": "String"
+            },
+            "hasDefaultValue": false,
+            "defaultValue": null,
+            "attributes": []
+          }
+        ],
+        "attributes": [
+          {
+            "name": "IndexerNameAttribute",
+            "fullyQualifiedName": "System.Runtime.CompilerServices.IndexerNameAttribute",
+            "constructorArguments": [
+              "SecondaryEntries"
+            ],
+            "namedArguments": {}
+          }
+        ],
+        "accessors": [
+          {
+            "kind": "get",
+            "isReadOnly": false,
+            "returnInfo": {
+              "type": {
+                "localName": "double",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "Double"
+              },
+              "attributes": []
+            },
+            "attributes": [],
+            "accessModifier": "Public",
+            "parameters": [
+              {
+                "name": "key",
+                "position": 0,
+                "modifiers": "None",
+                "type": {
+                  "localName": "string",
+                  "nullability": "NonNullable",
+                  "usageKind": "Predefined",
+                  "predefinedKind": "String"
+                },
+                "hasDefaultValue": false,
+                "defaultValue": null,
+                "attributes": []
+              }
+            ],
+            "localFunctions": []
+          },
+          {
+            "kind": "set",
+            "isReadOnly": false,
+            "returnInfo": {
+              "type": {
+                "localName": "void",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "Void"
+              },
+              "attributes": []
+            },
+            "attributes": [],
+            "accessModifier": "Public",
+            "parameters": [
+              {
+                "name": "key",
+                "position": 0,
+                "modifiers": "None",
+                "type": {
+                  "localName": "string",
+                  "nullability": "NonNullable",
+                  "usageKind": "Predefined",
+                  "predefinedKind": "String"
+                },
+                "hasDefaultValue": false,
+                "defaultValue": null,
+                "attributes": []
+              },
+              {
+                "name": "value",
+                "position": 1,
+                "modifiers": "None",
+                "type": {
+                  "localName": "double",
+                  "nullability": "NonNullable",
+                  "usageKind": "Predefined",
+                  "predefinedKind": "Double"
+                },
+                "hasDefaultValue": false,
+                "defaultValue": null,
+                "attributes": []
+              }
+            ],
+            "localFunctions": []
+          }
+        ]
+      }
+    ],
+    "events": [],
+    "staticConstructor": null,
+    "operators": [],
+    "attributes": [],
+    "nestedTypes": []
+  },
+  {
+    "kind": "RegularClass",
+    "localName": "ExplicitWorkerImplementation",
+    "fullyQualifiedName": "TestCases.ExplicitWorkerImplementation",
+    "namespace": "TestCases",
+    "accessModifier": "Public",
+    "containingType": null,
+    "isSealed": false,
+    "baseType": null,
+    "genericParameters": [],
+    "directInterfaces": [
+      {
+        "localName": "IWorker",
+        "nullability": "Oblivious",
+        "usageKind": "Plain",
+        "typeDefinition": "TestCases.IWorker"
+      },
+      {
+        "localName": "ICustomInterfaceIndexer",
+        "nullability": "Oblivious",
+        "usageKind": "Plain",
+        "typeDefinition": "TestCases.ICustomInterfaceIndexer"
+      },
+      {
+        "localName": "IDisposable",
+        "nullability": "Oblivious",
+        "usageKind": "Plain",
+        "typeDefinition": "System.IDisposable"
+      }
+    ],
+    "fields": [],
+    "methods": [
+      {
+        "name": "System.IDisposable.Dispose",
+        "declaringType": "TestCases.ExplicitWorkerImplementation",
+        "returnInfo": {
+          "type": {
+            "localName": "void",
+            "nullability": "NonNullable",
+            "usageKind": "Predefined",
+            "predefinedKind": "Void"
+          },
+          "attributes": []
+        },
+        "isStatic": false,
+        "isGeneric": false,
+        "isReadOnly": false,
+        "hasArglistParameter": false,
+        "accessModifier": "Private",
+        "inheritance": {
+          "kind": "ExplicitInterfaceImplementation"
+        },
+        "parameters": [],
+        "genericParameters": [],
+        "attributes": [],
+        "localFunctions": []
+      },
+      {
+        "name": "TestCases.IWorker.PerformWork",
+        "declaringType": "TestCases.ExplicitWorkerImplementation",
+        "returnInfo": {
+          "type": {
+            "localName": "void",
+            "nullability": "NonNullable",
+            "usageKind": "Predefined",
+            "predefinedKind": "Void"
+          },
+          "attributes": []
+        },
+        "isStatic": false,
+        "isGeneric": false,
+        "isReadOnly": false,
+        "hasArglistParameter": false,
+        "accessModifier": "Private",
+        "inheritance": {
+          "kind": "ExplicitInterfaceImplementation"
+        },
+        "parameters": [
+          {
+            "name": "taskId",
+            "position": 0,
+            "modifiers": "None",
+            "type": {
+              "localName": "int",
+              "nullability": "NonNullable",
+              "usageKind": "Predefined",
+              "predefinedKind": "Int"
+            },
+            "hasDefaultValue": false,
+            "defaultValue": null,
+            "attributes": []
+          }
+        ],
+        "genericParameters": [],
+        "attributes": [],
+        "localFunctions": []
+      }
+    ],
+    "properties": [
+      {
+        "name": "NormalProperty",
+        "declaringType": "TestCases.ExplicitWorkerImplementation",
+        "type": {
+          "localName": "string",
+          "nullability": "NonNullable",
+          "usageKind": "Predefined",
+          "predefinedKind": "String"
+        },
+        "accessModifier": "Public",
+        "isStatic": false,
+        "inheritance": {
+          "kind": "None"
+        },
+        "attributes": [],
+        "accessors": [
+          {
+            "kind": "get",
+            "isReadOnly": false,
+            "returnInfo": {
+              "type": {
+                "localName": "string",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "String"
+              },
+              "attributes": []
+            },
+            "attributes": [],
+            "accessModifier": "Public",
+            "localFunctions": []
+          }
+        ]
+      },
+      {
+        "name": "TestCases.IWorker.WorkerName",
+        "declaringType": "TestCases.ExplicitWorkerImplementation",
+        "type": {
+          "localName": "string",
+          "nullability": "NonNullable",
+          "usageKind": "Predefined",
+          "predefinedKind": "String"
+        },
+        "accessModifier": "Private",
+        "isStatic": false,
+        "inheritance": {
+          "kind": "ExplicitInterfaceImplementation"
+        },
+        "attributes": [],
+        "accessors": [
+          {
+            "kind": "get",
+            "isReadOnly": false,
+            "returnInfo": {
+              "type": {
+                "localName": "string",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "String"
+              },
+              "attributes": []
+            },
+            "attributes": [],
+            "accessModifier": "Private",
+            "localFunctions": []
+          }
+        ]
+      }
+    ],
+    "indexers": [
+      {
+        "name": "TestCases.IWorker.this[]",
+        "declaringType": "TestCases.ExplicitWorkerImplementation",
+        "type": {
+          "localName": "int",
+          "nullability": "NonNullable",
+          "usageKind": "Predefined",
+          "predefinedKind": "Int"
+        },
+        "accessModifier": "Private",
+        "inheritance": {
+          "kind": "ExplicitInterfaceImplementation"
+        },
+        "parameters": [
+          {
+            "name": "priority",
+            "position": 0,
+            "modifiers": "None",
+            "type": {
+              "localName": "int",
+              "nullability": "NonNullable",
+              "usageKind": "Predefined",
+              "predefinedKind": "Int"
+            },
+            "hasDefaultValue": false,
+            "defaultValue": null,
+            "attributes": []
+          }
+        ],
+        "attributes": [],
+        "accessors": [
+          {
+            "kind": "get",
+            "isReadOnly": false,
+            "returnInfo": {
+              "type": {
+                "localName": "int",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "Int"
+              },
+              "attributes": []
+            },
+            "attributes": [],
+            "accessModifier": "Private",
+            "parameters": [
+              {
+                "name": "priority",
+                "position": 0,
+                "modifiers": "None",
+                "type": {
+                  "localName": "int",
+                  "nullability": "NonNullable",
+                  "usageKind": "Predefined",
+                  "predefinedKind": "Int"
+                },
+                "hasDefaultValue": false,
+                "defaultValue": null,
+                "attributes": []
+              }
+            ],
+            "localFunctions": []
+          }
+        ]
+      },
+      {
+        "name": "this[]",
+        "declaringType": "TestCases.ExplicitWorkerImplementation",
+        "type": {
+          "localName": "int",
+          "nullability": "NonNullable",
+          "usageKind": "Predefined",
+          "predefinedKind": "Int"
+        },
+        "accessModifier": "Public",
+        "inheritance": {
+          "kind": "None"
+        },
+        "parameters": [
+          {
+            "name": "index",
+            "position": 0,
+            "modifiers": "None",
+            "type": {
+              "localName": "int",
+              "nullability": "NonNullable",
+              "usageKind": "Predefined",
+              "predefinedKind": "Int"
+            },
+            "hasDefaultValue": false,
+            "defaultValue": null,
+            "attributes": []
+          }
+        ],
+        "attributes": [
+          {
+            "name": "IndexerNameAttribute",
+            "fullyQualifiedName": "System.Runtime.CompilerServices.IndexerNameAttribute",
+            "constructorArguments": [
+              "ClassIndexer"
+            ],
+            "namedArguments": {}
+          }
+        ],
+        "accessors": [
+          {
+            "kind": "get",
+            "isReadOnly": false,
+            "returnInfo": {
+              "type": {
+                "localName": "int",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "Int"
+              },
+              "attributes": []
+            },
+            "attributes": [],
+            "accessModifier": "Public",
+            "parameters": [
+              {
+                "name": "index",
+                "position": 0,
+                "modifiers": "None",
+                "type": {
+                  "localName": "int",
+                  "nullability": "NonNullable",
+                  "usageKind": "Predefined",
+                  "predefinedKind": "Int"
+                },
+                "hasDefaultValue": false,
+                "defaultValue": null,
+                "attributes": []
+              }
+            ],
+            "localFunctions": []
+          }
+        ]
+      },
+      {
+        "name": "TestCases.ICustomInterfaceIndexer.this[]",
+        "declaringType": "TestCases.ExplicitWorkerImplementation",
+        "type": {
+          "localName": "string",
+          "nullability": "NonNullable",
+          "usageKind": "Predefined",
+          "predefinedKind": "String"
+        },
+        "accessModifier": "Private",
+        "inheritance": {
+          "kind": "ExplicitInterfaceImplementation"
+        },
+        "parameters": [
+          {
+            "name": "index",
+            "position": 0,
+            "modifiers": "None",
+            "type": {
+              "localName": "int",
+              "nullability": "NonNullable",
+              "usageKind": "Predefined",
+              "predefinedKind": "Int"
+            },
+            "hasDefaultValue": false,
+            "defaultValue": null,
+            "attributes": []
+          }
+        ],
+        "attributes": [],
+        "accessors": [
+          {
+            "kind": "get",
+            "isReadOnly": false,
+            "returnInfo": {
+              "type": {
+                "localName": "string",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "String"
+              },
+              "attributes": []
+            },
+            "attributes": [],
+            "accessModifier": "Private",
+            "parameters": [
+              {
+                "name": "index",
+                "position": 0,
+                "modifiers": "None",
+                "type": {
+                  "localName": "int",
+                  "nullability": "NonNullable",
+                  "usageKind": "Predefined",
+                  "predefinedKind": "Int"
+                },
+                "hasDefaultValue": false,
+                "defaultValue": null,
+                "attributes": []
+              }
+            ],
+            "localFunctions": []
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "name": "TestCases.IWorker.WorkCompleted",
+        "declaringType": "TestCases.ExplicitWorkerImplementation",
+        "type": {
+          "localName": "Action?",
+          "nullability": "Nullable",
+          "usageKind": "Plain",
+          "typeDefinition": "System.Action?"
+        },
+        "accessModifier": "Private",
+        "isStatic": false,
+        "inheritance": {
+          "kind": "ExplicitInterfaceImplementation"
+        },
+        "attributes": [],
+        "accessors": [
+          {
+            "kind": "add",
+            "isReadOnly": false,
+            "returnInfo": {
+              "type": {
+                "localName": "void",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "Void"
+              },
+              "attributes": []
+            },
+            "attributes": [],
+            "valueParameter": {
+              "name": "value",
+              "position": 0,
+              "modifiers": "None",
+              "type": {
+                "localName": "Action?",
+                "nullability": "Nullable",
+                "usageKind": "Plain",
+                "typeDefinition": "System.Action?"
+              },
+              "hasDefaultValue": false,
+              "defaultValue": null,
+              "attributes": []
+            },
+            "localFunctions": []
+          },
+          {
+            "kind": "remove",
+            "isReadOnly": false,
+            "returnInfo": {
+              "type": {
+                "localName": "void",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "Void"
+              },
+              "attributes": []
+            },
+            "attributes": [],
+            "valueParameter": {
+              "name": "value",
+              "position": 0,
+              "modifiers": "None",
+              "type": {
+                "localName": "Action?",
+                "nullability": "Nullable",
+                "usageKind": "Plain",
+                "typeDefinition": "System.Action?"
+              },
+              "hasDefaultValue": false,
+              "defaultValue": null,
+              "attributes": []
+            },
+            "localFunctions": []
+          }
+        ]
+      }
+    ],
+    "instanceConstructors": [
+      {
+        "declaringType": "TestCases.ExplicitWorkerImplementation",
+        "accessModifier": "Public",
+        "isPrimary": false,
+        "parameters": [],
+        "attributes": [],
+        "localFunctions": []
+      }
+    ],
+    "staticConstructor": null,
+    "operators": [],
+    "attributes": [],
+    "nestedTypes": []
+  },
+  {
+    "kind": "RegularClass",
+    "localName": "BaseWorker",
+    "fullyQualifiedName": "TestCases.BaseWorker",
+    "namespace": "TestCases",
+    "accessModifier": "Public",
+    "containingType": null,
+    "isSealed": false,
+    "baseType": null,
+    "genericParameters": [],
+    "directInterfaces": [],
+    "fields": [
+      {
+        "name": "StateField",
+        "declaringType": "TestCases.BaseWorker",
+        "accessModifier": "Public",
+        "attributes": [],
+        "fieldKind": "Regular",
+        "type": {
+          "localName": "int",
+          "nullability": "NonNullable",
+          "usageKind": "Predefined",
+          "predefinedKind": "Int"
+        },
+        "isReadOnly": false,
+        "isVolatile": false,
+        "isStatic": false,
+        "isRequired": false
+      }
+    ],
+    "methods": [
+      {
+        "name": "DoAction",
+        "declaringType": "TestCases.BaseWorker",
+        "returnInfo": {
+          "type": {
+            "localName": "void",
+            "nullability": "NonNullable",
+            "usageKind": "Predefined",
+            "predefinedKind": "Void"
+          },
+          "attributes": []
+        },
+        "isStatic": false,
+        "isGeneric": false,
+        "isReadOnly": false,
+        "hasArglistParameter": false,
+        "accessModifier": "Public",
+        "inheritance": {
+          "kind": "None"
+        },
+        "parameters": [],
+        "genericParameters": [],
+        "attributes": [],
+        "localFunctions": []
+      }
+    ],
+    "properties": [
+      {
+        "name": "Title",
+        "declaringType": "TestCases.BaseWorker",
+        "type": {
+          "localName": "string",
+          "nullability": "NonNullable",
+          "usageKind": "Predefined",
+          "predefinedKind": "String"
+        },
+        "accessModifier": "Public",
+        "isStatic": false,
+        "inheritance": {
+          "kind": "Virtual"
+        },
+        "attributes": [],
+        "accessors": [
+          {
+            "kind": "get",
+            "isReadOnly": false,
+            "returnInfo": {
+              "type": {
+                "localName": "string",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "String"
+              },
+              "attributes": []
+            },
+            "attributes": [],
+            "accessModifier": "Public",
+            "localFunctions": []
+          },
+          {
+            "kind": "set",
+            "isReadOnly": false,
+            "returnInfo": {
+              "type": {
+                "localName": "void",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "Void"
+              },
+              "attributes": []
+            },
+            "attributes": [],
+            "accessModifier": "Public",
+            "valueParameter": {
+              "name": "value",
+              "position": 0,
+              "modifiers": "None",
+              "type": {
+                "localName": "string",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "String"
+              },
+              "hasDefaultValue": false,
+              "defaultValue": null,
+              "attributes": []
+            },
+            "localFunctions": []
+          }
+        ],
+        "backingFieldName": "<Title>k__BackingField"
+      }
+    ],
+    "indexers": [],
+    "events": [],
+    "instanceConstructors": [
+      {
+        "declaringType": "TestCases.BaseWorker",
+        "accessModifier": "Public",
+        "isPrimary": false,
+        "parameters": [],
+        "attributes": [],
+        "localFunctions": []
+      }
+    ],
+    "staticConstructor": null,
+    "operators": [],
+    "attributes": [],
+    "nestedTypes": []
+  },
+  {
+    "kind": "RegularClass",
+    "localName": "DerivedHidingWorker",
+    "fullyQualifiedName": "TestCases.DerivedHidingWorker",
+    "namespace": "TestCases",
+    "accessModifier": "Public",
+    "containingType": null,
+    "isSealed": false,
+    "baseType": {
+      "localName": "BaseWorker",
+      "nullability": "NonNullable",
+      "usageKind": "Plain",
+      "typeDefinition": "TestCases.BaseWorker"
+    },
+    "genericParameters": [],
+    "directInterfaces": [],
+    "fields": [
+      {
+        "name": "StateField",
+        "declaringType": "TestCases.DerivedHidingWorker",
+        "accessModifier": "Public",
+        "attributes": [],
+        "fieldKind": "Regular",
+        "type": {
+          "localName": "int",
+          "nullability": "NonNullable",
+          "usageKind": "Predefined",
+          "predefinedKind": "Int"
+        },
+        "isReadOnly": false,
+        "isVolatile": false,
+        "isStatic": false,
+        "isRequired": false
+      }
+    ],
+    "methods": [
+      {
+        "name": "DoAction",
+        "declaringType": "TestCases.DerivedHidingWorker",
+        "returnInfo": {
+          "type": {
+            "localName": "void",
+            "nullability": "NonNullable",
+            "usageKind": "Predefined",
+            "predefinedKind": "Void"
+          },
+          "attributes": []
+        },
+        "isStatic": false,
+        "isGeneric": false,
+        "isReadOnly": false,
+        "hasArglistParameter": false,
+        "accessModifier": "Public",
+        "inheritance": {
+          "kind": "None"
+        },
+        "parameters": [],
+        "genericParameters": [],
+        "attributes": [],
+        "localFunctions": []
+      }
+    ],
+    "properties": [
+      {
+        "name": "Title",
+        "declaringType": "TestCases.DerivedHidingWorker",
+        "type": {
+          "localName": "string",
+          "nullability": "NonNullable",
+          "usageKind": "Predefined",
+          "predefinedKind": "String"
+        },
+        "accessModifier": "Public",
+        "isStatic": false,
+        "inheritance": {
+          "kind": "None"
+        },
+        "attributes": [],
+        "accessors": [
+          {
+            "kind": "get",
+            "isReadOnly": false,
+            "returnInfo": {
+              "type": {
+                "localName": "string",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "String"
+              },
+              "attributes": []
+            },
+            "attributes": [],
+            "accessModifier": "Public",
+            "localFunctions": []
+          },
+          {
+            "kind": "set",
+            "isReadOnly": false,
+            "returnInfo": {
+              "type": {
+                "localName": "void",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "Void"
+              },
+              "attributes": []
+            },
+            "attributes": [],
+            "accessModifier": "Public",
+            "valueParameter": {
+              "name": "value",
+              "position": 0,
+              "modifiers": "None",
+              "type": {
+                "localName": "string",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "String"
+              },
+              "hasDefaultValue": false,
+              "defaultValue": null,
+              "attributes": []
+            },
+            "localFunctions": []
+          }
+        ],
+        "backingFieldName": "<Title>k__BackingField"
+      }
+    ],
+    "indexers": [],
+    "events": [],
+    "instanceConstructors": [
+      {
+        "declaringType": "TestCases.DerivedHidingWorker",
+        "accessModifier": "Public",
+        "isPrimary": false,
+        "parameters": [],
+        "attributes": [],
+        "localFunctions": []
+      }
+    ],
+    "staticConstructor": null,
+    "operators": [],
+    "attributes": [],
+    "nestedTypes": []
+  },
+  {
+    "kind": "Interface",
+    "localName": "IRootService",
+    "fullyQualifiedName": "TestCases.IRootService",
+    "namespace": "TestCases",
+    "accessModifier": "Public",
+    "containingType": null,
+    "genericParameters": [],
+    "directInterfaces": [],
+    "methods": [
+      {
+        "name": "Initialize",
+        "declaringType": "TestCases.IRootService",
+        "returnInfo": {
+          "type": {
+            "localName": "void",
+            "nullability": "NonNullable",
+            "usageKind": "Predefined",
+            "predefinedKind": "Void"
+          },
+          "attributes": []
+        },
+        "isStatic": false,
+        "isGeneric": false,
+        "isReadOnly": false,
+        "hasArglistParameter": false,
+        "accessModifier": "Public",
+        "inheritance": {
+          "kind": "Abstract"
+        },
+        "parameters": [],
+        "genericParameters": [],
+        "attributes": [],
+        "localFunctions": []
+      }
+    ],
+    "properties": [],
+    "indexers": [],
+    "events": [],
+    "staticConstructor": null,
+    "operators": [],
+    "attributes": [],
+    "nestedTypes": []
+  },
+  {
+    "kind": "Interface",
+    "localName": "IDataService",
+    "fullyQualifiedName": "TestCases.IDataService",
+    "namespace": "TestCases",
+    "accessModifier": "Public",
+    "containingType": null,
+    "genericParameters": [],
+    "directInterfaces": [
+      {
+        "localName": "IRootService",
+        "nullability": "Oblivious",
+        "usageKind": "Plain",
+        "typeDefinition": "TestCases.IRootService"
+      }
+    ],
+    "methods": [
+      {
+        "name": "LoadData",
+        "declaringType": "TestCases.IDataService",
+        "returnInfo": {
+          "type": {
+            "localName": "void",
+            "nullability": "NonNullable",
+            "usageKind": "Predefined",
+            "predefinedKind": "Void"
+          },
+          "attributes": []
+        },
+        "isStatic": false,
+        "isGeneric": false,
+        "isReadOnly": false,
+        "hasArglistParameter": false,
+        "accessModifier": "Public",
+        "inheritance": {
+          "kind": "Abstract"
+        },
+        "parameters": [],
+        "genericParameters": [],
+        "attributes": [],
+        "localFunctions": []
+      }
+    ],
+    "properties": [],
+    "indexers": [],
+    "events": [],
+    "staticConstructor": null,
+    "operators": [],
+    "attributes": [],
+    "nestedTypes": []
+  },
+  {
+    "kind": "Interface",
+    "localName": "ILoggingService",
+    "fullyQualifiedName": "TestCases.ILoggingService",
+    "namespace": "TestCases",
+    "accessModifier": "Public",
+    "containingType": null,
+    "genericParameters": [],
+    "directInterfaces": [
+      {
+        "localName": "IRootService",
+        "nullability": "Oblivious",
+        "usageKind": "Plain",
+        "typeDefinition": "TestCases.IRootService"
+      }
+    ],
+    "methods": [
+      {
+        "name": "FlushLogs",
+        "declaringType": "TestCases.ILoggingService",
+        "returnInfo": {
+          "type": {
+            "localName": "void",
+            "nullability": "NonNullable",
+            "usageKind": "Predefined",
+            "predefinedKind": "Void"
+          },
+          "attributes": []
+        },
+        "isStatic": false,
+        "isGeneric": false,
+        "isReadOnly": false,
+        "hasArglistParameter": false,
+        "accessModifier": "Public",
+        "inheritance": {
+          "kind": "Abstract"
+        },
+        "parameters": [],
+        "genericParameters": [],
+        "attributes": [],
+        "localFunctions": []
+      }
+    ],
+    "properties": [],
+    "indexers": [],
+    "events": [],
+    "staticConstructor": null,
+    "operators": [],
+    "attributes": [],
+    "nestedTypes": []
+  },
+  {
+    "kind": "RegularClass",
+    "localName": "DiamondServiceImplementation",
+    "fullyQualifiedName": "TestCases.DiamondServiceImplementation",
+    "namespace": "TestCases",
+    "accessModifier": "Public",
+    "containingType": null,
+    "isSealed": false,
+    "baseType": null,
+    "genericParameters": [],
+    "directInterfaces": [
+      {
+        "localName": "IDataService",
+        "nullability": "Oblivious",
+        "usageKind": "Plain",
+        "typeDefinition": "TestCases.IDataService"
+      },
+      {
+        "localName": "ILoggingService",
+        "nullability": "Oblivious",
+        "usageKind": "Plain",
+        "typeDefinition": "TestCases.ILoggingService"
+      }
+    ],
+    "fields": [],
+    "methods": [
+      {
+        "name": "Initialize",
+        "declaringType": "TestCases.DiamondServiceImplementation",
+        "returnInfo": {
+          "type": {
+            "localName": "void",
+            "nullability": "NonNullable",
+            "usageKind": "Predefined",
+            "predefinedKind": "Void"
+          },
+          "attributes": []
+        },
+        "isStatic": false,
+        "isGeneric": false,
+        "isReadOnly": false,
+        "hasArglistParameter": false,
+        "accessModifier": "Public",
+        "inheritance": {
+          "kind": "None"
+        },
+        "parameters": [],
+        "genericParameters": [],
+        "attributes": [],
+        "localFunctions": []
+      },
+      {
+        "name": "LoadData",
+        "declaringType": "TestCases.DiamondServiceImplementation",
+        "returnInfo": {
+          "type": {
+            "localName": "void",
+            "nullability": "NonNullable",
+            "usageKind": "Predefined",
+            "predefinedKind": "Void"
+          },
+          "attributes": []
+        },
+        "isStatic": false,
+        "isGeneric": false,
+        "isReadOnly": false,
+        "hasArglistParameter": false,
+        "accessModifier": "Public",
+        "inheritance": {
+          "kind": "None"
+        },
+        "parameters": [],
+        "genericParameters": [],
+        "attributes": [],
+        "localFunctions": []
+      },
+      {
+        "name": "FlushLogs",
+        "declaringType": "TestCases.DiamondServiceImplementation",
+        "returnInfo": {
+          "type": {
+            "localName": "void",
+            "nullability": "NonNullable",
+            "usageKind": "Predefined",
+            "predefinedKind": "Void"
+          },
+          "attributes": []
+        },
+        "isStatic": false,
+        "isGeneric": false,
+        "isReadOnly": false,
+        "hasArglistParameter": false,
+        "accessModifier": "Public",
+        "inheritance": {
+          "kind": "None"
+        },
+        "parameters": [],
+        "genericParameters": [],
+        "attributes": [],
+        "localFunctions": []
+      }
+    ],
+    "properties": [],
+    "indexers": [],
+    "events": [],
+    "instanceConstructors": [
+      {
+        "declaringType": "TestCases.DiamondServiceImplementation",
+        "accessModifier": "Public",
+        "isPrimary": false,
+        "parameters": [],
+        "attributes": [],
+        "localFunctions": []
+      }
+    ],
+    "staticConstructor": null,
+    "operators": [],
+    "attributes": [],
+    "nestedTypes": []
+  }
+]

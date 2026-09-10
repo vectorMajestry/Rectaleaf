@@ -14,12 +14,7 @@ public interface IHasMethods : IDeclaredType
     IReadOnlyList<IMethod> GetMethods();
 }
 
-public interface IHasSize : IDeclaredType
-{
-    int SizeInBytes { get; }
-}
-
-public interface IHasFields : IDeclaredType, IHasSize
+public interface IHasFields : IDeclaredType
 {
     IReadOnlyList<IField<IKnownOrNot>> GetFields();
 }
@@ -64,7 +59,7 @@ public interface IHasNestedTypes : IDeclaredType
     IReadOnlyList<IDeclaredType> GetNestedTypes();
 }
 
-public interface IValidConstraint;
+public interface IValidConstraint : IDeclaredType;
 
 public interface IHasInterfaces : IDeclaredType
 {
@@ -84,4 +79,9 @@ public interface IHasNullability
 public interface IHasOperators : IDeclaredType
 {
     IReadOnlyList<IOperator> GetOperators();
+}
+
+public interface IHasExtensionsBlocks : IDeclaredType
+{
+    IReadOnlyList<IExtensionsBlock> GetExtensionsBlocks();
 }

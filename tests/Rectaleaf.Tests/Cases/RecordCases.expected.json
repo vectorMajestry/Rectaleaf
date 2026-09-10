@@ -1,0 +1,3071 @@
+[
+  {
+    "kind": "RecordClass",
+    "localName": "SimplePerson",
+    "fullyQualifiedName": "TestCases.SimplePerson",
+    "namespace": "TestCases",
+    "accessModifier": "Public",
+    "containingType": null,
+    "isSealed": false,
+    "baseType": null,
+    "genericParameters": [],
+    "directInterfaces": [
+      {
+        "localName": "IEquatable<SimplePerson>",
+        "nullability": "Oblivious",
+        "usageKind": "BoundGeneric",
+        "typeDefinition": "System.IEquatable<T>",
+        "typeArguments": [
+          {
+            "localName": "SimplePerson",
+            "nullability": "Oblivious",
+            "usageKind": "Plain",
+            "typeDefinition": "TestCases.SimplePerson"
+          }
+        ]
+      }
+    ],
+    "fields": [],
+    "methods": [
+      {
+        "name": "PrintMembers",
+        "declaringType": "TestCases.SimplePerson",
+        "returnInfo": {
+          "type": {
+            "localName": "bool",
+            "nullability": "NonNullable",
+            "usageKind": "Predefined",
+            "predefinedKind": "Bool"
+          },
+          "attributes": []
+        },
+        "isStatic": false,
+        "isGeneric": false,
+        "isReadOnly": false,
+        "hasArglistParameter": false,
+        "accessModifier": "Protected",
+        "inheritance": {
+          "kind": "Virtual"
+        },
+        "parameters": [
+          {
+            "name": "builder",
+            "position": 0,
+            "modifiers": "None",
+            "type": {
+              "localName": "StringBuilder",
+              "nullability": "NonNullable",
+              "usageKind": "Plain",
+              "typeDefinition": "System.Text.StringBuilder"
+            },
+            "hasDefaultValue": false,
+            "defaultValue": null,
+            "attributes": []
+          }
+        ],
+        "genericParameters": [],
+        "attributes": [],
+        "localFunctions": []
+      },
+      {
+        "name": "Deconstruct",
+        "declaringType": "TestCases.SimplePerson",
+        "returnInfo": {
+          "type": {
+            "localName": "void",
+            "nullability": "NonNullable",
+            "usageKind": "Predefined",
+            "predefinedKind": "Void"
+          },
+          "attributes": []
+        },
+        "isStatic": false,
+        "isGeneric": false,
+        "isReadOnly": false,
+        "hasArglistParameter": false,
+        "accessModifier": "Public",
+        "inheritance": {
+          "kind": "None"
+        },
+        "parameters": [
+          {
+            "name": "FirstName",
+            "position": 0,
+            "modifiers": "Out, Scoped",
+            "type": {
+              "localName": "string",
+              "nullability": "NonNullable",
+              "usageKind": "Predefined",
+              "predefinedKind": "String"
+            },
+            "hasDefaultValue": false,
+            "defaultValue": null,
+            "attributes": []
+          },
+          {
+            "name": "LastName",
+            "position": 1,
+            "modifiers": "Out, Scoped",
+            "type": {
+              "localName": "string",
+              "nullability": "NonNullable",
+              "usageKind": "Predefined",
+              "predefinedKind": "String"
+            },
+            "hasDefaultValue": false,
+            "defaultValue": null,
+            "attributes": []
+          }
+        ],
+        "genericParameters": [],
+        "attributes": [],
+        "localFunctions": []
+      }
+    ],
+    "properties": [
+      {
+        "name": "FirstName",
+        "declaringType": "TestCases.SimplePerson",
+        "type": {
+          "localName": "string",
+          "nullability": "NonNullable",
+          "usageKind": "Predefined",
+          "predefinedKind": "String"
+        },
+        "accessModifier": "Public",
+        "isStatic": false,
+        "inheritance": {
+          "kind": "None"
+        },
+        "attributes": [],
+        "accessors": [
+          {
+            "kind": "get",
+            "isReadOnly": false,
+            "returnInfo": {
+              "type": {
+                "localName": "string",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "String"
+              },
+              "attributes": []
+            },
+            "attributes": [],
+            "accessModifier": "Public",
+            "localFunctions": []
+          },
+          {
+            "kind": "init",
+            "isReadOnly": false,
+            "returnInfo": {
+              "type": {
+                "localName": "void",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "Void"
+              },
+              "attributes": []
+            },
+            "attributes": [],
+            "accessModifier": "Public",
+            "valueParameter": {
+              "name": "value",
+              "position": 0,
+              "modifiers": "None",
+              "type": {
+                "localName": "string",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "String"
+              },
+              "hasDefaultValue": false,
+              "defaultValue": null,
+              "attributes": []
+            },
+            "localFunctions": []
+          }
+        ],
+        "backingFieldName": "<FirstName>k__BackingField"
+      },
+      {
+        "name": "LastName",
+        "declaringType": "TestCases.SimplePerson",
+        "type": {
+          "localName": "string",
+          "nullability": "NonNullable",
+          "usageKind": "Predefined",
+          "predefinedKind": "String"
+        },
+        "accessModifier": "Public",
+        "isStatic": false,
+        "inheritance": {
+          "kind": "None"
+        },
+        "attributes": [],
+        "accessors": [
+          {
+            "kind": "get",
+            "isReadOnly": false,
+            "returnInfo": {
+              "type": {
+                "localName": "string",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "String"
+              },
+              "attributes": []
+            },
+            "attributes": [],
+            "accessModifier": "Public",
+            "localFunctions": []
+          },
+          {
+            "kind": "init",
+            "isReadOnly": false,
+            "returnInfo": {
+              "type": {
+                "localName": "void",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "Void"
+              },
+              "attributes": []
+            },
+            "attributes": [],
+            "accessModifier": "Public",
+            "valueParameter": {
+              "name": "value",
+              "position": 0,
+              "modifiers": "None",
+              "type": {
+                "localName": "string",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "String"
+              },
+              "hasDefaultValue": false,
+              "defaultValue": null,
+              "attributes": []
+            },
+            "localFunctions": []
+          }
+        ],
+        "backingFieldName": "<LastName>k__BackingField"
+      }
+    ],
+    "indexers": [],
+    "events": [],
+    "instanceConstructors": [
+      {
+        "declaringType": "TestCases.SimplePerson",
+        "accessModifier": "Public",
+        "isPrimary": true,
+        "parameters": [
+          {
+            "name": "FirstName",
+            "position": 0,
+            "modifiers": "None",
+            "type": {
+              "localName": "string",
+              "nullability": "NonNullable",
+              "usageKind": "Predefined",
+              "predefinedKind": "String"
+            },
+            "hasDefaultValue": false,
+            "defaultValue": null,
+            "attributes": []
+          },
+          {
+            "name": "LastName",
+            "position": 1,
+            "modifiers": "None",
+            "type": {
+              "localName": "string",
+              "nullability": "NonNullable",
+              "usageKind": "Predefined",
+              "predefinedKind": "String"
+            },
+            "hasDefaultValue": false,
+            "defaultValue": null,
+            "attributes": []
+          }
+        ],
+        "attributes": [],
+        "localFunctions": []
+      },
+      {
+        "declaringType": "TestCases.SimplePerson",
+        "accessModifier": "Protected",
+        "isPrimary": false,
+        "parameters": [
+          {
+            "name": "original",
+            "position": 0,
+            "modifiers": "None",
+            "type": {
+              "localName": "SimplePerson",
+              "nullability": "NonNullable",
+              "usageKind": "Plain",
+              "typeDefinition": "TestCases.SimplePerson"
+            },
+            "hasDefaultValue": false,
+            "defaultValue": null,
+            "attributes": []
+          }
+        ],
+        "attributes": [],
+        "localFunctions": []
+      }
+    ],
+    "staticConstructor": null,
+    "operators": [
+      {
+        "accessModifier": "Public",
+        "inheritance": {
+          "kind": "None"
+        },
+        "operatorKind": "Binary",
+        "binaryKind": "NotEquals",
+        "isChecked": false,
+        "leftOperand": {
+          "name": "left",
+          "position": 0,
+          "modifiers": "None",
+          "type": {
+            "localName": "SimplePerson?",
+            "nullability": "Nullable",
+            "usageKind": "Plain",
+            "typeDefinition": "TestCases.SimplePerson?"
+          },
+          "hasDefaultValue": false,
+          "defaultValue": null,
+          "attributes": []
+        },
+        "rightOperand": {
+          "name": "right",
+          "position": 1,
+          "modifiers": "None",
+          "type": {
+            "localName": "SimplePerson?",
+            "nullability": "Nullable",
+            "usageKind": "Plain",
+            "typeDefinition": "TestCases.SimplePerson?"
+          },
+          "hasDefaultValue": false,
+          "defaultValue": null,
+          "attributes": []
+        },
+        "returnInfo": {
+          "type": {
+            "localName": "bool",
+            "nullability": "NonNullable",
+            "usageKind": "Predefined",
+            "predefinedKind": "Bool"
+          },
+          "attributes": []
+        },
+        "localFunctions": []
+      },
+      {
+        "accessModifier": "Public",
+        "inheritance": {
+          "kind": "None"
+        },
+        "operatorKind": "Binary",
+        "binaryKind": "Equals",
+        "isChecked": false,
+        "leftOperand": {
+          "name": "left",
+          "position": 0,
+          "modifiers": "None",
+          "type": {
+            "localName": "SimplePerson?",
+            "nullability": "Nullable",
+            "usageKind": "Plain",
+            "typeDefinition": "TestCases.SimplePerson?"
+          },
+          "hasDefaultValue": false,
+          "defaultValue": null,
+          "attributes": []
+        },
+        "rightOperand": {
+          "name": "right",
+          "position": 1,
+          "modifiers": "None",
+          "type": {
+            "localName": "SimplePerson?",
+            "nullability": "Nullable",
+            "usageKind": "Plain",
+            "typeDefinition": "TestCases.SimplePerson?"
+          },
+          "hasDefaultValue": false,
+          "defaultValue": null,
+          "attributes": []
+        },
+        "returnInfo": {
+          "type": {
+            "localName": "bool",
+            "nullability": "NonNullable",
+            "usageKind": "Predefined",
+            "predefinedKind": "Bool"
+          },
+          "attributes": []
+        },
+        "localFunctions": []
+      }
+    ],
+    "attributes": [],
+    "nestedTypes": []
+  },
+  {
+    "kind": "RecordClass",
+    "localName": "Employee",
+    "fullyQualifiedName": "TestCases.Employee",
+    "namespace": "TestCases",
+    "accessModifier": "Public",
+    "containingType": null,
+    "isSealed": false,
+    "baseType": {
+      "localName": "SimplePerson",
+      "nullability": "NonNullable",
+      "usageKind": "Plain",
+      "typeDefinition": "TestCases.SimplePerson"
+    },
+    "genericParameters": [],
+    "directInterfaces": [
+      {
+        "localName": "IEquatable<Employee>",
+        "nullability": "Oblivious",
+        "usageKind": "BoundGeneric",
+        "typeDefinition": "System.IEquatable<T>",
+        "typeArguments": [
+          {
+            "localName": "Employee",
+            "nullability": "Oblivious",
+            "usageKind": "Plain",
+            "typeDefinition": "TestCases.Employee"
+          }
+        ]
+      }
+    ],
+    "fields": [],
+    "methods": [
+      {
+        "name": "PrintMembers",
+        "declaringType": "TestCases.Employee",
+        "returnInfo": {
+          "type": {
+            "localName": "bool",
+            "nullability": "NonNullable",
+            "usageKind": "Predefined",
+            "predefinedKind": "Bool"
+          },
+          "attributes": []
+        },
+        "isStatic": false,
+        "isGeneric": false,
+        "isReadOnly": false,
+        "hasArglistParameter": false,
+        "accessModifier": "Protected",
+        "inheritance": {
+          "kind": "Override"
+        },
+        "parameters": [
+          {
+            "name": "builder",
+            "position": 0,
+            "modifiers": "None",
+            "type": {
+              "localName": "StringBuilder",
+              "nullability": "NonNullable",
+              "usageKind": "Plain",
+              "typeDefinition": "System.Text.StringBuilder"
+            },
+            "hasDefaultValue": false,
+            "defaultValue": null,
+            "attributes": []
+          }
+        ],
+        "genericParameters": [],
+        "attributes": [],
+        "localFunctions": []
+      },
+      {
+        "name": "Deconstruct",
+        "declaringType": "TestCases.Employee",
+        "returnInfo": {
+          "type": {
+            "localName": "void",
+            "nullability": "NonNullable",
+            "usageKind": "Predefined",
+            "predefinedKind": "Void"
+          },
+          "attributes": []
+        },
+        "isStatic": false,
+        "isGeneric": false,
+        "isReadOnly": false,
+        "hasArglistParameter": false,
+        "accessModifier": "Public",
+        "inheritance": {
+          "kind": "None"
+        },
+        "parameters": [
+          {
+            "name": "FirstName",
+            "position": 0,
+            "modifiers": "Out, Scoped",
+            "type": {
+              "localName": "string",
+              "nullability": "NonNullable",
+              "usageKind": "Predefined",
+              "predefinedKind": "String"
+            },
+            "hasDefaultValue": false,
+            "defaultValue": null,
+            "attributes": []
+          },
+          {
+            "name": "LastName",
+            "position": 1,
+            "modifiers": "Out, Scoped",
+            "type": {
+              "localName": "string",
+              "nullability": "NonNullable",
+              "usageKind": "Predefined",
+              "predefinedKind": "String"
+            },
+            "hasDefaultValue": false,
+            "defaultValue": null,
+            "attributes": []
+          },
+          {
+            "name": "EmployeeId",
+            "position": 2,
+            "modifiers": "Out, Scoped",
+            "type": {
+              "localName": "int",
+              "nullability": "NonNullable",
+              "usageKind": "Predefined",
+              "predefinedKind": "Int"
+            },
+            "hasDefaultValue": false,
+            "defaultValue": null,
+            "attributes": []
+          },
+          {
+            "name": "Department",
+            "position": 3,
+            "modifiers": "Out, Scoped",
+            "type": {
+              "localName": "string",
+              "nullability": "NonNullable",
+              "usageKind": "Predefined",
+              "predefinedKind": "String"
+            },
+            "hasDefaultValue": false,
+            "defaultValue": null,
+            "attributes": []
+          }
+        ],
+        "genericParameters": [],
+        "attributes": [],
+        "localFunctions": []
+      }
+    ],
+    "properties": [
+      {
+        "name": "EmployeeId",
+        "declaringType": "TestCases.Employee",
+        "type": {
+          "localName": "int",
+          "nullability": "NonNullable",
+          "usageKind": "Predefined",
+          "predefinedKind": "Int"
+        },
+        "accessModifier": "Public",
+        "isStatic": false,
+        "inheritance": {
+          "kind": "None"
+        },
+        "attributes": [],
+        "accessors": [
+          {
+            "kind": "get",
+            "isReadOnly": false,
+            "returnInfo": {
+              "type": {
+                "localName": "int",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "Int"
+              },
+              "attributes": []
+            },
+            "attributes": [],
+            "accessModifier": "Public",
+            "localFunctions": []
+          },
+          {
+            "kind": "init",
+            "isReadOnly": false,
+            "returnInfo": {
+              "type": {
+                "localName": "void",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "Void"
+              },
+              "attributes": []
+            },
+            "attributes": [],
+            "accessModifier": "Public",
+            "valueParameter": {
+              "name": "value",
+              "position": 0,
+              "modifiers": "None",
+              "type": {
+                "localName": "int",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "Int"
+              },
+              "hasDefaultValue": false,
+              "defaultValue": null,
+              "attributes": []
+            },
+            "localFunctions": []
+          }
+        ],
+        "backingFieldName": "<EmployeeId>k__BackingField"
+      },
+      {
+        "name": "Department",
+        "declaringType": "TestCases.Employee",
+        "type": {
+          "localName": "string",
+          "nullability": "NonNullable",
+          "usageKind": "Predefined",
+          "predefinedKind": "String"
+        },
+        "accessModifier": "Public",
+        "isStatic": false,
+        "inheritance": {
+          "kind": "None"
+        },
+        "attributes": [],
+        "accessors": [
+          {
+            "kind": "get",
+            "isReadOnly": false,
+            "returnInfo": {
+              "type": {
+                "localName": "string",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "String"
+              },
+              "attributes": []
+            },
+            "attributes": [],
+            "accessModifier": "Public",
+            "localFunctions": []
+          },
+          {
+            "kind": "init",
+            "isReadOnly": false,
+            "returnInfo": {
+              "type": {
+                "localName": "void",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "Void"
+              },
+              "attributes": []
+            },
+            "attributes": [],
+            "accessModifier": "Public",
+            "valueParameter": {
+              "name": "value",
+              "position": 0,
+              "modifiers": "None",
+              "type": {
+                "localName": "string",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "String"
+              },
+              "hasDefaultValue": false,
+              "defaultValue": null,
+              "attributes": []
+            },
+            "localFunctions": []
+          }
+        ],
+        "backingFieldName": "<Department>k__BackingField"
+      },
+      {
+        "name": "HireDate",
+        "declaringType": "TestCases.Employee",
+        "type": {
+          "localName": "DateTime",
+          "nullability": "NonNullable",
+          "usageKind": "Plain",
+          "typeDefinition": "System.DateTime"
+        },
+        "accessModifier": "Public",
+        "isStatic": false,
+        "inheritance": {
+          "kind": "None"
+        },
+        "attributes": [],
+        "accessors": [
+          {
+            "kind": "get",
+            "isReadOnly": false,
+            "returnInfo": {
+              "type": {
+                "localName": "DateTime",
+                "nullability": "NonNullable",
+                "usageKind": "Plain",
+                "typeDefinition": "System.DateTime"
+              },
+              "attributes": []
+            },
+            "attributes": [],
+            "accessModifier": "Public",
+            "localFunctions": []
+          },
+          {
+            "kind": "init",
+            "isReadOnly": false,
+            "returnInfo": {
+              "type": {
+                "localName": "void",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "Void"
+              },
+              "attributes": []
+            },
+            "attributes": [],
+            "accessModifier": "Public",
+            "valueParameter": {
+              "name": "value",
+              "position": 0,
+              "modifiers": "None",
+              "type": {
+                "localName": "DateTime",
+                "nullability": "NonNullable",
+                "usageKind": "Plain",
+                "typeDefinition": "System.DateTime"
+              },
+              "hasDefaultValue": false,
+              "defaultValue": null,
+              "attributes": []
+            },
+            "localFunctions": []
+          }
+        ],
+        "backingFieldName": "<HireDate>k__BackingField"
+      },
+      {
+        "name": "FullName",
+        "declaringType": "TestCases.Employee",
+        "type": {
+          "localName": "string",
+          "nullability": "NonNullable",
+          "usageKind": "Predefined",
+          "predefinedKind": "String"
+        },
+        "accessModifier": "Public",
+        "isStatic": false,
+        "inheritance": {
+          "kind": "None"
+        },
+        "attributes": [],
+        "accessors": [
+          {
+            "kind": "get",
+            "isReadOnly": false,
+            "returnInfo": {
+              "type": {
+                "localName": "string",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "String"
+              },
+              "attributes": []
+            },
+            "attributes": [],
+            "accessModifier": "Public",
+            "localFunctions": []
+          }
+        ]
+      }
+    ],
+    "indexers": [],
+    "events": [],
+    "instanceConstructors": [
+      {
+        "declaringType": "TestCases.Employee",
+        "accessModifier": "Public",
+        "isPrimary": true,
+        "parameters": [
+          {
+            "name": "FirstName",
+            "position": 0,
+            "modifiers": "None",
+            "type": {
+              "localName": "string",
+              "nullability": "NonNullable",
+              "usageKind": "Predefined",
+              "predefinedKind": "String"
+            },
+            "hasDefaultValue": false,
+            "defaultValue": null,
+            "attributes": []
+          },
+          {
+            "name": "LastName",
+            "position": 1,
+            "modifiers": "None",
+            "type": {
+              "localName": "string",
+              "nullability": "NonNullable",
+              "usageKind": "Predefined",
+              "predefinedKind": "String"
+            },
+            "hasDefaultValue": false,
+            "defaultValue": null,
+            "attributes": []
+          },
+          {
+            "name": "EmployeeId",
+            "position": 2,
+            "modifiers": "None",
+            "type": {
+              "localName": "int",
+              "nullability": "NonNullable",
+              "usageKind": "Predefined",
+              "predefinedKind": "Int"
+            },
+            "hasDefaultValue": false,
+            "defaultValue": null,
+            "attributes": []
+          },
+          {
+            "name": "Department",
+            "position": 3,
+            "modifiers": "None",
+            "type": {
+              "localName": "string",
+              "nullability": "NonNullable",
+              "usageKind": "Predefined",
+              "predefinedKind": "String"
+            },
+            "hasDefaultValue": false,
+            "defaultValue": null,
+            "attributes": []
+          }
+        ],
+        "attributes": [],
+        "localFunctions": []
+      },
+      {
+        "declaringType": "TestCases.Employee",
+        "accessModifier": "Protected",
+        "isPrimary": false,
+        "parameters": [
+          {
+            "name": "original",
+            "position": 0,
+            "modifiers": "None",
+            "type": {
+              "localName": "Employee",
+              "nullability": "NonNullable",
+              "usageKind": "Plain",
+              "typeDefinition": "TestCases.Employee"
+            },
+            "hasDefaultValue": false,
+            "defaultValue": null,
+            "attributes": []
+          }
+        ],
+        "attributes": [],
+        "localFunctions": []
+      }
+    ],
+    "staticConstructor": null,
+    "operators": [
+      {
+        "accessModifier": "Public",
+        "inheritance": {
+          "kind": "None"
+        },
+        "operatorKind": "Binary",
+        "binaryKind": "NotEquals",
+        "isChecked": false,
+        "leftOperand": {
+          "name": "left",
+          "position": 0,
+          "modifiers": "None",
+          "type": {
+            "localName": "Employee?",
+            "nullability": "Nullable",
+            "usageKind": "Plain",
+            "typeDefinition": "TestCases.Employee?"
+          },
+          "hasDefaultValue": false,
+          "defaultValue": null,
+          "attributes": []
+        },
+        "rightOperand": {
+          "name": "right",
+          "position": 1,
+          "modifiers": "None",
+          "type": {
+            "localName": "Employee?",
+            "nullability": "Nullable",
+            "usageKind": "Plain",
+            "typeDefinition": "TestCases.Employee?"
+          },
+          "hasDefaultValue": false,
+          "defaultValue": null,
+          "attributes": []
+        },
+        "returnInfo": {
+          "type": {
+            "localName": "bool",
+            "nullability": "NonNullable",
+            "usageKind": "Predefined",
+            "predefinedKind": "Bool"
+          },
+          "attributes": []
+        },
+        "localFunctions": []
+      },
+      {
+        "accessModifier": "Public",
+        "inheritance": {
+          "kind": "None"
+        },
+        "operatorKind": "Binary",
+        "binaryKind": "Equals",
+        "isChecked": false,
+        "leftOperand": {
+          "name": "left",
+          "position": 0,
+          "modifiers": "None",
+          "type": {
+            "localName": "Employee?",
+            "nullability": "Nullable",
+            "usageKind": "Plain",
+            "typeDefinition": "TestCases.Employee?"
+          },
+          "hasDefaultValue": false,
+          "defaultValue": null,
+          "attributes": []
+        },
+        "rightOperand": {
+          "name": "right",
+          "position": 1,
+          "modifiers": "None",
+          "type": {
+            "localName": "Employee?",
+            "nullability": "Nullable",
+            "usageKind": "Plain",
+            "typeDefinition": "TestCases.Employee?"
+          },
+          "hasDefaultValue": false,
+          "defaultValue": null,
+          "attributes": []
+        },
+        "returnInfo": {
+          "type": {
+            "localName": "bool",
+            "nullability": "NonNullable",
+            "usageKind": "Predefined",
+            "predefinedKind": "Bool"
+          },
+          "attributes": []
+        },
+        "localFunctions": []
+      }
+    ],
+    "attributes": [],
+    "nestedTypes": []
+  },
+  {
+    "kind": "RecordClass",
+    "localName": "CustomPrintRecord",
+    "fullyQualifiedName": "TestCases.CustomPrintRecord",
+    "namespace": "TestCases",
+    "accessModifier": "Public",
+    "containingType": null,
+    "isSealed": false,
+    "baseType": null,
+    "genericParameters": [],
+    "directInterfaces": [
+      {
+        "localName": "IEquatable<CustomPrintRecord>",
+        "nullability": "Oblivious",
+        "usageKind": "BoundGeneric",
+        "typeDefinition": "System.IEquatable<T>",
+        "typeArguments": [
+          {
+            "localName": "CustomPrintRecord",
+            "nullability": "Oblivious",
+            "usageKind": "Plain",
+            "typeDefinition": "TestCases.CustomPrintRecord"
+          }
+        ]
+      }
+    ],
+    "fields": [],
+    "methods": [
+      {
+        "name": "PrintMembers",
+        "declaringType": "TestCases.CustomPrintRecord",
+        "returnInfo": {
+          "type": {
+            "localName": "bool",
+            "nullability": "NonNullable",
+            "usageKind": "Predefined",
+            "predefinedKind": "Bool"
+          },
+          "attributes": []
+        },
+        "isStatic": false,
+        "isGeneric": false,
+        "isReadOnly": false,
+        "hasArglistParameter": false,
+        "accessModifier": "Protected",
+        "inheritance": {
+          "kind": "Virtual"
+        },
+        "parameters": [
+          {
+            "name": "builder",
+            "position": 0,
+            "modifiers": "None",
+            "type": {
+              "localName": "StringBuilder",
+              "nullability": "NonNullable",
+              "usageKind": "Plain",
+              "typeDefinition": "System.Text.StringBuilder"
+            },
+            "hasDefaultValue": false,
+            "defaultValue": null,
+            "attributes": []
+          }
+        ],
+        "genericParameters": [],
+        "attributes": [],
+        "localFunctions": []
+      },
+      {
+        "name": "Deconstruct",
+        "declaringType": "TestCases.CustomPrintRecord",
+        "returnInfo": {
+          "type": {
+            "localName": "void",
+            "nullability": "NonNullable",
+            "usageKind": "Predefined",
+            "predefinedKind": "Void"
+          },
+          "attributes": []
+        },
+        "isStatic": false,
+        "isGeneric": false,
+        "isReadOnly": false,
+        "hasArglistParameter": false,
+        "accessModifier": "Public",
+        "inheritance": {
+          "kind": "None"
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "position": 0,
+            "modifiers": "Out, Scoped",
+            "type": {
+              "localName": "string",
+              "nullability": "NonNullable",
+              "usageKind": "Predefined",
+              "predefinedKind": "String"
+            },
+            "hasDefaultValue": false,
+            "defaultValue": null,
+            "attributes": []
+          },
+          {
+            "name": "lvl",
+            "position": 1,
+            "modifiers": "Out, Scoped",
+            "type": {
+              "localName": "int",
+              "nullability": "NonNullable",
+              "usageKind": "Predefined",
+              "predefinedKind": "Int"
+            },
+            "hasDefaultValue": false,
+            "defaultValue": null,
+            "attributes": []
+          },
+          {
+            "name": "desc",
+            "position": 2,
+            "modifiers": "Out, Scoped",
+            "type": {
+              "localName": "string",
+              "nullability": "NonNullable",
+              "usageKind": "Predefined",
+              "predefinedKind": "String"
+            },
+            "hasDefaultValue": false,
+            "defaultValue": null,
+            "attributes": []
+          }
+        ],
+        "genericParameters": [],
+        "attributes": [],
+        "localFunctions": []
+      },
+      {
+        "name": "Deconstruct",
+        "declaringType": "TestCases.CustomPrintRecord",
+        "returnInfo": {
+          "type": {
+            "localName": "void",
+            "nullability": "NonNullable",
+            "usageKind": "Predefined",
+            "predefinedKind": "Void"
+          },
+          "attributes": []
+        },
+        "isStatic": false,
+        "isGeneric": false,
+        "isReadOnly": false,
+        "hasArglistParameter": false,
+        "accessModifier": "Public",
+        "inheritance": {
+          "kind": "None"
+        },
+        "parameters": [
+          {
+            "name": "Identifier",
+            "position": 0,
+            "modifiers": "Out, Scoped",
+            "type": {
+              "localName": "string",
+              "nullability": "NonNullable",
+              "usageKind": "Predefined",
+              "predefinedKind": "String"
+            },
+            "hasDefaultValue": false,
+            "defaultValue": null,
+            "attributes": []
+          },
+          {
+            "name": "Level",
+            "position": 1,
+            "modifiers": "Out, Scoped",
+            "type": {
+              "localName": "int",
+              "nullability": "NonNullable",
+              "usageKind": "Predefined",
+              "predefinedKind": "Int"
+            },
+            "hasDefaultValue": false,
+            "defaultValue": null,
+            "attributes": []
+          }
+        ],
+        "genericParameters": [],
+        "attributes": [],
+        "localFunctions": []
+      }
+    ],
+    "properties": [
+      {
+        "name": "Identifier",
+        "declaringType": "TestCases.CustomPrintRecord",
+        "type": {
+          "localName": "string",
+          "nullability": "NonNullable",
+          "usageKind": "Predefined",
+          "predefinedKind": "String"
+        },
+        "accessModifier": "Public",
+        "isStatic": false,
+        "inheritance": {
+          "kind": "None"
+        },
+        "attributes": [],
+        "accessors": [
+          {
+            "kind": "get",
+            "isReadOnly": false,
+            "returnInfo": {
+              "type": {
+                "localName": "string",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "String"
+              },
+              "attributes": []
+            },
+            "attributes": [],
+            "accessModifier": "Public",
+            "localFunctions": []
+          },
+          {
+            "kind": "init",
+            "isReadOnly": false,
+            "returnInfo": {
+              "type": {
+                "localName": "void",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "Void"
+              },
+              "attributes": []
+            },
+            "attributes": [],
+            "accessModifier": "Public",
+            "valueParameter": {
+              "name": "value",
+              "position": 0,
+              "modifiers": "None",
+              "type": {
+                "localName": "string",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "String"
+              },
+              "hasDefaultValue": false,
+              "defaultValue": null,
+              "attributes": []
+            },
+            "localFunctions": []
+          }
+        ],
+        "backingFieldName": "<Identifier>k__BackingField"
+      },
+      {
+        "name": "Level",
+        "declaringType": "TestCases.CustomPrintRecord",
+        "type": {
+          "localName": "int",
+          "nullability": "NonNullable",
+          "usageKind": "Predefined",
+          "predefinedKind": "Int"
+        },
+        "accessModifier": "Public",
+        "isStatic": false,
+        "inheritance": {
+          "kind": "None"
+        },
+        "attributes": [],
+        "accessors": [
+          {
+            "kind": "get",
+            "isReadOnly": false,
+            "returnInfo": {
+              "type": {
+                "localName": "int",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "Int"
+              },
+              "attributes": []
+            },
+            "attributes": [],
+            "accessModifier": "Public",
+            "localFunctions": []
+          },
+          {
+            "kind": "init",
+            "isReadOnly": false,
+            "returnInfo": {
+              "type": {
+                "localName": "void",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "Void"
+              },
+              "attributes": []
+            },
+            "attributes": [],
+            "accessModifier": "Public",
+            "valueParameter": {
+              "name": "value",
+              "position": 0,
+              "modifiers": "None",
+              "type": {
+                "localName": "int",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "Int"
+              },
+              "hasDefaultValue": false,
+              "defaultValue": null,
+              "attributes": []
+            },
+            "localFunctions": []
+          }
+        ],
+        "backingFieldName": "<Level>k__BackingField"
+      },
+      {
+        "name": "Description",
+        "declaringType": "TestCases.CustomPrintRecord",
+        "type": {
+          "localName": "string",
+          "nullability": "NonNullable",
+          "usageKind": "Predefined",
+          "predefinedKind": "String"
+        },
+        "accessModifier": "Public",
+        "isStatic": false,
+        "inheritance": {
+          "kind": "None"
+        },
+        "attributes": [],
+        "accessors": [
+          {
+            "kind": "get",
+            "isReadOnly": false,
+            "returnInfo": {
+              "type": {
+                "localName": "string",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "String"
+              },
+              "attributes": []
+            },
+            "attributes": [],
+            "accessModifier": "Public",
+            "localFunctions": []
+          },
+          {
+            "kind": "set",
+            "isReadOnly": false,
+            "returnInfo": {
+              "type": {
+                "localName": "void",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "Void"
+              },
+              "attributes": []
+            },
+            "attributes": [],
+            "accessModifier": "Public",
+            "valueParameter": {
+              "name": "value",
+              "position": 0,
+              "modifiers": "None",
+              "type": {
+                "localName": "string",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "String"
+              },
+              "hasDefaultValue": false,
+              "defaultValue": null,
+              "attributes": []
+            },
+            "localFunctions": []
+          }
+        ],
+        "backingFieldName": "<Description>k__BackingField"
+      }
+    ],
+    "indexers": [],
+    "events": [],
+    "instanceConstructors": [
+      {
+        "declaringType": "TestCases.CustomPrintRecord",
+        "accessModifier": "Public",
+        "isPrimary": true,
+        "parameters": [
+          {
+            "name": "Identifier",
+            "position": 0,
+            "modifiers": "None",
+            "type": {
+              "localName": "string",
+              "nullability": "NonNullable",
+              "usageKind": "Predefined",
+              "predefinedKind": "String"
+            },
+            "hasDefaultValue": false,
+            "defaultValue": null,
+            "attributes": []
+          },
+          {
+            "name": "Level",
+            "position": 1,
+            "modifiers": "None",
+            "type": {
+              "localName": "int",
+              "nullability": "NonNullable",
+              "usageKind": "Predefined",
+              "predefinedKind": "Int"
+            },
+            "hasDefaultValue": false,
+            "defaultValue": null,
+            "attributes": []
+          }
+        ],
+        "attributes": [],
+        "localFunctions": []
+      },
+      {
+        "declaringType": "TestCases.CustomPrintRecord",
+        "accessModifier": "Protected",
+        "isPrimary": false,
+        "parameters": [
+          {
+            "name": "original",
+            "position": 0,
+            "modifiers": "None",
+            "type": {
+              "localName": "CustomPrintRecord",
+              "nullability": "NonNullable",
+              "usageKind": "Plain",
+              "typeDefinition": "TestCases.CustomPrintRecord"
+            },
+            "hasDefaultValue": false,
+            "defaultValue": null,
+            "attributes": []
+          }
+        ],
+        "attributes": [],
+        "localFunctions": []
+      }
+    ],
+    "staticConstructor": null,
+    "operators": [
+      {
+        "accessModifier": "Public",
+        "inheritance": {
+          "kind": "None"
+        },
+        "operatorKind": "Binary",
+        "binaryKind": "NotEquals",
+        "isChecked": false,
+        "leftOperand": {
+          "name": "left",
+          "position": 0,
+          "modifiers": "None",
+          "type": {
+            "localName": "CustomPrintRecord?",
+            "nullability": "Nullable",
+            "usageKind": "Plain",
+            "typeDefinition": "TestCases.CustomPrintRecord?"
+          },
+          "hasDefaultValue": false,
+          "defaultValue": null,
+          "attributes": []
+        },
+        "rightOperand": {
+          "name": "right",
+          "position": 1,
+          "modifiers": "None",
+          "type": {
+            "localName": "CustomPrintRecord?",
+            "nullability": "Nullable",
+            "usageKind": "Plain",
+            "typeDefinition": "TestCases.CustomPrintRecord?"
+          },
+          "hasDefaultValue": false,
+          "defaultValue": null,
+          "attributes": []
+        },
+        "returnInfo": {
+          "type": {
+            "localName": "bool",
+            "nullability": "NonNullable",
+            "usageKind": "Predefined",
+            "predefinedKind": "Bool"
+          },
+          "attributes": []
+        },
+        "localFunctions": []
+      },
+      {
+        "accessModifier": "Public",
+        "inheritance": {
+          "kind": "None"
+        },
+        "operatorKind": "Binary",
+        "binaryKind": "Equals",
+        "isChecked": false,
+        "leftOperand": {
+          "name": "left",
+          "position": 0,
+          "modifiers": "None",
+          "type": {
+            "localName": "CustomPrintRecord?",
+            "nullability": "Nullable",
+            "usageKind": "Plain",
+            "typeDefinition": "TestCases.CustomPrintRecord?"
+          },
+          "hasDefaultValue": false,
+          "defaultValue": null,
+          "attributes": []
+        },
+        "rightOperand": {
+          "name": "right",
+          "position": 1,
+          "modifiers": "None",
+          "type": {
+            "localName": "CustomPrintRecord?",
+            "nullability": "Nullable",
+            "usageKind": "Plain",
+            "typeDefinition": "TestCases.CustomPrintRecord?"
+          },
+          "hasDefaultValue": false,
+          "defaultValue": null,
+          "attributes": []
+        },
+        "returnInfo": {
+          "type": {
+            "localName": "bool",
+            "nullability": "NonNullable",
+            "usageKind": "Predefined",
+            "predefinedKind": "Bool"
+          },
+          "attributes": []
+        },
+        "localFunctions": []
+      }
+    ],
+    "attributes": [],
+    "nestedTypes": []
+  },
+  {
+    "kind": "RecordStruct",
+    "localName": "MutableRecordStruct",
+    "fullyQualifiedName": "TestCases.MutableRecordStruct",
+    "namespace": "TestCases",
+    "accessModifier": "Public",
+    "containingType": null,
+    "isReadOnly": false,
+    "genericParameters": [],
+    "directInterfaces": [
+      {
+        "localName": "IEquatable<MutableRecordStruct>",
+        "nullability": "Oblivious",
+        "usageKind": "BoundGeneric",
+        "typeDefinition": "System.IEquatable<T>",
+        "typeArguments": [
+          {
+            "localName": "MutableRecordStruct",
+            "nullability": "NonNullable",
+            "usageKind": "Plain",
+            "typeDefinition": "TestCases.MutableRecordStruct"
+          }
+        ]
+      }
+    ],
+    "fields": [],
+    "methods": [
+      {
+        "name": "DistanceToOrigin",
+        "declaringType": "TestCases.MutableRecordStruct",
+        "returnInfo": {
+          "type": {
+            "localName": "double",
+            "nullability": "NonNullable",
+            "usageKind": "Predefined",
+            "predefinedKind": "Double"
+          },
+          "attributes": []
+        },
+        "isStatic": false,
+        "isGeneric": false,
+        "isReadOnly": true,
+        "hasArglistParameter": false,
+        "accessModifier": "Public",
+        "inheritance": {
+          "kind": "None"
+        },
+        "parameters": [],
+        "genericParameters": [],
+        "attributes": [],
+        "localFunctions": []
+      },
+      {
+        "name": "Scale",
+        "declaringType": "TestCases.MutableRecordStruct",
+        "returnInfo": {
+          "type": {
+            "localName": "void",
+            "nullability": "NonNullable",
+            "usageKind": "Predefined",
+            "predefinedKind": "Void"
+          },
+          "attributes": []
+        },
+        "isStatic": false,
+        "isGeneric": false,
+        "isReadOnly": false,
+        "hasArglistParameter": false,
+        "accessModifier": "Public",
+        "inheritance": {
+          "kind": "None"
+        },
+        "parameters": [
+          {
+            "name": "factor",
+            "position": 0,
+            "modifiers": "None",
+            "type": {
+              "localName": "double",
+              "nullability": "NonNullable",
+              "usageKind": "Predefined",
+              "predefinedKind": "Double"
+            },
+            "hasDefaultValue": false,
+            "defaultValue": null,
+            "attributes": []
+          }
+        ],
+        "genericParameters": [],
+        "attributes": [],
+        "localFunctions": []
+      },
+      {
+        "name": "PrintMembers",
+        "declaringType": "TestCases.MutableRecordStruct",
+        "returnInfo": {
+          "type": {
+            "localName": "bool",
+            "nullability": "NonNullable",
+            "usageKind": "Predefined",
+            "predefinedKind": "Bool"
+          },
+          "attributes": []
+        },
+        "isStatic": false,
+        "isGeneric": false,
+        "isReadOnly": true,
+        "hasArglistParameter": false,
+        "accessModifier": "Private",
+        "inheritance": {
+          "kind": "None"
+        },
+        "parameters": [
+          {
+            "name": "builder",
+            "position": 0,
+            "modifiers": "None",
+            "type": {
+              "localName": "StringBuilder",
+              "nullability": "Oblivious",
+              "usageKind": "Plain",
+              "typeDefinition": "System.Text.StringBuilder"
+            },
+            "hasDefaultValue": false,
+            "defaultValue": null,
+            "attributes": []
+          }
+        ],
+        "genericParameters": [],
+        "attributes": [],
+        "localFunctions": []
+      },
+      {
+        "name": "Deconstruct",
+        "declaringType": "TestCases.MutableRecordStruct",
+        "returnInfo": {
+          "type": {
+            "localName": "void",
+            "nullability": "NonNullable",
+            "usageKind": "Predefined",
+            "predefinedKind": "Void"
+          },
+          "attributes": []
+        },
+        "isStatic": false,
+        "isGeneric": false,
+        "isReadOnly": true,
+        "hasArglistParameter": false,
+        "accessModifier": "Public",
+        "inheritance": {
+          "kind": "None"
+        },
+        "parameters": [
+          {
+            "name": "X",
+            "position": 0,
+            "modifiers": "Out, Scoped",
+            "type": {
+              "localName": "double",
+              "nullability": "NonNullable",
+              "usageKind": "Predefined",
+              "predefinedKind": "Double"
+            },
+            "hasDefaultValue": false,
+            "defaultValue": null,
+            "attributes": []
+          },
+          {
+            "name": "Y",
+            "position": 1,
+            "modifiers": "Out, Scoped",
+            "type": {
+              "localName": "double",
+              "nullability": "NonNullable",
+              "usageKind": "Predefined",
+              "predefinedKind": "Double"
+            },
+            "hasDefaultValue": false,
+            "defaultValue": null,
+            "attributes": []
+          }
+        ],
+        "genericParameters": [],
+        "attributes": [],
+        "localFunctions": []
+      }
+    ],
+    "properties": [
+      {
+        "name": "X",
+        "declaringType": "TestCases.MutableRecordStruct",
+        "type": {
+          "localName": "double",
+          "nullability": "NonNullable",
+          "usageKind": "Predefined",
+          "predefinedKind": "Double"
+        },
+        "accessModifier": "Public",
+        "isStatic": false,
+        "inheritance": {
+          "kind": "None"
+        },
+        "attributes": [],
+        "accessors": [
+          {
+            "kind": "get",
+            "isReadOnly": true,
+            "returnInfo": {
+              "type": {
+                "localName": "double",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "Double"
+              },
+              "attributes": []
+            },
+            "attributes": [],
+            "accessModifier": "Public",
+            "localFunctions": []
+          },
+          {
+            "kind": "set",
+            "isReadOnly": false,
+            "returnInfo": {
+              "type": {
+                "localName": "void",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "Void"
+              },
+              "attributes": []
+            },
+            "attributes": [],
+            "accessModifier": "Public",
+            "valueParameter": {
+              "name": "value",
+              "position": 0,
+              "modifiers": "None",
+              "type": {
+                "localName": "double",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "Double"
+              },
+              "hasDefaultValue": false,
+              "defaultValue": null,
+              "attributes": []
+            },
+            "localFunctions": []
+          }
+        ],
+        "backingFieldName": "<X>k__BackingField"
+      },
+      {
+        "name": "Y",
+        "declaringType": "TestCases.MutableRecordStruct",
+        "type": {
+          "localName": "double",
+          "nullability": "NonNullable",
+          "usageKind": "Predefined",
+          "predefinedKind": "Double"
+        },
+        "accessModifier": "Public",
+        "isStatic": false,
+        "inheritance": {
+          "kind": "None"
+        },
+        "attributes": [],
+        "accessors": [
+          {
+            "kind": "get",
+            "isReadOnly": true,
+            "returnInfo": {
+              "type": {
+                "localName": "double",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "Double"
+              },
+              "attributes": []
+            },
+            "attributes": [],
+            "accessModifier": "Public",
+            "localFunctions": []
+          },
+          {
+            "kind": "set",
+            "isReadOnly": false,
+            "returnInfo": {
+              "type": {
+                "localName": "void",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "Void"
+              },
+              "attributes": []
+            },
+            "attributes": [],
+            "accessModifier": "Public",
+            "valueParameter": {
+              "name": "value",
+              "position": 0,
+              "modifiers": "None",
+              "type": {
+                "localName": "double",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "Double"
+              },
+              "hasDefaultValue": false,
+              "defaultValue": null,
+              "attributes": []
+            },
+            "localFunctions": []
+          }
+        ],
+        "backingFieldName": "<Y>k__BackingField"
+      }
+    ],
+    "indexers": [],
+    "events": [],
+    "instanceConstructors": [
+      {
+        "declaringType": "TestCases.MutableRecordStruct",
+        "accessModifier": "Public",
+        "isPrimary": true,
+        "parameters": [
+          {
+            "name": "X",
+            "position": 0,
+            "modifiers": "None",
+            "type": {
+              "localName": "double",
+              "nullability": "NonNullable",
+              "usageKind": "Predefined",
+              "predefinedKind": "Double"
+            },
+            "hasDefaultValue": false,
+            "defaultValue": null,
+            "attributes": []
+          },
+          {
+            "name": "Y",
+            "position": 1,
+            "modifiers": "None",
+            "type": {
+              "localName": "double",
+              "nullability": "NonNullable",
+              "usageKind": "Predefined",
+              "predefinedKind": "Double"
+            },
+            "hasDefaultValue": false,
+            "defaultValue": null,
+            "attributes": []
+          }
+        ],
+        "attributes": [],
+        "localFunctions": []
+      },
+      {
+        "declaringType": "TestCases.MutableRecordStruct",
+        "accessModifier": "Public",
+        "isPrimary": false,
+        "parameters": [],
+        "attributes": [],
+        "localFunctions": []
+      }
+    ],
+    "staticConstructor": null,
+    "operators": [
+      {
+        "accessModifier": "Public",
+        "inheritance": {
+          "kind": "None"
+        },
+        "operatorKind": "Binary",
+        "binaryKind": "NotEquals",
+        "isChecked": false,
+        "leftOperand": {
+          "name": "left",
+          "position": 0,
+          "modifiers": "None",
+          "type": {
+            "localName": "MutableRecordStruct",
+            "nullability": "NonNullable",
+            "usageKind": "Plain",
+            "typeDefinition": "TestCases.MutableRecordStruct"
+          },
+          "hasDefaultValue": false,
+          "defaultValue": null,
+          "attributes": []
+        },
+        "rightOperand": {
+          "name": "right",
+          "position": 1,
+          "modifiers": "None",
+          "type": {
+            "localName": "MutableRecordStruct",
+            "nullability": "NonNullable",
+            "usageKind": "Plain",
+            "typeDefinition": "TestCases.MutableRecordStruct"
+          },
+          "hasDefaultValue": false,
+          "defaultValue": null,
+          "attributes": []
+        },
+        "returnInfo": {
+          "type": {
+            "localName": "bool",
+            "nullability": "NonNullable",
+            "usageKind": "Predefined",
+            "predefinedKind": "Bool"
+          },
+          "attributes": []
+        },
+        "localFunctions": []
+      },
+      {
+        "accessModifier": "Public",
+        "inheritance": {
+          "kind": "None"
+        },
+        "operatorKind": "Binary",
+        "binaryKind": "Equals",
+        "isChecked": false,
+        "leftOperand": {
+          "name": "left",
+          "position": 0,
+          "modifiers": "None",
+          "type": {
+            "localName": "MutableRecordStruct",
+            "nullability": "NonNullable",
+            "usageKind": "Plain",
+            "typeDefinition": "TestCases.MutableRecordStruct"
+          },
+          "hasDefaultValue": false,
+          "defaultValue": null,
+          "attributes": []
+        },
+        "rightOperand": {
+          "name": "right",
+          "position": 1,
+          "modifiers": "None",
+          "type": {
+            "localName": "MutableRecordStruct",
+            "nullability": "NonNullable",
+            "usageKind": "Plain",
+            "typeDefinition": "TestCases.MutableRecordStruct"
+          },
+          "hasDefaultValue": false,
+          "defaultValue": null,
+          "attributes": []
+        },
+        "returnInfo": {
+          "type": {
+            "localName": "bool",
+            "nullability": "NonNullable",
+            "usageKind": "Predefined",
+            "predefinedKind": "Bool"
+          },
+          "attributes": []
+        },
+        "localFunctions": []
+      }
+    ],
+    "attributes": [],
+    "nestedTypes": []
+  },
+  {
+    "kind": "RecordStruct",
+    "localName": "ReadOnlyRecordPoint",
+    "fullyQualifiedName": "TestCases.ReadOnlyRecordPoint",
+    "namespace": "TestCases",
+    "accessModifier": "Public",
+    "containingType": null,
+    "isReadOnly": true,
+    "genericParameters": [],
+    "directInterfaces": [
+      {
+        "localName": "IEquatable<ReadOnlyRecordPoint>",
+        "nullability": "Oblivious",
+        "usageKind": "BoundGeneric",
+        "typeDefinition": "System.IEquatable<T>",
+        "typeArguments": [
+          {
+            "localName": "ReadOnlyRecordPoint",
+            "nullability": "NonNullable",
+            "usageKind": "Plain",
+            "typeDefinition": "TestCases.ReadOnlyRecordPoint"
+          }
+        ]
+      }
+    ],
+    "fields": [],
+    "methods": [
+      {
+        "name": "PrintMembers",
+        "declaringType": "TestCases.ReadOnlyRecordPoint",
+        "returnInfo": {
+          "type": {
+            "localName": "bool",
+            "nullability": "NonNullable",
+            "usageKind": "Predefined",
+            "predefinedKind": "Bool"
+          },
+          "attributes": []
+        },
+        "isStatic": false,
+        "isGeneric": false,
+        "isReadOnly": true,
+        "hasArglistParameter": false,
+        "accessModifier": "Private",
+        "inheritance": {
+          "kind": "None"
+        },
+        "parameters": [
+          {
+            "name": "builder",
+            "position": 0,
+            "modifiers": "None",
+            "type": {
+              "localName": "StringBuilder",
+              "nullability": "Oblivious",
+              "usageKind": "Plain",
+              "typeDefinition": "System.Text.StringBuilder"
+            },
+            "hasDefaultValue": false,
+            "defaultValue": null,
+            "attributes": []
+          }
+        ],
+        "genericParameters": [],
+        "attributes": [],
+        "localFunctions": []
+      },
+      {
+        "name": "Deconstruct",
+        "declaringType": "TestCases.ReadOnlyRecordPoint",
+        "returnInfo": {
+          "type": {
+            "localName": "void",
+            "nullability": "NonNullable",
+            "usageKind": "Predefined",
+            "predefinedKind": "Void"
+          },
+          "attributes": []
+        },
+        "isStatic": false,
+        "isGeneric": false,
+        "isReadOnly": true,
+        "hasArglistParameter": false,
+        "accessModifier": "Public",
+        "inheritance": {
+          "kind": "None"
+        },
+        "parameters": [
+          {
+            "name": "X",
+            "position": 0,
+            "modifiers": "Out, Scoped",
+            "type": {
+              "localName": "int",
+              "nullability": "NonNullable",
+              "usageKind": "Predefined",
+              "predefinedKind": "Int"
+            },
+            "hasDefaultValue": false,
+            "defaultValue": null,
+            "attributes": []
+          },
+          {
+            "name": "Y",
+            "position": 1,
+            "modifiers": "Out, Scoped",
+            "type": {
+              "localName": "int",
+              "nullability": "NonNullable",
+              "usageKind": "Predefined",
+              "predefinedKind": "Int"
+            },
+            "hasDefaultValue": false,
+            "defaultValue": null,
+            "attributes": []
+          },
+          {
+            "name": "Z",
+            "position": 2,
+            "modifiers": "Out, Scoped",
+            "type": {
+              "localName": "int",
+              "nullability": "NonNullable",
+              "usageKind": "Predefined",
+              "predefinedKind": "Int"
+            },
+            "hasDefaultValue": false,
+            "defaultValue": null,
+            "attributes": []
+          }
+        ],
+        "genericParameters": [],
+        "attributes": [],
+        "localFunctions": []
+      }
+    ],
+    "properties": [
+      {
+        "name": "X",
+        "declaringType": "TestCases.ReadOnlyRecordPoint",
+        "type": {
+          "localName": "int",
+          "nullability": "NonNullable",
+          "usageKind": "Predefined",
+          "predefinedKind": "Int"
+        },
+        "accessModifier": "Public",
+        "isStatic": false,
+        "inheritance": {
+          "kind": "None"
+        },
+        "attributes": [],
+        "accessors": [
+          {
+            "kind": "get",
+            "isReadOnly": true,
+            "returnInfo": {
+              "type": {
+                "localName": "int",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "Int"
+              },
+              "attributes": []
+            },
+            "attributes": [],
+            "accessModifier": "Public",
+            "localFunctions": []
+          },
+          {
+            "kind": "init",
+            "isReadOnly": false,
+            "returnInfo": {
+              "type": {
+                "localName": "void",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "Void"
+              },
+              "attributes": []
+            },
+            "attributes": [],
+            "accessModifier": "Public",
+            "valueParameter": {
+              "name": "value",
+              "position": 0,
+              "modifiers": "None",
+              "type": {
+                "localName": "int",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "Int"
+              },
+              "hasDefaultValue": false,
+              "defaultValue": null,
+              "attributes": []
+            },
+            "localFunctions": []
+          }
+        ],
+        "backingFieldName": "<X>k__BackingField"
+      },
+      {
+        "name": "Y",
+        "declaringType": "TestCases.ReadOnlyRecordPoint",
+        "type": {
+          "localName": "int",
+          "nullability": "NonNullable",
+          "usageKind": "Predefined",
+          "predefinedKind": "Int"
+        },
+        "accessModifier": "Public",
+        "isStatic": false,
+        "inheritance": {
+          "kind": "None"
+        },
+        "attributes": [],
+        "accessors": [
+          {
+            "kind": "get",
+            "isReadOnly": true,
+            "returnInfo": {
+              "type": {
+                "localName": "int",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "Int"
+              },
+              "attributes": []
+            },
+            "attributes": [],
+            "accessModifier": "Public",
+            "localFunctions": []
+          },
+          {
+            "kind": "init",
+            "isReadOnly": false,
+            "returnInfo": {
+              "type": {
+                "localName": "void",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "Void"
+              },
+              "attributes": []
+            },
+            "attributes": [],
+            "accessModifier": "Public",
+            "valueParameter": {
+              "name": "value",
+              "position": 0,
+              "modifiers": "None",
+              "type": {
+                "localName": "int",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "Int"
+              },
+              "hasDefaultValue": false,
+              "defaultValue": null,
+              "attributes": []
+            },
+            "localFunctions": []
+          }
+        ],
+        "backingFieldName": "<Y>k__BackingField"
+      },
+      {
+        "name": "Z",
+        "declaringType": "TestCases.ReadOnlyRecordPoint",
+        "type": {
+          "localName": "int",
+          "nullability": "NonNullable",
+          "usageKind": "Predefined",
+          "predefinedKind": "Int"
+        },
+        "accessModifier": "Public",
+        "isStatic": false,
+        "inheritance": {
+          "kind": "None"
+        },
+        "attributes": [],
+        "accessors": [
+          {
+            "kind": "get",
+            "isReadOnly": true,
+            "returnInfo": {
+              "type": {
+                "localName": "int",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "Int"
+              },
+              "attributes": []
+            },
+            "attributes": [],
+            "accessModifier": "Public",
+            "localFunctions": []
+          },
+          {
+            "kind": "init",
+            "isReadOnly": false,
+            "returnInfo": {
+              "type": {
+                "localName": "void",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "Void"
+              },
+              "attributes": []
+            },
+            "attributes": [],
+            "accessModifier": "Public",
+            "valueParameter": {
+              "name": "value",
+              "position": 0,
+              "modifiers": "None",
+              "type": {
+                "localName": "int",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "Int"
+              },
+              "hasDefaultValue": false,
+              "defaultValue": null,
+              "attributes": []
+            },
+            "localFunctions": []
+          }
+        ],
+        "backingFieldName": "<Z>k__BackingField"
+      },
+      {
+        "name": "Origin",
+        "declaringType": "TestCases.ReadOnlyRecordPoint",
+        "type": {
+          "localName": "ReadOnlyRecordPoint",
+          "nullability": "NonNullable",
+          "usageKind": "Plain",
+          "typeDefinition": "TestCases.ReadOnlyRecordPoint"
+        },
+        "accessModifier": "Public",
+        "isStatic": true,
+        "inheritance": {
+          "kind": "None"
+        },
+        "attributes": [],
+        "accessors": [
+          {
+            "kind": "get",
+            "isReadOnly": false,
+            "returnInfo": {
+              "type": {
+                "localName": "ReadOnlyRecordPoint",
+                "nullability": "NonNullable",
+                "usageKind": "Plain",
+                "typeDefinition": "TestCases.ReadOnlyRecordPoint"
+              },
+              "attributes": []
+            },
+            "attributes": [],
+            "accessModifier": "Public",
+            "localFunctions": []
+          }
+        ]
+      }
+    ],
+    "indexers": [],
+    "events": [],
+    "instanceConstructors": [
+      {
+        "declaringType": "TestCases.ReadOnlyRecordPoint",
+        "accessModifier": "Public",
+        "isPrimary": true,
+        "parameters": [
+          {
+            "name": "X",
+            "position": 0,
+            "modifiers": "None",
+            "type": {
+              "localName": "int",
+              "nullability": "NonNullable",
+              "usageKind": "Predefined",
+              "predefinedKind": "Int"
+            },
+            "hasDefaultValue": false,
+            "defaultValue": null,
+            "attributes": []
+          },
+          {
+            "name": "Y",
+            "position": 1,
+            "modifiers": "None",
+            "type": {
+              "localName": "int",
+              "nullability": "NonNullable",
+              "usageKind": "Predefined",
+              "predefinedKind": "Int"
+            },
+            "hasDefaultValue": false,
+            "defaultValue": null,
+            "attributes": []
+          },
+          {
+            "name": "Z",
+            "position": 2,
+            "modifiers": "None",
+            "type": {
+              "localName": "int",
+              "nullability": "NonNullable",
+              "usageKind": "Predefined",
+              "predefinedKind": "Int"
+            },
+            "hasDefaultValue": false,
+            "defaultValue": null,
+            "attributes": []
+          }
+        ],
+        "attributes": [],
+        "localFunctions": []
+      },
+      {
+        "declaringType": "TestCases.ReadOnlyRecordPoint",
+        "accessModifier": "Public",
+        "isPrimary": false,
+        "parameters": [],
+        "attributes": [],
+        "localFunctions": []
+      }
+    ],
+    "staticConstructor": null,
+    "operators": [
+      {
+        "accessModifier": "Public",
+        "inheritance": {
+          "kind": "None"
+        },
+        "operatorKind": "Binary",
+        "binaryKind": "NotEquals",
+        "isChecked": false,
+        "leftOperand": {
+          "name": "left",
+          "position": 0,
+          "modifiers": "None",
+          "type": {
+            "localName": "ReadOnlyRecordPoint",
+            "nullability": "NonNullable",
+            "usageKind": "Plain",
+            "typeDefinition": "TestCases.ReadOnlyRecordPoint"
+          },
+          "hasDefaultValue": false,
+          "defaultValue": null,
+          "attributes": []
+        },
+        "rightOperand": {
+          "name": "right",
+          "position": 1,
+          "modifiers": "None",
+          "type": {
+            "localName": "ReadOnlyRecordPoint",
+            "nullability": "NonNullable",
+            "usageKind": "Plain",
+            "typeDefinition": "TestCases.ReadOnlyRecordPoint"
+          },
+          "hasDefaultValue": false,
+          "defaultValue": null,
+          "attributes": []
+        },
+        "returnInfo": {
+          "type": {
+            "localName": "bool",
+            "nullability": "NonNullable",
+            "usageKind": "Predefined",
+            "predefinedKind": "Bool"
+          },
+          "attributes": []
+        },
+        "localFunctions": []
+      },
+      {
+        "accessModifier": "Public",
+        "inheritance": {
+          "kind": "None"
+        },
+        "operatorKind": "Binary",
+        "binaryKind": "Equals",
+        "isChecked": false,
+        "leftOperand": {
+          "name": "left",
+          "position": 0,
+          "modifiers": "None",
+          "type": {
+            "localName": "ReadOnlyRecordPoint",
+            "nullability": "NonNullable",
+            "usageKind": "Plain",
+            "typeDefinition": "TestCases.ReadOnlyRecordPoint"
+          },
+          "hasDefaultValue": false,
+          "defaultValue": null,
+          "attributes": []
+        },
+        "rightOperand": {
+          "name": "right",
+          "position": 1,
+          "modifiers": "None",
+          "type": {
+            "localName": "ReadOnlyRecordPoint",
+            "nullability": "NonNullable",
+            "usageKind": "Plain",
+            "typeDefinition": "TestCases.ReadOnlyRecordPoint"
+          },
+          "hasDefaultValue": false,
+          "defaultValue": null,
+          "attributes": []
+        },
+        "returnInfo": {
+          "type": {
+            "localName": "bool",
+            "nullability": "NonNullable",
+            "usageKind": "Predefined",
+            "predefinedKind": "Bool"
+          },
+          "attributes": []
+        },
+        "localFunctions": []
+      }
+    ],
+    "attributes": [],
+    "nestedTypes": []
+  },
+  {
+    "kind": "RecordClass",
+    "localName": "GenericRecordPair",
+    "fullyQualifiedName": "TestCases.GenericRecordPair<TKey, TVal>",
+    "namespace": "TestCases",
+    "accessModifier": "Public",
+    "containingType": null,
+    "isSealed": false,
+    "baseType": null,
+    "genericParameters": [
+      {
+        "name": "TKey",
+        "position": 0,
+        "variance": "Invariant",
+        "source": "TestCases.GenericRecordPair<TKey, TVal>",
+        "hasReferenceTypeConstraint": false,
+        "hasNullableReferenceTypeConstraint": false,
+        "hasNotNullConstraint": true,
+        "hasValueTypeConstraint": false,
+        "hasUnmanagedTypeConstraint": false,
+        "hasConstructorConstraint": false,
+        "hasAllowsRefStructConstraint": false,
+        "hasDefaultConstraint": false,
+        "constraintTypes": [
+          {
+            "localName": "IComparable<TKey>",
+            "nullability": "NonNullable",
+            "usageKind": "BoundGeneric",
+            "typeDefinition": "System.IComparable<T>",
+            "typeArguments": [
+              {
+                "localName": "TKey",
+                "nullability": "NonNullable",
+                "usageKind": "Placeholder",
+                "placeholderName": "TKey",
+                "placeholderPosition": 0,
+                "placeholderSource": "TestCases.GenericRecordPair<TKey, TVal>"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "TVal",
+        "position": 1,
+        "variance": "Invariant",
+        "source": "TestCases.GenericRecordPair<TKey, TVal>",
+        "hasReferenceTypeConstraint": false,
+        "hasNullableReferenceTypeConstraint": true,
+        "hasNotNullConstraint": false,
+        "hasValueTypeConstraint": false,
+        "hasUnmanagedTypeConstraint": false,
+        "hasConstructorConstraint": false,
+        "hasAllowsRefStructConstraint": false,
+        "hasDefaultConstraint": false,
+        "constraintTypes": []
+      }
+    ],
+    "directInterfaces": [
+      {
+        "localName": "IEquatable<GenericRecordPair>",
+        "nullability": "Oblivious",
+        "usageKind": "BoundGeneric",
+        "typeDefinition": "System.IEquatable<T>",
+        "typeArguments": [
+          {
+            "localName": "GenericRecordPair",
+            "nullability": "Oblivious",
+            "usageKind": "Plain",
+            "typeDefinition": "TestCases.GenericRecordPair<TKey, TVal>"
+          }
+        ]
+      }
+    ],
+    "fields": [],
+    "methods": [
+      {
+        "name": "PrintMembers",
+        "declaringType": "TestCases.GenericRecordPair<TKey, TVal>",
+        "returnInfo": {
+          "type": {
+            "localName": "bool",
+            "nullability": "NonNullable",
+            "usageKind": "Predefined",
+            "predefinedKind": "Bool"
+          },
+          "attributes": []
+        },
+        "isStatic": false,
+        "isGeneric": false,
+        "isReadOnly": false,
+        "hasArglistParameter": false,
+        "accessModifier": "Protected",
+        "inheritance": {
+          "kind": "Virtual"
+        },
+        "parameters": [
+          {
+            "name": "builder",
+            "position": 0,
+            "modifiers": "None",
+            "type": {
+              "localName": "StringBuilder",
+              "nullability": "NonNullable",
+              "usageKind": "Plain",
+              "typeDefinition": "System.Text.StringBuilder"
+            },
+            "hasDefaultValue": false,
+            "defaultValue": null,
+            "attributes": []
+          }
+        ],
+        "genericParameters": [],
+        "attributes": [],
+        "localFunctions": []
+      },
+      {
+        "name": "Deconstruct",
+        "declaringType": "TestCases.GenericRecordPair<TKey, TVal>",
+        "returnInfo": {
+          "type": {
+            "localName": "void",
+            "nullability": "NonNullable",
+            "usageKind": "Predefined",
+            "predefinedKind": "Void"
+          },
+          "attributes": []
+        },
+        "isStatic": false,
+        "isGeneric": false,
+        "isReadOnly": false,
+        "hasArglistParameter": false,
+        "accessModifier": "Public",
+        "inheritance": {
+          "kind": "None"
+        },
+        "parameters": [
+          {
+            "name": "Key",
+            "position": 0,
+            "modifiers": "Out, Scoped",
+            "type": {
+              "localName": "TKey",
+              "nullability": "NonNullable",
+              "usageKind": "Placeholder",
+              "placeholderName": "TKey",
+              "placeholderPosition": 0,
+              "placeholderSource": "TestCases.GenericRecordPair<TKey, TVal>"
+            },
+            "hasDefaultValue": false,
+            "defaultValue": null,
+            "attributes": []
+          },
+          {
+            "name": "Value",
+            "position": 1,
+            "modifiers": "Out, Scoped",
+            "type": {
+              "localName": "TVal",
+              "nullability": "NonNullable",
+              "usageKind": "Placeholder",
+              "placeholderName": "TVal",
+              "placeholderPosition": 1,
+              "placeholderSource": "TestCases.GenericRecordPair<TKey, TVal>"
+            },
+            "hasDefaultValue": false,
+            "defaultValue": null,
+            "attributes": []
+          }
+        ],
+        "genericParameters": [],
+        "attributes": [],
+        "localFunctions": []
+      }
+    ],
+    "properties": [
+      {
+        "name": "Key",
+        "declaringType": "TestCases.GenericRecordPair<TKey, TVal>",
+        "type": {
+          "localName": "TKey",
+          "nullability": "NonNullable",
+          "usageKind": "Placeholder",
+          "placeholderName": "TKey",
+          "placeholderPosition": 0,
+          "placeholderSource": "TestCases.GenericRecordPair<TKey, TVal>"
+        },
+        "accessModifier": "Public",
+        "isStatic": false,
+        "inheritance": {
+          "kind": "None"
+        },
+        "attributes": [],
+        "accessors": [
+          {
+            "kind": "get",
+            "isReadOnly": false,
+            "returnInfo": {
+              "type": {
+                "localName": "TKey",
+                "nullability": "NonNullable",
+                "usageKind": "Placeholder",
+                "placeholderName": "TKey",
+                "placeholderPosition": 0,
+                "placeholderSource": "TestCases.GenericRecordPair<TKey, TVal>"
+              },
+              "attributes": []
+            },
+            "attributes": [],
+            "accessModifier": "Public",
+            "localFunctions": []
+          },
+          {
+            "kind": "init",
+            "isReadOnly": false,
+            "returnInfo": {
+              "type": {
+                "localName": "void",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "Void"
+              },
+              "attributes": []
+            },
+            "attributes": [],
+            "accessModifier": "Public",
+            "valueParameter": {
+              "name": "value",
+              "position": 0,
+              "modifiers": "None",
+              "type": {
+                "localName": "TKey",
+                "nullability": "NonNullable",
+                "usageKind": "Placeholder",
+                "placeholderName": "TKey",
+                "placeholderPosition": 0,
+                "placeholderSource": "TestCases.GenericRecordPair<TKey, TVal>"
+              },
+              "hasDefaultValue": false,
+              "defaultValue": null,
+              "attributes": []
+            },
+            "localFunctions": []
+          }
+        ],
+        "backingFieldName": "<Key>k__BackingField"
+      },
+      {
+        "name": "Value",
+        "declaringType": "TestCases.GenericRecordPair<TKey, TVal>",
+        "type": {
+          "localName": "TVal",
+          "nullability": "NonNullable",
+          "usageKind": "Placeholder",
+          "placeholderName": "TVal",
+          "placeholderPosition": 1,
+          "placeholderSource": "TestCases.GenericRecordPair<TKey, TVal>"
+        },
+        "accessModifier": "Public",
+        "isStatic": false,
+        "inheritance": {
+          "kind": "None"
+        },
+        "attributes": [],
+        "accessors": [
+          {
+            "kind": "get",
+            "isReadOnly": false,
+            "returnInfo": {
+              "type": {
+                "localName": "TVal",
+                "nullability": "NonNullable",
+                "usageKind": "Placeholder",
+                "placeholderName": "TVal",
+                "placeholderPosition": 1,
+                "placeholderSource": "TestCases.GenericRecordPair<TKey, TVal>"
+              },
+              "attributes": []
+            },
+            "attributes": [],
+            "accessModifier": "Public",
+            "localFunctions": []
+          },
+          {
+            "kind": "init",
+            "isReadOnly": false,
+            "returnInfo": {
+              "type": {
+                "localName": "void",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "Void"
+              },
+              "attributes": []
+            },
+            "attributes": [],
+            "accessModifier": "Public",
+            "valueParameter": {
+              "name": "value",
+              "position": 0,
+              "modifiers": "None",
+              "type": {
+                "localName": "TVal",
+                "nullability": "NonNullable",
+                "usageKind": "Placeholder",
+                "placeholderName": "TVal",
+                "placeholderPosition": 1,
+                "placeholderSource": "TestCases.GenericRecordPair<TKey, TVal>"
+              },
+              "hasDefaultValue": false,
+              "defaultValue": null,
+              "attributes": []
+            },
+            "localFunctions": []
+          }
+        ],
+        "backingFieldName": "<Value>k__BackingField"
+      },
+      {
+        "name": "HasValue",
+        "declaringType": "TestCases.GenericRecordPair<TKey, TVal>",
+        "type": {
+          "localName": "bool",
+          "nullability": "NonNullable",
+          "usageKind": "Predefined",
+          "predefinedKind": "Bool"
+        },
+        "accessModifier": "Public",
+        "isStatic": false,
+        "inheritance": {
+          "kind": "None"
+        },
+        "attributes": [],
+        "accessors": [
+          {
+            "kind": "get",
+            "isReadOnly": false,
+            "returnInfo": {
+              "type": {
+                "localName": "bool",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "Bool"
+              },
+              "attributes": []
+            },
+            "attributes": [],
+            "accessModifier": "Public",
+            "localFunctions": []
+          }
+        ]
+      }
+    ],
+    "indexers": [],
+    "events": [],
+    "instanceConstructors": [
+      {
+        "declaringType": "TestCases.GenericRecordPair<TKey, TVal>",
+        "accessModifier": "Public",
+        "isPrimary": true,
+        "parameters": [
+          {
+            "name": "Key",
+            "position": 0,
+            "modifiers": "None",
+            "type": {
+              "localName": "TKey",
+              "nullability": "NonNullable",
+              "usageKind": "Placeholder",
+              "placeholderName": "TKey",
+              "placeholderPosition": 0,
+              "placeholderSource": "TestCases.GenericRecordPair<TKey, TVal>"
+            },
+            "hasDefaultValue": false,
+            "defaultValue": null,
+            "attributes": []
+          },
+          {
+            "name": "Value",
+            "position": 1,
+            "modifiers": "None",
+            "type": {
+              "localName": "TVal",
+              "nullability": "NonNullable",
+              "usageKind": "Placeholder",
+              "placeholderName": "TVal",
+              "placeholderPosition": 1,
+              "placeholderSource": "TestCases.GenericRecordPair<TKey, TVal>"
+            },
+            "hasDefaultValue": false,
+            "defaultValue": null,
+            "attributes": []
+          }
+        ],
+        "attributes": [],
+        "localFunctions": []
+      },
+      {
+        "declaringType": "TestCases.GenericRecordPair<TKey, TVal>",
+        "accessModifier": "Protected",
+        "isPrimary": false,
+        "parameters": [
+          {
+            "name": "original",
+            "position": 0,
+            "modifiers": "None",
+            "type": {
+              "localName": "GenericRecordPair",
+              "nullability": "NonNullable",
+              "usageKind": "Plain",
+              "typeDefinition": "TestCases.GenericRecordPair<TKey, TVal>"
+            },
+            "hasDefaultValue": false,
+            "defaultValue": null,
+            "attributes": []
+          }
+        ],
+        "attributes": [],
+        "localFunctions": []
+      }
+    ],
+    "staticConstructor": null,
+    "operators": [
+      {
+        "accessModifier": "Public",
+        "inheritance": {
+          "kind": "None"
+        },
+        "operatorKind": "Binary",
+        "binaryKind": "NotEquals",
+        "isChecked": false,
+        "leftOperand": {
+          "name": "left",
+          "position": 0,
+          "modifiers": "None",
+          "type": {
+            "localName": "GenericRecordPair?",
+            "nullability": "Nullable",
+            "usageKind": "Plain",
+            "typeDefinition": "TestCases.GenericRecordPair<TKey, TVal>?"
+          },
+          "hasDefaultValue": false,
+          "defaultValue": null,
+          "attributes": []
+        },
+        "rightOperand": {
+          "name": "right",
+          "position": 1,
+          "modifiers": "None",
+          "type": {
+            "localName": "GenericRecordPair?",
+            "nullability": "Nullable",
+            "usageKind": "Plain",
+            "typeDefinition": "TestCases.GenericRecordPair<TKey, TVal>?"
+          },
+          "hasDefaultValue": false,
+          "defaultValue": null,
+          "attributes": []
+        },
+        "returnInfo": {
+          "type": {
+            "localName": "bool",
+            "nullability": "NonNullable",
+            "usageKind": "Predefined",
+            "predefinedKind": "Bool"
+          },
+          "attributes": []
+        },
+        "localFunctions": []
+      },
+      {
+        "accessModifier": "Public",
+        "inheritance": {
+          "kind": "None"
+        },
+        "operatorKind": "Binary",
+        "binaryKind": "Equals",
+        "isChecked": false,
+        "leftOperand": {
+          "name": "left",
+          "position": 0,
+          "modifiers": "None",
+          "type": {
+            "localName": "GenericRecordPair?",
+            "nullability": "Nullable",
+            "usageKind": "Plain",
+            "typeDefinition": "TestCases.GenericRecordPair<TKey, TVal>?"
+          },
+          "hasDefaultValue": false,
+          "defaultValue": null,
+          "attributes": []
+        },
+        "rightOperand": {
+          "name": "right",
+          "position": 1,
+          "modifiers": "None",
+          "type": {
+            "localName": "GenericRecordPair?",
+            "nullability": "Nullable",
+            "usageKind": "Plain",
+            "typeDefinition": "TestCases.GenericRecordPair<TKey, TVal>?"
+          },
+          "hasDefaultValue": false,
+          "defaultValue": null,
+          "attributes": []
+        },
+        "returnInfo": {
+          "type": {
+            "localName": "bool",
+            "nullability": "NonNullable",
+            "usageKind": "Predefined",
+            "predefinedKind": "Bool"
+          },
+          "attributes": []
+        },
+        "localFunctions": []
+      }
+    ],
+    "attributes": [],
+    "nestedTypes": []
+  }
+]

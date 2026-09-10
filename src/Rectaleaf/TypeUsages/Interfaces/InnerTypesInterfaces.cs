@@ -1,6 +1,5 @@
 using Rectaleaf.Components;
 using Rectaleaf.Metadata.DeclaredTypes;
-using Rectaleaf.Metadata;
 
 namespace Rectaleaf.Metadata.TypeUsages.Interfaces;
 
@@ -70,7 +69,7 @@ public interface IBoundGenericType<out TKind, out TDecl> : IDeclTypeUsage<TKind,
 /// <summary>
 /// Represents a usage of a generic parameter.
 /// </summary>
-public interface IPlaceholderType : IInnerType<IIncomplete>, IHasNullability, IValidConstraint
+public interface IPlaceholderType : IInnerType<IIncomplete>, IHasNullability
 {
     IGenericParameter Info { get; }
 }
@@ -98,10 +97,17 @@ public interface IUnmanagedFunctionPointerType<out TKind> : IFunctionPointerType
     where TKind : IKnownOrNot
 {
     /// <summary>
-    /// Gets the calling convention flags applied to this unmanaged function pointer.
+    /// Gets the ordered collection of calling conventions applied to this unmanaged function pointer.
+    /// Preserves exact source ordering and duplicate calling conventions if present.
+    /// If calling conventions were omitted (`<![CDATA[delegate* unmanaged<...>]]>`), this collection will be empty.
+    /// </summary>
+    IReadOnlyList<CallConvKind> CallingConventions { get; }
+
+    /// <summary>
+    /// Gets the calling convention mask applied to this unmanaged function pointer.
     /// If calling conventions were omitted (`<![CDATA[delegate* unmanaged<...>]]>`), this will be <see cref="CallConvFlags.None"/>.
     /// </summary>
-    CallConvFlags CallingConventions { get; }
+    CallConvFlags CallingConventionFlags { get; }
 }
 
 /// <summary>

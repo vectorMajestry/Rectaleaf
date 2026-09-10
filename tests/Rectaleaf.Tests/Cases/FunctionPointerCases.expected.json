@@ -1,0 +1,822 @@
+{
+  "kind": "RegularClass",
+  "localName": "FunctionPointerTestContainer",
+  "fullyQualifiedName": "TestCases.FunctionPointerTestContainer",
+  "namespace": "TestCases",
+  "accessModifier": "Public",
+  "containingType": null,
+  "isSealed": false,
+  "baseType": null,
+  "genericParameters": [],
+  "directInterfaces": [],
+  "fields": [
+    {
+      "name": "ManagedActionPointer",
+      "declaringType": "TestCases.FunctionPointerTestContainer",
+      "accessModifier": "Public",
+      "attributes": [],
+      "fieldKind": "Regular",
+      "type": {
+        "localName": "delegate*<int, string, void>",
+        "usageKind": "ManagedFunctionPointer",
+        "returnType": {
+          "localName": "void",
+          "nullability": "NonNullable",
+          "usageKind": "Predefined",
+          "predefinedKind": "Void"
+        },
+        "parameters": [
+          {
+            "name": "",
+            "position": 0,
+            "modifiers": "None",
+            "type": {
+              "localName": "int",
+              "nullability": "NonNullable",
+              "usageKind": "Predefined",
+              "predefinedKind": "Int"
+            },
+            "hasDefaultValue": false,
+            "defaultValue": null,
+            "attributes": []
+          },
+          {
+            "name": "",
+            "position": 1,
+            "modifiers": "None",
+            "type": {
+              "localName": "string",
+              "nullability": "NonNullable",
+              "usageKind": "Predefined",
+              "predefinedKind": "String"
+            },
+            "hasDefaultValue": false,
+            "defaultValue": null,
+            "attributes": []
+          }
+        ]
+      },
+      "isReadOnly": false,
+      "isVolatile": false,
+      "isStatic": false,
+      "isRequired": false
+    },
+    {
+      "name": "ManagedFuncPointer",
+      "declaringType": "TestCases.FunctionPointerTestContainer",
+      "accessModifier": "Public",
+      "attributes": [],
+      "fieldKind": "Regular",
+      "type": {
+        "localName": "delegate*<int, bool, string>",
+        "usageKind": "ManagedFunctionPointer",
+        "returnType": {
+          "localName": "string",
+          "nullability": "NonNullable",
+          "usageKind": "Predefined",
+          "predefinedKind": "String"
+        },
+        "parameters": [
+          {
+            "name": "",
+            "position": 0,
+            "modifiers": "None",
+            "type": {
+              "localName": "int",
+              "nullability": "NonNullable",
+              "usageKind": "Predefined",
+              "predefinedKind": "Int"
+            },
+            "hasDefaultValue": false,
+            "defaultValue": null,
+            "attributes": []
+          },
+          {
+            "name": "",
+            "position": 1,
+            "modifiers": "None",
+            "type": {
+              "localName": "bool",
+              "nullability": "NonNullable",
+              "usageKind": "Predefined",
+              "predefinedKind": "Bool"
+            },
+            "hasDefaultValue": false,
+            "defaultValue": null,
+            "attributes": []
+          }
+        ]
+      },
+      "isReadOnly": false,
+      "isVolatile": false,
+      "isStatic": false,
+      "isRequired": false
+    },
+    {
+      "name": "DefaultUnmanagedAction",
+      "declaringType": "TestCases.FunctionPointerTestContainer",
+      "accessModifier": "Public",
+      "attributes": [],
+      "fieldKind": "Regular",
+      "type": {
+        "localName": "delegate* unmanaged<void>",
+        "usageKind": "UnmanagedFunctionPointer",
+        "callingConventionFlags": "None",
+        "callingConventions": [],
+        "returnType": {
+          "localName": "void",
+          "nullability": "NonNullable",
+          "usageKind": "Predefined",
+          "predefinedKind": "Void"
+        },
+        "parameters": []
+      },
+      "isReadOnly": false,
+      "isVolatile": false,
+      "isStatic": false,
+      "isRequired": false
+    },
+    {
+      "name": "UnmanagedCdeclFastcall",
+      "declaringType": "TestCases.FunctionPointerTestContainer",
+      "accessModifier": "Public",
+      "attributes": [],
+      "fieldKind": "Regular",
+      "type": {
+        "localName": "delegate* unmanaged[Cdecl, Fastcall]<void>",
+        "usageKind": "UnmanagedFunctionPointer",
+        "callingConventionFlags": "Cdecl, Fastcall",
+        "callingConventions": [
+          "Cdecl",
+          "Fastcall"
+        ],
+        "returnType": {
+          "localName": "void",
+          "nullability": "NonNullable",
+          "usageKind": "Predefined",
+          "predefinedKind": "Void"
+        },
+        "parameters": []
+      },
+      "isReadOnly": false,
+      "isVolatile": false,
+      "isStatic": false,
+      "isRequired": false
+    },
+    {
+      "name": "UnmanagedFastcallCdecl",
+      "declaringType": "TestCases.FunctionPointerTestContainer",
+      "accessModifier": "Public",
+      "attributes": [],
+      "fieldKind": "Regular",
+      "type": {
+        "localName": "delegate* unmanaged[Fastcall, Cdecl]<void>",
+        "usageKind": "UnmanagedFunctionPointer",
+        "callingConventionFlags": "Cdecl, Fastcall",
+        "callingConventions": [
+          "Fastcall",
+          "Cdecl"
+        ],
+        "returnType": {
+          "localName": "void",
+          "nullability": "NonNullable",
+          "usageKind": "Predefined",
+          "predefinedKind": "Void"
+        },
+        "parameters": []
+      },
+      "isReadOnly": false,
+      "isVolatile": false,
+      "isStatic": false,
+      "isRequired": false
+    },
+    {
+      "name": "UnmanagedStdcallThiscall",
+      "declaringType": "TestCases.FunctionPointerTestContainer",
+      "accessModifier": "Public",
+      "attributes": [],
+      "fieldKind": "Regular",
+      "type": {
+        "localName": "delegate* unmanaged[Stdcall, Thiscall]<int, double, float>",
+        "usageKind": "UnmanagedFunctionPointer",
+        "callingConventionFlags": "Stdcall, Thiscall",
+        "callingConventions": [
+          "Stdcall",
+          "Thiscall"
+        ],
+        "returnType": {
+          "localName": "float",
+          "nullability": "NonNullable",
+          "usageKind": "Predefined",
+          "predefinedKind": "Float"
+        },
+        "parameters": [
+          {
+            "name": "",
+            "position": 0,
+            "modifiers": "None",
+            "type": {
+              "localName": "int",
+              "nullability": "NonNullable",
+              "usageKind": "Predefined",
+              "predefinedKind": "Int"
+            },
+            "hasDefaultValue": false,
+            "defaultValue": null,
+            "attributes": []
+          },
+          {
+            "name": "",
+            "position": 1,
+            "modifiers": "None",
+            "type": {
+              "localName": "double",
+              "nullability": "NonNullable",
+              "usageKind": "Predefined",
+              "predefinedKind": "Double"
+            },
+            "hasDefaultValue": false,
+            "defaultValue": null,
+            "attributes": []
+          }
+        ]
+      },
+      "isReadOnly": false,
+      "isVolatile": false,
+      "isStatic": false,
+      "isRequired": false
+    },
+    {
+      "name": "UnmanagedWithSuppressGc",
+      "declaringType": "TestCases.FunctionPointerTestContainer",
+      "accessModifier": "Public",
+      "attributes": [],
+      "fieldKind": "Regular",
+      "type": {
+        "localName": "delegate* unmanaged[Cdecl, SuppressGCTransition]<void>",
+        "usageKind": "UnmanagedFunctionPointer",
+        "callingConventionFlags": "Cdecl, SuppressGCTransition",
+        "callingConventions": [
+          "Cdecl",
+          "SuppressGCTransition"
+        ],
+        "returnType": {
+          "localName": "void",
+          "nullability": "NonNullable",
+          "usageKind": "Predefined",
+          "predefinedKind": "Void"
+        },
+        "parameters": []
+      },
+      "isReadOnly": false,
+      "isVolatile": false,
+      "isStatic": false,
+      "isRequired": false
+    },
+    {
+      "name": "UnmanagedSuppressGcFirst",
+      "declaringType": "TestCases.FunctionPointerTestContainer",
+      "accessModifier": "Public",
+      "attributes": [],
+      "fieldKind": "Regular",
+      "type": {
+        "localName": "delegate* unmanaged[SuppressGCTransition, Stdcall]<int, int>",
+        "usageKind": "UnmanagedFunctionPointer",
+        "callingConventionFlags": "Stdcall, SuppressGCTransition",
+        "callingConventions": [
+          "SuppressGCTransition",
+          "Stdcall"
+        ],
+        "returnType": {
+          "localName": "int",
+          "nullability": "NonNullable",
+          "usageKind": "Predefined",
+          "predefinedKind": "Int"
+        },
+        "parameters": [
+          {
+            "name": "",
+            "position": 0,
+            "modifiers": "None",
+            "type": {
+              "localName": "int",
+              "nullability": "NonNullable",
+              "usageKind": "Predefined",
+              "predefinedKind": "Int"
+            },
+            "hasDefaultValue": false,
+            "defaultValue": null,
+            "attributes": []
+          }
+        ]
+      },
+      "isReadOnly": false,
+      "isVolatile": false,
+      "isStatic": false,
+      "isRequired": false
+    },
+    {
+      "name": "ManagedWithRefModifiers",
+      "declaringType": "TestCases.FunctionPointerTestContainer",
+      "accessModifier": "Public",
+      "attributes": [],
+      "fieldKind": "Regular",
+      "type": {
+        "localName": "delegate*<int, double, byte, void>",
+        "usageKind": "ManagedFunctionPointer",
+        "returnType": {
+          "localName": "void",
+          "nullability": "NonNullable",
+          "usageKind": "Predefined",
+          "predefinedKind": "Void"
+        },
+        "parameters": [
+          {
+            "name": "",
+            "position": 0,
+            "modifiers": "Ref",
+            "type": {
+              "localName": "int",
+              "nullability": "NonNullable",
+              "usageKind": "Predefined",
+              "predefinedKind": "Int"
+            },
+            "hasDefaultValue": false,
+            "defaultValue": null,
+            "attributes": []
+          },
+          {
+            "name": "",
+            "position": 1,
+            "modifiers": "In",
+            "type": {
+              "localName": "double",
+              "nullability": "NonNullable",
+              "usageKind": "Predefined",
+              "predefinedKind": "Double"
+            },
+            "hasDefaultValue": false,
+            "defaultValue": null,
+            "attributes": []
+          },
+          {
+            "name": "",
+            "position": 2,
+            "modifiers": "Out, Scoped",
+            "type": {
+              "localName": "byte",
+              "nullability": "NonNullable",
+              "usageKind": "Predefined",
+              "predefinedKind": "Byte"
+            },
+            "hasDefaultValue": false,
+            "defaultValue": null,
+            "attributes": []
+          }
+        ]
+      },
+      "isReadOnly": false,
+      "isVolatile": false,
+      "isStatic": false,
+      "isRequired": false
+    },
+    {
+      "name": "UnmanagedWithRefModifiers",
+      "declaringType": "TestCases.FunctionPointerTestContainer",
+      "accessModifier": "Public",
+      "attributes": [],
+      "fieldKind": "Regular",
+      "type": {
+        "localName": "delegate*<int, double, byte, int>",
+        "usageKind": "ManagedFunctionPointer",
+        "returnType": {
+          "localName": "int",
+          "nullability": "NonNullable",
+          "usageKind": "Predefined",
+          "predefinedKind": "Int"
+        },
+        "parameters": [
+          {
+            "name": "",
+            "position": 0,
+            "modifiers": "Ref",
+            "type": {
+              "localName": "int",
+              "nullability": "NonNullable",
+              "usageKind": "Predefined",
+              "predefinedKind": "Int"
+            },
+            "hasDefaultValue": false,
+            "defaultValue": null,
+            "attributes": []
+          },
+          {
+            "name": "",
+            "position": 1,
+            "modifiers": "In",
+            "type": {
+              "localName": "double",
+              "nullability": "NonNullable",
+              "usageKind": "Predefined",
+              "predefinedKind": "Double"
+            },
+            "hasDefaultValue": false,
+            "defaultValue": null,
+            "attributes": []
+          },
+          {
+            "name": "",
+            "position": 2,
+            "modifiers": "Out, Scoped",
+            "type": {
+              "localName": "byte",
+              "nullability": "NonNullable",
+              "usageKind": "Predefined",
+              "predefinedKind": "Byte"
+            },
+            "hasDefaultValue": false,
+            "defaultValue": null,
+            "attributes": []
+          }
+        ]
+      },
+      "isReadOnly": false,
+      "isVolatile": false,
+      "isStatic": false,
+      "isRequired": false
+    },
+    {
+      "name": "PointerToFunctionPointer",
+      "declaringType": "TestCases.FunctionPointerTestContainer",
+      "accessModifier": "Public",
+      "attributes": [],
+      "fieldKind": "Regular",
+      "type": {
+        "localName": "delegate*<int, int>*",
+        "usageKind": "Pointer",
+        "elementType": {
+          "localName": "delegate*<int, int>",
+          "usageKind": "ManagedFunctionPointer",
+          "returnType": {
+            "localName": "int",
+            "nullability": "NonNullable",
+            "usageKind": "Predefined",
+            "predefinedKind": "Int"
+          },
+          "parameters": [
+            {
+              "name": "",
+              "position": 0,
+              "modifiers": "None",
+              "type": {
+                "localName": "int",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "Int"
+              },
+              "hasDefaultValue": false,
+              "defaultValue": null,
+              "attributes": []
+            }
+          ]
+        }
+      },
+      "isReadOnly": false,
+      "isVolatile": false,
+      "isStatic": false,
+      "isRequired": false
+    },
+    {
+      "name": "NestedReturnFunctionPointer",
+      "declaringType": "TestCases.FunctionPointerTestContainer",
+      "accessModifier": "Public",
+      "attributes": [],
+      "fieldKind": "Regular",
+      "type": {
+        "localName": "delegate*<delegate*<int, void>>",
+        "usageKind": "ManagedFunctionPointer",
+        "returnType": {
+          "localName": "delegate*<int, void>",
+          "usageKind": "ManagedFunctionPointer",
+          "returnType": {
+            "localName": "void",
+            "nullability": "NonNullable",
+            "usageKind": "Predefined",
+            "predefinedKind": "Void"
+          },
+          "parameters": [
+            {
+              "name": "",
+              "position": 0,
+              "modifiers": "None",
+              "type": {
+                "localName": "int",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "Int"
+              },
+              "hasDefaultValue": false,
+              "defaultValue": null,
+              "attributes": []
+            }
+          ]
+        },
+        "parameters": []
+      },
+      "isReadOnly": false,
+      "isVolatile": false,
+      "isStatic": false,
+      "isRequired": false
+    },
+    {
+      "name": "HigherOrderFunctionPointer",
+      "declaringType": "TestCases.FunctionPointerTestContainer",
+      "accessModifier": "Public",
+      "attributes": [],
+      "fieldKind": "Regular",
+      "type": {
+        "localName": "delegate*<delegate*<int, bool>, int, bool>",
+        "usageKind": "ManagedFunctionPointer",
+        "returnType": {
+          "localName": "bool",
+          "nullability": "NonNullable",
+          "usageKind": "Predefined",
+          "predefinedKind": "Bool"
+        },
+        "parameters": [
+          {
+            "name": "",
+            "position": 0,
+            "modifiers": "None",
+            "type": {
+              "localName": "delegate*<int, bool>",
+              "usageKind": "ManagedFunctionPointer",
+              "returnType": {
+                "localName": "bool",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "Bool"
+              },
+              "parameters": [
+                {
+                  "name": "",
+                  "position": 0,
+                  "modifiers": "None",
+                  "type": {
+                    "localName": "int",
+                    "nullability": "NonNullable",
+                    "usageKind": "Predefined",
+                    "predefinedKind": "Int"
+                  },
+                  "hasDefaultValue": false,
+                  "defaultValue": null,
+                  "attributes": []
+                }
+              ]
+            },
+            "hasDefaultValue": false,
+            "defaultValue": null,
+            "attributes": []
+          },
+          {
+            "name": "",
+            "position": 1,
+            "modifiers": "None",
+            "type": {
+              "localName": "int",
+              "nullability": "NonNullable",
+              "usageKind": "Predefined",
+              "predefinedKind": "Int"
+            },
+            "hasDefaultValue": false,
+            "defaultValue": null,
+            "attributes": []
+          }
+        ]
+      },
+      "isReadOnly": false,
+      "isVolatile": false,
+      "isStatic": false,
+      "isRequired": false
+    },
+    {
+      "name": "RawPointersFunctionPointer",
+      "declaringType": "TestCases.FunctionPointerTestContainer",
+      "accessModifier": "Public",
+      "attributes": [],
+      "fieldKind": "Regular",
+      "type": {
+        "localName": "delegate*<void*, int*, double**, void>",
+        "usageKind": "ManagedFunctionPointer",
+        "returnType": {
+          "localName": "void",
+          "nullability": "NonNullable",
+          "usageKind": "Predefined",
+          "predefinedKind": "Void"
+        },
+        "parameters": [
+          {
+            "name": "",
+            "position": 0,
+            "modifiers": "None",
+            "type": {
+              "localName": "void*",
+              "usageKind": "Pointer",
+              "elementType": {
+                "localName": "void",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "Void"
+              }
+            },
+            "hasDefaultValue": false,
+            "defaultValue": null,
+            "attributes": []
+          },
+          {
+            "name": "",
+            "position": 1,
+            "modifiers": "None",
+            "type": {
+              "localName": "int*",
+              "usageKind": "Pointer",
+              "elementType": {
+                "localName": "int",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "Int"
+              }
+            },
+            "hasDefaultValue": false,
+            "defaultValue": null,
+            "attributes": []
+          },
+          {
+            "name": "",
+            "position": 2,
+            "modifiers": "None",
+            "type": {
+              "localName": "double**",
+              "usageKind": "Pointer",
+              "elementType": {
+                "localName": "double*",
+                "usageKind": "Pointer",
+                "elementType": {
+                  "localName": "double",
+                  "nullability": "NonNullable",
+                  "usageKind": "Predefined",
+                  "predefinedKind": "Double"
+                }
+              }
+            },
+            "hasDefaultValue": false,
+            "defaultValue": null,
+            "attributes": []
+          }
+        ]
+      },
+      "isReadOnly": false,
+      "isVolatile": false,
+      "isStatic": false,
+      "isRequired": false
+    }
+  ],
+  "methods": [
+    {
+      "name": "ExecuteCallback",
+      "declaringType": "TestCases.FunctionPointerTestContainer",
+      "returnInfo": {
+        "type": {
+          "localName": "delegate* unmanaged[Cdecl, Fastcall]<int, int>",
+          "usageKind": "UnmanagedFunctionPointer",
+          "callingConventionFlags": "Cdecl, Fastcall",
+          "callingConventions": [
+            "Cdecl",
+            "Fastcall"
+          ],
+          "returnType": {
+            "localName": "int",
+            "nullability": "NonNullable",
+            "usageKind": "Predefined",
+            "predefinedKind": "Int"
+          },
+          "parameters": [
+            {
+              "name": "",
+              "position": 0,
+              "modifiers": "None",
+              "type": {
+                "localName": "int",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "Int"
+              },
+              "hasDefaultValue": false,
+              "defaultValue": null,
+              "attributes": []
+            }
+          ]
+        },
+        "attributes": []
+      },
+      "isStatic": false,
+      "isGeneric": false,
+      "isReadOnly": false,
+      "hasArglistParameter": false,
+      "accessModifier": "Public",
+      "inheritance": {
+        "kind": "None"
+      },
+      "parameters": [
+        {
+          "name": "callback",
+          "position": 0,
+          "modifiers": "None",
+          "type": {
+            "localName": "delegate*<int, int>",
+            "usageKind": "ManagedFunctionPointer",
+            "returnType": {
+              "localName": "int",
+              "nullability": "NonNullable",
+              "usageKind": "Predefined",
+              "predefinedKind": "Int"
+            },
+            "parameters": [
+              {
+                "name": "",
+                "position": 0,
+                "modifiers": "None",
+                "type": {
+                  "localName": "int",
+                  "nullability": "NonNullable",
+                  "usageKind": "Predefined",
+                  "predefinedKind": "Int"
+                },
+                "hasDefaultValue": false,
+                "defaultValue": null,
+                "attributes": []
+              }
+            ]
+          },
+          "hasDefaultValue": false,
+          "defaultValue": null,
+          "attributes": []
+        },
+        {
+          "name": "filter",
+          "position": 1,
+          "modifiers": "None",
+          "type": {
+            "localName": "delegate*<int, bool>",
+            "usageKind": "ManagedFunctionPointer",
+            "returnType": {
+              "localName": "bool",
+              "nullability": "NonNullable",
+              "usageKind": "Predefined",
+              "predefinedKind": "Bool"
+            },
+            "parameters": [
+              {
+                "name": "",
+                "position": 0,
+                "modifiers": "None",
+                "type": {
+                  "localName": "int",
+                  "nullability": "NonNullable",
+                  "usageKind": "Predefined",
+                  "predefinedKind": "Int"
+                },
+                "hasDefaultValue": false,
+                "defaultValue": null,
+                "attributes": []
+              }
+            ]
+          },
+          "hasDefaultValue": false,
+          "defaultValue": null,
+          "attributes": []
+        }
+      ],
+      "genericParameters": [],
+      "attributes": [],
+      "localFunctions": []
+    }
+  ],
+  "properties": [],
+  "indexers": [],
+  "events": [],
+  "instanceConstructors": [
+    {
+      "declaringType": "TestCases.FunctionPointerTestContainer",
+      "accessModifier": "Public",
+      "isPrimary": false,
+      "parameters": [],
+      "attributes": [],
+      "localFunctions": []
+    }
+  ],
+  "staticConstructor": null,
+  "operators": [],
+  "attributes": [],
+  "nestedTypes": []
+}

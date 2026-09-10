@@ -84,6 +84,9 @@ public sealed class MethodEqualityComparer : IEqualityComparer<IMethod>
         ({ Source: GenericType sx }, { Source: GenericType sy })
             => x.Info.Position == y.Info.Position && sx == sy,
 
+        ({ Source: GenericExtensionBlock bx }, { Source: GenericExtensionBlock by })
+            => x.Info.Position == y.Info.Position && bx == by,
+
         // Methods are never nested in local functions, so generic parameters cannot come from a local function.
 
         _ => false

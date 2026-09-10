@@ -1,0 +1,809 @@
+[
+  {
+    "kind": "RegularClass",
+    "localName": "NullableTopologyContainer",
+    "fullyQualifiedName": "TestCases.NullableTopologyContainer",
+    "namespace": "TestCases",
+    "accessModifier": "Public",
+    "containingType": null,
+    "isSealed": false,
+    "baseType": null,
+    "genericParameters": [],
+    "directInterfaces": [],
+    "fields": [
+      {
+        "name": "DeeplyNestedGenericNullable",
+        "declaringType": "TestCases.NullableTopologyContainer",
+        "accessModifier": "Public",
+        "attributes": [],
+        "fieldKind": "Regular",
+        "type": {
+          "localName": "Dictionary<string?, List<int[]?>>?",
+          "nullability": "Nullable",
+          "usageKind": "BoundGeneric",
+          "typeDefinition": "System.Collections.Generic.Dictionary<TKey, TValue>",
+          "typeArguments": [
+            {
+              "localName": "string?",
+              "nullability": "Nullable",
+              "usageKind": "Predefined",
+              "predefinedKind": "String"
+            },
+            {
+              "localName": "List<int[]?>",
+              "nullability": "NonNullable",
+              "usageKind": "BoundGeneric",
+              "typeDefinition": "System.Collections.Generic.List<T>",
+              "typeArguments": [
+                {
+                  "localName": "int[]?",
+                  "nullability": "Nullable",
+                  "usageKind": "Array",
+                  "rank": 1,
+                  "elementType": {
+                    "localName": "int",
+                    "nullability": "NonNullable",
+                    "usageKind": "Predefined",
+                    "predefinedKind": "Int"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "isReadOnly": false,
+        "isVolatile": false,
+        "isStatic": false,
+        "isRequired": false
+      },
+      {
+        "name": "NonNullKeyNullableNestedList",
+        "declaringType": "TestCases.NullableTopologyContainer",
+        "accessModifier": "Public",
+        "attributes": [],
+        "fieldKind": "Regular",
+        "type": {
+          "localName": "Dictionary<string, List<string?>?>",
+          "nullability": "NonNullable",
+          "usageKind": "BoundGeneric",
+          "typeDefinition": "System.Collections.Generic.Dictionary<TKey, TValue>",
+          "typeArguments": [
+            {
+              "localName": "string",
+              "nullability": "NonNullable",
+              "usageKind": "Predefined",
+              "predefinedKind": "String"
+            },
+            {
+              "localName": "List<string?>?",
+              "nullability": "Nullable",
+              "usageKind": "BoundGeneric",
+              "typeDefinition": "System.Collections.Generic.List<T>",
+              "typeArguments": [
+                {
+                  "localName": "string?",
+                  "nullability": "Nullable",
+                  "usageKind": "Predefined",
+                  "predefinedKind": "String"
+                }
+              ]
+            }
+          ]
+        },
+        "isReadOnly": false,
+        "isVolatile": false,
+        "isStatic": false,
+        "isRequired": false
+      },
+      {
+        "name": "NullableKeyValuePair",
+        "declaringType": "TestCases.NullableTopologyContainer",
+        "accessModifier": "Public",
+        "attributes": [],
+        "fieldKind": "Regular",
+        "type": {
+          "localName": "KeyValuePair<string?, (int id, object? data)>",
+          "nullability": "NonNullable",
+          "usageKind": "BoundGeneric",
+          "typeDefinition": "System.Collections.Generic.KeyValuePair<TKey, TValue>",
+          "typeArguments": [
+            {
+              "localName": "string?",
+              "nullability": "Nullable",
+              "usageKind": "Predefined",
+              "predefinedKind": "String"
+            },
+            {
+              "localName": "(int id, object? data)",
+              "nullability": "NonNullable",
+              "usageKind": "RichTuple",
+              "elements": [
+                {
+                  "name": "id",
+                  "type": {
+                    "localName": "int",
+                    "nullability": "NonNullable",
+                    "usageKind": "Predefined",
+                    "predefinedKind": "Int"
+                  }
+                },
+                {
+                  "name": "data",
+                  "type": {
+                    "localName": "object?",
+                    "nullability": "Nullable",
+                    "usageKind": "Predefined",
+                    "predefinedKind": "Object"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "isReadOnly": false,
+        "isVolatile": false,
+        "isStatic": false,
+        "isRequired": false
+      },
+      {
+        "name": "NullableArrayOfNullableStrings",
+        "declaringType": "TestCases.NullableTopologyContainer",
+        "accessModifier": "Public",
+        "attributes": [],
+        "fieldKind": "Regular",
+        "type": {
+          "localName": "string?[]?",
+          "nullability": "Nullable",
+          "usageKind": "Array",
+          "rank": 1,
+          "elementType": {
+            "localName": "string?",
+            "nullability": "Nullable",
+            "usageKind": "Predefined",
+            "predefinedKind": "String"
+          }
+        },
+        "isReadOnly": false,
+        "isVolatile": false,
+        "isStatic": false,
+        "isRequired": false
+      },
+      {
+        "name": "NonNullableArrayOfNullableStrings",
+        "declaringType": "TestCases.NullableTopologyContainer",
+        "accessModifier": "Public",
+        "attributes": [],
+        "fieldKind": "Regular",
+        "type": {
+          "localName": "string?[]",
+          "nullability": "NonNullable",
+          "usageKind": "Array",
+          "rank": 1,
+          "elementType": {
+            "localName": "string?",
+            "nullability": "Nullable",
+            "usageKind": "Predefined",
+            "predefinedKind": "String"
+          }
+        },
+        "isReadOnly": false,
+        "isVolatile": false,
+        "isStatic": false,
+        "isRequired": false
+      },
+      {
+        "name": "NullableArrayOfNonNullableStrings",
+        "declaringType": "TestCases.NullableTopologyContainer",
+        "accessModifier": "Public",
+        "attributes": [],
+        "fieldKind": "Regular",
+        "type": {
+          "localName": "string[]?",
+          "nullability": "Nullable",
+          "usageKind": "Array",
+          "rank": 1,
+          "elementType": {
+            "localName": "string",
+            "nullability": "NonNullable",
+            "usageKind": "Predefined",
+            "predefinedKind": "String"
+          }
+        },
+        "isReadOnly": false,
+        "isVolatile": false,
+        "isStatic": false,
+        "isRequired": false
+      },
+      {
+        "name": "NonNullable2DArrayOfNullableStrings",
+        "declaringType": "TestCases.NullableTopologyContainer",
+        "accessModifier": "Public",
+        "attributes": [],
+        "fieldKind": "Regular",
+        "type": {
+          "localName": "string?[,]",
+          "nullability": "NonNullable",
+          "usageKind": "Array",
+          "rank": 2,
+          "elementType": {
+            "localName": "string?",
+            "nullability": "Nullable",
+            "usageKind": "Predefined",
+            "predefinedKind": "String"
+          }
+        },
+        "isReadOnly": false,
+        "isVolatile": false,
+        "isStatic": false,
+        "isRequired": false
+      },
+      {
+        "name": "JaggedArrayThreeLayersOfNullability",
+        "declaringType": "TestCases.NullableTopologyContainer",
+        "accessModifier": "Public",
+        "attributes": [],
+        "fieldKind": "Regular",
+        "type": {
+          "localName": "string?[]?[]?",
+          "nullability": "Nullable",
+          "usageKind": "Array",
+          "rank": 1,
+          "elementType": {
+            "localName": "string?[]?",
+            "nullability": "Nullable",
+            "usageKind": "Array",
+            "rank": 1,
+            "elementType": {
+              "localName": "string?",
+              "nullability": "Nullable",
+              "usageKind": "Predefined",
+              "predefinedKind": "String"
+            }
+          }
+        },
+        "isReadOnly": false,
+        "isVolatile": false,
+        "isStatic": false,
+        "isRequired": false
+      },
+      {
+        "name": "RichNullableTuple",
+        "declaringType": "TestCases.NullableTopologyContainer",
+        "accessModifier": "Public",
+        "attributes": [],
+        "fieldKind": "Regular",
+        "type": {
+          "localName": "(string? text, object nonNullObj, (int id, string? name) nestedNullableTuple)",
+          "nullability": "NonNullable",
+          "usageKind": "RichTuple",
+          "elements": [
+            {
+              "name": "text",
+              "type": {
+                "localName": "string?",
+                "nullability": "Nullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "String"
+              }
+            },
+            {
+              "name": "nonNullObj",
+              "type": {
+                "localName": "object",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "Object"
+              }
+            },
+            {
+              "name": "nestedNullableTuple",
+              "type": {
+                "localName": "(int id, string? name)",
+                "nullability": "NonNullable",
+                "usageKind": "RichTuple",
+                "elements": [
+                  {
+                    "name": "id",
+                    "type": {
+                      "localName": "int",
+                      "nullability": "NonNullable",
+                      "usageKind": "Predefined",
+                      "predefinedKind": "Int"
+                    }
+                  },
+                  {
+                    "name": "name",
+                    "type": {
+                      "localName": "string?",
+                      "nullability": "Nullable",
+                      "usageKind": "Predefined",
+                      "predefinedKind": "String"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "isReadOnly": false,
+        "isVolatile": false,
+        "isStatic": false,
+        "isRequired": false
+      }
+    ],
+    "methods": [
+      {
+        "name": "ProcessPayload",
+        "declaringType": "TestCases.NullableTopologyContainer",
+        "returnInfo": {
+          "type": {
+            "localName": "Dictionary<string, (int code, string? desc)>?",
+            "nullability": "Nullable",
+            "usageKind": "BoundGeneric",
+            "typeDefinition": "System.Collections.Generic.Dictionary<TKey, TValue>",
+            "typeArguments": [
+              {
+                "localName": "string",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "String"
+              },
+              {
+                "localName": "(int code, string? desc)",
+                "nullability": "NonNullable",
+                "usageKind": "RichTuple",
+                "elements": [
+                  {
+                    "name": "code",
+                    "type": {
+                      "localName": "int",
+                      "nullability": "NonNullable",
+                      "usageKind": "Predefined",
+                      "predefinedKind": "Int"
+                    }
+                  },
+                  {
+                    "name": "desc",
+                    "type": {
+                      "localName": "string?",
+                      "nullability": "Nullable",
+                      "usageKind": "Predefined",
+                      "predefinedKind": "String"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          "attributes": []
+        },
+        "isStatic": false,
+        "isGeneric": false,
+        "isReadOnly": false,
+        "hasArglistParameter": false,
+        "accessModifier": "Public",
+        "inheritance": {
+          "kind": "None"
+        },
+        "parameters": [
+          {
+            "name": "inputHeader",
+            "position": 0,
+            "modifiers": "None",
+            "type": {
+              "localName": "(string? id, object? state)",
+              "nullability": "NonNullable",
+              "usageKind": "RichTuple",
+              "elements": [
+                {
+                  "name": "id",
+                  "type": {
+                    "localName": "string?",
+                    "nullability": "Nullable",
+                    "usageKind": "Predefined",
+                    "predefinedKind": "String"
+                  }
+                },
+                {
+                  "name": "state",
+                  "type": {
+                    "localName": "object?",
+                    "nullability": "Nullable",
+                    "usageKind": "Predefined",
+                    "predefinedKind": "Object"
+                  }
+                }
+              ]
+            },
+            "hasDefaultValue": false,
+            "defaultValue": null,
+            "attributes": []
+          },
+          {
+            "name": "dataMatrix",
+            "position": 1,
+            "modifiers": "In",
+            "type": {
+              "localName": "List<int[]?>",
+              "nullability": "NonNullable",
+              "usageKind": "BoundGeneric",
+              "typeDefinition": "System.Collections.Generic.List<T>",
+              "typeArguments": [
+                {
+                  "localName": "int[]?",
+                  "nullability": "Nullable",
+                  "usageKind": "Array",
+                  "rank": 1,
+                  "elementType": {
+                    "localName": "int",
+                    "nullability": "NonNullable",
+                    "usageKind": "Predefined",
+                    "predefinedKind": "Int"
+                  }
+                }
+              ]
+            },
+            "hasDefaultValue": false,
+            "defaultValue": null,
+            "attributes": []
+          },
+          {
+            "name": "errorReason",
+            "position": 2,
+            "modifiers": "Out, Scoped",
+            "type": {
+              "localName": "string?",
+              "nullability": "Nullable",
+              "usageKind": "Predefined",
+              "predefinedKind": "String"
+            },
+            "hasDefaultValue": false,
+            "defaultValue": null,
+            "attributes": []
+          }
+        ],
+        "genericParameters": [],
+        "attributes": [],
+        "localFunctions": []
+      }
+    ],
+    "properties": [],
+    "indexers": [],
+    "events": [],
+    "instanceConstructors": [
+      {
+        "declaringType": "TestCases.NullableTopologyContainer",
+        "accessModifier": "Public",
+        "isPrimary": false,
+        "parameters": [],
+        "attributes": [],
+        "localFunctions": []
+      }
+    ],
+    "staticConstructor": null,
+    "operators": [],
+    "attributes": [],
+    "nestedTypes": [
+      {
+        "kind": "RegularClass",
+        "localName": "GenericNullableResolver",
+        "fullyQualifiedName": "TestCases.NullableTopologyContainer.GenericNullableResolver<TUnconstrained, TClassRef>",
+        "namespace": "TestCases",
+        "accessModifier": "Public",
+        "containingType": "TestCases.NullableTopologyContainer",
+        "isSealed": false,
+        "baseType": null,
+        "genericParameters": [
+          {
+            "name": "TUnconstrained",
+            "position": 0,
+            "variance": "Invariant",
+            "source": "TestCases.NullableTopologyContainer.GenericNullableResolver<TUnconstrained, TClassRef>",
+            "hasReferenceTypeConstraint": false,
+            "hasNullableReferenceTypeConstraint": false,
+            "hasNotNullConstraint": false,
+            "hasValueTypeConstraint": false,
+            "hasUnmanagedTypeConstraint": false,
+            "hasConstructorConstraint": false,
+            "hasAllowsRefStructConstraint": false,
+            "hasDefaultConstraint": false,
+            "constraintTypes": []
+          },
+          {
+            "name": "TClassRef",
+            "position": 1,
+            "variance": "Invariant",
+            "source": "TestCases.NullableTopologyContainer.GenericNullableResolver<TUnconstrained, TClassRef>",
+            "hasReferenceTypeConstraint": false,
+            "hasNullableReferenceTypeConstraint": true,
+            "hasNotNullConstraint": false,
+            "hasValueTypeConstraint": false,
+            "hasUnmanagedTypeConstraint": false,
+            "hasConstructorConstraint": false,
+            "hasAllowsRefStructConstraint": false,
+            "hasDefaultConstraint": false,
+            "constraintTypes": []
+          }
+        ],
+        "directInterfaces": [],
+        "fields": [
+          {
+            "name": "MaybeValue",
+            "declaringType": "TestCases.NullableTopologyContainer.GenericNullableResolver<TUnconstrained, TClassRef>",
+            "accessModifier": "Public",
+            "attributes": [],
+            "fieldKind": "Regular",
+            "type": {
+              "localName": "TUnconstrained?",
+              "nullability": "Nullable",
+              "usageKind": "Placeholder",
+              "placeholderName": "TUnconstrained",
+              "placeholderPosition": 0,
+              "placeholderSource": "TestCases.NullableTopologyContainer.GenericNullableResolver<TUnconstrained, TClassRef>"
+            },
+            "isReadOnly": false,
+            "isVolatile": false,
+            "isStatic": false,
+            "isRequired": false
+          },
+          {
+            "name": "NullableClassField",
+            "declaringType": "TestCases.NullableTopologyContainer.GenericNullableResolver<TUnconstrained, TClassRef>",
+            "accessModifier": "Public",
+            "attributes": [],
+            "fieldKind": "Regular",
+            "type": {
+              "localName": "TClassRef",
+              "nullability": "NonNullable",
+              "usageKind": "Placeholder",
+              "placeholderName": "TClassRef",
+              "placeholderPosition": 1,
+              "placeholderSource": "TestCases.NullableTopologyContainer.GenericNullableResolver<TUnconstrained, TClassRef>"
+            },
+            "isReadOnly": false,
+            "isVolatile": false,
+            "isStatic": false,
+            "isRequired": false
+          }
+        ],
+        "methods": [
+          {
+            "name": "ConvertTo",
+            "declaringType": "TestCases.NullableTopologyContainer.GenericNullableResolver<TUnconstrained, TClassRef>",
+            "returnInfo": {
+              "type": {
+                "localName": "TResult?",
+                "nullability": "Nullable",
+                "usageKind": "Placeholder",
+                "placeholderName": "TResult",
+                "placeholderPosition": 0,
+                "placeholderSource": "ConvertTo"
+              },
+              "attributes": []
+            },
+            "isStatic": false,
+            "isGeneric": true,
+            "isReadOnly": false,
+            "hasArglistParameter": false,
+            "accessModifier": "Public",
+            "inheritance": {
+              "kind": "None"
+            },
+            "parameters": [
+              {
+                "name": "item",
+                "position": 0,
+                "modifiers": "None",
+                "type": {
+                  "localName": "TUnconstrained?",
+                  "nullability": "Nullable",
+                  "usageKind": "Placeholder",
+                  "placeholderName": "TUnconstrained",
+                  "placeholderPosition": 0,
+                  "placeholderSource": "TestCases.NullableTopologyContainer.GenericNullableResolver<TUnconstrained, TClassRef>"
+                },
+                "hasDefaultValue": false,
+                "defaultValue": null,
+                "attributes": []
+              }
+            ],
+            "genericParameters": [
+              {
+                "name": "TResult",
+                "position": 0,
+                "variance": "Invariant",
+                "source": "ConvertTo",
+                "hasReferenceTypeConstraint": false,
+                "hasNullableReferenceTypeConstraint": false,
+                "hasNotNullConstraint": true,
+                "hasValueTypeConstraint": false,
+                "hasUnmanagedTypeConstraint": false,
+                "hasConstructorConstraint": false,
+                "hasAllowsRefStructConstraint": false,
+                "hasDefaultConstraint": false,
+                "constraintTypes": []
+              }
+            ],
+            "attributes": [],
+            "localFunctions": []
+          }
+        ],
+        "properties": [],
+        "indexers": [],
+        "events": [],
+        "instanceConstructors": [
+          {
+            "declaringType": "TestCases.NullableTopologyContainer.GenericNullableResolver<TUnconstrained, TClassRef>",
+            "accessModifier": "Public",
+            "isPrimary": false,
+            "parameters": [],
+            "attributes": [],
+            "localFunctions": []
+          }
+        ],
+        "staticConstructor": null,
+        "operators": [],
+        "attributes": [],
+        "nestedTypes": []
+      }
+    ]
+  },
+  {
+    "kind": "RegularClass",
+    "localName": "NullableObliviousContainer",
+    "fullyQualifiedName": "TestCases.NullableObliviousContainer",
+    "namespace": "TestCases",
+    "accessModifier": "Public",
+    "containingType": null,
+    "isSealed": false,
+    "baseType": null,
+    "genericParameters": [],
+    "directInterfaces": [],
+    "fields": [
+      {
+        "name": "ObliviousStringField",
+        "declaringType": "TestCases.NullableObliviousContainer",
+        "accessModifier": "Public",
+        "attributes": [],
+        "fieldKind": "Regular",
+        "type": {
+          "localName": "string",
+          "nullability": "Oblivious",
+          "usageKind": "Predefined",
+          "predefinedKind": "String"
+        },
+        "isReadOnly": false,
+        "isVolatile": false,
+        "isStatic": false,
+        "isRequired": false
+      },
+      {
+        "name": "ObliviousArray",
+        "declaringType": "TestCases.NullableObliviousContainer",
+        "accessModifier": "Public",
+        "attributes": [],
+        "fieldKind": "Regular",
+        "type": {
+          "localName": "object[]",
+          "nullability": "Oblivious",
+          "usageKind": "Array",
+          "rank": 1,
+          "elementType": {
+            "localName": "object",
+            "nullability": "Oblivious",
+            "usageKind": "Predefined",
+            "predefinedKind": "Object"
+          }
+        },
+        "isReadOnly": false,
+        "isVolatile": false,
+        "isStatic": false,
+        "isRequired": false
+      },
+      {
+        "name": "ObliviousDictionary",
+        "declaringType": "TestCases.NullableObliviousContainer",
+        "accessModifier": "Public",
+        "attributes": [],
+        "fieldKind": "Regular",
+        "type": {
+          "localName": "Dictionary<string, object>",
+          "nullability": "Oblivious",
+          "usageKind": "BoundGeneric",
+          "typeDefinition": "System.Collections.Generic.Dictionary<TKey, TValue>",
+          "typeArguments": [
+            {
+              "localName": "string",
+              "nullability": "Oblivious",
+              "usageKind": "Predefined",
+              "predefinedKind": "String"
+            },
+            {
+              "localName": "object",
+              "nullability": "Oblivious",
+              "usageKind": "Predefined",
+              "predefinedKind": "Object"
+            }
+          ]
+        },
+        "isReadOnly": false,
+        "isVolatile": false,
+        "isStatic": false,
+        "isRequired": false
+      }
+    ],
+    "methods": [
+      {
+        "name": "ObliviousMethod",
+        "declaringType": "TestCases.NullableObliviousContainer",
+        "returnInfo": {
+          "type": {
+            "localName": "string",
+            "nullability": "Oblivious",
+            "usageKind": "Predefined",
+            "predefinedKind": "String"
+          },
+          "attributes": []
+        },
+        "isStatic": false,
+        "isGeneric": false,
+        "isReadOnly": false,
+        "hasArglistParameter": false,
+        "accessModifier": "Public",
+        "inheritance": {
+          "kind": "None"
+        },
+        "parameters": [
+          {
+            "name": "param1",
+            "position": 0,
+            "modifiers": "None",
+            "type": {
+              "localName": "string",
+              "nullability": "Oblivious",
+              "usageKind": "Predefined",
+              "predefinedKind": "String"
+            },
+            "hasDefaultValue": false,
+            "defaultValue": null,
+            "attributes": []
+          },
+          {
+            "name": "param2",
+            "position": 1,
+            "modifiers": "None",
+            "type": {
+              "localName": "object",
+              "nullability": "Oblivious",
+              "usageKind": "Predefined",
+              "predefinedKind": "Object"
+            },
+            "hasDefaultValue": false,
+            "defaultValue": null,
+            "attributes": []
+          }
+        ],
+        "genericParameters": [],
+        "attributes": [],
+        "localFunctions": []
+      }
+    ],
+    "properties": [],
+    "indexers": [],
+    "events": [],
+    "instanceConstructors": [
+      {
+        "declaringType": "TestCases.NullableObliviousContainer",
+        "accessModifier": "Public",
+        "isPrimary": false,
+        "parameters": [],
+        "attributes": [],
+        "localFunctions": []
+      }
+    ],
+    "staticConstructor": null,
+    "operators": [],
+    "attributes": [],
+    "nestedTypes": []
+  }
+]

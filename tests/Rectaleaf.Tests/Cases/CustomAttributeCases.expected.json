@@ -1,0 +1,1554 @@
+[
+  {
+    "kind": "Enum",
+    "localName": "CustomColorFlags",
+    "fullyQualifiedName": "TestCases.CustomColorFlags",
+    "namespace": "TestCases",
+    "accessModifier": "Public",
+    "containingType": null,
+    "underlyingType": {
+      "localName": "short",
+      "usageKind": "EnumUnderlying",
+      "underlyingKind": "Short"
+    },
+    "enumMembers": [
+      {
+        "name": "None",
+        "value": "0"
+      },
+      {
+        "name": "Red",
+        "value": "1"
+      },
+      {
+        "name": "Green",
+        "value": "2"
+      },
+      {
+        "name": "Blue",
+        "value": "4"
+      },
+      {
+        "name": "Alpha",
+        "value": "8"
+      }
+    ],
+    "attributes": [
+      {
+        "name": "FlagsAttribute",
+        "fullyQualifiedName": "System.FlagsAttribute",
+        "constructorArguments": [],
+        "namedArguments": {}
+      }
+    ],
+    "nestedTypes": []
+  },
+  {
+    "kind": "RegularClass",
+    "localName": "TypeArgAttribute",
+    "fullyQualifiedName": "TestCases.TypeArgAttribute",
+    "namespace": "TestCases",
+    "accessModifier": "Public",
+    "containingType": null,
+    "isSealed": false,
+    "baseType": {
+      "localName": "Attribute",
+      "nullability": "NonNullable",
+      "usageKind": "Plain",
+      "typeDefinition": "System.Attribute"
+    },
+    "genericParameters": [],
+    "directInterfaces": [],
+    "fields": [],
+    "methods": [],
+    "properties": [
+      {
+        "name": "TargetType",
+        "declaringType": "TestCases.TypeArgAttribute",
+        "type": {
+          "localName": "Type",
+          "nullability": "NonNullable",
+          "usageKind": "Plain",
+          "typeDefinition": "System.Type"
+        },
+        "accessModifier": "Public",
+        "isStatic": false,
+        "inheritance": {
+          "kind": "None"
+        },
+        "attributes": [],
+        "accessors": [
+          {
+            "kind": "get",
+            "isReadOnly": false,
+            "returnInfo": {
+              "type": {
+                "localName": "Type",
+                "nullability": "NonNullable",
+                "usageKind": "Plain",
+                "typeDefinition": "System.Type"
+              },
+              "attributes": []
+            },
+            "attributes": [],
+            "accessModifier": "Public",
+            "localFunctions": []
+          }
+        ],
+        "backingFieldName": "<TargetType>k__BackingField"
+      }
+    ],
+    "indexers": [],
+    "events": [],
+    "instanceConstructors": [
+      {
+        "declaringType": "TestCases.TypeArgAttribute",
+        "accessModifier": "Public",
+        "isPrimary": false,
+        "parameters": [
+          {
+            "name": "targetType",
+            "position": 0,
+            "modifiers": "None",
+            "type": {
+              "localName": "Type",
+              "nullability": "NonNullable",
+              "usageKind": "Plain",
+              "typeDefinition": "System.Type"
+            },
+            "hasDefaultValue": false,
+            "defaultValue": null,
+            "attributes": []
+          }
+        ],
+        "attributes": [],
+        "localFunctions": []
+      }
+    ],
+    "staticConstructor": null,
+    "operators": [],
+    "attributes": [
+      {
+        "name": "AttributeUsageAttribute",
+        "fullyQualifiedName": "System.AttributeUsageAttribute",
+        "constructorArguments": [
+          "AttributeTargets.All"
+        ],
+        "namedArguments": {
+          "AllowMultiple": "True"
+        }
+      }
+    ],
+    "nestedTypes": []
+  },
+  {
+    "kind": "RegularClass",
+    "localName": "PrimitiveArrayAttribute",
+    "fullyQualifiedName": "TestCases.PrimitiveArrayAttribute",
+    "namespace": "TestCases",
+    "accessModifier": "Public",
+    "containingType": null,
+    "isSealed": false,
+    "baseType": {
+      "localName": "Attribute",
+      "nullability": "NonNullable",
+      "usageKind": "Plain",
+      "typeDefinition": "System.Attribute"
+    },
+    "genericParameters": [],
+    "directInterfaces": [],
+    "fields": [],
+    "methods": [],
+    "properties": [
+      {
+        "name": "Numbers",
+        "declaringType": "TestCases.PrimitiveArrayAttribute",
+        "type": {
+          "localName": "int[]",
+          "nullability": "NonNullable",
+          "usageKind": "Array",
+          "rank": 1,
+          "elementType": {
+            "localName": "int",
+            "nullability": "NonNullable",
+            "usageKind": "Predefined",
+            "predefinedKind": "Int"
+          }
+        },
+        "accessModifier": "Public",
+        "isStatic": false,
+        "inheritance": {
+          "kind": "None"
+        },
+        "attributes": [],
+        "accessors": [
+          {
+            "kind": "get",
+            "isReadOnly": false,
+            "returnInfo": {
+              "type": {
+                "localName": "int[]",
+                "nullability": "NonNullable",
+                "usageKind": "Array",
+                "rank": 1,
+                "elementType": {
+                  "localName": "int",
+                  "nullability": "NonNullable",
+                  "usageKind": "Predefined",
+                  "predefinedKind": "Int"
+                }
+              },
+              "attributes": []
+            },
+            "attributes": [],
+            "accessModifier": "Public",
+            "localFunctions": []
+          }
+        ],
+        "backingFieldName": "<Numbers>k__BackingField"
+      }
+    ],
+    "indexers": [],
+    "events": [],
+    "instanceConstructors": [
+      {
+        "declaringType": "TestCases.PrimitiveArrayAttribute",
+        "accessModifier": "Public",
+        "isPrimary": false,
+        "parameters": [
+          {
+            "name": "numbers",
+            "position": 0,
+            "modifiers": "None",
+            "type": {
+              "localName": "int[]",
+              "nullability": "NonNullable",
+              "usageKind": "Array",
+              "rank": 1,
+              "elementType": {
+                "localName": "int",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "Int"
+              }
+            },
+            "hasDefaultValue": false,
+            "defaultValue": null,
+            "attributes": []
+          }
+        ],
+        "attributes": [],
+        "localFunctions": []
+      }
+    ],
+    "staticConstructor": null,
+    "operators": [],
+    "attributes": [
+      {
+        "name": "AttributeUsageAttribute",
+        "fullyQualifiedName": "System.AttributeUsageAttribute",
+        "constructorArguments": [
+          "AttributeTargets.All"
+        ],
+        "namedArguments": {}
+      }
+    ],
+    "nestedTypes": []
+  },
+  {
+    "kind": "RegularClass",
+    "localName": "HeterogeneousArrayAttribute",
+    "fullyQualifiedName": "TestCases.HeterogeneousArrayAttribute",
+    "namespace": "TestCases",
+    "accessModifier": "Public",
+    "containingType": null,
+    "isSealed": false,
+    "baseType": {
+      "localName": "Attribute",
+      "nullability": "NonNullable",
+      "usageKind": "Plain",
+      "typeDefinition": "System.Attribute"
+    },
+    "genericParameters": [],
+    "directInterfaces": [],
+    "fields": [],
+    "methods": [],
+    "properties": [
+      {
+        "name": "Items",
+        "declaringType": "TestCases.HeterogeneousArrayAttribute",
+        "type": {
+          "localName": "object[]",
+          "nullability": "NonNullable",
+          "usageKind": "Array",
+          "rank": 1,
+          "elementType": {
+            "localName": "object",
+            "nullability": "NonNullable",
+            "usageKind": "Predefined",
+            "predefinedKind": "Object"
+          }
+        },
+        "accessModifier": "Public",
+        "isStatic": false,
+        "inheritance": {
+          "kind": "None"
+        },
+        "attributes": [],
+        "accessors": [
+          {
+            "kind": "get",
+            "isReadOnly": false,
+            "returnInfo": {
+              "type": {
+                "localName": "object[]",
+                "nullability": "NonNullable",
+                "usageKind": "Array",
+                "rank": 1,
+                "elementType": {
+                  "localName": "object",
+                  "nullability": "NonNullable",
+                  "usageKind": "Predefined",
+                  "predefinedKind": "Object"
+                }
+              },
+              "attributes": []
+            },
+            "attributes": [],
+            "accessModifier": "Public",
+            "localFunctions": []
+          }
+        ],
+        "backingFieldName": "<Items>k__BackingField"
+      }
+    ],
+    "indexers": [],
+    "events": [],
+    "instanceConstructors": [
+      {
+        "declaringType": "TestCases.HeterogeneousArrayAttribute",
+        "accessModifier": "Public",
+        "isPrimary": false,
+        "parameters": [
+          {
+            "name": "items",
+            "position": 0,
+            "modifiers": "None",
+            "type": {
+              "localName": "object[]",
+              "nullability": "NonNullable",
+              "usageKind": "Array",
+              "rank": 1,
+              "elementType": {
+                "localName": "object",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "Object"
+              }
+            },
+            "hasDefaultValue": false,
+            "defaultValue": null,
+            "attributes": []
+          }
+        ],
+        "attributes": [],
+        "localFunctions": []
+      }
+    ],
+    "staticConstructor": null,
+    "operators": [],
+    "attributes": [
+      {
+        "name": "AttributeUsageAttribute",
+        "fullyQualifiedName": "System.AttributeUsageAttribute",
+        "constructorArguments": [
+          "AttributeTargets.All"
+        ],
+        "namedArguments": {}
+      }
+    ],
+    "nestedTypes": []
+  },
+  {
+    "kind": "RegularClass",
+    "localName": "EnumFlagAttribute",
+    "fullyQualifiedName": "TestCases.EnumFlagAttribute",
+    "namespace": "TestCases",
+    "accessModifier": "Public",
+    "containingType": null,
+    "isSealed": false,
+    "baseType": {
+      "localName": "Attribute",
+      "nullability": "NonNullable",
+      "usageKind": "Plain",
+      "typeDefinition": "System.Attribute"
+    },
+    "genericParameters": [],
+    "directInterfaces": [],
+    "fields": [],
+    "methods": [],
+    "properties": [
+      {
+        "name": "Targets",
+        "declaringType": "TestCases.EnumFlagAttribute",
+        "type": {
+          "localName": "AttributeTargets",
+          "nullability": "NonNullable",
+          "usageKind": "Plain",
+          "typeDefinition": "System.AttributeTargets"
+        },
+        "accessModifier": "Public",
+        "isStatic": false,
+        "inheritance": {
+          "kind": "None"
+        },
+        "attributes": [],
+        "accessors": [
+          {
+            "kind": "get",
+            "isReadOnly": false,
+            "returnInfo": {
+              "type": {
+                "localName": "AttributeTargets",
+                "nullability": "NonNullable",
+                "usageKind": "Plain",
+                "typeDefinition": "System.AttributeTargets"
+              },
+              "attributes": []
+            },
+            "attributes": [],
+            "accessModifier": "Public",
+            "localFunctions": []
+          }
+        ],
+        "backingFieldName": "<Targets>k__BackingField"
+      },
+      {
+        "name": "Colors",
+        "declaringType": "TestCases.EnumFlagAttribute",
+        "type": {
+          "localName": "CustomColorFlags",
+          "nullability": "NonNullable",
+          "usageKind": "Plain",
+          "typeDefinition": "TestCases.CustomColorFlags"
+        },
+        "accessModifier": "Public",
+        "isStatic": false,
+        "inheritance": {
+          "kind": "None"
+        },
+        "attributes": [],
+        "accessors": [
+          {
+            "kind": "get",
+            "isReadOnly": false,
+            "returnInfo": {
+              "type": {
+                "localName": "CustomColorFlags",
+                "nullability": "NonNullable",
+                "usageKind": "Plain",
+                "typeDefinition": "TestCases.CustomColorFlags"
+              },
+              "attributes": []
+            },
+            "attributes": [],
+            "accessModifier": "Public",
+            "localFunctions": []
+          },
+          {
+            "kind": "set",
+            "isReadOnly": false,
+            "returnInfo": {
+              "type": {
+                "localName": "void",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "Void"
+              },
+              "attributes": []
+            },
+            "attributes": [],
+            "accessModifier": "Public",
+            "valueParameter": {
+              "name": "value",
+              "position": 0,
+              "modifiers": "None",
+              "type": {
+                "localName": "CustomColorFlags",
+                "nullability": "NonNullable",
+                "usageKind": "Plain",
+                "typeDefinition": "TestCases.CustomColorFlags"
+              },
+              "hasDefaultValue": false,
+              "defaultValue": null,
+              "attributes": []
+            },
+            "localFunctions": []
+          }
+        ],
+        "backingFieldName": "<Colors>k__BackingField"
+      }
+    ],
+    "indexers": [],
+    "events": [],
+    "instanceConstructors": [
+      {
+        "declaringType": "TestCases.EnumFlagAttribute",
+        "accessModifier": "Public",
+        "isPrimary": false,
+        "parameters": [
+          {
+            "name": "targets",
+            "position": 0,
+            "modifiers": "None",
+            "type": {
+              "localName": "AttributeTargets",
+              "nullability": "NonNullable",
+              "usageKind": "Plain",
+              "typeDefinition": "System.AttributeTargets"
+            },
+            "hasDefaultValue": false,
+            "defaultValue": null,
+            "attributes": []
+          }
+        ],
+        "attributes": [],
+        "localFunctions": []
+      }
+    ],
+    "staticConstructor": null,
+    "operators": [],
+    "attributes": [
+      {
+        "name": "AttributeUsageAttribute",
+        "fullyQualifiedName": "System.AttributeUsageAttribute",
+        "constructorArguments": [
+          "AttributeTargets.All"
+        ],
+        "namedArguments": {}
+      }
+    ],
+    "nestedTypes": []
+  },
+  {
+    "kind": "RegularClass",
+    "localName": "UndefinedBitFlagAttribute",
+    "fullyQualifiedName": "TestCases.UndefinedBitFlagAttribute",
+    "namespace": "TestCases",
+    "accessModifier": "Public",
+    "containingType": null,
+    "isSealed": false,
+    "baseType": {
+      "localName": "Attribute",
+      "nullability": "NonNullable",
+      "usageKind": "Plain",
+      "typeDefinition": "System.Attribute"
+    },
+    "genericParameters": [],
+    "directInterfaces": [],
+    "fields": [],
+    "methods": [],
+    "properties": [
+      {
+        "name": "Flags",
+        "declaringType": "TestCases.UndefinedBitFlagAttribute",
+        "type": {
+          "localName": "CustomColorFlags",
+          "nullability": "NonNullable",
+          "usageKind": "Plain",
+          "typeDefinition": "TestCases.CustomColorFlags"
+        },
+        "accessModifier": "Public",
+        "isStatic": false,
+        "inheritance": {
+          "kind": "None"
+        },
+        "attributes": [],
+        "accessors": [
+          {
+            "kind": "get",
+            "isReadOnly": false,
+            "returnInfo": {
+              "type": {
+                "localName": "CustomColorFlags",
+                "nullability": "NonNullable",
+                "usageKind": "Plain",
+                "typeDefinition": "TestCases.CustomColorFlags"
+              },
+              "attributes": []
+            },
+            "attributes": [],
+            "accessModifier": "Public",
+            "localFunctions": []
+          }
+        ],
+        "backingFieldName": "<Flags>k__BackingField"
+      }
+    ],
+    "indexers": [],
+    "events": [],
+    "instanceConstructors": [
+      {
+        "declaringType": "TestCases.UndefinedBitFlagAttribute",
+        "accessModifier": "Public",
+        "isPrimary": false,
+        "parameters": [
+          {
+            "name": "flags",
+            "position": 0,
+            "modifiers": "None",
+            "type": {
+              "localName": "CustomColorFlags",
+              "nullability": "NonNullable",
+              "usageKind": "Plain",
+              "typeDefinition": "TestCases.CustomColorFlags"
+            },
+            "hasDefaultValue": false,
+            "defaultValue": null,
+            "attributes": []
+          }
+        ],
+        "attributes": [],
+        "localFunctions": []
+      }
+    ],
+    "staticConstructor": null,
+    "operators": [],
+    "attributes": [
+      {
+        "name": "AttributeUsageAttribute",
+        "fullyQualifiedName": "System.AttributeUsageAttribute",
+        "constructorArguments": [
+          "AttributeTargets.All"
+        ],
+        "namedArguments": {}
+      }
+    ],
+    "nestedTypes": []
+  },
+  {
+    "kind": "RegularClass",
+    "localName": "ParamsConstructorAttribute",
+    "fullyQualifiedName": "TestCases.ParamsConstructorAttribute",
+    "namespace": "TestCases",
+    "accessModifier": "Public",
+    "containingType": null,
+    "isSealed": false,
+    "baseType": {
+      "localName": "Attribute",
+      "nullability": "NonNullable",
+      "usageKind": "Plain",
+      "typeDefinition": "System.Attribute"
+    },
+    "genericParameters": [],
+    "directInterfaces": [],
+    "fields": [],
+    "methods": [],
+    "properties": [
+      {
+        "name": "Priority",
+        "declaringType": "TestCases.ParamsConstructorAttribute",
+        "type": {
+          "localName": "int",
+          "nullability": "NonNullable",
+          "usageKind": "Predefined",
+          "predefinedKind": "Int"
+        },
+        "accessModifier": "Public",
+        "isStatic": false,
+        "inheritance": {
+          "kind": "None"
+        },
+        "attributes": [],
+        "accessors": [
+          {
+            "kind": "get",
+            "isReadOnly": false,
+            "returnInfo": {
+              "type": {
+                "localName": "int",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "Int"
+              },
+              "attributes": []
+            },
+            "attributes": [],
+            "accessModifier": "Public",
+            "localFunctions": []
+          }
+        ],
+        "backingFieldName": "<Priority>k__BackingField"
+      },
+      {
+        "name": "Tags",
+        "declaringType": "TestCases.ParamsConstructorAttribute",
+        "type": {
+          "localName": "string[]",
+          "nullability": "NonNullable",
+          "usageKind": "Array",
+          "rank": 1,
+          "elementType": {
+            "localName": "string",
+            "nullability": "NonNullable",
+            "usageKind": "Predefined",
+            "predefinedKind": "String"
+          }
+        },
+        "accessModifier": "Public",
+        "isStatic": false,
+        "inheritance": {
+          "kind": "None"
+        },
+        "attributes": [],
+        "accessors": [
+          {
+            "kind": "get",
+            "isReadOnly": false,
+            "returnInfo": {
+              "type": {
+                "localName": "string[]",
+                "nullability": "NonNullable",
+                "usageKind": "Array",
+                "rank": 1,
+                "elementType": {
+                  "localName": "string",
+                  "nullability": "NonNullable",
+                  "usageKind": "Predefined",
+                  "predefinedKind": "String"
+                }
+              },
+              "attributes": []
+            },
+            "attributes": [],
+            "accessModifier": "Public",
+            "localFunctions": []
+          }
+        ],
+        "backingFieldName": "<Tags>k__BackingField"
+      }
+    ],
+    "indexers": [],
+    "events": [],
+    "instanceConstructors": [
+      {
+        "declaringType": "TestCases.ParamsConstructorAttribute",
+        "accessModifier": "Public",
+        "isPrimary": false,
+        "parameters": [
+          {
+            "name": "priority",
+            "position": 0,
+            "modifiers": "None",
+            "type": {
+              "localName": "int",
+              "nullability": "NonNullable",
+              "usageKind": "Predefined",
+              "predefinedKind": "Int"
+            },
+            "hasDefaultValue": false,
+            "defaultValue": null,
+            "attributes": []
+          },
+          {
+            "name": "tags",
+            "position": 1,
+            "modifiers": "Params",
+            "type": {
+              "localName": "string[]",
+              "nullability": "NonNullable",
+              "usageKind": "Array",
+              "rank": 1,
+              "elementType": {
+                "localName": "string",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "String"
+              }
+            },
+            "hasDefaultValue": false,
+            "defaultValue": null,
+            "attributes": []
+          }
+        ],
+        "attributes": [],
+        "localFunctions": []
+      }
+    ],
+    "staticConstructor": null,
+    "operators": [],
+    "attributes": [
+      {
+        "name": "AttributeUsageAttribute",
+        "fullyQualifiedName": "System.AttributeUsageAttribute",
+        "constructorArguments": [
+          "AttributeTargets.All"
+        ],
+        "namedArguments": {}
+      }
+    ],
+    "nestedTypes": []
+  },
+  {
+    "kind": "RegularClass",
+    "localName": "NamedPropertiesAttribute",
+    "fullyQualifiedName": "TestCases.NamedPropertiesAttribute",
+    "namespace": "TestCases",
+    "accessModifier": "Public",
+    "containingType": null,
+    "isSealed": false,
+    "baseType": {
+      "localName": "Attribute",
+      "nullability": "NonNullable",
+      "usageKind": "Plain",
+      "typeDefinition": "System.Attribute"
+    },
+    "genericParameters": [],
+    "directInterfaces": [],
+    "fields": [
+      {
+        "name": "IsActive",
+        "declaringType": "TestCases.NamedPropertiesAttribute",
+        "accessModifier": "Public",
+        "attributes": [],
+        "fieldKind": "Regular",
+        "type": {
+          "localName": "bool",
+          "nullability": "NonNullable",
+          "usageKind": "Predefined",
+          "predefinedKind": "Bool"
+        },
+        "isReadOnly": false,
+        "isVolatile": false,
+        "isStatic": false,
+        "isRequired": false
+      }
+    ],
+    "methods": [],
+    "properties": [
+      {
+        "name": "Id",
+        "declaringType": "TestCases.NamedPropertiesAttribute",
+        "type": {
+          "localName": "int",
+          "nullability": "NonNullable",
+          "usageKind": "Predefined",
+          "predefinedKind": "Int"
+        },
+        "accessModifier": "Public",
+        "isStatic": false,
+        "inheritance": {
+          "kind": "None"
+        },
+        "attributes": [],
+        "accessors": [
+          {
+            "kind": "get",
+            "isReadOnly": false,
+            "returnInfo": {
+              "type": {
+                "localName": "int",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "Int"
+              },
+              "attributes": []
+            },
+            "attributes": [],
+            "accessModifier": "Public",
+            "localFunctions": []
+          }
+        ],
+        "backingFieldName": "<Id>k__BackingField"
+      },
+      {
+        "name": "Title",
+        "declaringType": "TestCases.NamedPropertiesAttribute",
+        "type": {
+          "localName": "string",
+          "nullability": "NonNullable",
+          "usageKind": "Predefined",
+          "predefinedKind": "String"
+        },
+        "accessModifier": "Public",
+        "isStatic": false,
+        "inheritance": {
+          "kind": "None"
+        },
+        "attributes": [],
+        "accessors": [
+          {
+            "kind": "get",
+            "isReadOnly": false,
+            "returnInfo": {
+              "type": {
+                "localName": "string",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "String"
+              },
+              "attributes": []
+            },
+            "attributes": [],
+            "accessModifier": "Public",
+            "localFunctions": []
+          },
+          {
+            "kind": "set",
+            "isReadOnly": false,
+            "returnInfo": {
+              "type": {
+                "localName": "void",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "Void"
+              },
+              "attributes": []
+            },
+            "attributes": [],
+            "accessModifier": "Public",
+            "valueParameter": {
+              "name": "value",
+              "position": 0,
+              "modifiers": "None",
+              "type": {
+                "localName": "string",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "String"
+              },
+              "hasDefaultValue": false,
+              "defaultValue": null,
+              "attributes": []
+            },
+            "localFunctions": []
+          }
+        ],
+        "backingFieldName": "<Title>k__BackingField"
+      },
+      {
+        "name": "Weight",
+        "declaringType": "TestCases.NamedPropertiesAttribute",
+        "type": {
+          "localName": "double",
+          "nullability": "NonNullable",
+          "usageKind": "Predefined",
+          "predefinedKind": "Double"
+        },
+        "accessModifier": "Public",
+        "isStatic": false,
+        "inheritance": {
+          "kind": "None"
+        },
+        "attributes": [],
+        "accessors": [
+          {
+            "kind": "get",
+            "isReadOnly": false,
+            "returnInfo": {
+              "type": {
+                "localName": "double",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "Double"
+              },
+              "attributes": []
+            },
+            "attributes": [],
+            "accessModifier": "Public",
+            "localFunctions": []
+          },
+          {
+            "kind": "set",
+            "isReadOnly": false,
+            "returnInfo": {
+              "type": {
+                "localName": "void",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "Void"
+              },
+              "attributes": []
+            },
+            "attributes": [],
+            "accessModifier": "Public",
+            "valueParameter": {
+              "name": "value",
+              "position": 0,
+              "modifiers": "None",
+              "type": {
+                "localName": "double",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "Double"
+              },
+              "hasDefaultValue": false,
+              "defaultValue": null,
+              "attributes": []
+            },
+            "localFunctions": []
+          }
+        ],
+        "backingFieldName": "<Weight>k__BackingField"
+      },
+      {
+        "name": "ExtraData",
+        "declaringType": "TestCases.NamedPropertiesAttribute",
+        "type": {
+          "localName": "object?",
+          "nullability": "Nullable",
+          "usageKind": "Predefined",
+          "predefinedKind": "Object"
+        },
+        "accessModifier": "Public",
+        "isStatic": false,
+        "inheritance": {
+          "kind": "None"
+        },
+        "attributes": [],
+        "accessors": [
+          {
+            "kind": "get",
+            "isReadOnly": false,
+            "returnInfo": {
+              "type": {
+                "localName": "object?",
+                "nullability": "Nullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "Object"
+              },
+              "attributes": []
+            },
+            "attributes": [],
+            "accessModifier": "Public",
+            "localFunctions": []
+          },
+          {
+            "kind": "set",
+            "isReadOnly": false,
+            "returnInfo": {
+              "type": {
+                "localName": "void",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "Void"
+              },
+              "attributes": []
+            },
+            "attributes": [],
+            "accessModifier": "Public",
+            "valueParameter": {
+              "name": "value",
+              "position": 0,
+              "modifiers": "None",
+              "type": {
+                "localName": "object?",
+                "nullability": "Nullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "Object"
+              },
+              "hasDefaultValue": false,
+              "defaultValue": null,
+              "attributes": []
+            },
+            "localFunctions": []
+          }
+        ],
+        "backingFieldName": "<ExtraData>k__BackingField"
+      }
+    ],
+    "indexers": [],
+    "events": [],
+    "instanceConstructors": [
+      {
+        "declaringType": "TestCases.NamedPropertiesAttribute",
+        "accessModifier": "Public",
+        "isPrimary": false,
+        "parameters": [
+          {
+            "name": "id",
+            "position": 0,
+            "modifiers": "None",
+            "type": {
+              "localName": "int",
+              "nullability": "NonNullable",
+              "usageKind": "Predefined",
+              "predefinedKind": "Int"
+            },
+            "hasDefaultValue": false,
+            "defaultValue": null,
+            "attributes": []
+          }
+        ],
+        "attributes": [],
+        "localFunctions": []
+      }
+    ],
+    "staticConstructor": null,
+    "operators": [],
+    "attributes": [
+      {
+        "name": "AttributeUsageAttribute",
+        "fullyQualifiedName": "System.AttributeUsageAttribute",
+        "constructorArguments": [
+          "AttributeTargets.All"
+        ],
+        "namedArguments": {}
+      }
+    ],
+    "nestedTypes": []
+  },
+  {
+    "kind": "RegularClass",
+    "localName": "TypeParamTargetAttribute",
+    "fullyQualifiedName": "TestCases.TypeParamTargetAttribute",
+    "namespace": "TestCases",
+    "accessModifier": "Public",
+    "containingType": null,
+    "isSealed": false,
+    "baseType": {
+      "localName": "Attribute",
+      "nullability": "NonNullable",
+      "usageKind": "Plain",
+      "typeDefinition": "System.Attribute"
+    },
+    "genericParameters": [],
+    "directInterfaces": [],
+    "fields": [],
+    "methods": [],
+    "properties": [
+      {
+        "name": "Description",
+        "declaringType": "TestCases.TypeParamTargetAttribute",
+        "type": {
+          "localName": "string",
+          "nullability": "NonNullable",
+          "usageKind": "Predefined",
+          "predefinedKind": "String"
+        },
+        "accessModifier": "Public",
+        "isStatic": false,
+        "inheritance": {
+          "kind": "None"
+        },
+        "attributes": [],
+        "accessors": [
+          {
+            "kind": "get",
+            "isReadOnly": false,
+            "returnInfo": {
+              "type": {
+                "localName": "string",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "String"
+              },
+              "attributes": []
+            },
+            "attributes": [],
+            "accessModifier": "Public",
+            "localFunctions": []
+          }
+        ],
+        "backingFieldName": "<Description>k__BackingField"
+      }
+    ],
+    "indexers": [],
+    "events": [],
+    "instanceConstructors": [
+      {
+        "declaringType": "TestCases.TypeParamTargetAttribute",
+        "accessModifier": "Public",
+        "isPrimary": false,
+        "parameters": [
+          {
+            "name": "description",
+            "position": 0,
+            "modifiers": "None",
+            "type": {
+              "localName": "string",
+              "nullability": "NonNullable",
+              "usageKind": "Predefined",
+              "predefinedKind": "String"
+            },
+            "hasDefaultValue": false,
+            "defaultValue": null,
+            "attributes": []
+          }
+        ],
+        "attributes": [],
+        "localFunctions": []
+      }
+    ],
+    "staticConstructor": null,
+    "operators": [],
+    "attributes": [
+      {
+        "name": "AttributeUsageAttribute",
+        "fullyQualifiedName": "System.AttributeUsageAttribute",
+        "constructorArguments": [
+          "AttributeTargets.GenericParameter"
+        ],
+        "namedArguments": {}
+      }
+    ],
+    "nestedTypes": []
+  },
+  {
+    "kind": "RegularClass",
+    "localName": "AttributeDecoratedClass",
+    "fullyQualifiedName": "TestCases.AttributeDecoratedClass<TKey, TValue>",
+    "namespace": "TestCases",
+    "accessModifier": "Public",
+    "containingType": null,
+    "isSealed": false,
+    "baseType": null,
+    "genericParameters": [
+      {
+        "name": "TKey",
+        "position": 0,
+        "variance": "Invariant",
+        "source": "TestCases.AttributeDecoratedClass<TKey, TValue>",
+        "hasReferenceTypeConstraint": false,
+        "hasNullableReferenceTypeConstraint": false,
+        "hasNotNullConstraint": false,
+        "hasValueTypeConstraint": false,
+        "hasUnmanagedTypeConstraint": false,
+        "hasConstructorConstraint": false,
+        "hasAllowsRefStructConstraint": false,
+        "hasDefaultConstraint": false,
+        "constraintTypes": []
+      },
+      {
+        "name": "TValue",
+        "position": 1,
+        "variance": "Invariant",
+        "source": "TestCases.AttributeDecoratedClass<TKey, TValue>",
+        "hasReferenceTypeConstraint": false,
+        "hasNullableReferenceTypeConstraint": false,
+        "hasNotNullConstraint": false,
+        "hasValueTypeConstraint": false,
+        "hasUnmanagedTypeConstraint": false,
+        "hasConstructorConstraint": false,
+        "hasAllowsRefStructConstraint": false,
+        "hasDefaultConstraint": false,
+        "constraintTypes": []
+      }
+    ],
+    "directInterfaces": [],
+    "fields": [
+      {
+        "name": "AnnotatedField",
+        "declaringType": "TestCases.AttributeDecoratedClass<TKey, TValue>",
+        "accessModifier": "Public",
+        "attributes": [
+          {
+            "name": "NamedPropertiesAttribute",
+            "fullyQualifiedName": "TestCases.NamedPropertiesAttribute",
+            "constructorArguments": [
+              "100"
+            ],
+            "namedArguments": {
+              "Title": "FieldMarker",
+              "IsActive": "False"
+            }
+          }
+        ],
+        "fieldKind": "Regular",
+        "type": {
+          "localName": "int",
+          "nullability": "NonNullable",
+          "usageKind": "Predefined",
+          "predefinedKind": "Int"
+        },
+        "isReadOnly": false,
+        "isVolatile": false,
+        "isStatic": false,
+        "isRequired": false
+      }
+    ],
+    "methods": [
+      {
+        "name": "AnnotatedMethod",
+        "declaringType": "TestCases.AttributeDecoratedClass<TKey, TValue>",
+        "returnInfo": {
+          "type": {
+            "localName": "List<TValue>",
+            "nullability": "NonNullable",
+            "usageKind": "BoundGeneric",
+            "typeDefinition": "System.Collections.Generic.List<T>",
+            "typeArguments": [
+              {
+                "localName": "TValue",
+                "nullability": "NonNullable",
+                "usageKind": "Placeholder",
+                "placeholderName": "TValue",
+                "placeholderPosition": 1,
+                "placeholderSource": "TestCases.AttributeDecoratedClass<TKey, TValue>"
+              }
+            ]
+          },
+          "attributes": [
+            {
+              "name": "TypeArgAttribute",
+              "fullyQualifiedName": "TestCases.TypeArgAttribute",
+              "constructorArguments": [
+                "IEnumerable"
+              ],
+              "namedArguments": {}
+            }
+          ]
+        },
+        "isStatic": false,
+        "isGeneric": false,
+        "isReadOnly": false,
+        "hasArglistParameter": false,
+        "accessModifier": "Public",
+        "inheritance": {
+          "kind": "None"
+        },
+        "parameters": [
+          {
+            "name": "key",
+            "position": 0,
+            "modifiers": "None",
+            "type": {
+              "localName": "TKey",
+              "nullability": "NonNullable",
+              "usageKind": "Placeholder",
+              "placeholderName": "TKey",
+              "placeholderPosition": 0,
+              "placeholderSource": "TestCases.AttributeDecoratedClass<TKey, TValue>"
+            },
+            "hasDefaultValue": false,
+            "defaultValue": null,
+            "attributes": [
+              {
+                "name": "TypeArgAttribute",
+                "fullyQualifiedName": "TestCases.TypeArgAttribute",
+                "constructorArguments": [
+                  "KeyValuePair"
+                ],
+                "namedArguments": {}
+              },
+              {
+                "name": "NamedPropertiesAttribute",
+                "fullyQualifiedName": "TestCases.NamedPropertiesAttribute",
+                "constructorArguments": [
+                  "300"
+                ],
+                "namedArguments": {
+                  "Title": "ParameterMarker"
+                }
+              }
+            ]
+          },
+          {
+            "name": "flag",
+            "position": 1,
+            "modifiers": "None",
+            "type": {
+              "localName": "int",
+              "nullability": "NonNullable",
+              "usageKind": "Predefined",
+              "predefinedKind": "Int"
+            },
+            "hasDefaultValue": false,
+            "defaultValue": null,
+            "attributes": [
+              {
+                "name": "ParamsConstructorAttribute",
+                "fullyQualifiedName": "TestCases.ParamsConstructorAttribute",
+                "constructorArguments": [
+                  "99",
+                  "[inline_tag]"
+                ],
+                "namedArguments": {}
+              }
+            ]
+          }
+        ],
+        "genericParameters": [],
+        "attributes": [
+          {
+            "name": "NamedPropertiesAttribute",
+            "fullyQualifiedName": "TestCases.NamedPropertiesAttribute",
+            "constructorArguments": [
+              "200"
+            ],
+            "namedArguments": {
+              "Title": "MethodReturn"
+            }
+          }
+        ],
+        "localFunctions": []
+      }
+    ],
+    "properties": [
+      {
+        "name": "AnnotatedProperty",
+        "declaringType": "TestCases.AttributeDecoratedClass<TKey, TValue>",
+        "type": {
+          "localName": "string",
+          "nullability": "NonNullable",
+          "usageKind": "Predefined",
+          "predefinedKind": "String"
+        },
+        "accessModifier": "Public",
+        "isStatic": false,
+        "inheritance": {
+          "kind": "None"
+        },
+        "attributes": [
+          {
+            "name": "ParamsConstructorAttribute",
+            "fullyQualifiedName": "TestCases.ParamsConstructorAttribute",
+            "constructorArguments": [
+              "5",
+              "[get_tag, prop_tag]"
+            ],
+            "namedArguments": {}
+          }
+        ],
+        "accessors": [
+          {
+            "kind": "get",
+            "isReadOnly": false,
+            "returnInfo": {
+              "type": {
+                "localName": "string",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "String"
+              },
+              "attributes": []
+            },
+            "attributes": [],
+            "accessModifier": "Public",
+            "localFunctions": []
+          },
+          {
+            "kind": "set",
+            "isReadOnly": false,
+            "returnInfo": {
+              "type": {
+                "localName": "void",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "Void"
+              },
+              "attributes": []
+            },
+            "attributes": [],
+            "accessModifier": "Public",
+            "valueParameter": {
+              "name": "value",
+              "position": 0,
+              "modifiers": "None",
+              "type": {
+                "localName": "string",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "String"
+              },
+              "hasDefaultValue": false,
+              "defaultValue": null,
+              "attributes": []
+            },
+            "localFunctions": []
+          }
+        ],
+        "backingFieldName": "<AnnotatedProperty>k__BackingField"
+      }
+    ],
+    "indexers": [],
+    "events": [],
+    "instanceConstructors": [
+      {
+        "declaringType": "TestCases.AttributeDecoratedClass<TKey, TValue>",
+        "accessModifier": "Public",
+        "isPrimary": false,
+        "parameters": [],
+        "attributes": [],
+        "localFunctions": []
+      }
+    ],
+    "staticConstructor": null,
+    "operators": [],
+    "attributes": [
+      {
+        "name": "TypeArgAttribute",
+        "fullyQualifiedName": "TestCases.TypeArgAttribute",
+        "constructorArguments": [
+          "Dictionary"
+        ],
+        "namedArguments": {}
+      },
+      {
+        "name": "TypeArgAttribute",
+        "fullyQualifiedName": "TestCases.TypeArgAttribute",
+        "constructorArguments": [
+          "List<string>"
+        ],
+        "namedArguments": {}
+      },
+      {
+        "name": "PrimitiveArrayAttribute",
+        "fullyQualifiedName": "TestCases.PrimitiveArrayAttribute",
+        "constructorArguments": [
+          "[10, 20, 30, 40]"
+        ],
+        "namedArguments": {}
+      },
+      {
+        "name": "HeterogeneousArrayAttribute",
+        "fullyQualifiedName": "TestCases.HeterogeneousArrayAttribute",
+        "constructorArguments": [
+          "[1, test_string, void, True, 3.14]"
+        ],
+        "namedArguments": {}
+      },
+      {
+        "name": "EnumFlagAttribute",
+        "fullyQualifiedName": "TestCases.EnumFlagAttribute",
+        "constructorArguments": [
+          "AttributeTargets.Class | AttributeTargets.Struct"
+        ],
+        "namedArguments": {
+          "Colors": "CustomColorFlags.Red | CustomColorFlags.Blue"
+        }
+      },
+      {
+        "name": "UndefinedBitFlagAttribute",
+        "fullyQualifiedName": "TestCases.UndefinedBitFlagAttribute",
+        "constructorArguments": [
+          "CustomColorFlags.Blue"
+        ],
+        "namedArguments": {}
+      },
+      {
+        "name": "ParamsConstructorAttribute",
+        "fullyQualifiedName": "TestCases.ParamsConstructorAttribute",
+        "constructorArguments": [
+          "1",
+          "[alpha, beta, gamma]"
+        ],
+        "namedArguments": {}
+      },
+      {
+        "name": "NamedPropertiesAttribute",
+        "fullyQualifiedName": "TestCases.NamedPropertiesAttribute",
+        "constructorArguments": [
+          "42"
+        ],
+        "namedArguments": {
+          "Title": "PrimaryClass",
+          "Weight": "9.5",
+          "IsActive": "True",
+          "ExtraData": "int[]"
+        }
+      }
+    ],
+    "nestedTypes": []
+  }
+]

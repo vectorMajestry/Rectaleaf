@@ -1,0 +1,1292 @@
+{
+  "kind": "Struct",
+  "localName": "Vector2D",
+  "fullyQualifiedName": "TestCases.Vector2D",
+  "namespace": "TestCases",
+  "accessModifier": "Public",
+  "containingType": null,
+  "isReadOnly": true,
+  "genericParameters": [],
+  "directInterfaces": [
+    {
+      "localName": "IEquatable<Vector2D>",
+      "nullability": "Oblivious",
+      "usageKind": "BoundGeneric",
+      "typeDefinition": "System.IEquatable<T>",
+      "typeArguments": [
+        {
+          "localName": "Vector2D",
+          "nullability": "NonNullable",
+          "usageKind": "Plain",
+          "typeDefinition": "TestCases.Vector2D"
+        }
+      ]
+    }
+  ],
+  "fields": [
+    {
+      "name": "X",
+      "declaringType": "TestCases.Vector2D",
+      "accessModifier": "Public",
+      "attributes": [],
+      "fieldKind": "Regular",
+      "type": {
+        "localName": "int",
+        "nullability": "NonNullable",
+        "usageKind": "Predefined",
+        "predefinedKind": "Int"
+      },
+      "isReadOnly": true,
+      "isVolatile": false,
+      "isStatic": false,
+      "isRequired": false
+    },
+    {
+      "name": "Y",
+      "declaringType": "TestCases.Vector2D",
+      "accessModifier": "Public",
+      "attributes": [],
+      "fieldKind": "Regular",
+      "type": {
+        "localName": "int",
+        "nullability": "NonNullable",
+        "usageKind": "Predefined",
+        "predefinedKind": "Int"
+      },
+      "isReadOnly": true,
+      "isVolatile": false,
+      "isStatic": false,
+      "isRequired": false
+    }
+  ],
+  "methods": [
+    {
+      "name": "Equals",
+      "declaringType": "TestCases.Vector2D",
+      "returnInfo": {
+        "type": {
+          "localName": "bool",
+          "nullability": "NonNullable",
+          "usageKind": "Predefined",
+          "predefinedKind": "Bool"
+        },
+        "attributes": []
+      },
+      "isStatic": false,
+      "isGeneric": false,
+      "isReadOnly": true,
+      "hasArglistParameter": false,
+      "accessModifier": "Public",
+      "inheritance": {
+        "kind": "None"
+      },
+      "parameters": [
+        {
+          "name": "other",
+          "position": 0,
+          "modifiers": "None",
+          "type": {
+            "localName": "Vector2D",
+            "nullability": "NonNullable",
+            "usageKind": "Plain",
+            "typeDefinition": "TestCases.Vector2D"
+          },
+          "hasDefaultValue": false,
+          "defaultValue": null,
+          "attributes": []
+        }
+      ],
+      "genericParameters": [],
+      "attributes": [],
+      "localFunctions": []
+    },
+    {
+      "name": "Equals",
+      "declaringType": "TestCases.Vector2D",
+      "returnInfo": {
+        "type": {
+          "localName": "bool",
+          "nullability": "NonNullable",
+          "usageKind": "Predefined",
+          "predefinedKind": "Bool"
+        },
+        "attributes": []
+      },
+      "isStatic": false,
+      "isGeneric": false,
+      "isReadOnly": true,
+      "hasArglistParameter": false,
+      "accessModifier": "Public",
+      "inheritance": {
+        "kind": "Override"
+      },
+      "parameters": [
+        {
+          "name": "obj",
+          "position": 0,
+          "modifiers": "None",
+          "type": {
+            "localName": "object?",
+            "nullability": "Nullable",
+            "usageKind": "Predefined",
+            "predefinedKind": "Object"
+          },
+          "hasDefaultValue": false,
+          "defaultValue": null,
+          "attributes": []
+        }
+      ],
+      "genericParameters": [],
+      "attributes": [],
+      "localFunctions": []
+    },
+    {
+      "name": "GetHashCode",
+      "declaringType": "TestCases.Vector2D",
+      "returnInfo": {
+        "type": {
+          "localName": "int",
+          "nullability": "NonNullable",
+          "usageKind": "Predefined",
+          "predefinedKind": "Int"
+        },
+        "attributes": []
+      },
+      "isStatic": false,
+      "isGeneric": false,
+      "isReadOnly": true,
+      "hasArglistParameter": false,
+      "accessModifier": "Public",
+      "inheritance": {
+        "kind": "Override"
+      },
+      "parameters": [],
+      "genericParameters": [],
+      "attributes": [],
+      "localFunctions": []
+    }
+  ],
+  "properties": [],
+  "indexers": [],
+  "events": [],
+  "instanceConstructors": [
+    {
+      "declaringType": "TestCases.Vector2D",
+      "accessModifier": "Public",
+      "isPrimary": false,
+      "parameters": [
+        {
+          "name": "x",
+          "position": 0,
+          "modifiers": "None",
+          "type": {
+            "localName": "int",
+            "nullability": "NonNullable",
+            "usageKind": "Predefined",
+            "predefinedKind": "Int"
+          },
+          "hasDefaultValue": false,
+          "defaultValue": null,
+          "attributes": []
+        },
+        {
+          "name": "y",
+          "position": 1,
+          "modifiers": "None",
+          "type": {
+            "localName": "int",
+            "nullability": "NonNullable",
+            "usageKind": "Predefined",
+            "predefinedKind": "Int"
+          },
+          "hasDefaultValue": false,
+          "defaultValue": null,
+          "attributes": []
+        }
+      ],
+      "attributes": [],
+      "localFunctions": []
+    },
+    {
+      "declaringType": "TestCases.Vector2D",
+      "accessModifier": "Public",
+      "isPrimary": false,
+      "parameters": [],
+      "attributes": [],
+      "localFunctions": []
+    }
+  ],
+  "staticConstructor": null,
+  "operators": [
+    {
+      "accessModifier": "Public",
+      "inheritance": {
+        "kind": "None"
+      },
+      "operatorKind": "Binary",
+      "binaryKind": "Add",
+      "isChecked": false,
+      "leftOperand": {
+        "name": "a",
+        "position": 0,
+        "modifiers": "None",
+        "type": {
+          "localName": "Vector2D",
+          "nullability": "NonNullable",
+          "usageKind": "Plain",
+          "typeDefinition": "TestCases.Vector2D"
+        },
+        "hasDefaultValue": false,
+        "defaultValue": null,
+        "attributes": []
+      },
+      "rightOperand": {
+        "name": "b",
+        "position": 1,
+        "modifiers": "None",
+        "type": {
+          "localName": "Vector2D",
+          "nullability": "NonNullable",
+          "usageKind": "Plain",
+          "typeDefinition": "TestCases.Vector2D"
+        },
+        "hasDefaultValue": false,
+        "defaultValue": null,
+        "attributes": []
+      },
+      "returnInfo": {
+        "type": {
+          "localName": "Vector2D",
+          "nullability": "NonNullable",
+          "usageKind": "Plain",
+          "typeDefinition": "TestCases.Vector2D"
+        },
+        "attributes": []
+      },
+      "localFunctions": []
+    },
+    {
+      "accessModifier": "Public",
+      "inheritance": {
+        "kind": "None"
+      },
+      "operatorKind": "Binary",
+      "binaryKind": "Subtract",
+      "isChecked": false,
+      "leftOperand": {
+        "name": "a",
+        "position": 0,
+        "modifiers": "None",
+        "type": {
+          "localName": "Vector2D",
+          "nullability": "NonNullable",
+          "usageKind": "Plain",
+          "typeDefinition": "TestCases.Vector2D"
+        },
+        "hasDefaultValue": false,
+        "defaultValue": null,
+        "attributes": []
+      },
+      "rightOperand": {
+        "name": "b",
+        "position": 1,
+        "modifiers": "None",
+        "type": {
+          "localName": "Vector2D",
+          "nullability": "NonNullable",
+          "usageKind": "Plain",
+          "typeDefinition": "TestCases.Vector2D"
+        },
+        "hasDefaultValue": false,
+        "defaultValue": null,
+        "attributes": []
+      },
+      "returnInfo": {
+        "type": {
+          "localName": "Vector2D",
+          "nullability": "NonNullable",
+          "usageKind": "Plain",
+          "typeDefinition": "TestCases.Vector2D"
+        },
+        "attributes": []
+      },
+      "localFunctions": []
+    },
+    {
+      "accessModifier": "Public",
+      "inheritance": {
+        "kind": "None"
+      },
+      "operatorKind": "Binary",
+      "binaryKind": "Multiply",
+      "isChecked": false,
+      "leftOperand": {
+        "name": "a",
+        "position": 0,
+        "modifiers": "None",
+        "type": {
+          "localName": "Vector2D",
+          "nullability": "NonNullable",
+          "usageKind": "Plain",
+          "typeDefinition": "TestCases.Vector2D"
+        },
+        "hasDefaultValue": false,
+        "defaultValue": null,
+        "attributes": []
+      },
+      "rightOperand": {
+        "name": "scalar",
+        "position": 1,
+        "modifiers": "None",
+        "type": {
+          "localName": "int",
+          "nullability": "NonNullable",
+          "usageKind": "Predefined",
+          "predefinedKind": "Int"
+        },
+        "hasDefaultValue": false,
+        "defaultValue": null,
+        "attributes": []
+      },
+      "returnInfo": {
+        "type": {
+          "localName": "Vector2D",
+          "nullability": "NonNullable",
+          "usageKind": "Plain",
+          "typeDefinition": "TestCases.Vector2D"
+        },
+        "attributes": []
+      },
+      "localFunctions": []
+    },
+    {
+      "accessModifier": "Public",
+      "inheritance": {
+        "kind": "None"
+      },
+      "operatorKind": "Binary",
+      "binaryKind": "Divide",
+      "isChecked": false,
+      "leftOperand": {
+        "name": "a",
+        "position": 0,
+        "modifiers": "None",
+        "type": {
+          "localName": "Vector2D",
+          "nullability": "NonNullable",
+          "usageKind": "Plain",
+          "typeDefinition": "TestCases.Vector2D"
+        },
+        "hasDefaultValue": false,
+        "defaultValue": null,
+        "attributes": []
+      },
+      "rightOperand": {
+        "name": "divisor",
+        "position": 1,
+        "modifiers": "None",
+        "type": {
+          "localName": "int",
+          "nullability": "NonNullable",
+          "usageKind": "Predefined",
+          "predefinedKind": "Int"
+        },
+        "hasDefaultValue": false,
+        "defaultValue": null,
+        "attributes": []
+      },
+      "returnInfo": {
+        "type": {
+          "localName": "Vector2D",
+          "nullability": "NonNullable",
+          "usageKind": "Plain",
+          "typeDefinition": "TestCases.Vector2D"
+        },
+        "attributes": []
+      },
+      "localFunctions": []
+    },
+    {
+      "accessModifier": "Public",
+      "inheritance": {
+        "kind": "None"
+      },
+      "operatorKind": "Binary",
+      "binaryKind": "Add",
+      "isChecked": true,
+      "leftOperand": {
+        "name": "a",
+        "position": 0,
+        "modifiers": "None",
+        "type": {
+          "localName": "Vector2D",
+          "nullability": "NonNullable",
+          "usageKind": "Plain",
+          "typeDefinition": "TestCases.Vector2D"
+        },
+        "hasDefaultValue": false,
+        "defaultValue": null,
+        "attributes": []
+      },
+      "rightOperand": {
+        "name": "b",
+        "position": 1,
+        "modifiers": "None",
+        "type": {
+          "localName": "Vector2D",
+          "nullability": "NonNullable",
+          "usageKind": "Plain",
+          "typeDefinition": "TestCases.Vector2D"
+        },
+        "hasDefaultValue": false,
+        "defaultValue": null,
+        "attributes": []
+      },
+      "returnInfo": {
+        "type": {
+          "localName": "Vector2D",
+          "nullability": "NonNullable",
+          "usageKind": "Plain",
+          "typeDefinition": "TestCases.Vector2D"
+        },
+        "attributes": []
+      },
+      "localFunctions": []
+    },
+    {
+      "accessModifier": "Public",
+      "inheritance": {
+        "kind": "None"
+      },
+      "operatorKind": "Binary",
+      "binaryKind": "Subtract",
+      "isChecked": true,
+      "leftOperand": {
+        "name": "a",
+        "position": 0,
+        "modifiers": "None",
+        "type": {
+          "localName": "Vector2D",
+          "nullability": "NonNullable",
+          "usageKind": "Plain",
+          "typeDefinition": "TestCases.Vector2D"
+        },
+        "hasDefaultValue": false,
+        "defaultValue": null,
+        "attributes": []
+      },
+      "rightOperand": {
+        "name": "b",
+        "position": 1,
+        "modifiers": "None",
+        "type": {
+          "localName": "Vector2D",
+          "nullability": "NonNullable",
+          "usageKind": "Plain",
+          "typeDefinition": "TestCases.Vector2D"
+        },
+        "hasDefaultValue": false,
+        "defaultValue": null,
+        "attributes": []
+      },
+      "returnInfo": {
+        "type": {
+          "localName": "Vector2D",
+          "nullability": "NonNullable",
+          "usageKind": "Plain",
+          "typeDefinition": "TestCases.Vector2D"
+        },
+        "attributes": []
+      },
+      "localFunctions": []
+    },
+    {
+      "accessModifier": "Public",
+      "inheritance": {
+        "kind": "None"
+      },
+      "operatorKind": "Binary",
+      "binaryKind": "Multiply",
+      "isChecked": true,
+      "leftOperand": {
+        "name": "a",
+        "position": 0,
+        "modifiers": "None",
+        "type": {
+          "localName": "Vector2D",
+          "nullability": "NonNullable",
+          "usageKind": "Plain",
+          "typeDefinition": "TestCases.Vector2D"
+        },
+        "hasDefaultValue": false,
+        "defaultValue": null,
+        "attributes": []
+      },
+      "rightOperand": {
+        "name": "scalar",
+        "position": 1,
+        "modifiers": "None",
+        "type": {
+          "localName": "int",
+          "nullability": "NonNullable",
+          "usageKind": "Predefined",
+          "predefinedKind": "Int"
+        },
+        "hasDefaultValue": false,
+        "defaultValue": null,
+        "attributes": []
+      },
+      "returnInfo": {
+        "type": {
+          "localName": "Vector2D",
+          "nullability": "NonNullable",
+          "usageKind": "Plain",
+          "typeDefinition": "TestCases.Vector2D"
+        },
+        "attributes": []
+      },
+      "localFunctions": []
+    },
+    {
+      "accessModifier": "Public",
+      "inheritance": {
+        "kind": "None"
+      },
+      "operatorKind": "Binary",
+      "binaryKind": "UnsignedRightShift",
+      "isChecked": false,
+      "leftOperand": {
+        "name": "a",
+        "position": 0,
+        "modifiers": "None",
+        "type": {
+          "localName": "Vector2D",
+          "nullability": "NonNullable",
+          "usageKind": "Plain",
+          "typeDefinition": "TestCases.Vector2D"
+        },
+        "hasDefaultValue": false,
+        "defaultValue": null,
+        "attributes": []
+      },
+      "rightOperand": {
+        "name": "shift",
+        "position": 1,
+        "modifiers": "None",
+        "type": {
+          "localName": "int",
+          "nullability": "NonNullable",
+          "usageKind": "Predefined",
+          "predefinedKind": "Int"
+        },
+        "hasDefaultValue": false,
+        "defaultValue": null,
+        "attributes": []
+      },
+      "returnInfo": {
+        "type": {
+          "localName": "Vector2D",
+          "nullability": "NonNullable",
+          "usageKind": "Plain",
+          "typeDefinition": "TestCases.Vector2D"
+        },
+        "attributes": []
+      },
+      "localFunctions": []
+    },
+    {
+      "accessModifier": "Public",
+      "inheritance": {
+        "kind": "None"
+      },
+      "operatorKind": "Binary",
+      "binaryKind": "LeftShift",
+      "isChecked": false,
+      "leftOperand": {
+        "name": "a",
+        "position": 0,
+        "modifiers": "None",
+        "type": {
+          "localName": "Vector2D",
+          "nullability": "NonNullable",
+          "usageKind": "Plain",
+          "typeDefinition": "TestCases.Vector2D"
+        },
+        "hasDefaultValue": false,
+        "defaultValue": null,
+        "attributes": []
+      },
+      "rightOperand": {
+        "name": "shift",
+        "position": 1,
+        "modifiers": "None",
+        "type": {
+          "localName": "int",
+          "nullability": "NonNullable",
+          "usageKind": "Predefined",
+          "predefinedKind": "Int"
+        },
+        "hasDefaultValue": false,
+        "defaultValue": null,
+        "attributes": []
+      },
+      "returnInfo": {
+        "type": {
+          "localName": "Vector2D",
+          "nullability": "NonNullable",
+          "usageKind": "Plain",
+          "typeDefinition": "TestCases.Vector2D"
+        },
+        "attributes": []
+      },
+      "localFunctions": []
+    },
+    {
+      "accessModifier": "Public",
+      "inheritance": {
+        "kind": "None"
+      },
+      "operatorKind": "Binary",
+      "binaryKind": "RightShift",
+      "isChecked": false,
+      "leftOperand": {
+        "name": "a",
+        "position": 0,
+        "modifiers": "None",
+        "type": {
+          "localName": "Vector2D",
+          "nullability": "NonNullable",
+          "usageKind": "Plain",
+          "typeDefinition": "TestCases.Vector2D"
+        },
+        "hasDefaultValue": false,
+        "defaultValue": null,
+        "attributes": []
+      },
+      "rightOperand": {
+        "name": "shift",
+        "position": 1,
+        "modifiers": "None",
+        "type": {
+          "localName": "int",
+          "nullability": "NonNullable",
+          "usageKind": "Predefined",
+          "predefinedKind": "Int"
+        },
+        "hasDefaultValue": false,
+        "defaultValue": null,
+        "attributes": []
+      },
+      "returnInfo": {
+        "type": {
+          "localName": "Vector2D",
+          "nullability": "NonNullable",
+          "usageKind": "Plain",
+          "typeDefinition": "TestCases.Vector2D"
+        },
+        "attributes": []
+      },
+      "localFunctions": []
+    },
+    {
+      "accessModifier": "Public",
+      "inheritance": {
+        "kind": "None"
+      },
+      "operatorKind": "Unary",
+      "unaryKind": "Plus",
+      "isChecked": false,
+      "operand": {
+        "name": "a",
+        "position": 0,
+        "modifiers": "None",
+        "type": {
+          "localName": "Vector2D",
+          "nullability": "NonNullable",
+          "usageKind": "Plain",
+          "typeDefinition": "TestCases.Vector2D"
+        },
+        "hasDefaultValue": false,
+        "defaultValue": null,
+        "attributes": []
+      },
+      "returnInfo": {
+        "type": {
+          "localName": "Vector2D",
+          "nullability": "NonNullable",
+          "usageKind": "Plain",
+          "typeDefinition": "TestCases.Vector2D"
+        },
+        "attributes": []
+      },
+      "localFunctions": []
+    },
+    {
+      "accessModifier": "Public",
+      "inheritance": {
+        "kind": "None"
+      },
+      "operatorKind": "Unary",
+      "unaryKind": "Minus",
+      "isChecked": false,
+      "operand": {
+        "name": "a",
+        "position": 0,
+        "modifiers": "None",
+        "type": {
+          "localName": "Vector2D",
+          "nullability": "NonNullable",
+          "usageKind": "Plain",
+          "typeDefinition": "TestCases.Vector2D"
+        },
+        "hasDefaultValue": false,
+        "defaultValue": null,
+        "attributes": []
+      },
+      "returnInfo": {
+        "type": {
+          "localName": "Vector2D",
+          "nullability": "NonNullable",
+          "usageKind": "Plain",
+          "typeDefinition": "TestCases.Vector2D"
+        },
+        "attributes": []
+      },
+      "localFunctions": []
+    },
+    {
+      "accessModifier": "Public",
+      "inheritance": {
+        "kind": "None"
+      },
+      "operatorKind": "Unary",
+      "unaryKind": "BitwiseNegation",
+      "isChecked": false,
+      "operand": {
+        "name": "a",
+        "position": 0,
+        "modifiers": "None",
+        "type": {
+          "localName": "Vector2D",
+          "nullability": "NonNullable",
+          "usageKind": "Plain",
+          "typeDefinition": "TestCases.Vector2D"
+        },
+        "hasDefaultValue": false,
+        "defaultValue": null,
+        "attributes": []
+      },
+      "returnInfo": {
+        "type": {
+          "localName": "Vector2D",
+          "nullability": "NonNullable",
+          "usageKind": "Plain",
+          "typeDefinition": "TestCases.Vector2D"
+        },
+        "attributes": []
+      },
+      "localFunctions": []
+    },
+    {
+      "accessModifier": "Public",
+      "inheritance": {
+        "kind": "None"
+      },
+      "operatorKind": "Unary",
+      "unaryKind": "Not",
+      "isChecked": false,
+      "operand": {
+        "name": "a",
+        "position": 0,
+        "modifiers": "None",
+        "type": {
+          "localName": "Vector2D",
+          "nullability": "NonNullable",
+          "usageKind": "Plain",
+          "typeDefinition": "TestCases.Vector2D"
+        },
+        "hasDefaultValue": false,
+        "defaultValue": null,
+        "attributes": []
+      },
+      "returnInfo": {
+        "type": {
+          "localName": "bool",
+          "nullability": "NonNullable",
+          "usageKind": "Predefined",
+          "predefinedKind": "Bool"
+        },
+        "attributes": []
+      },
+      "localFunctions": []
+    },
+    {
+      "accessModifier": "Public",
+      "inheritance": {
+        "kind": "None"
+      },
+      "operatorKind": "Unary",
+      "unaryKind": "Minus",
+      "isChecked": true,
+      "operand": {
+        "name": "a",
+        "position": 0,
+        "modifiers": "None",
+        "type": {
+          "localName": "Vector2D",
+          "nullability": "NonNullable",
+          "usageKind": "Plain",
+          "typeDefinition": "TestCases.Vector2D"
+        },
+        "hasDefaultValue": false,
+        "defaultValue": null,
+        "attributes": []
+      },
+      "returnInfo": {
+        "type": {
+          "localName": "Vector2D",
+          "nullability": "NonNullable",
+          "usageKind": "Plain",
+          "typeDefinition": "TestCases.Vector2D"
+        },
+        "attributes": []
+      },
+      "localFunctions": []
+    },
+    {
+      "accessModifier": "Public",
+      "inheritance": {
+        "kind": "None"
+      },
+      "operatorKind": "Binary",
+      "binaryKind": "Equals",
+      "isChecked": false,
+      "leftOperand": {
+        "name": "a",
+        "position": 0,
+        "modifiers": "None",
+        "type": {
+          "localName": "Vector2D",
+          "nullability": "NonNullable",
+          "usageKind": "Plain",
+          "typeDefinition": "TestCases.Vector2D"
+        },
+        "hasDefaultValue": false,
+        "defaultValue": null,
+        "attributes": []
+      },
+      "rightOperand": {
+        "name": "b",
+        "position": 1,
+        "modifiers": "None",
+        "type": {
+          "localName": "Vector2D",
+          "nullability": "NonNullable",
+          "usageKind": "Plain",
+          "typeDefinition": "TestCases.Vector2D"
+        },
+        "hasDefaultValue": false,
+        "defaultValue": null,
+        "attributes": []
+      },
+      "returnInfo": {
+        "type": {
+          "localName": "bool",
+          "nullability": "NonNullable",
+          "usageKind": "Predefined",
+          "predefinedKind": "Bool"
+        },
+        "attributes": []
+      },
+      "localFunctions": []
+    },
+    {
+      "accessModifier": "Public",
+      "inheritance": {
+        "kind": "None"
+      },
+      "operatorKind": "Binary",
+      "binaryKind": "NotEquals",
+      "isChecked": false,
+      "leftOperand": {
+        "name": "a",
+        "position": 0,
+        "modifiers": "None",
+        "type": {
+          "localName": "Vector2D",
+          "nullability": "NonNullable",
+          "usageKind": "Plain",
+          "typeDefinition": "TestCases.Vector2D"
+        },
+        "hasDefaultValue": false,
+        "defaultValue": null,
+        "attributes": []
+      },
+      "rightOperand": {
+        "name": "b",
+        "position": 1,
+        "modifiers": "None",
+        "type": {
+          "localName": "Vector2D",
+          "nullability": "NonNullable",
+          "usageKind": "Plain",
+          "typeDefinition": "TestCases.Vector2D"
+        },
+        "hasDefaultValue": false,
+        "defaultValue": null,
+        "attributes": []
+      },
+      "returnInfo": {
+        "type": {
+          "localName": "bool",
+          "nullability": "NonNullable",
+          "usageKind": "Predefined",
+          "predefinedKind": "Bool"
+        },
+        "attributes": []
+      },
+      "localFunctions": []
+    },
+    {
+      "accessModifier": "Public",
+      "inheritance": {
+        "kind": "None"
+      },
+      "operatorKind": "Binary",
+      "binaryKind": "LessThan",
+      "isChecked": false,
+      "leftOperand": {
+        "name": "a",
+        "position": 0,
+        "modifiers": "None",
+        "type": {
+          "localName": "Vector2D",
+          "nullability": "NonNullable",
+          "usageKind": "Plain",
+          "typeDefinition": "TestCases.Vector2D"
+        },
+        "hasDefaultValue": false,
+        "defaultValue": null,
+        "attributes": []
+      },
+      "rightOperand": {
+        "name": "b",
+        "position": 1,
+        "modifiers": "None",
+        "type": {
+          "localName": "Vector2D",
+          "nullability": "NonNullable",
+          "usageKind": "Plain",
+          "typeDefinition": "TestCases.Vector2D"
+        },
+        "hasDefaultValue": false,
+        "defaultValue": null,
+        "attributes": []
+      },
+      "returnInfo": {
+        "type": {
+          "localName": "bool",
+          "nullability": "NonNullable",
+          "usageKind": "Predefined",
+          "predefinedKind": "Bool"
+        },
+        "attributes": []
+      },
+      "localFunctions": []
+    },
+    {
+      "accessModifier": "Public",
+      "inheritance": {
+        "kind": "None"
+      },
+      "operatorKind": "Binary",
+      "binaryKind": "GreaterThan",
+      "isChecked": false,
+      "leftOperand": {
+        "name": "a",
+        "position": 0,
+        "modifiers": "None",
+        "type": {
+          "localName": "Vector2D",
+          "nullability": "NonNullable",
+          "usageKind": "Plain",
+          "typeDefinition": "TestCases.Vector2D"
+        },
+        "hasDefaultValue": false,
+        "defaultValue": null,
+        "attributes": []
+      },
+      "rightOperand": {
+        "name": "b",
+        "position": 1,
+        "modifiers": "None",
+        "type": {
+          "localName": "Vector2D",
+          "nullability": "NonNullable",
+          "usageKind": "Plain",
+          "typeDefinition": "TestCases.Vector2D"
+        },
+        "hasDefaultValue": false,
+        "defaultValue": null,
+        "attributes": []
+      },
+      "returnInfo": {
+        "type": {
+          "localName": "bool",
+          "nullability": "NonNullable",
+          "usageKind": "Predefined",
+          "predefinedKind": "Bool"
+        },
+        "attributes": []
+      },
+      "localFunctions": []
+    },
+    {
+      "accessModifier": "Public",
+      "inheritance": {
+        "kind": "None"
+      },
+      "operatorKind": "Unary",
+      "unaryKind": "True",
+      "isChecked": false,
+      "operand": {
+        "name": "a",
+        "position": 0,
+        "modifiers": "None",
+        "type": {
+          "localName": "Vector2D",
+          "nullability": "NonNullable",
+          "usageKind": "Plain",
+          "typeDefinition": "TestCases.Vector2D"
+        },
+        "hasDefaultValue": false,
+        "defaultValue": null,
+        "attributes": []
+      },
+      "returnInfo": {
+        "type": {
+          "localName": "bool",
+          "nullability": "NonNullable",
+          "usageKind": "Predefined",
+          "predefinedKind": "Bool"
+        },
+        "attributes": []
+      },
+      "localFunctions": []
+    },
+    {
+      "accessModifier": "Public",
+      "inheritance": {
+        "kind": "None"
+      },
+      "operatorKind": "Unary",
+      "unaryKind": "False",
+      "isChecked": false,
+      "operand": {
+        "name": "a",
+        "position": 0,
+        "modifiers": "None",
+        "type": {
+          "localName": "Vector2D",
+          "nullability": "NonNullable",
+          "usageKind": "Plain",
+          "typeDefinition": "TestCases.Vector2D"
+        },
+        "hasDefaultValue": false,
+        "defaultValue": null,
+        "attributes": []
+      },
+      "returnInfo": {
+        "type": {
+          "localName": "bool",
+          "nullability": "NonNullable",
+          "usageKind": "Predefined",
+          "predefinedKind": "Bool"
+        },
+        "attributes": []
+      },
+      "localFunctions": []
+    },
+    {
+      "accessModifier": "Public",
+      "inheritance": {
+        "kind": "None"
+      },
+      "operatorKind": "Conversion",
+      "conversionKind": "Implicit",
+      "operand": {
+        "name": "v",
+        "position": 0,
+        "modifiers": "None",
+        "type": {
+          "localName": "Vector2D",
+          "nullability": "NonNullable",
+          "usageKind": "Plain",
+          "typeDefinition": "TestCases.Vector2D"
+        },
+        "hasDefaultValue": false,
+        "defaultValue": null,
+        "attributes": []
+      },
+      "returnInfo": {
+        "type": {
+          "localName": "double",
+          "nullability": "NonNullable",
+          "usageKind": "Predefined",
+          "predefinedKind": "Double"
+        },
+        "attributes": []
+      },
+      "localFunctions": []
+    },
+    {
+      "accessModifier": "Public",
+      "inheritance": {
+        "kind": "None"
+      },
+      "operatorKind": "Conversion",
+      "conversionKind": "Implicit",
+      "operand": {
+        "name": "v",
+        "position": 0,
+        "modifiers": "None",
+        "type": {
+          "localName": "Vector2D",
+          "nullability": "NonNullable",
+          "usageKind": "Plain",
+          "typeDefinition": "TestCases.Vector2D"
+        },
+        "hasDefaultValue": false,
+        "defaultValue": null,
+        "attributes": []
+      },
+      "returnInfo": {
+        "type": {
+          "localName": "(int x, int y)",
+          "nullability": "NonNullable",
+          "usageKind": "RichTuple",
+          "elements": [
+            {
+              "name": "x",
+              "type": {
+                "localName": "int",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "Int"
+              }
+            },
+            {
+              "name": "y",
+              "type": {
+                "localName": "int",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "Int"
+              }
+            }
+          ]
+        },
+        "attributes": []
+      },
+      "localFunctions": []
+    },
+    {
+      "accessModifier": "Public",
+      "inheritance": {
+        "kind": "None"
+      },
+      "operatorKind": "Conversion",
+      "conversionKind": "Explicit",
+      "operand": {
+        "name": "v",
+        "position": 0,
+        "modifiers": "None",
+        "type": {
+          "localName": "Vector2D",
+          "nullability": "NonNullable",
+          "usageKind": "Plain",
+          "typeDefinition": "TestCases.Vector2D"
+        },
+        "hasDefaultValue": false,
+        "defaultValue": null,
+        "attributes": []
+      },
+      "returnInfo": {
+        "type": {
+          "localName": "int",
+          "nullability": "NonNullable",
+          "usageKind": "Predefined",
+          "predefinedKind": "Int"
+        },
+        "attributes": []
+      },
+      "localFunctions": []
+    },
+    {
+      "accessModifier": "Public",
+      "inheritance": {
+        "kind": "None"
+      },
+      "operatorKind": "Conversion",
+      "conversionKind": "Explicit",
+      "operand": {
+        "name": "v",
+        "position": 0,
+        "modifiers": "None",
+        "type": {
+          "localName": "Vector2D",
+          "nullability": "NonNullable",
+          "usageKind": "Plain",
+          "typeDefinition": "TestCases.Vector2D"
+        },
+        "hasDefaultValue": false,
+        "defaultValue": null,
+        "attributes": []
+      },
+      "returnInfo": {
+        "type": {
+          "localName": "byte",
+          "nullability": "NonNullable",
+          "usageKind": "Predefined",
+          "predefinedKind": "Byte"
+        },
+        "attributes": []
+      },
+      "localFunctions": []
+    },
+    {
+      "accessModifier": "Public",
+      "inheritance": {
+        "kind": "None"
+      },
+      "operatorKind": "Conversion",
+      "conversionKind": "CheckedExplicit",
+      "operand": {
+        "name": "v",
+        "position": 0,
+        "modifiers": "None",
+        "type": {
+          "localName": "Vector2D",
+          "nullability": "NonNullable",
+          "usageKind": "Plain",
+          "typeDefinition": "TestCases.Vector2D"
+        },
+        "hasDefaultValue": false,
+        "defaultValue": null,
+        "attributes": []
+      },
+      "returnInfo": {
+        "type": {
+          "localName": "byte",
+          "nullability": "NonNullable",
+          "usageKind": "Predefined",
+          "predefinedKind": "Byte"
+        },
+        "attributes": []
+      },
+      "localFunctions": []
+    }
+  ],
+  "attributes": [],
+  "nestedTypes": []
+}

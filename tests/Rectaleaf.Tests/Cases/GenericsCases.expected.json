@@ -1,0 +1,1288 @@
+[
+  {
+    "kind": "Interface",
+    "localName": "IGenericTree",
+    "fullyQualifiedName": "TestCases.IGenericTree<TNode>",
+    "namespace": "TestCases",
+    "accessModifier": "Public",
+    "containingType": null,
+    "genericParameters": [
+      {
+        "name": "TNode",
+        "position": 0,
+        "variance": "Invariant",
+        "source": "TestCases.IGenericTree<TNode>",
+        "hasReferenceTypeConstraint": true,
+        "hasNullableReferenceTypeConstraint": false,
+        "hasNotNullConstraint": false,
+        "hasValueTypeConstraint": false,
+        "hasUnmanagedTypeConstraint": false,
+        "hasConstructorConstraint": true,
+        "hasAllowsRefStructConstraint": false,
+        "hasDefaultConstraint": false,
+        "constraintTypes": [
+          {
+            "localName": "IComparable<TNode>",
+            "nullability": "NonNullable",
+            "usageKind": "BoundGeneric",
+            "typeDefinition": "System.IComparable<T>",
+            "typeArguments": [
+              {
+                "localName": "TNode",
+                "nullability": "NonNullable",
+                "usageKind": "Placeholder",
+                "placeholderName": "TNode",
+                "placeholderPosition": 0,
+                "placeholderSource": "TestCases.IGenericTree<TNode>"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "directInterfaces": [],
+    "methods": [],
+    "properties": [
+      {
+        "name": "Root",
+        "declaringType": "TestCases.IGenericTree<TNode>",
+        "type": {
+          "localName": "TNode",
+          "nullability": "NonNullable",
+          "usageKind": "Placeholder",
+          "placeholderName": "TNode",
+          "placeholderPosition": 0,
+          "placeholderSource": "TestCases.IGenericTree<TNode>"
+        },
+        "accessModifier": "Public",
+        "isStatic": false,
+        "inheritance": {
+          "kind": "Abstract"
+        },
+        "attributes": [],
+        "accessors": [
+          {
+            "kind": "get",
+            "isReadOnly": false,
+            "returnInfo": {
+              "type": {
+                "localName": "TNode",
+                "nullability": "NonNullable",
+                "usageKind": "Placeholder",
+                "placeholderName": "TNode",
+                "placeholderPosition": 0,
+                "placeholderSource": "TestCases.IGenericTree<TNode>"
+              },
+              "attributes": []
+            },
+            "attributes": [],
+            "accessModifier": "Public",
+            "localFunctions": []
+          },
+          {
+            "kind": "set",
+            "isReadOnly": false,
+            "returnInfo": {
+              "type": {
+                "localName": "void",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "Void"
+              },
+              "attributes": []
+            },
+            "attributes": [],
+            "accessModifier": "Public",
+            "valueParameter": {
+              "name": "value",
+              "position": 0,
+              "modifiers": "None",
+              "type": {
+                "localName": "TNode",
+                "nullability": "NonNullable",
+                "usageKind": "Placeholder",
+                "placeholderName": "TNode",
+                "placeholderPosition": 0,
+                "placeholderSource": "TestCases.IGenericTree<TNode>"
+              },
+              "hasDefaultValue": false,
+              "defaultValue": null,
+              "attributes": []
+            },
+            "localFunctions": []
+          }
+        ]
+      }
+    ],
+    "indexers": [],
+    "events": [],
+    "staticConstructor": null,
+    "operators": [],
+    "attributes": [],
+    "nestedTypes": []
+  },
+  {
+    "kind": "RefStruct",
+    "localName": "RefStructContainer",
+    "fullyQualifiedName": "TestCases.RefStructContainer<TVal>",
+    "namespace": "TestCases",
+    "accessModifier": "Public",
+    "containingType": null,
+    "isReadOnly": false,
+    "genericParameters": [
+      {
+        "name": "TVal",
+        "position": 0,
+        "variance": "Invariant",
+        "source": "TestCases.RefStructContainer<TVal>",
+        "hasReferenceTypeConstraint": false,
+        "hasNullableReferenceTypeConstraint": false,
+        "hasNotNullConstraint": false,
+        "hasValueTypeConstraint": false,
+        "hasUnmanagedTypeConstraint": false,
+        "hasConstructorConstraint": false,
+        "hasAllowsRefStructConstraint": true,
+        "hasDefaultConstraint": false,
+        "constraintTypes": []
+      }
+    ],
+    "directInterfaces": [],
+    "fields": [
+      {
+        "name": "Value",
+        "declaringType": "TestCases.RefStructContainer<TVal>",
+        "accessModifier": "Public",
+        "attributes": [],
+        "fieldKind": "Regular",
+        "type": {
+          "localName": "TVal",
+          "nullability": "NonNullable",
+          "usageKind": "Placeholder",
+          "placeholderName": "TVal",
+          "placeholderPosition": 0,
+          "placeholderSource": "TestCases.RefStructContainer<TVal>"
+        },
+        "isReadOnly": false,
+        "isVolatile": false,
+        "isStatic": false,
+        "isRequired": false
+      }
+    ],
+    "methods": [],
+    "properties": [],
+    "indexers": [],
+    "events": [],
+    "instanceConstructors": [
+      {
+        "declaringType": "TestCases.RefStructContainer<TVal>",
+        "accessModifier": "Public",
+        "isPrimary": false,
+        "parameters": [
+          {
+            "name": "value",
+            "position": 0,
+            "modifiers": "None",
+            "type": {
+              "localName": "TVal",
+              "nullability": "NonNullable",
+              "usageKind": "Placeholder",
+              "placeholderName": "TVal",
+              "placeholderPosition": 0,
+              "placeholderSource": "TestCases.RefStructContainer<TVal>"
+            },
+            "hasDefaultValue": false,
+            "defaultValue": null,
+            "attributes": []
+          }
+        ],
+        "attributes": [],
+        "localFunctions": []
+      },
+      {
+        "declaringType": "TestCases.RefStructContainer<TVal>",
+        "accessModifier": "Public",
+        "isPrimary": false,
+        "parameters": [],
+        "attributes": [],
+        "localFunctions": []
+      }
+    ],
+    "staticConstructor": null,
+    "operators": [],
+    "attributes": [],
+    "nestedTypes": []
+  },
+  {
+    "kind": "RegularClass",
+    "localName": "NullableConstraintContainer",
+    "fullyQualifiedName": "TestCases.NullableConstraintContainer<TStrict, TNullable>",
+    "namespace": "TestCases",
+    "accessModifier": "Public",
+    "containingType": null,
+    "isSealed": false,
+    "baseType": null,
+    "genericParameters": [
+      {
+        "name": "TStrict",
+        "position": 0,
+        "variance": "Invariant",
+        "source": "TestCases.NullableConstraintContainer<TStrict, TNullable>",
+        "hasReferenceTypeConstraint": true,
+        "hasNullableReferenceTypeConstraint": false,
+        "hasNotNullConstraint": false,
+        "hasValueTypeConstraint": false,
+        "hasUnmanagedTypeConstraint": false,
+        "hasConstructorConstraint": false,
+        "hasAllowsRefStructConstraint": false,
+        "hasDefaultConstraint": false,
+        "constraintTypes": []
+      },
+      {
+        "name": "TNullable",
+        "position": 1,
+        "variance": "Invariant",
+        "source": "TestCases.NullableConstraintContainer<TStrict, TNullable>",
+        "hasReferenceTypeConstraint": false,
+        "hasNullableReferenceTypeConstraint": true,
+        "hasNotNullConstraint": false,
+        "hasValueTypeConstraint": false,
+        "hasUnmanagedTypeConstraint": false,
+        "hasConstructorConstraint": false,
+        "hasAllowsRefStructConstraint": false,
+        "hasDefaultConstraint": false,
+        "constraintTypes": []
+      }
+    ],
+    "directInterfaces": [],
+    "fields": [
+      {
+        "name": "StrictRef",
+        "declaringType": "TestCases.NullableConstraintContainer<TStrict, TNullable>",
+        "accessModifier": "Public",
+        "attributes": [],
+        "fieldKind": "Regular",
+        "type": {
+          "localName": "TStrict",
+          "nullability": "NonNullable",
+          "usageKind": "Placeholder",
+          "placeholderName": "TStrict",
+          "placeholderPosition": 0,
+          "placeholderSource": "TestCases.NullableConstraintContainer<TStrict, TNullable>"
+        },
+        "isReadOnly": false,
+        "isVolatile": false,
+        "isStatic": false,
+        "isRequired": false
+      },
+      {
+        "name": "NullableRef",
+        "declaringType": "TestCases.NullableConstraintContainer<TStrict, TNullable>",
+        "accessModifier": "Public",
+        "attributes": [],
+        "fieldKind": "Regular",
+        "type": {
+          "localName": "TNullable",
+          "nullability": "NonNullable",
+          "usageKind": "Placeholder",
+          "placeholderName": "TNullable",
+          "placeholderPosition": 1,
+          "placeholderSource": "TestCases.NullableConstraintContainer<TStrict, TNullable>"
+        },
+        "isReadOnly": false,
+        "isVolatile": false,
+        "isStatic": false,
+        "isRequired": false
+      }
+    ],
+    "methods": [],
+    "properties": [],
+    "indexers": [],
+    "events": [],
+    "instanceConstructors": [
+      {
+        "declaringType": "TestCases.NullableConstraintContainer<TStrict, TNullable>",
+        "accessModifier": "Public",
+        "isPrimary": false,
+        "parameters": [],
+        "attributes": [],
+        "localFunctions": []
+      }
+    ],
+    "staticConstructor": null,
+    "operators": [],
+    "attributes": [],
+    "nestedTypes": []
+  },
+  {
+    "kind": "RegularClass",
+    "localName": "UnmanagedContainer",
+    "fullyQualifiedName": "TestCases.UnmanagedContainer<TUnmanaged, TValueType, TNotNull>",
+    "namespace": "TestCases",
+    "accessModifier": "Public",
+    "containingType": null,
+    "isSealed": false,
+    "baseType": null,
+    "genericParameters": [
+      {
+        "name": "TUnmanaged",
+        "position": 0,
+        "variance": "Invariant",
+        "source": "TestCases.UnmanagedContainer<TUnmanaged, TValueType, TNotNull>",
+        "hasReferenceTypeConstraint": false,
+        "hasNullableReferenceTypeConstraint": false,
+        "hasNotNullConstraint": false,
+        "hasValueTypeConstraint": false,
+        "hasUnmanagedTypeConstraint": true,
+        "hasConstructorConstraint": false,
+        "hasAllowsRefStructConstraint": false,
+        "hasDefaultConstraint": false,
+        "constraintTypes": []
+      },
+      {
+        "name": "TValueType",
+        "position": 1,
+        "variance": "Invariant",
+        "source": "TestCases.UnmanagedContainer<TUnmanaged, TValueType, TNotNull>",
+        "hasReferenceTypeConstraint": false,
+        "hasNullableReferenceTypeConstraint": false,
+        "hasNotNullConstraint": false,
+        "hasValueTypeConstraint": true,
+        "hasUnmanagedTypeConstraint": false,
+        "hasConstructorConstraint": false,
+        "hasAllowsRefStructConstraint": false,
+        "hasDefaultConstraint": false,
+        "constraintTypes": []
+      },
+      {
+        "name": "TNotNull",
+        "position": 2,
+        "variance": "Invariant",
+        "source": "TestCases.UnmanagedContainer<TUnmanaged, TValueType, TNotNull>",
+        "hasReferenceTypeConstraint": false,
+        "hasNullableReferenceTypeConstraint": false,
+        "hasNotNullConstraint": true,
+        "hasValueTypeConstraint": false,
+        "hasUnmanagedTypeConstraint": false,
+        "hasConstructorConstraint": false,
+        "hasAllowsRefStructConstraint": false,
+        "hasDefaultConstraint": false,
+        "constraintTypes": []
+      }
+    ],
+    "directInterfaces": [],
+    "fields": [
+      {
+        "name": "UnmanagedField",
+        "declaringType": "TestCases.UnmanagedContainer<TUnmanaged, TValueType, TNotNull>",
+        "accessModifier": "Public",
+        "attributes": [],
+        "fieldKind": "Regular",
+        "type": {
+          "localName": "TUnmanaged",
+          "nullability": "NonNullable",
+          "usageKind": "Placeholder",
+          "placeholderName": "TUnmanaged",
+          "placeholderPosition": 0,
+          "placeholderSource": "TestCases.UnmanagedContainer<TUnmanaged, TValueType, TNotNull>"
+        },
+        "isReadOnly": false,
+        "isVolatile": false,
+        "isStatic": false,
+        "isRequired": false
+      },
+      {
+        "name": "ValueTypeField",
+        "declaringType": "TestCases.UnmanagedContainer<TUnmanaged, TValueType, TNotNull>",
+        "accessModifier": "Public",
+        "attributes": [],
+        "fieldKind": "Regular",
+        "type": {
+          "localName": "TValueType",
+          "nullability": "NonNullable",
+          "usageKind": "Placeholder",
+          "placeholderName": "TValueType",
+          "placeholderPosition": 1,
+          "placeholderSource": "TestCases.UnmanagedContainer<TUnmanaged, TValueType, TNotNull>"
+        },
+        "isReadOnly": false,
+        "isVolatile": false,
+        "isStatic": false,
+        "isRequired": false
+      },
+      {
+        "name": "NotNullField",
+        "declaringType": "TestCases.UnmanagedContainer<TUnmanaged, TValueType, TNotNull>",
+        "accessModifier": "Public",
+        "attributes": [],
+        "fieldKind": "Regular",
+        "type": {
+          "localName": "TNotNull",
+          "nullability": "NonNullable",
+          "usageKind": "Placeholder",
+          "placeholderName": "TNotNull",
+          "placeholderPosition": 2,
+          "placeholderSource": "TestCases.UnmanagedContainer<TUnmanaged, TValueType, TNotNull>"
+        },
+        "isReadOnly": false,
+        "isVolatile": false,
+        "isStatic": false,
+        "isRequired": false
+      }
+    ],
+    "methods": [],
+    "properties": [],
+    "indexers": [],
+    "events": [],
+    "instanceConstructors": [
+      {
+        "declaringType": "TestCases.UnmanagedContainer<TUnmanaged, TValueType, TNotNull>",
+        "accessModifier": "Public",
+        "isPrimary": false,
+        "parameters": [],
+        "attributes": [],
+        "localFunctions": []
+      }
+    ],
+    "staticConstructor": null,
+    "operators": [],
+    "attributes": [],
+    "nestedTypes": []
+  },
+  {
+    "kind": "RegularClass",
+    "localName": "HierarchyConstraintContainer",
+    "fullyQualifiedName": "TestCases.HierarchyConstraintContainer<TChild, TParent, TGrandParent>",
+    "namespace": "TestCases",
+    "accessModifier": "Public",
+    "containingType": null,
+    "isSealed": false,
+    "baseType": null,
+    "genericParameters": [
+      {
+        "name": "TChild",
+        "position": 0,
+        "variance": "Invariant",
+        "source": "TestCases.HierarchyConstraintContainer<TChild, TParent, TGrandParent>",
+        "hasReferenceTypeConstraint": false,
+        "hasNullableReferenceTypeConstraint": false,
+        "hasNotNullConstraint": false,
+        "hasValueTypeConstraint": false,
+        "hasUnmanagedTypeConstraint": false,
+        "hasConstructorConstraint": true,
+        "hasAllowsRefStructConstraint": false,
+        "hasDefaultConstraint": false,
+        "constraintTypes": [
+          {
+            "localName": "TParent",
+            "nullability": "NonNullable",
+            "usageKind": "Placeholder",
+            "placeholderName": "TParent",
+            "placeholderPosition": 1,
+            "placeholderSource": "TestCases.HierarchyConstraintContainer<TChild, TParent, TGrandParent>"
+          }
+        ]
+      },
+      {
+        "name": "TParent",
+        "position": 1,
+        "variance": "Invariant",
+        "source": "TestCases.HierarchyConstraintContainer<TChild, TParent, TGrandParent>",
+        "hasReferenceTypeConstraint": false,
+        "hasNullableReferenceTypeConstraint": false,
+        "hasNotNullConstraint": false,
+        "hasValueTypeConstraint": false,
+        "hasUnmanagedTypeConstraint": false,
+        "hasConstructorConstraint": false,
+        "hasAllowsRefStructConstraint": false,
+        "hasDefaultConstraint": false,
+        "constraintTypes": [
+          {
+            "localName": "TGrandParent",
+            "nullability": "NonNullable",
+            "usageKind": "Placeholder",
+            "placeholderName": "TGrandParent",
+            "placeholderPosition": 2,
+            "placeholderSource": "TestCases.HierarchyConstraintContainer<TChild, TParent, TGrandParent>"
+          }
+        ]
+      },
+      {
+        "name": "TGrandParent",
+        "position": 2,
+        "variance": "Invariant",
+        "source": "TestCases.HierarchyConstraintContainer<TChild, TParent, TGrandParent>",
+        "hasReferenceTypeConstraint": true,
+        "hasNullableReferenceTypeConstraint": false,
+        "hasNotNullConstraint": false,
+        "hasValueTypeConstraint": false,
+        "hasUnmanagedTypeConstraint": false,
+        "hasConstructorConstraint": false,
+        "hasAllowsRefStructConstraint": false,
+        "hasDefaultConstraint": false,
+        "constraintTypes": []
+      }
+    ],
+    "directInterfaces": [],
+    "fields": [],
+    "methods": [
+      {
+        "name": "CreateInstance",
+        "declaringType": "TestCases.HierarchyConstraintContainer<TChild, TParent, TGrandParent>",
+        "returnInfo": {
+          "type": {
+            "localName": "TChild",
+            "nullability": "NonNullable",
+            "usageKind": "Placeholder",
+            "placeholderName": "TChild",
+            "placeholderPosition": 0,
+            "placeholderSource": "TestCases.HierarchyConstraintContainer<TChild, TParent, TGrandParent>"
+          },
+          "attributes": []
+        },
+        "isStatic": false,
+        "isGeneric": false,
+        "isReadOnly": false,
+        "hasArglistParameter": false,
+        "accessModifier": "Public",
+        "inheritance": {
+          "kind": "None"
+        },
+        "parameters": [],
+        "genericParameters": [],
+        "attributes": [],
+        "localFunctions": []
+      }
+    ],
+    "properties": [],
+    "indexers": [],
+    "events": [],
+    "instanceConstructors": [
+      {
+        "declaringType": "TestCases.HierarchyConstraintContainer<TChild, TParent, TGrandParent>",
+        "accessModifier": "Public",
+        "isPrimary": false,
+        "parameters": [],
+        "attributes": [],
+        "localFunctions": []
+      }
+    ],
+    "staticConstructor": null,
+    "operators": [],
+    "attributes": [],
+    "nestedTypes": []
+  },
+  {
+    "kind": "Interface",
+    "localName": "IDefaultConstraintInterface",
+    "fullyQualifiedName": "TestCases.IDefaultConstraintInterface<T>",
+    "namespace": "TestCases",
+    "accessModifier": "Public",
+    "containingType": null,
+    "genericParameters": [
+      {
+        "name": "T",
+        "position": 0,
+        "variance": "Invariant",
+        "source": "TestCases.IDefaultConstraintInterface<T>",
+        "hasReferenceTypeConstraint": false,
+        "hasNullableReferenceTypeConstraint": false,
+        "hasNotNullConstraint": false,
+        "hasValueTypeConstraint": false,
+        "hasUnmanagedTypeConstraint": false,
+        "hasConstructorConstraint": false,
+        "hasAllowsRefStructConstraint": false,
+        "hasDefaultConstraint": false,
+        "constraintTypes": []
+      }
+    ],
+    "directInterfaces": [],
+    "methods": [
+      {
+        "name": "HandleItem",
+        "declaringType": "TestCases.IDefaultConstraintInterface<T>",
+        "returnInfo": {
+          "type": {
+            "localName": "void",
+            "nullability": "NonNullable",
+            "usageKind": "Predefined",
+            "predefinedKind": "Void"
+          },
+          "attributes": []
+        },
+        "isStatic": false,
+        "isGeneric": true,
+        "isReadOnly": false,
+        "hasArglistParameter": false,
+        "accessModifier": "Public",
+        "inheritance": {
+          "kind": "Abstract"
+        },
+        "parameters": [
+          {
+            "name": "item",
+            "position": 0,
+            "modifiers": "None",
+            "type": {
+              "localName": "TItem",
+              "nullability": "NonNullable",
+              "usageKind": "Placeholder",
+              "placeholderName": "TItem",
+              "placeholderPosition": 0,
+              "placeholderSource": "HandleItem"
+            },
+            "hasDefaultValue": false,
+            "defaultValue": null,
+            "attributes": []
+          }
+        ],
+        "genericParameters": [
+          {
+            "name": "TItem",
+            "position": 0,
+            "variance": "Invariant",
+            "source": "HandleItem",
+            "hasReferenceTypeConstraint": false,
+            "hasNullableReferenceTypeConstraint": false,
+            "hasNotNullConstraint": false,
+            "hasValueTypeConstraint": false,
+            "hasUnmanagedTypeConstraint": false,
+            "hasConstructorConstraint": false,
+            "hasAllowsRefStructConstraint": false,
+            "hasDefaultConstraint": false,
+            "constraintTypes": []
+          }
+        ],
+        "attributes": [],
+        "localFunctions": []
+      }
+    ],
+    "properties": [],
+    "indexers": [],
+    "events": [],
+    "staticConstructor": null,
+    "operators": [],
+    "attributes": [],
+    "nestedTypes": []
+  },
+  {
+    "kind": "RegularClass",
+    "localName": "BaseDefaultConstraintClass",
+    "fullyQualifiedName": "TestCases.BaseDefaultConstraintClass",
+    "namespace": "TestCases",
+    "accessModifier": "Public",
+    "containingType": null,
+    "isSealed": false,
+    "baseType": null,
+    "genericParameters": [],
+    "directInterfaces": [],
+    "fields": [],
+    "methods": [
+      {
+        "name": "ProcessItem",
+        "declaringType": "TestCases.BaseDefaultConstraintClass",
+        "returnInfo": {
+          "type": {
+            "localName": "void",
+            "nullability": "NonNullable",
+            "usageKind": "Predefined",
+            "predefinedKind": "Void"
+          },
+          "attributes": []
+        },
+        "isStatic": false,
+        "isGeneric": true,
+        "isReadOnly": false,
+        "hasArglistParameter": false,
+        "accessModifier": "Public",
+        "inheritance": {
+          "kind": "Virtual"
+        },
+        "parameters": [
+          {
+            "name": "item",
+            "position": 0,
+            "modifiers": "None",
+            "type": {
+              "localName": "TItem",
+              "nullability": "NonNullable",
+              "usageKind": "Placeholder",
+              "placeholderName": "TItem",
+              "placeholderPosition": 0,
+              "placeholderSource": "ProcessItem"
+            },
+            "hasDefaultValue": false,
+            "defaultValue": null,
+            "attributes": []
+          }
+        ],
+        "genericParameters": [
+          {
+            "name": "TItem",
+            "position": 0,
+            "variance": "Invariant",
+            "source": "ProcessItem",
+            "hasReferenceTypeConstraint": false,
+            "hasNullableReferenceTypeConstraint": false,
+            "hasNotNullConstraint": false,
+            "hasValueTypeConstraint": false,
+            "hasUnmanagedTypeConstraint": false,
+            "hasConstructorConstraint": false,
+            "hasAllowsRefStructConstraint": false,
+            "hasDefaultConstraint": false,
+            "constraintTypes": []
+          }
+        ],
+        "attributes": [],
+        "localFunctions": []
+      }
+    ],
+    "properties": [],
+    "indexers": [],
+    "events": [],
+    "instanceConstructors": [
+      {
+        "declaringType": "TestCases.BaseDefaultConstraintClass",
+        "accessModifier": "Public",
+        "isPrimary": false,
+        "parameters": [],
+        "attributes": [],
+        "localFunctions": []
+      }
+    ],
+    "staticConstructor": null,
+    "operators": [],
+    "attributes": [],
+    "nestedTypes": []
+  },
+  {
+    "kind": "RegularClass",
+    "localName": "DefaultConstraintContainer",
+    "fullyQualifiedName": "TestCases.DefaultConstraintContainer",
+    "namespace": "TestCases",
+    "accessModifier": "Public",
+    "containingType": null,
+    "isSealed": false,
+    "baseType": {
+      "localName": "BaseDefaultConstraintClass",
+      "nullability": "NonNullable",
+      "usageKind": "Plain",
+      "typeDefinition": "TestCases.BaseDefaultConstraintClass"
+    },
+    "genericParameters": [],
+    "directInterfaces": [
+      {
+        "localName": "IDefaultConstraintInterface<string>",
+        "nullability": "Oblivious",
+        "usageKind": "BoundGeneric",
+        "typeDefinition": "TestCases.IDefaultConstraintInterface<T>",
+        "typeArguments": [
+          {
+            "localName": "string",
+            "nullability": "NonNullable",
+            "usageKind": "Predefined",
+            "predefinedKind": "String"
+          }
+        ]
+      }
+    ],
+    "fields": [],
+    "methods": [
+      {
+        "name": "TestCases.IDefaultConstraintInterface<System.String>.HandleItem",
+        "declaringType": "TestCases.DefaultConstraintContainer",
+        "returnInfo": {
+          "type": {
+            "localName": "void",
+            "nullability": "NonNullable",
+            "usageKind": "Predefined",
+            "predefinedKind": "Void"
+          },
+          "attributes": []
+        },
+        "isStatic": false,
+        "isGeneric": true,
+        "isReadOnly": false,
+        "hasArglistParameter": false,
+        "accessModifier": "Private",
+        "inheritance": {
+          "kind": "ExplicitInterfaceImplementation"
+        },
+        "parameters": [
+          {
+            "name": "item",
+            "position": 0,
+            "modifiers": "None",
+            "type": {
+              "localName": "TItem",
+              "nullability": "NonNullable",
+              "usageKind": "Placeholder",
+              "placeholderName": "TItem",
+              "placeholderPosition": 0,
+              "placeholderSource": "TestCases.IDefaultConstraintInterface<System.String>.HandleItem"
+            },
+            "hasDefaultValue": false,
+            "defaultValue": null,
+            "attributes": []
+          }
+        ],
+        "genericParameters": [
+          {
+            "name": "TItem",
+            "position": 0,
+            "variance": "Invariant",
+            "source": "TestCases.IDefaultConstraintInterface<System.String>.HandleItem",
+            "hasReferenceTypeConstraint": false,
+            "hasNullableReferenceTypeConstraint": false,
+            "hasNotNullConstraint": false,
+            "hasValueTypeConstraint": false,
+            "hasUnmanagedTypeConstraint": false,
+            "hasConstructorConstraint": false,
+            "hasAllowsRefStructConstraint": false,
+            "hasDefaultConstraint": false,
+            "constraintTypes": []
+          }
+        ],
+        "attributes": [],
+        "localFunctions": []
+      },
+      {
+        "name": "ProcessItem",
+        "declaringType": "TestCases.DefaultConstraintContainer",
+        "returnInfo": {
+          "type": {
+            "localName": "void",
+            "nullability": "NonNullable",
+            "usageKind": "Predefined",
+            "predefinedKind": "Void"
+          },
+          "attributes": []
+        },
+        "isStatic": false,
+        "isGeneric": true,
+        "isReadOnly": false,
+        "hasArglistParameter": false,
+        "accessModifier": "Public",
+        "inheritance": {
+          "kind": "Override"
+        },
+        "parameters": [
+          {
+            "name": "item",
+            "position": 0,
+            "modifiers": "None",
+            "type": {
+              "localName": "TItem",
+              "nullability": "NonNullable",
+              "usageKind": "Placeholder",
+              "placeholderName": "TItem",
+              "placeholderPosition": 0,
+              "placeholderSource": "ProcessItem"
+            },
+            "hasDefaultValue": false,
+            "defaultValue": null,
+            "attributes": []
+          }
+        ],
+        "genericParameters": [
+          {
+            "name": "TItem",
+            "position": 0,
+            "variance": "Invariant",
+            "source": "ProcessItem",
+            "hasReferenceTypeConstraint": false,
+            "hasNullableReferenceTypeConstraint": false,
+            "hasNotNullConstraint": false,
+            "hasValueTypeConstraint": false,
+            "hasUnmanagedTypeConstraint": false,
+            "hasConstructorConstraint": false,
+            "hasAllowsRefStructConstraint": false,
+            "hasDefaultConstraint": false,
+            "constraintTypes": []
+          }
+        ],
+        "attributes": [],
+        "localFunctions": []
+      }
+    ],
+    "properties": [],
+    "indexers": [],
+    "events": [],
+    "instanceConstructors": [
+      {
+        "declaringType": "TestCases.DefaultConstraintContainer",
+        "accessModifier": "Public",
+        "isPrimary": false,
+        "parameters": [],
+        "attributes": [],
+        "localFunctions": []
+      }
+    ],
+    "staticConstructor": null,
+    "operators": [],
+    "attributes": [],
+    "nestedTypes": []
+  },
+  {
+    "kind": "RegularClass",
+    "localName": "MultiConstraintNode",
+    "fullyQualifiedName": "TestCases.MultiConstraintNode<TKey, TItem>",
+    "namespace": "TestCases",
+    "accessModifier": "Public",
+    "containingType": null,
+    "isSealed": false,
+    "baseType": null,
+    "genericParameters": [
+      {
+        "name": "TKey",
+        "position": 0,
+        "variance": "Invariant",
+        "source": "TestCases.MultiConstraintNode<TKey, TItem>",
+        "hasReferenceTypeConstraint": false,
+        "hasNullableReferenceTypeConstraint": false,
+        "hasNotNullConstraint": false,
+        "hasValueTypeConstraint": true,
+        "hasUnmanagedTypeConstraint": false,
+        "hasConstructorConstraint": false,
+        "hasAllowsRefStructConstraint": false,
+        "hasDefaultConstraint": false,
+        "constraintTypes": [
+          {
+            "localName": "IComparable<TKey>",
+            "nullability": "NonNullable",
+            "usageKind": "BoundGeneric",
+            "typeDefinition": "System.IComparable<T>",
+            "typeArguments": [
+              {
+                "localName": "TKey",
+                "nullability": "NonNullable",
+                "usageKind": "Placeholder",
+                "placeholderName": "TKey",
+                "placeholderPosition": 0,
+                "placeholderSource": "TestCases.MultiConstraintNode<TKey, TItem>"
+              }
+            ]
+          },
+          {
+            "localName": "IEquatable<TKey>",
+            "nullability": "NonNullable",
+            "usageKind": "BoundGeneric",
+            "typeDefinition": "System.IEquatable<T>",
+            "typeArguments": [
+              {
+                "localName": "TKey",
+                "nullability": "NonNullable",
+                "usageKind": "Placeholder",
+                "placeholderName": "TKey",
+                "placeholderPosition": 0,
+                "placeholderSource": "TestCases.MultiConstraintNode<TKey, TItem>"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "TItem",
+        "position": 1,
+        "variance": "Invariant",
+        "source": "TestCases.MultiConstraintNode<TKey, TItem>",
+        "hasReferenceTypeConstraint": true,
+        "hasNullableReferenceTypeConstraint": false,
+        "hasNotNullConstraint": false,
+        "hasValueTypeConstraint": false,
+        "hasUnmanagedTypeConstraint": false,
+        "hasConstructorConstraint": true,
+        "hasAllowsRefStructConstraint": false,
+        "hasDefaultConstraint": false,
+        "constraintTypes": [
+          {
+            "localName": "IEnumerable<TKey>",
+            "nullability": "NonNullable",
+            "usageKind": "BoundGeneric",
+            "typeDefinition": "System.Collections.Generic.IEnumerable<T>",
+            "typeArguments": [
+              {
+                "localName": "TKey",
+                "nullability": "NonNullable",
+                "usageKind": "Placeholder",
+                "placeholderName": "TKey",
+                "placeholderPosition": 0,
+                "placeholderSource": "TestCases.MultiConstraintNode<TKey, TItem>"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "directInterfaces": [],
+    "fields": [
+      {
+        "name": "Key",
+        "declaringType": "TestCases.MultiConstraintNode<TKey, TItem>",
+        "accessModifier": "Public",
+        "attributes": [],
+        "fieldKind": "Regular",
+        "type": {
+          "localName": "TKey",
+          "nullability": "NonNullable",
+          "usageKind": "Placeholder",
+          "placeholderName": "TKey",
+          "placeholderPosition": 0,
+          "placeholderSource": "TestCases.MultiConstraintNode<TKey, TItem>"
+        },
+        "isReadOnly": false,
+        "isVolatile": false,
+        "isStatic": false,
+        "isRequired": false
+      },
+      {
+        "name": "Item",
+        "declaringType": "TestCases.MultiConstraintNode<TKey, TItem>",
+        "accessModifier": "Public",
+        "attributes": [],
+        "fieldKind": "Regular",
+        "type": {
+          "localName": "TItem",
+          "nullability": "NonNullable",
+          "usageKind": "Placeholder",
+          "placeholderName": "TItem",
+          "placeholderPosition": 1,
+          "placeholderSource": "TestCases.MultiConstraintNode<TKey, TItem>"
+        },
+        "isReadOnly": false,
+        "isVolatile": false,
+        "isStatic": false,
+        "isRequired": false
+      }
+    ],
+    "methods": [
+      {
+        "name": "ExecuteTransform",
+        "declaringType": "TestCases.MultiConstraintNode<TKey, TItem>",
+        "returnInfo": {
+          "type": {
+            "localName": "TResult",
+            "nullability": "NonNullable",
+            "usageKind": "Placeholder",
+            "placeholderName": "TResult",
+            "placeholderPosition": 1,
+            "placeholderSource": "ExecuteTransform"
+          },
+          "attributes": []
+        },
+        "isStatic": false,
+        "isGeneric": true,
+        "isReadOnly": false,
+        "hasArglistParameter": false,
+        "accessModifier": "Public",
+        "inheritance": {
+          "kind": "None"
+        },
+        "parameters": [
+          {
+            "name": "input",
+            "position": 0,
+            "modifiers": "None",
+            "type": {
+              "localName": "TInput",
+              "nullability": "NonNullable",
+              "usageKind": "Placeholder",
+              "placeholderName": "TInput",
+              "placeholderPosition": 0,
+              "placeholderSource": "ExecuteTransform"
+            },
+            "hasDefaultValue": false,
+            "defaultValue": null,
+            "attributes": []
+          }
+        ],
+        "genericParameters": [
+          {
+            "name": "TInput",
+            "position": 0,
+            "variance": "Invariant",
+            "source": "ExecuteTransform",
+            "hasReferenceTypeConstraint": false,
+            "hasNullableReferenceTypeConstraint": false,
+            "hasNotNullConstraint": false,
+            "hasValueTypeConstraint": false,
+            "hasUnmanagedTypeConstraint": false,
+            "hasConstructorConstraint": false,
+            "hasAllowsRefStructConstraint": true,
+            "hasDefaultConstraint": false,
+            "constraintTypes": []
+          },
+          {
+            "name": "TResult",
+            "position": 1,
+            "variance": "Invariant",
+            "source": "ExecuteTransform",
+            "hasReferenceTypeConstraint": false,
+            "hasNullableReferenceTypeConstraint": true,
+            "hasNotNullConstraint": false,
+            "hasValueTypeConstraint": false,
+            "hasUnmanagedTypeConstraint": false,
+            "hasConstructorConstraint": true,
+            "hasAllowsRefStructConstraint": false,
+            "hasDefaultConstraint": false,
+            "constraintTypes": []
+          }
+        ],
+        "attributes": [],
+        "localFunctions": []
+      }
+    ],
+    "properties": [],
+    "indexers": [],
+    "events": [],
+    "instanceConstructors": [
+      {
+        "declaringType": "TestCases.MultiConstraintNode<TKey, TItem>",
+        "accessModifier": "Public",
+        "isPrimary": false,
+        "parameters": [],
+        "attributes": [],
+        "localFunctions": []
+      }
+    ],
+    "staticConstructor": null,
+    "operators": [],
+    "attributes": [],
+    "nestedTypes": [
+      {
+        "kind": "RegularClass",
+        "localName": "NestedNode",
+        "fullyQualifiedName": "TestCases.MultiConstraintNode<TKey, TItem>.NestedNode<TNested>",
+        "namespace": "TestCases",
+        "accessModifier": "Public",
+        "containingType": "TestCases.MultiConstraintNode<TKey, TItem>",
+        "isSealed": false,
+        "baseType": null,
+        "genericParameters": [
+          {
+            "name": "TNested",
+            "position": 0,
+            "variance": "Invariant",
+            "source": "TestCases.MultiConstraintNode<TKey, TItem>.NestedNode<TNested>",
+            "hasReferenceTypeConstraint": false,
+            "hasNullableReferenceTypeConstraint": false,
+            "hasNotNullConstraint": false,
+            "hasValueTypeConstraint": false,
+            "hasUnmanagedTypeConstraint": false,
+            "hasConstructorConstraint": false,
+            "hasAllowsRefStructConstraint": false,
+            "hasDefaultConstraint": false,
+            "constraintTypes": [
+              {
+                "localName": "TItem",
+                "nullability": "NonNullable",
+                "usageKind": "Placeholder",
+                "placeholderName": "TItem",
+                "placeholderPosition": 1,
+                "placeholderSource": "TestCases.MultiConstraintNode<TKey, TItem>"
+              }
+            ]
+          }
+        ],
+        "directInterfaces": [],
+        "fields": [
+          {
+            "name": "NestedField",
+            "declaringType": "TestCases.MultiConstraintNode<TKey, TItem>.NestedNode<TNested>",
+            "accessModifier": "Public",
+            "attributes": [],
+            "fieldKind": "Regular",
+            "type": {
+              "localName": "TNested",
+              "nullability": "NonNullable",
+              "usageKind": "Placeholder",
+              "placeholderName": "TNested",
+              "placeholderPosition": 0,
+              "placeholderSource": "TestCases.MultiConstraintNode<TKey, TItem>.NestedNode<TNested>"
+            },
+            "isReadOnly": false,
+            "isVolatile": false,
+            "isStatic": false,
+            "isRequired": false
+          }
+        ],
+        "methods": [
+          {
+            "name": "Process",
+            "declaringType": "TestCases.MultiConstraintNode<TKey, TItem>.NestedNode<TNested>",
+            "returnInfo": {
+              "type": {
+                "localName": "void",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "Void"
+              },
+              "attributes": []
+            },
+            "isStatic": false,
+            "isGeneric": true,
+            "isReadOnly": false,
+            "hasArglistParameter": false,
+            "accessModifier": "Public",
+            "inheritance": {
+              "kind": "None"
+            },
+            "parameters": [
+              {
+                "name": "param",
+                "position": 0,
+                "modifiers": "None",
+                "type": {
+                  "localName": "TLocalMethodParam",
+                  "nullability": "NonNullable",
+                  "usageKind": "Placeholder",
+                  "placeholderName": "TLocalMethodParam",
+                  "placeholderPosition": 0,
+                  "placeholderSource": "Process"
+                },
+                "hasDefaultValue": false,
+                "defaultValue": null,
+                "attributes": []
+              }
+            ],
+            "genericParameters": [
+              {
+                "name": "TLocalMethodParam",
+                "position": 0,
+                "variance": "Invariant",
+                "source": "Process",
+                "hasReferenceTypeConstraint": false,
+                "hasNullableReferenceTypeConstraint": false,
+                "hasNotNullConstraint": false,
+                "hasValueTypeConstraint": false,
+                "hasUnmanagedTypeConstraint": true,
+                "hasConstructorConstraint": false,
+                "hasAllowsRefStructConstraint": false,
+                "hasDefaultConstraint": false,
+                "constraintTypes": []
+              }
+            ],
+            "attributes": [],
+            "localFunctions": []
+          }
+        ],
+        "properties": [],
+        "indexers": [],
+        "events": [],
+        "instanceConstructors": [
+          {
+            "declaringType": "TestCases.MultiConstraintNode<TKey, TItem>.NestedNode<TNested>",
+            "accessModifier": "Public",
+            "isPrimary": false,
+            "parameters": [],
+            "attributes": [],
+            "localFunctions": []
+          }
+        ],
+        "staticConstructor": null,
+        "operators": [],
+        "attributes": [],
+        "nestedTypes": []
+      }
+    ]
+  }
+]

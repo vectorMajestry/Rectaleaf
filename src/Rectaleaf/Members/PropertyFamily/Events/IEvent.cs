@@ -3,7 +3,7 @@ using Rectaleaf.Metadata.TypeUsages.Interfaces;
 
 namespace Rectaleaf.Metadata.Members.PropertyFamily.Events;
 
-public interface IEvent<TKind>
+public interface IEvent<out TKind>
     where TKind : IKnownOrNot
 {
     string Name { get; }
@@ -17,7 +17,7 @@ public interface IEvent<TKind>
     IEventRemoveAccessor<TKind> RemoveAccessor { get; }
 }
 
-public interface IStaticEvent<TKind> : IEvent<TKind>
+public interface IStaticEvent<out TKind> : IEvent<TKind>
     where TKind : IKnownOrNot;
-public interface IInstanceEvent<TKind> : IEvent<TKind>
+public interface IInstanceEvent<out TKind> : IEvent<TKind>
     where TKind : IKnownOrNot;

@@ -1,6 +1,3 @@
-using Rectaleaf.Components;
-using Rectaleaf.Members;
-using Rectaleaf.Metadata.Members;
 using Rectaleaf.Metadata.TypeUsages.Interfaces;
 
 namespace Rectaleaf.Metadata.DeclaredTypes;
@@ -10,7 +7,7 @@ namespace Rectaleaf.Metadata.DeclaredTypes;
 /// </summary>
 public interface IInlineArrayType : IValueType, IHasMethods, IHasProperties, IHasIndexers,
     IHasEvents, IHasGenericParameters, IHasInstanceConstructors, IHasStaticConstructor,
-    IHasNestedTypes, IHasInterfaces, IHasOperators, IValidConstraint, IHasSize
+    IHasNestedTypes, IHasInterfaces, IHasOperators
 {
     /// <summary>
     /// Gets the element type of this inline array.

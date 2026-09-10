@@ -5,10 +5,7 @@ using Rectaleaf.Metadata.TypeUsages.Interfaces;
 
 namespace Rectaleaf.Metadata.TypeUsages.CommonTypeUsageImpl;
 
-public sealed class UnmanagedFunctionPointerType<TKind>(
-    ITypeUsage<TKind> returnType,
-    IReadOnlyList<IParameter> parameters,
-    CallConvFlags callingConventions)
+public sealed class UnmanagedFunctionPointerType<TKind>
     : TypeUsage<TKind>, IUnmanagedFunctionPointerType<TKind>
     where TKind : IKnownOrNot
 {
@@ -18,9 +15,38 @@ public sealed class UnmanagedFunctionPointerType<TKind>(
             ReturnType.LocalName,
             CallingConventions);
 
-    public ITypeUsage<TKind> ReturnType { get; } = returnType;
+    public ITypeUsage<TKind> ReturnType { get; }
 
-    public IReadOnlyList<IParameter> Parameters { get; } = parameters;
+    public IReadOnlyList<IParameter> Parameters { get; }
 
-    public CallConvFlags CallingConventions { get; } = callingConventions;
+    public IReadOnlyList<CallConvKind> CallingConventions { get; }
+
+    public CallConvFlags CallingConventionFlags { get; }
+
+    public UnmanagedFunctionPointerType(
+        ITypeUsage<TKind> returnType,
+        IReadOnlyList<IParameter> parameters,
+        IReadOnlyList<CallConvKind> callingConventions)
+    {
+        ReturnType = returnType;
+        Parameters = parameters;
+        CallingConventions = callingConventions;
+
+        uint flags = 0;
+        for (int i = 0; i < callingConventions.Count; i++)
+            flags |= 1u << (int)callingConventions[i];
+        CallingConventionFlags = (CallConvFlags)flags;
+    }
+
+    public UnmanagedFunctionPointerType(
+        ITypeUsage<TKind> returnType,
+        IReadOnlyList<IParameter> parameters,
+        IReadOnlyList<CallConvKind> callingConventions,
+        CallConvFlags callingConventionFlags)
+    {
+        ReturnType = returnType;
+        Parameters = parameters;
+        CallingConventions = callingConventions;
+        CallingConventionFlags = callingConventionFlags;
+    }
 }
