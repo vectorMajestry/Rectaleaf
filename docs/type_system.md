@@ -1,3 +1,5 @@
+docs-unslop conformant.
+
 # Rectaleaf Type System & Type Usage Architecture
 
 This document provides a comprehensive structural guide to the two core interface hierarchies of the `Rectaleaf` metadata layer:
@@ -10,7 +12,7 @@ This document provides a comprehensive structural guide to the two core interfac
 
 The declared type hierarchy classifies type declarations so that consuming code can specify the exact shape of type metadata it expects to inspect. For example, by accepting `IStructType` as a parameter, a method forces callers to provide struct declaration metadata specifically, as opposed to an unconstrained `Type` (Reflection) or `INamedTypeSymbol` (Source Generators).
 
-Some interfaces in the hierarchy are used for grouping—for example, allowing both `IStructType` and `IRecordStructType` to be upcast to `IValueType`. These grouping interfaces should not be implemented directly. Backends should only implement concrete leaf interfaces such as `IStructType`.
+Some interfaces in the hierarchy are used for grouping, for example allowing both `IStructType` and `IRecordStructType` to be upcast to `IValueType`. These grouping interfaces should not be implemented directly. Backends should only implement concrete leaf interfaces such as `IStructType`.
 
 ```mermaid
 classDiagram
@@ -258,14 +260,11 @@ classDiagram
         <<grouping interface>>
         +UnderlyingValueTupleType: IBoundGenericType
         +Nullability: NullabilityKind
+        +GetElementTypes(): IReadOnlyList~IComposableType~
     }
     class IRichTupleType_TKind_["IRichTupleType&lt;out TKind&gt;"] {
         <<concrete interface>>
         +Elements: IReadOnlyList~ITupleElement~
-    }
-    class IChainTupleType_TKind_["IChainTupleType&lt;out TKind&gt;"] {
-        <<grouping interface>>
-        +ElementTypes: IReadOnlyList~IComposableType~
     }
     class IExplicitValueTupleType_TKind_["IExplicitValueTupleType&lt;out TKind&gt;"] {
         <<concrete interface>>
@@ -276,9 +275,8 @@ classDiagram
 
     IInnerType_TKind_ <|-- ITupleType_TKind_
     ITupleType_TKind_ <|-- IRichTupleType_TKind_
-    ITupleType_TKind_ <|-- IChainTupleType_TKind_
-    IChainTupleType_TKind_ <|-- IExplicitValueTupleType_TKind_
-    IChainTupleType_TKind_ <|-- IObliviousTupleType_TKind_
+    ITupleType_TKind_ <|-- IExplicitValueTupleType_TKind_
+    ITupleType_TKind_ <|-- IObliviousTupleType_TKind_
 ```
 
 ---
@@ -288,7 +286,7 @@ classDiagram
 | Type Usage Interface | Role | Inherited From | Members & Semantic Description |
 | :--- | :---: | :--- | :--- |
 | **`ITypeUsage<out TKind>`** | **Grouping** | *(Root)* | `LocalName`. Root of all type representations (`TKind : IKnownOrNot`). |
-| **`IByRefType<out TKind, out TMutability>`** | **Concrete** | `ITypeUsage<TKind>` | • `IComposableType<TKind> ElementType { get; }`<br>Top-level by-ref wrapper (`ref` via `IMut`, `ref readonly` / `in` via `IReadOnly`). Cannot be nested inside arrays, pointers, or type arguments. |
+| **`IByRefType<out TKind, out TMutability>`** | **Concrete** | `ITypeUsage<TKind>` | • `IComposableType<TKind> ElementType { get; }`<br>Top-level by-ref wrapper (`ref` and `out` via `IMut`, `ref readonly` and `in` via `IReadOnly`). Used for by-ref returns, by-ref properties/indexers, `ref` fields, and parameters with `ref`, `out`, `in`, or `ref readonly` modifiers. Cannot be nested inside arrays, pointers, or type arguments. |
 | **`IComposableType<out TKind>`** | **Grouping** | `ITypeUsage<TKind>` | Root for all types that can compose arrays, pointers, type arguments, and tuples. |
 | **`IWrapperType<out TKind>`** | **Grouping** | `IComposableType<TKind>` | • `IComposableType<TKind> ElementType { get; }`<br>Base for wrapping composable types. |
 | **`IPointerType<out TKind>`** | **Concrete** | `IWrapperType<TKind>` | Represents unmanaged pointers (`T*`, `void*`). |
@@ -305,11 +303,14 @@ classDiagram
 | **`IFunctionPointerType<out TKind>`** | **Grouping** | `IInnerType<TKind>` | • `ITypeUsage<TKind> ReturnType { get; }`<br>• `IReadOnlyList<IParameter> Parameters { get; }`<br>Base for function pointer type usages (`delegate*`). |
 | **`IManagedFunctionPointerType<out TKind>`** | **Concrete** | `IFunctionPointerType<TKind>` | Represents standard managed function pointers (`delegate*<int, void>`). |
 | **`IUnmanagedFunctionPointerType<out TKind>`** | **Concrete** | `IFunctionPointerType<TKind>` | • `IReadOnlyList<CallConvKind> CallingConventions { get; }`<br>• `CallConvFlags CallingConventionFlags { get; }`<br>Represents unmanaged function pointers with explicit or implicit calling conventions (`delegate* unmanaged[Cdecl]<int, void>`). |
-| **`ITupleType<out TKind>`** | **Grouping** | `IInnerType<TKind>`<br>• `IHasNullability` | • `IBoundGenericType<TKind, IStructType> UnderlyingValueTupleType { get; }`<br>Base interface for all tuple representations (`ValueTuple`). |
+| **`ITupleType<out TKind>`** | **Grouping** | `IInnerType<TKind>`<br>• `IHasNullability` | • `IBoundGenericType<TKind, IStructType> UnderlyingValueTupleType { get; }`<br>• `IReadOnlyList<IComposableType<IKnownOrNot>> ElementTypesMixed { get; }` (accessible via `GetElementTypes()` extension method).<br>Base interface for all tuple representations (`ValueTuple`). Exposes the unflattened collection of element types. |
 | **`IRichTupleType<out TKind>`** | **Concrete** | `ITupleType<TKind>` | • `IReadOnlyList<ITupleElement<TKind>> Elements { get; }`<br>Represents a rich tuple created via tuple syntax with explicit or optional element names (e.g. `(int Code, string Message)`). |
-| **`IChainTupleType<out TKind>`** | **Grouping** | `ITupleType<TKind>` | • `IReadOnlyList<IComposableType<TKind>> ElementTypes { get; }`<br>Base interface for tuple type usages without rich element names. Exposes the flattened collection of element types. |
-| **`IExplicitValueTupleType<out TKind>`** | **Concrete** | `IChainTupleType<TKind>` | Represents a tuple created via explicit generic `ValueTuple<...>` chain syntax in source code. |
-| **`IObliviousTupleType<out TKind>`** | **Concrete** | `IChainTupleType<TKind>` | Represents a tuple from metadata/reflection where source syntax disambiguation is unknown. |
+| **`IExplicitValueTupleType<out TKind>`** | **Concrete** | `ITupleType<TKind>` | Represents a tuple created via explicit generic `ValueTuple<...>` chain syntax in source code. |
+| **`IObliviousTupleType<out TKind>`** | **Concrete** | `ITupleType<TKind>` | Represents a tuple from metadata/reflection where source syntax disambiguation is unknown. |
+
+### Notes
+* Nullability is attached directly to individual type usage models via `IHasNullability` instead of modeling it with a dedicated type usage wrapper. All `Nullable<T>` are unwrapped to the model of `T` with nullability set to `NullabilityKind.Nullable`.
+* On `ITypeUsage`, `LocalName` (as well as the `FullyQualifiedName` extension property on `ITypeUsage<IKnown>` and `MaxName` on `ITypeUsage<IIncomplete>`) includes all usage annotations such as `?` (when `Nullability` is `NullabilityKind.Nullable`), `*`, `[]`, `[,]`, `ref`, and `ref readonly` via `WrapperNameFormatter`. On `IDeclaredType` (such as `IDeclTypeUsage.TypeDefinition`), `LocalName` and `FullyQualifiedName` represent the type declaration itself without usage-site `?`, `*`, `[]`, or `ref` annotations.
 
 ---
 

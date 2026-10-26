@@ -27,6 +27,8 @@ public interface IGenericParameter
     IReadOnlyList<ConstraintType> ConstraintTypes { get; }
 
     GenericParameterSource Source { get; }
+
+    IReadOnlyList<IAttribute> GetAttributes();
 }
 
 public enum GenericVariance

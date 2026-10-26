@@ -61,6 +61,7 @@
         "declaringType": "TestCases.MyCustomAttribute",
         "accessModifier": "Public",
         "isPrimary": false,
+        "hasArglistParameter": false,
         "parameters": [
           {
             "name": "tag",
@@ -85,11 +86,15 @@
     "operators": [],
     "attributes": [
       {
-        "name": "AttributeUsageAttribute",
-        "fullyQualifiedName": "System.AttributeUsageAttribute",
-        "constructorArguments": [
-          "AttributeTargets.All"
-        ],
+        "underlyingType": {
+          "localName": "AttributeUsageAttribute",
+          "nullability": "NonNullable",
+          "usageKind": "Plain",
+          "typeDefinition": "System.AttributeUsageAttribute"
+        },
+        "constructorArguments": {
+          "validOn": "AttributeTargets.All"
+        },
         "namedArguments": {}
       }
     ],
@@ -126,7 +131,8 @@
             "placeholderPosition": 1,
             "placeholderSource": "TestCases.MyRefStruct<T, U>"
           }
-        ]
+        ],
+        "attributes": []
       },
       {
         "name": "U",
@@ -141,7 +147,8 @@
         "hasConstructorConstraint": false,
         "hasAllowsRefStructConstraint": false,
         "hasDefaultConstraint": false,
-        "constraintTypes": []
+        "constraintTypes": [],
+        "attributes": []
       }
     ],
     "directInterfaces": [],
@@ -255,6 +262,7 @@
         "declaringType": "TestCases.MyRefStruct<T, U>",
         "accessModifier": "Public",
         "isPrimary": false,
+        "hasArglistParameter": false,
         "parameters": [
           {
             "name": "functionPointer",
@@ -357,6 +365,7 @@
         "declaringType": "TestCases.MyRefStruct<T, U>",
         "accessModifier": "Public",
         "isPrimary": false,
+        "hasArglistParameter": false,
         "parameters": [],
         "attributes": [],
         "localFunctions": []
@@ -366,11 +375,15 @@
     "operators": [],
     "attributes": [
       {
-        "name": "MyCustomAttribute",
-        "fullyQualifiedName": "TestCases.MyCustomAttribute",
-        "constructorArguments": [
-          "CursedRefStruct"
-        ],
+        "underlyingType": {
+          "localName": "MyCustomAttribute",
+          "nullability": "NonNullable",
+          "usageKind": "Plain",
+          "typeDefinition": "TestCases.MyCustomAttribute"
+        },
+        "constructorArguments": {
+          "tag": "CursedRefStruct"
+        },
         "namedArguments": {}
       }
     ],
@@ -398,7 +411,8 @@
         "hasConstructorConstraint": false,
         "hasAllowsRefStructConstraint": false,
         "hasDefaultConstraint": false,
-        "constraintTypes": []
+        "constraintTypes": [],
+        "attributes": []
       },
       {
         "name": "U",
@@ -413,7 +427,8 @@
         "hasConstructorConstraint": false,
         "hasAllowsRefStructConstraint": false,
         "hasDefaultConstraint": false,
-        "constraintTypes": []
+        "constraintTypes": [],
+        "attributes": []
       }
     ],
     "directInterfaces": [],
@@ -466,6 +481,7 @@
         "declaringType": "TestCases.MyStruct<T, U>",
         "accessModifier": "Public",
         "isPrimary": false,
+        "hasArglistParameter": false,
         "parameters": [],
         "attributes": [],
         "localFunctions": []

@@ -1,13 +1,13 @@
-﻿using Rectaleaf.Components;
+using Rectaleaf.Components;
+using Rectaleaf.Metadata.DeclaredTypes;
+using Rectaleaf.Metadata.TypeUsages.Interfaces;
 
 namespace Rectaleaf.Metadata.Members;
 
 public interface IAttribute
 {
-    string Name { get; }
-    string FullyQualifiedName { get; }
-
+    IDeclTypeUsage<IKnownOrNot, IRegularClassType> UnderlyingType { get; }
+    IInstanceConstructor UsedConstructor { get; }
     IReadOnlyList<AttributeValue> ConstructorArguments { get; }
     IReadOnlyDictionary<string, AttributeValue> NamedArguments { get; }
 }
-

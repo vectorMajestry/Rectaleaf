@@ -1,3 +1,5 @@
+docs-unslop conformant.
+
 # Metadata Contract Semantic Specifications & Architecture Guide
 
 This document defines the core philosophy, exact semantic boundaries, and return specifications for every query and capability method across `Rectaleaf.Metadata`. It serves as the authoritative blueprint for implementing backends (Roslyn & Reflection) and authoring comprehensive test suites.
@@ -80,7 +82,14 @@ Expose C# Semantic Members; Hide Lowered Implementation Artifacts.
   * Inherited properties from base classes/interfaces
 
 ### `IHasIndexers.GetIndexers()`
-* **Specification:** Returns strictly user-declared indexers directly declared on this type (including indexers with default name `this[...]` or renamed via `[IndexerName]`).
+* **Specification:** Returns strictly user-declared indexers directly declared on this type.
+* **Naming Convention:**
+  * An indexer's `Name` property returns `"Item"` if `[IndexerName("CustomName")]` is absent.
+  * Custom renamed indexers (declared with `[IndexerName("CustomName")]`) return the custom name via `Name`, e.g. `"Grid"`.
+  * Explicit interface implementation indexers return `"Item"` via `Name`, without the interface name prepended. Applying `[IndexerName]` directly to an explicit interface member declaration is invalid C# syntax (compiler error CS0415). Even if the target interface indexer was declared with `[IndexerName("CustomName")]`, the implementing type's explicit implementation member is emitted as `Interface.Item` in CLI metadata and reflection, and its `Name` property returns `"Item"`.
+* **Attribute Filtering:**
+  * `IndexerNameAttribute` is treated as compiler plumbing and must never appear in `IIndexer.GetAttributes()`.
+  * `DefaultMemberAttribute` is treated as compiler plumbing and is filtered out lazily from `IType.GetAttributes()` if the type contains indexers.
 * **Inclusions:**
   * User-authored indexers (with single or multiple parameters)
   * Explicit Interface Implementation indexers
@@ -201,6 +210,11 @@ Expose C# Semantic Members; Hide Lowered Implementation Artifacts.
 
 ### `IAttribute` and `GetAttributes()`
 * **Specification:** Returns strictly user-applied attributes directly decorating the target entity (Type, Member, Parameter, Accessor, or Return Info).
+* **Members:**
+  * `UnderlyingType` (`IDeclTypeUsage<IKnownOrNot, IRegularClassType>`): The type usage of the attribute class (either `IPlainType<IRegularClassType>` for non-generic attributes or `IBoundGenericType<IKnownOrNot, IRegularClassType>` for generic attributes), whose `TypeDefinition` exposes the underlying `IRegularClassType` declaration and its constructors, properties, fields, and methods.
+  * `UsedConstructor` (`IInstanceConstructor`): The instance constructor invoked at the attribute usage site.
+  * `ConstructorArguments` (`IReadOnlyList<AttributeValue>`): The positional arguments passed to `UsedConstructor` at the usage site.
+  * `NamedArguments` (`IReadOnlyDictionary<string, AttributeValue>`): The named field and property initializers specified at the usage site.
 * **Scoped Distribution:**
   * Type-level attributes -> `IDeclaredType.GetAttributes()`
   * Member-level attributes -> `IMethod`, `IField`, `IProperty`, etc. `GetAttributes()`
@@ -247,14 +261,20 @@ Expose C# Semantic Members; Hide Lowered Implementation Artifacts.
 
 ### `IExtensionsBlock` (C# 14 Extension Declarations)
 * **Specification:** Represents an extension declaration block (`extension(...) { ... }`) within a top-level, non-generic static class (`IStaticClassType`).
+* **Common Members on `IExtensionsBlock`:**
+  * `DeclaringType` (`IStaticClassType`): The static class that declares the extension block.
+  * `ExtendedType` (`ITypeUsage<IKnownOrNot>`): The target type usage being extended (matches `Receiver.Type` on `IInstanceExtensionsBlock`, including `IByRefType` when the receiver has `ref`, `in`, or `ref readonly`).
+  * `IsGeneric` (`bool`) and `GetGenericParameters()` (`IReadOnlyList<IGenericParameter>`).
+  * `GetMethods()`, `GetProperties()`, and `GetIndexers()`.
 * **Branching Model:**
   * `IInstanceExtensionsBlock` (Named Receiver):
     * Represents extension blocks with a named receiver parameter (e.g. `extension(ref Point pt)` or `extension<T>(List<T> list) where T : class`).
-    * Exposes `Receiver` (`IParameter`) holding the receiver parameter's name, type usage, and modifiers (`ref`, `in`, `ref readonly`, `scoped`, parameter attributes).
+    * Exposes `Receiver` (`IParameter`) holding the receiver parameter's name, type usage (`IByRefType` when declared with `ref`, `in`, or `ref readonly`), modifiers (`ref`, `in`, `ref readonly`, `scoped`), and parameter attributes.
     * Can declare both instance and static extension members (`GetMethods()`, `GetProperties()`, `GetIndexers()`).
   * `IStaticExtensionsBlock` (Unnamed Receiver):
-    * Represents extension blocks with an unnamed receiver (e.g. `extension(string)` or `extension<T>(List<T>) where T : new()`).
-    * Exposes `ExtendedType` (`ITypeUsage<IKnownOrNot>`).
+    * Represents extension blocks with an unnamed receiver parameter (e.g. `extension(string)` or `extension<T>([MyAttr] List<T>) where T : new()`).
+    * Shadows `ExtendedType` as `IComposableType<IKnownOrNot>` since an unnamed receiver parameter cannot have `ref`, `in`, or `out` modifiers.
+    * Exposes `GetReceiverAttributes()` (`IReadOnlyList<IAttribute>`) for attributes applied to the unnamed receiver parameter.
     * Can only declare static extension members.
 * **Block-Level Generics:**
   * Extension block type parameters are exposed via `GetGenericParameters()`.
@@ -282,7 +302,7 @@ In the .NET metadata model, rich type usage annotations (calling conventions, nu
    * Member models expose their full type usage with 100% fidelity.
 
 ### Preserving Contextual Modifiers in Reflection (ModifiedType Strategy)
-When constructing type usage models for members, the Reflection backend **must not** rely solely on `field.FieldType`, `prop.PropertyType`, or `param.ParameterType` (which return stripped `RuntimeType` instances). 
+When constructing type usage models for members, the Reflection backend **must not** rely solely on `field.FieldType`, `prop.PropertyType`, or `param.ParameterType` (which return stripped `RuntimeType` instances).
 Instead, it must query modified types:
 * Fields -> `field.GetModifiedFieldType()`
 * Properties -> `property.GetModifiedPropertyType()`
@@ -298,13 +318,44 @@ Instead, it must query modified types:
   * **Roslyn Backend:** Reads `IFunctionPointerTypeSymbol.Signature.UnmanagedCallingConventionTypes` directly.
   * **Reflection Backend:** Calls `GetModifiedFieldType().GetFunctionPointerCallingConventions()` (or property/parameter modified type equivalent).
 
-### Tuple Resolution Strategy
+### Tuple Resolution
 * **Roslyn Backend:**
   * Created via tuple syntax (e.g. `(int, string)` or `(int Id, string Name)`) -> `IRichTupleType`
   * Created via explicit generic struct syntax (e.g. `ValueTuple<int, string>`) -> `IExplicitValueTupleType`
 * **Reflection Backend:**
   * Decorated with `[TupleElementNamesAttribute]` -> `IRichTupleType` (with named elements).
   * Without `[TupleElementNamesAttribute]` -> `IObliviousTupleType` (flat collection of element types, as Reflection cannot distinguish whether source code wrote `ValueTuple<int, string>` or `(int, string)`).
+
+### Nullability Resolution
+* **Nullable Value Types:**
+  Both `Nullable<T>` and `T?` where `T : struct` must be mapped to a type usage of `T` with nullability set to `NullabilityKind.Nullable`. `System.Nullable<T>` is never modeled as a `BoundGenericType`.
+* **Oblivious Contexts:**
+  When code is compiled with nullability disabled via `#nullable disable`, nullability of reference type models must be set to `NullabilityKind.Oblivious`. Nullability of value type models should not be affected by `#nullable disable` and should still behave as described above.
+
+### By-Ref Parameter Type Usages (`IByRefType`)
+* When an `IParameter` has a by-ref modifier (`Ref`, `Out`, `In`, or `RefReadOnly` in `ParameterModifiers`), its `Type` property must be wrapped in `IByRefType<TKind, TMutability>`:
+  * `ParameterModifiers.Ref` and `ParameterModifiers.Out` map to `IByRefType<TKind, IMut>` (`LocalName` formatted via `WrapperNameFormatter.RefName`, e.g. `"ref int"`).
+  * `ParameterModifiers.In` and `ParameterModifiers.RefReadOnly` map to `IByRefType<TKind, IReadOnly>` (`LocalName` formatted via `WrapperNameFormatter.RefReadOnlyName`, e.g. `"ref readonly int"`).
+* `ParameterModifiers.Scoped` applies when the `scoped` modifier is declared on a parameter or when `[ScopedRefAttribute]` is present in metadata. Because Roslyn implicitly sets `IParameterSymbol.ScopedKind` to `ScopedKind.ScopedRef` on all `out` parameters under C# 11 ref safety rules without emitting `[ScopedRefAttribute]`, backends must not treat an `out` parameter as scoped merely because `ScopedKind` is `ScopedRef`. If a parameter has the `out` modifier, `ScopedKind.ScopedRef` is ignored unless `scoped` was explicitly declared in syntax or `[ScopedRefAttribute]` is present in metadata.
+
+### Member Naming for Explicit Interface Implementations
+* Across all member models (`IMethod`, `IProperty`, `IIndexer`, `IEvent`), `Name` returns strictly the simple member identifier declared in the interface (e.g. `Dispose`, `PerformWork`, `WorkerName`, `Item`, `WorkCompleted`).
+* The implemented interface name is **never** prepended to `Name`.
+* Consumers query the target interface and implemented member via `Inheritance`:
+  * When `Inheritance` implements `IInheritanceExplicitImplementation<TMember>`, `ExplicitInterfaceMember` returns the interface member model directly, providing the target interface context without name mangling.
+
+### Indexer Naming & Attribute Erasure Rules
+* **Indexer Names:**
+  * An indexer's `Name` property returns `"Item"` if `[IndexerName("CustomName")]` is absent.
+  * An indexer declared with `[IndexerName("CustomName")]` has `Name` set to the custom name (e.g. `"Grid"`).
+  * An explicit interface implementation indexer has `Name` set to `"Item"`. Applying `[IndexerName]` directly to an explicit interface member declaration is invalid C# syntax (compiler error CS0415). Even if the target interface indexer was declared with `[IndexerName("CustomName")]`, the implementing type's explicit implementation member is emitted as `Interface.Item` in CLI metadata and reflection, and its `Name` property returns `"Item"`.
+* **`IndexerNameAttribute` Filtering:**
+  * `IndexerNameAttribute` serves as compiler instruction to rename the metadata property and is not emitted into PE metadata.
+  * `IndexerNameAttribute` is compiler plumbing and must never appear in `IIndexer.GetAttributes()`. The chosen name is exposed via `IIndexer.Name`.
+* **`DefaultMemberAttribute` Filtering:**
+  * `DefaultMemberAttribute` is synthesized by the C# compiler on any type declaring an indexer during the PE emit phase.
+  * As compiler plumbing, `DefaultMemberAttribute` is filtered out lazily from `IType.GetAttributes()` if the declaring type contains indexers.
+  * If a user manually places `[DefaultMember]` on a type that contains no indexers, the attribute is preserved as a user-authored attribute.
 
 ---
 
@@ -321,6 +372,9 @@ This reference section documents the low-level metadata signals and strategies u
 | **File-Local Types** | `type.IsNotPublic && !type.IsNested && type.Name.StartsWith("<") && type.Name.Contains("__")` | **Bulletproof (Roslyn Name Mangling Spec)** |
 | **Fixed-Size Buffers** | `[FixedBufferAttribute]` on the field (exposes `ElementType` and `Length`) | **Bulletproof (Official BCL Type)** |
 | **Inline Arrays** | `[InlineArrayAttribute]` on the struct (exposes `Length` and `ElementType` via single field) | **Bulletproof (Official BCL Attribute)** |
+| **Indexer Naming** | Read `PropertyInfo.Name` directly; standard indexers are `"Item"`, renamed indexers carry the custom name. | **Bulletproof (CLI Property Spec)** |
+| **Synthesized `DefaultMemberAttribute`** | Filter out lazily if the type contains declared indexers. | **Bulletproof Indexer Detection** |
+| **`IndexerNameAttribute`** | Never present in PE metadata; Roslyn filters it from source symbols. | **Bulletproof Erasure Parity** |
 | **Async / Iterator State Machines** | Nested types referenced by `[AsyncStateMachine]`, `[IteratorStateMachine]`, or `[AsyncIteratorStateMachine]` on containing methods | **Bulletproof (Official BCL Attribute)** |
 | **`readonly struct`, `ref struct`** | `[IsReadOnlyAttribute]`, `[IsByRefLikeAttribute]` | **Bulletproof** |
 | **`required` Members** | `[RequiredMemberAttribute]` + `[CompilerFeatureRequiredAttribute("RequiredMembers")]` | **Bulletproof (Official BCL Attribute)** |

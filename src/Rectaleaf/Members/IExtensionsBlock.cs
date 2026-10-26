@@ -37,11 +37,6 @@ public interface IExtensionsBlock
     IReadOnlyList<IGenericParameter> GetGenericParameters();
 
     /// <summary>
-    /// Gets the attributes applied to this extension block.
-    /// </summary>
-    IReadOnlyList<IAttribute> GetAttributes();
-
-    /// <summary>
     /// Gets all extension methods declared within this block.
     /// </summary>
     IReadOnlyList<IMethod> GetMethods();
@@ -71,8 +66,12 @@ public interface IInstanceExtensionsBlock : IExtensionsBlock
 }
 
 /// <summary>
-/// Represents a static extension block with an unnamed receiver 
+/// Represents an extension block with an unnamed receiver 
 /// (e.g. <c>extension(string)</c> or <c>extension&lt;T&gt;(List&lt;T&gt;)</c>).
-/// Can only contain static extension members.
+/// Can only declare static extension members.
 /// </summary>
-public interface IStaticExtensionsBlock : IExtensionsBlock;
+public interface IStaticExtensionsBlock : IExtensionsBlock
+{
+    IReadOnlyList<IAttribute> GetReceiverAttributes();
+    new IComposableType<IKnownOrNot> ExtendedType { get; }
+}

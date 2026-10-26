@@ -1,6 +1,4 @@
-﻿using Rectaleaf.Metadata.Members;
-
-namespace Rectaleaf.Members;
+namespace Rectaleaf.Metadata.Members;
 
 public interface IEnumMember
 {

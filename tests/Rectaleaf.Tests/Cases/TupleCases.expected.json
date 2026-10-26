@@ -53,12 +53,12 @@
       "attributes": [],
       "fieldKind": "Regular",
       "type": {
-        "localName": "(int Item1, string name, bool isFlag)",
+        "localName": "(int, string name, bool isFlag)",
         "nullability": "NonNullable",
         "usageKind": "RichTuple",
         "elements": [
           {
-            "name": "Item1",
+            "name": null,
             "type": {
               "localName": "int",
               "nullability": "NonNullable",
@@ -98,27 +98,21 @@
       "attributes": [],
       "fieldKind": "Regular",
       "type": {
-        "localName": "(int Item1, string Item2)",
+        "localName": "ValueTuple<int, string>",
         "nullability": "NonNullable",
-        "usageKind": "RichTuple",
-        "elements": [
+        "usageKind": "ExplicitValueTuple",
+        "elementTypes": [
           {
-            "name": "Item1",
-            "type": {
-              "localName": "int",
-              "nullability": "NonNullable",
-              "usageKind": "Predefined",
-              "predefinedKind": "Int"
-            }
+            "localName": "int",
+            "nullability": "NonNullable",
+            "usageKind": "Predefined",
+            "predefinedKind": "Int"
           },
           {
-            "name": "Item2",
-            "type": {
-              "localName": "string",
-              "nullability": "NonNullable",
-              "usageKind": "Predefined",
-              "predefinedKind": "String"
-            }
+            "localName": "string",
+            "nullability": "NonNullable",
+            "usageKind": "Predefined",
+            "predefinedKind": "String"
           }
         ]
       },
@@ -529,15 +523,15 @@
       "attributes": [],
       "fieldKind": "Regular",
       "type": {
-        "localName": "(int nullableInt, string? nullableString, (bool flag, object? obj) nested)",
+        "localName": "(int? nullableInt, string? nullableString, (bool? flag, object? obj) nested)",
         "nullability": "NonNullable",
         "usageKind": "RichTuple",
         "elements": [
           {
             "name": "nullableInt",
             "type": {
-              "localName": "int",
-              "nullability": "NonNullable",
+              "localName": "int?",
+              "nullability": "Nullable",
               "usageKind": "Predefined",
               "predefinedKind": "Int"
             }
@@ -554,15 +548,15 @@
           {
             "name": "nested",
             "type": {
-              "localName": "(bool flag, object? obj)",
+              "localName": "(bool? flag, object? obj)",
               "nullability": "NonNullable",
               "usageKind": "RichTuple",
               "elements": [
                 {
                   "name": "flag",
                   "type": {
-                    "localName": "bool",
-                    "nullability": "NonNullable",
+                    "localName": "bool?",
+                    "nullability": "Nullable",
                     "usageKind": "Predefined",
                     "predefinedKind": "Bool"
                   }
@@ -887,6 +881,7 @@
       "declaringType": "TestCases.TupleTestContainer",
       "accessModifier": "Public",
       "isPrimary": false,
+      "hasArglistParameter": false,
       "parameters": [],
       "attributes": [],
       "localFunctions": []

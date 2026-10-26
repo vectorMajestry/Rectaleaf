@@ -322,7 +322,7 @@
       "attributes": [],
       "fieldKind": "Regular",
       "type": {
-        "localName": "delegate*<int, double, byte, void>",
+        "localName": "delegate*<ref int, ref readonly double, ref byte, void>",
         "usageKind": "ManagedFunctionPointer",
         "returnType": {
           "localName": "void",
@@ -336,10 +336,15 @@
             "position": 0,
             "modifiers": "Ref",
             "type": {
-              "localName": "int",
-              "nullability": "NonNullable",
-              "usageKind": "Predefined",
-              "predefinedKind": "Int"
+              "localName": "ref int",
+              "usageKind": "ByRef",
+              "isReadOnly": false,
+              "elementType": {
+                "localName": "int",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "Int"
+              }
             },
             "hasDefaultValue": false,
             "defaultValue": null,
@@ -350,10 +355,15 @@
             "position": 1,
             "modifiers": "In",
             "type": {
-              "localName": "double",
-              "nullability": "NonNullable",
-              "usageKind": "Predefined",
-              "predefinedKind": "Double"
+              "localName": "ref readonly double",
+              "usageKind": "ByRef",
+              "isReadOnly": true,
+              "elementType": {
+                "localName": "double",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "Double"
+              }
             },
             "hasDefaultValue": false,
             "defaultValue": null,
@@ -362,12 +372,17 @@
           {
             "name": "",
             "position": 2,
-            "modifiers": "Out, Scoped",
+            "modifiers": "Out",
             "type": {
-              "localName": "byte",
-              "nullability": "NonNullable",
-              "usageKind": "Predefined",
-              "predefinedKind": "Byte"
+              "localName": "ref byte",
+              "usageKind": "ByRef",
+              "isReadOnly": false,
+              "elementType": {
+                "localName": "byte",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "Byte"
+              }
             },
             "hasDefaultValue": false,
             "defaultValue": null,
@@ -387,8 +402,12 @@
       "attributes": [],
       "fieldKind": "Regular",
       "type": {
-        "localName": "delegate*<int, double, byte, int>",
-        "usageKind": "ManagedFunctionPointer",
+        "localName": "delegate* unmanaged[Cdecl]<ref int, ref readonly double, ref byte, int>",
+        "usageKind": "UnmanagedFunctionPointer",
+        "callingConventionFlags": "Cdecl",
+        "callingConventions": [
+          "Cdecl"
+        ],
         "returnType": {
           "localName": "int",
           "nullability": "NonNullable",
@@ -401,10 +420,15 @@
             "position": 0,
             "modifiers": "Ref",
             "type": {
-              "localName": "int",
-              "nullability": "NonNullable",
-              "usageKind": "Predefined",
-              "predefinedKind": "Int"
+              "localName": "ref int",
+              "usageKind": "ByRef",
+              "isReadOnly": false,
+              "elementType": {
+                "localName": "int",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "Int"
+              }
             },
             "hasDefaultValue": false,
             "defaultValue": null,
@@ -415,10 +439,15 @@
             "position": 1,
             "modifiers": "In",
             "type": {
-              "localName": "double",
-              "nullability": "NonNullable",
-              "usageKind": "Predefined",
-              "predefinedKind": "Double"
+              "localName": "ref readonly double",
+              "usageKind": "ByRef",
+              "isReadOnly": true,
+              "elementType": {
+                "localName": "double",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "Double"
+              }
             },
             "hasDefaultValue": false,
             "defaultValue": null,
@@ -427,12 +456,17 @@
           {
             "name": "",
             "position": 2,
-            "modifiers": "Out, Scoped",
+            "modifiers": "Out",
             "type": {
-              "localName": "byte",
-              "nullability": "NonNullable",
-              "usageKind": "Predefined",
-              "predefinedKind": "Byte"
+              "localName": "ref byte",
+              "usageKind": "ByRef",
+              "isReadOnly": false,
+              "elementType": {
+                "localName": "byte",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "Byte"
+              }
             },
             "hasDefaultValue": false,
             "defaultValue": null,
@@ -452,11 +486,15 @@
       "attributes": [],
       "fieldKind": "Regular",
       "type": {
-        "localName": "delegate*<int, int>*",
+        "localName": "delegate* unmanaged[Cdecl]<int, int>*",
         "usageKind": "Pointer",
         "elementType": {
-          "localName": "delegate*<int, int>",
-          "usageKind": "ManagedFunctionPointer",
+          "localName": "delegate* unmanaged[Cdecl]<int, int>",
+          "usageKind": "UnmanagedFunctionPointer",
+          "callingConventionFlags": "Cdecl",
+          "callingConventions": [
+            "Cdecl"
+          ],
           "returnType": {
             "localName": "int",
             "nullability": "NonNullable",
@@ -493,11 +531,15 @@
       "attributes": [],
       "fieldKind": "Regular",
       "type": {
-        "localName": "delegate*<delegate*<int, void>>",
+        "localName": "delegate*<delegate* unmanaged[Cdecl]<int, void>>",
         "usageKind": "ManagedFunctionPointer",
         "returnType": {
-          "localName": "delegate*<int, void>",
-          "usageKind": "ManagedFunctionPointer",
+          "localName": "delegate* unmanaged[Cdecl]<int, void>",
+          "usageKind": "UnmanagedFunctionPointer",
+          "callingConventionFlags": "Cdecl",
+          "callingConventions": [
+            "Cdecl"
+          ],
           "returnType": {
             "localName": "void",
             "nullability": "NonNullable",
@@ -606,8 +648,12 @@
       "attributes": [],
       "fieldKind": "Regular",
       "type": {
-        "localName": "delegate*<void*, int*, double**, void>",
-        "usageKind": "ManagedFunctionPointer",
+        "localName": "delegate* unmanaged[Cdecl]<void*, int*, double**, void>",
+        "usageKind": "UnmanagedFunctionPointer",
+        "callingConventionFlags": "Cdecl",
+        "callingConventions": [
+          "Cdecl"
+        ],
         "returnType": {
           "localName": "void",
           "nullability": "NonNullable",
@@ -733,8 +779,12 @@
           "position": 0,
           "modifiers": "None",
           "type": {
-            "localName": "delegate*<int, int>",
-            "usageKind": "ManagedFunctionPointer",
+            "localName": "delegate* unmanaged[Cdecl]<int, int>",
+            "usageKind": "UnmanagedFunctionPointer",
+            "callingConventionFlags": "Cdecl",
+            "callingConventions": [
+              "Cdecl"
+            ],
             "returnType": {
               "localName": "int",
               "nullability": "NonNullable",
@@ -810,6 +860,7 @@
       "declaringType": "TestCases.FunctionPointerTestContainer",
       "accessModifier": "Public",
       "isPrimary": false,
+      "hasArglistParameter": false,
       "parameters": [],
       "attributes": [],
       "localFunctions": []

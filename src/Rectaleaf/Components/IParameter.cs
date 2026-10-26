@@ -1,4 +1,4 @@
-﻿using Rectaleaf.Metadata;
+using Rectaleaf.Metadata;
 using Rectaleaf.Metadata.Members;
 using Rectaleaf.Metadata.TypeUsages.Interfaces;
 
@@ -6,6 +6,11 @@ namespace Rectaleaf.Components;
 
 public interface IParameter
 {
+    /// <summary>
+    /// Gets the type usage of this parameter.
+    /// When the parameter has a by-ref modifier (<c>ref</c>, <c>in</c>, <c>out</c>, or <c>ref readonly</c>),
+    /// this property is wrapped in <see cref="IByRefType{TKind, TMutability}"/>.
+    /// </summary>
     ITypeUsage<IKnownOrNot> Type { get; }
     string Name { get; }
     ParameterModifiers Modifiers { get; }

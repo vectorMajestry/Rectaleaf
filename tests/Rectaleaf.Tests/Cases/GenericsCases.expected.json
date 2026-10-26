@@ -37,7 +37,8 @@
               }
             ]
           }
-        ]
+        ],
+        "attributes": []
       }
     ],
     "directInterfaces": [],
@@ -143,7 +144,8 @@
         "hasConstructorConstraint": false,
         "hasAllowsRefStructConstraint": true,
         "hasDefaultConstraint": false,
-        "constraintTypes": []
+        "constraintTypes": [],
+        "attributes": []
       }
     ],
     "directInterfaces": [],
@@ -177,6 +179,7 @@
         "declaringType": "TestCases.RefStructContainer<TVal>",
         "accessModifier": "Public",
         "isPrimary": false,
+        "hasArglistParameter": false,
         "parameters": [
           {
             "name": "value",
@@ -202,6 +205,7 @@
         "declaringType": "TestCases.RefStructContainer<TVal>",
         "accessModifier": "Public",
         "isPrimary": false,
+        "hasArglistParameter": false,
         "parameters": [],
         "attributes": [],
         "localFunctions": []
@@ -235,7 +239,8 @@
         "hasConstructorConstraint": false,
         "hasAllowsRefStructConstraint": false,
         "hasDefaultConstraint": false,
-        "constraintTypes": []
+        "constraintTypes": [],
+        "attributes": []
       },
       {
         "name": "TNullable",
@@ -250,7 +255,8 @@
         "hasConstructorConstraint": false,
         "hasAllowsRefStructConstraint": false,
         "hasDefaultConstraint": false,
-        "constraintTypes": []
+        "constraintTypes": [],
+        "attributes": []
       }
     ],
     "directInterfaces": [],
@@ -303,6 +309,7 @@
         "declaringType": "TestCases.NullableConstraintContainer<TStrict, TNullable>",
         "accessModifier": "Public",
         "isPrimary": false,
+        "hasArglistParameter": false,
         "parameters": [],
         "attributes": [],
         "localFunctions": []
@@ -336,7 +343,8 @@
         "hasConstructorConstraint": false,
         "hasAllowsRefStructConstraint": false,
         "hasDefaultConstraint": false,
-        "constraintTypes": []
+        "constraintTypes": [],
+        "attributes": []
       },
       {
         "name": "TValueType",
@@ -351,7 +359,8 @@
         "hasConstructorConstraint": false,
         "hasAllowsRefStructConstraint": false,
         "hasDefaultConstraint": false,
-        "constraintTypes": []
+        "constraintTypes": [],
+        "attributes": []
       },
       {
         "name": "TNotNull",
@@ -366,7 +375,8 @@
         "hasConstructorConstraint": false,
         "hasAllowsRefStructConstraint": false,
         "hasDefaultConstraint": false,
-        "constraintTypes": []
+        "constraintTypes": [],
+        "attributes": []
       }
     ],
     "directInterfaces": [],
@@ -438,6 +448,7 @@
         "declaringType": "TestCases.UnmanagedContainer<TUnmanaged, TValueType, TNotNull>",
         "accessModifier": "Public",
         "isPrimary": false,
+        "hasArglistParameter": false,
         "parameters": [],
         "attributes": [],
         "localFunctions": []
@@ -480,7 +491,8 @@
             "placeholderPosition": 1,
             "placeholderSource": "TestCases.HierarchyConstraintContainer<TChild, TParent, TGrandParent>"
           }
-        ]
+        ],
+        "attributes": []
       },
       {
         "name": "TParent",
@@ -504,7 +516,8 @@
             "placeholderPosition": 2,
             "placeholderSource": "TestCases.HierarchyConstraintContainer<TChild, TParent, TGrandParent>"
           }
-        ]
+        ],
+        "attributes": []
       },
       {
         "name": "TGrandParent",
@@ -519,7 +532,8 @@
         "hasConstructorConstraint": false,
         "hasAllowsRefStructConstraint": false,
         "hasDefaultConstraint": false,
-        "constraintTypes": []
+        "constraintTypes": [],
+        "attributes": []
       }
     ],
     "directInterfaces": [],
@@ -561,6 +575,7 @@
         "declaringType": "TestCases.HierarchyConstraintContainer<TChild, TParent, TGrandParent>",
         "accessModifier": "Public",
         "isPrimary": false,
+        "hasArglistParameter": false,
         "parameters": [],
         "attributes": [],
         "localFunctions": []
@@ -592,7 +607,8 @@
         "hasConstructorConstraint": false,
         "hasAllowsRefStructConstraint": false,
         "hasDefaultConstraint": false,
-        "constraintTypes": []
+        "constraintTypes": [],
+        "attributes": []
       }
     ],
     "directInterfaces": [],
@@ -649,7 +665,8 @@
             "hasConstructorConstraint": false,
             "hasAllowsRefStructConstraint": false,
             "hasDefaultConstraint": false,
-            "constraintTypes": []
+            "constraintTypes": [],
+            "attributes": []
           }
         ],
         "attributes": [],
@@ -729,7 +746,8 @@
             "hasConstructorConstraint": false,
             "hasAllowsRefStructConstraint": false,
             "hasDefaultConstraint": false,
-            "constraintTypes": []
+            "constraintTypes": [],
+            "attributes": []
           }
         ],
         "attributes": [],
@@ -744,6 +762,7 @@
         "declaringType": "TestCases.BaseDefaultConstraintClass",
         "accessModifier": "Public",
         "isPrimary": false,
+        "hasArglistParameter": false,
         "parameters": [],
         "attributes": [],
         "localFunctions": []
@@ -772,7 +791,7 @@
     "directInterfaces": [
       {
         "localName": "IDefaultConstraintInterface<string>",
-        "nullability": "Oblivious",
+        "nullability": "NonNullable",
         "usageKind": "BoundGeneric",
         "typeDefinition": "TestCases.IDefaultConstraintInterface<T>",
         "typeArguments": [
@@ -788,7 +807,7 @@
     "fields": [],
     "methods": [
       {
-        "name": "TestCases.IDefaultConstraintInterface<System.String>.HandleItem",
+        "name": "HandleItem",
         "declaringType": "TestCases.DefaultConstraintContainer",
         "returnInfo": {
           "type": {
@@ -838,8 +857,9 @@
             "hasUnmanagedTypeConstraint": false,
             "hasConstructorConstraint": false,
             "hasAllowsRefStructConstraint": false,
-            "hasDefaultConstraint": false,
-            "constraintTypes": []
+            "hasDefaultConstraint": true,
+            "constraintTypes": [],
+            "attributes": []
           }
         ],
         "attributes": [],
@@ -896,8 +916,9 @@
             "hasUnmanagedTypeConstraint": false,
             "hasConstructorConstraint": false,
             "hasAllowsRefStructConstraint": false,
-            "hasDefaultConstraint": false,
-            "constraintTypes": []
+            "hasDefaultConstraint": true,
+            "constraintTypes": [],
+            "attributes": []
           }
         ],
         "attributes": [],
@@ -912,6 +933,7 @@
         "declaringType": "TestCases.DefaultConstraintContainer",
         "accessModifier": "Public",
         "isPrimary": false,
+        "hasArglistParameter": false,
         "parameters": [],
         "attributes": [],
         "localFunctions": []
@@ -978,7 +1000,8 @@
               }
             ]
           }
-        ]
+        ],
+        "attributes": []
       },
       {
         "name": "TItem",
@@ -1010,7 +1033,8 @@
               }
             ]
           }
-        ]
+        ],
+        "attributes": []
       }
     ],
     "directInterfaces": [],
@@ -1109,7 +1133,8 @@
             "hasConstructorConstraint": false,
             "hasAllowsRefStructConstraint": true,
             "hasDefaultConstraint": false,
-            "constraintTypes": []
+            "constraintTypes": [],
+            "attributes": []
           },
           {
             "name": "TResult",
@@ -1124,7 +1149,8 @@
             "hasConstructorConstraint": true,
             "hasAllowsRefStructConstraint": false,
             "hasDefaultConstraint": false,
-            "constraintTypes": []
+            "constraintTypes": [],
+            "attributes": []
           }
         ],
         "attributes": [],
@@ -1139,6 +1165,7 @@
         "declaringType": "TestCases.MultiConstraintNode<TKey, TItem>",
         "accessModifier": "Public",
         "isPrimary": false,
+        "hasArglistParameter": false,
         "parameters": [],
         "attributes": [],
         "localFunctions": []
@@ -1180,7 +1207,8 @@
                 "placeholderPosition": 1,
                 "placeholderSource": "TestCases.MultiConstraintNode<TKey, TItem>"
               }
-            ]
+            ],
+            "attributes": []
           }
         ],
         "directInterfaces": [],
@@ -1258,7 +1286,8 @@
                 "hasConstructorConstraint": false,
                 "hasAllowsRefStructConstraint": false,
                 "hasDefaultConstraint": false,
-                "constraintTypes": []
+                "constraintTypes": [],
+                "attributes": []
               }
             ],
             "attributes": [],
@@ -1273,6 +1302,7 @@
             "declaringType": "TestCases.MultiConstraintNode<TKey, TItem>.NestedNode<TNested>",
             "accessModifier": "Public",
             "isPrimary": false,
+            "hasArglistParameter": false,
             "parameters": [],
             "attributes": [],
             "localFunctions": []

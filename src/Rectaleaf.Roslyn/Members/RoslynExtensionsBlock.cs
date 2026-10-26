@@ -38,7 +38,7 @@ internal abstract class RoslynExtensionsBlock(
             .Select(tp => (IGenericParameter)new RoslynGenericParameter(tp, () => new GenericExtensionBlock(this)))
             .ToList();
 
-    public IReadOnlyList<IAttribute> GetAttributes()
+    public IReadOnlyList<IAttribute> GetReceiverAttributes()
         => attributes ??= RoslynAttribute.FilterAndCreate(symbol.GetAttributes());
 
     public IReadOnlyList<IMethod> GetMethods()

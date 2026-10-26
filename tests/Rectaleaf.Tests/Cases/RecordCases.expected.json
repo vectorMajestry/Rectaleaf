@@ -12,13 +12,13 @@
     "directInterfaces": [
       {
         "localName": "IEquatable<SimplePerson>",
-        "nullability": "Oblivious",
+        "nullability": "NonNullable",
         "usageKind": "BoundGeneric",
         "typeDefinition": "System.IEquatable<T>",
         "typeArguments": [
           {
             "localName": "SimplePerson",
-            "nullability": "Oblivious",
+            "nullability": "NonNullable",
             "usageKind": "Plain",
             "typeDefinition": "TestCases.SimplePerson"
           }
@@ -91,12 +91,17 @@
           {
             "name": "FirstName",
             "position": 0,
-            "modifiers": "Out, Scoped",
+            "modifiers": "Out",
             "type": {
-              "localName": "string",
-              "nullability": "NonNullable",
-              "usageKind": "Predefined",
-              "predefinedKind": "String"
+              "localName": "ref string",
+              "usageKind": "ByRef",
+              "isReadOnly": false,
+              "elementType": {
+                "localName": "string",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "String"
+              }
             },
             "hasDefaultValue": false,
             "defaultValue": null,
@@ -105,12 +110,17 @@
           {
             "name": "LastName",
             "position": 1,
-            "modifiers": "Out, Scoped",
+            "modifiers": "Out",
             "type": {
-              "localName": "string",
-              "nullability": "NonNullable",
-              "usageKind": "Predefined",
-              "predefinedKind": "String"
+              "localName": "ref string",
+              "usageKind": "ByRef",
+              "isReadOnly": false,
+              "elementType": {
+                "localName": "string",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "String"
+              }
             },
             "hasDefaultValue": false,
             "defaultValue": null,
@@ -261,6 +271,7 @@
         "declaringType": "TestCases.SimplePerson",
         "accessModifier": "Public",
         "isPrimary": true,
+        "hasArglistParameter": false,
         "parameters": [
           {
             "name": "FirstName",
@@ -298,6 +309,7 @@
         "declaringType": "TestCases.SimplePerson",
         "accessModifier": "Protected",
         "isPrimary": false,
+        "hasArglistParameter": false,
         "parameters": [
           {
             "name": "original",
@@ -321,6 +333,7 @@
     "staticConstructor": null,
     "operators": [
       {
+        "declaringType": "TestCases.SimplePerson",
         "accessModifier": "Public",
         "inheritance": {
           "kind": "None"
@@ -336,7 +349,7 @@
             "localName": "SimplePerson?",
             "nullability": "Nullable",
             "usageKind": "Plain",
-            "typeDefinition": "TestCases.SimplePerson?"
+            "typeDefinition": "TestCases.SimplePerson"
           },
           "hasDefaultValue": false,
           "defaultValue": null,
@@ -350,7 +363,7 @@
             "localName": "SimplePerson?",
             "nullability": "Nullable",
             "usageKind": "Plain",
-            "typeDefinition": "TestCases.SimplePerson?"
+            "typeDefinition": "TestCases.SimplePerson"
           },
           "hasDefaultValue": false,
           "defaultValue": null,
@@ -365,9 +378,11 @@
           },
           "attributes": []
         },
+        "attributes": [],
         "localFunctions": []
       },
       {
+        "declaringType": "TestCases.SimplePerson",
         "accessModifier": "Public",
         "inheritance": {
           "kind": "None"
@@ -383,7 +398,7 @@
             "localName": "SimplePerson?",
             "nullability": "Nullable",
             "usageKind": "Plain",
-            "typeDefinition": "TestCases.SimplePerson?"
+            "typeDefinition": "TestCases.SimplePerson"
           },
           "hasDefaultValue": false,
           "defaultValue": null,
@@ -397,7 +412,7 @@
             "localName": "SimplePerson?",
             "nullability": "Nullable",
             "usageKind": "Plain",
-            "typeDefinition": "TestCases.SimplePerson?"
+            "typeDefinition": "TestCases.SimplePerson"
           },
           "hasDefaultValue": false,
           "defaultValue": null,
@@ -412,6 +427,7 @@
           },
           "attributes": []
         },
+        "attributes": [],
         "localFunctions": []
       }
     ],
@@ -436,13 +452,13 @@
     "directInterfaces": [
       {
         "localName": "IEquatable<Employee>",
-        "nullability": "Oblivious",
+        "nullability": "NonNullable",
         "usageKind": "BoundGeneric",
         "typeDefinition": "System.IEquatable<T>",
         "typeArguments": [
           {
             "localName": "Employee",
-            "nullability": "Oblivious",
+            "nullability": "NonNullable",
             "usageKind": "Plain",
             "typeDefinition": "TestCases.Employee"
           }
@@ -515,12 +531,17 @@
           {
             "name": "FirstName",
             "position": 0,
-            "modifiers": "Out, Scoped",
+            "modifiers": "Out",
             "type": {
-              "localName": "string",
-              "nullability": "NonNullable",
-              "usageKind": "Predefined",
-              "predefinedKind": "String"
+              "localName": "ref string",
+              "usageKind": "ByRef",
+              "isReadOnly": false,
+              "elementType": {
+                "localName": "string",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "String"
+              }
             },
             "hasDefaultValue": false,
             "defaultValue": null,
@@ -529,12 +550,17 @@
           {
             "name": "LastName",
             "position": 1,
-            "modifiers": "Out, Scoped",
+            "modifiers": "Out",
             "type": {
-              "localName": "string",
-              "nullability": "NonNullable",
-              "usageKind": "Predefined",
-              "predefinedKind": "String"
+              "localName": "ref string",
+              "usageKind": "ByRef",
+              "isReadOnly": false,
+              "elementType": {
+                "localName": "string",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "String"
+              }
             },
             "hasDefaultValue": false,
             "defaultValue": null,
@@ -543,12 +569,17 @@
           {
             "name": "EmployeeId",
             "position": 2,
-            "modifiers": "Out, Scoped",
+            "modifiers": "Out",
             "type": {
-              "localName": "int",
-              "nullability": "NonNullable",
-              "usageKind": "Predefined",
-              "predefinedKind": "Int"
+              "localName": "ref int",
+              "usageKind": "ByRef",
+              "isReadOnly": false,
+              "elementType": {
+                "localName": "int",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "Int"
+              }
             },
             "hasDefaultValue": false,
             "defaultValue": null,
@@ -557,12 +588,17 @@
           {
             "name": "Department",
             "position": 3,
-            "modifiers": "Out, Scoped",
+            "modifiers": "Out",
             "type": {
-              "localName": "string",
-              "nullability": "NonNullable",
-              "usageKind": "Predefined",
-              "predefinedKind": "String"
+              "localName": "ref string",
+              "usageKind": "ByRef",
+              "isReadOnly": false,
+              "elementType": {
+                "localName": "string",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "String"
+              }
             },
             "hasDefaultValue": false,
             "defaultValue": null,
@@ -812,6 +848,7 @@
         "declaringType": "TestCases.Employee",
         "accessModifier": "Public",
         "isPrimary": true,
+        "hasArglistParameter": false,
         "parameters": [
           {
             "name": "FirstName",
@@ -877,6 +914,7 @@
         "declaringType": "TestCases.Employee",
         "accessModifier": "Protected",
         "isPrimary": false,
+        "hasArglistParameter": false,
         "parameters": [
           {
             "name": "original",
@@ -900,6 +938,7 @@
     "staticConstructor": null,
     "operators": [
       {
+        "declaringType": "TestCases.Employee",
         "accessModifier": "Public",
         "inheritance": {
           "kind": "None"
@@ -915,7 +954,7 @@
             "localName": "Employee?",
             "nullability": "Nullable",
             "usageKind": "Plain",
-            "typeDefinition": "TestCases.Employee?"
+            "typeDefinition": "TestCases.Employee"
           },
           "hasDefaultValue": false,
           "defaultValue": null,
@@ -929,7 +968,7 @@
             "localName": "Employee?",
             "nullability": "Nullable",
             "usageKind": "Plain",
-            "typeDefinition": "TestCases.Employee?"
+            "typeDefinition": "TestCases.Employee"
           },
           "hasDefaultValue": false,
           "defaultValue": null,
@@ -944,9 +983,11 @@
           },
           "attributes": []
         },
+        "attributes": [],
         "localFunctions": []
       },
       {
+        "declaringType": "TestCases.Employee",
         "accessModifier": "Public",
         "inheritance": {
           "kind": "None"
@@ -962,7 +1003,7 @@
             "localName": "Employee?",
             "nullability": "Nullable",
             "usageKind": "Plain",
-            "typeDefinition": "TestCases.Employee?"
+            "typeDefinition": "TestCases.Employee"
           },
           "hasDefaultValue": false,
           "defaultValue": null,
@@ -976,7 +1017,7 @@
             "localName": "Employee?",
             "nullability": "Nullable",
             "usageKind": "Plain",
-            "typeDefinition": "TestCases.Employee?"
+            "typeDefinition": "TestCases.Employee"
           },
           "hasDefaultValue": false,
           "defaultValue": null,
@@ -991,6 +1032,7 @@
           },
           "attributes": []
         },
+        "attributes": [],
         "localFunctions": []
       }
     ],
@@ -1010,13 +1052,13 @@
     "directInterfaces": [
       {
         "localName": "IEquatable<CustomPrintRecord>",
-        "nullability": "Oblivious",
+        "nullability": "NonNullable",
         "usageKind": "BoundGeneric",
         "typeDefinition": "System.IEquatable<T>",
         "typeArguments": [
           {
             "localName": "CustomPrintRecord",
-            "nullability": "Oblivious",
+            "nullability": "NonNullable",
             "usageKind": "Plain",
             "typeDefinition": "TestCases.CustomPrintRecord"
           }
@@ -1089,12 +1131,17 @@
           {
             "name": "id",
             "position": 0,
-            "modifiers": "Out, Scoped",
+            "modifiers": "Out",
             "type": {
-              "localName": "string",
-              "nullability": "NonNullable",
-              "usageKind": "Predefined",
-              "predefinedKind": "String"
+              "localName": "ref string",
+              "usageKind": "ByRef",
+              "isReadOnly": false,
+              "elementType": {
+                "localName": "string",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "String"
+              }
             },
             "hasDefaultValue": false,
             "defaultValue": null,
@@ -1103,12 +1150,17 @@
           {
             "name": "lvl",
             "position": 1,
-            "modifiers": "Out, Scoped",
+            "modifiers": "Out",
             "type": {
-              "localName": "int",
-              "nullability": "NonNullable",
-              "usageKind": "Predefined",
-              "predefinedKind": "Int"
+              "localName": "ref int",
+              "usageKind": "ByRef",
+              "isReadOnly": false,
+              "elementType": {
+                "localName": "int",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "Int"
+              }
             },
             "hasDefaultValue": false,
             "defaultValue": null,
@@ -1117,12 +1169,17 @@
           {
             "name": "desc",
             "position": 2,
-            "modifiers": "Out, Scoped",
+            "modifiers": "Out",
             "type": {
-              "localName": "string",
-              "nullability": "NonNullable",
-              "usageKind": "Predefined",
-              "predefinedKind": "String"
+              "localName": "ref string",
+              "usageKind": "ByRef",
+              "isReadOnly": false,
+              "elementType": {
+                "localName": "string",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "String"
+              }
             },
             "hasDefaultValue": false,
             "defaultValue": null,
@@ -1157,12 +1214,17 @@
           {
             "name": "Identifier",
             "position": 0,
-            "modifiers": "Out, Scoped",
+            "modifiers": "Out",
             "type": {
-              "localName": "string",
-              "nullability": "NonNullable",
-              "usageKind": "Predefined",
-              "predefinedKind": "String"
+              "localName": "ref string",
+              "usageKind": "ByRef",
+              "isReadOnly": false,
+              "elementType": {
+                "localName": "string",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "String"
+              }
             },
             "hasDefaultValue": false,
             "defaultValue": null,
@@ -1171,12 +1233,17 @@
           {
             "name": "Level",
             "position": 1,
-            "modifiers": "Out, Scoped",
+            "modifiers": "Out",
             "type": {
-              "localName": "int",
-              "nullability": "NonNullable",
-              "usageKind": "Predefined",
-              "predefinedKind": "Int"
+              "localName": "ref int",
+              "usageKind": "ByRef",
+              "isReadOnly": false,
+              "elementType": {
+                "localName": "int",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "Int"
+              }
             },
             "hasDefaultValue": false,
             "defaultValue": null,
@@ -1392,6 +1459,7 @@
         "declaringType": "TestCases.CustomPrintRecord",
         "accessModifier": "Public",
         "isPrimary": true,
+        "hasArglistParameter": false,
         "parameters": [
           {
             "name": "Identifier",
@@ -1429,6 +1497,7 @@
         "declaringType": "TestCases.CustomPrintRecord",
         "accessModifier": "Protected",
         "isPrimary": false,
+        "hasArglistParameter": false,
         "parameters": [
           {
             "name": "original",
@@ -1452,6 +1521,7 @@
     "staticConstructor": null,
     "operators": [
       {
+        "declaringType": "TestCases.CustomPrintRecord",
         "accessModifier": "Public",
         "inheritance": {
           "kind": "None"
@@ -1467,7 +1537,7 @@
             "localName": "CustomPrintRecord?",
             "nullability": "Nullable",
             "usageKind": "Plain",
-            "typeDefinition": "TestCases.CustomPrintRecord?"
+            "typeDefinition": "TestCases.CustomPrintRecord"
           },
           "hasDefaultValue": false,
           "defaultValue": null,
@@ -1481,7 +1551,7 @@
             "localName": "CustomPrintRecord?",
             "nullability": "Nullable",
             "usageKind": "Plain",
-            "typeDefinition": "TestCases.CustomPrintRecord?"
+            "typeDefinition": "TestCases.CustomPrintRecord"
           },
           "hasDefaultValue": false,
           "defaultValue": null,
@@ -1496,9 +1566,11 @@
           },
           "attributes": []
         },
+        "attributes": [],
         "localFunctions": []
       },
       {
+        "declaringType": "TestCases.CustomPrintRecord",
         "accessModifier": "Public",
         "inheritance": {
           "kind": "None"
@@ -1514,7 +1586,7 @@
             "localName": "CustomPrintRecord?",
             "nullability": "Nullable",
             "usageKind": "Plain",
-            "typeDefinition": "TestCases.CustomPrintRecord?"
+            "typeDefinition": "TestCases.CustomPrintRecord"
           },
           "hasDefaultValue": false,
           "defaultValue": null,
@@ -1528,7 +1600,7 @@
             "localName": "CustomPrintRecord?",
             "nullability": "Nullable",
             "usageKind": "Plain",
-            "typeDefinition": "TestCases.CustomPrintRecord?"
+            "typeDefinition": "TestCases.CustomPrintRecord"
           },
           "hasDefaultValue": false,
           "defaultValue": null,
@@ -1543,6 +1615,7 @@
           },
           "attributes": []
         },
+        "attributes": [],
         "localFunctions": []
       }
     ],
@@ -1561,7 +1634,7 @@
     "directInterfaces": [
       {
         "localName": "IEquatable<MutableRecordStruct>",
-        "nullability": "Oblivious",
+        "nullability": "NonNullable",
         "usageKind": "BoundGeneric",
         "typeDefinition": "System.IEquatable<T>",
         "typeArguments": [
@@ -1668,7 +1741,7 @@
             "modifiers": "None",
             "type": {
               "localName": "StringBuilder",
-              "nullability": "Oblivious",
+              "nullability": "NonNullable",
               "usageKind": "Plain",
               "typeDefinition": "System.Text.StringBuilder"
             },
@@ -1705,12 +1778,17 @@
           {
             "name": "X",
             "position": 0,
-            "modifiers": "Out, Scoped",
+            "modifiers": "Out",
             "type": {
-              "localName": "double",
-              "nullability": "NonNullable",
-              "usageKind": "Predefined",
-              "predefinedKind": "Double"
+              "localName": "ref double",
+              "usageKind": "ByRef",
+              "isReadOnly": false,
+              "elementType": {
+                "localName": "double",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "Double"
+              }
             },
             "hasDefaultValue": false,
             "defaultValue": null,
@@ -1719,12 +1797,17 @@
           {
             "name": "Y",
             "position": 1,
-            "modifiers": "Out, Scoped",
+            "modifiers": "Out",
             "type": {
-              "localName": "double",
-              "nullability": "NonNullable",
-              "usageKind": "Predefined",
-              "predefinedKind": "Double"
+              "localName": "ref double",
+              "usageKind": "ByRef",
+              "isReadOnly": false,
+              "elementType": {
+                "localName": "double",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "Double"
+              }
             },
             "hasDefaultValue": false,
             "defaultValue": null,
@@ -1875,6 +1958,7 @@
         "declaringType": "TestCases.MutableRecordStruct",
         "accessModifier": "Public",
         "isPrimary": true,
+        "hasArglistParameter": false,
         "parameters": [
           {
             "name": "X",
@@ -1912,6 +1996,7 @@
         "declaringType": "TestCases.MutableRecordStruct",
         "accessModifier": "Public",
         "isPrimary": false,
+        "hasArglistParameter": false,
         "parameters": [],
         "attributes": [],
         "localFunctions": []
@@ -1920,6 +2005,7 @@
     "staticConstructor": null,
     "operators": [
       {
+        "declaringType": "TestCases.MutableRecordStruct",
         "accessModifier": "Public",
         "inheritance": {
           "kind": "None"
@@ -1964,9 +2050,11 @@
           },
           "attributes": []
         },
+        "attributes": [],
         "localFunctions": []
       },
       {
+        "declaringType": "TestCases.MutableRecordStruct",
         "accessModifier": "Public",
         "inheritance": {
           "kind": "None"
@@ -2011,6 +2099,7 @@
           },
           "attributes": []
         },
+        "attributes": [],
         "localFunctions": []
       }
     ],
@@ -2029,7 +2118,7 @@
     "directInterfaces": [
       {
         "localName": "IEquatable<ReadOnlyRecordPoint>",
-        "nullability": "Oblivious",
+        "nullability": "NonNullable",
         "usageKind": "BoundGeneric",
         "typeDefinition": "System.IEquatable<T>",
         "typeArguments": [
@@ -2071,7 +2160,7 @@
             "modifiers": "None",
             "type": {
               "localName": "StringBuilder",
-              "nullability": "Oblivious",
+              "nullability": "NonNullable",
               "usageKind": "Plain",
               "typeDefinition": "System.Text.StringBuilder"
             },
@@ -2108,12 +2197,17 @@
           {
             "name": "X",
             "position": 0,
-            "modifiers": "Out, Scoped",
+            "modifiers": "Out",
             "type": {
-              "localName": "int",
-              "nullability": "NonNullable",
-              "usageKind": "Predefined",
-              "predefinedKind": "Int"
+              "localName": "ref int",
+              "usageKind": "ByRef",
+              "isReadOnly": false,
+              "elementType": {
+                "localName": "int",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "Int"
+              }
             },
             "hasDefaultValue": false,
             "defaultValue": null,
@@ -2122,12 +2216,17 @@
           {
             "name": "Y",
             "position": 1,
-            "modifiers": "Out, Scoped",
+            "modifiers": "Out",
             "type": {
-              "localName": "int",
-              "nullability": "NonNullable",
-              "usageKind": "Predefined",
-              "predefinedKind": "Int"
+              "localName": "ref int",
+              "usageKind": "ByRef",
+              "isReadOnly": false,
+              "elementType": {
+                "localName": "int",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "Int"
+              }
             },
             "hasDefaultValue": false,
             "defaultValue": null,
@@ -2136,12 +2235,17 @@
           {
             "name": "Z",
             "position": 2,
-            "modifiers": "Out, Scoped",
+            "modifiers": "Out",
             "type": {
-              "localName": "int",
-              "nullability": "NonNullable",
-              "usageKind": "Predefined",
-              "predefinedKind": "Int"
+              "localName": "ref int",
+              "usageKind": "ByRef",
+              "isReadOnly": false,
+              "elementType": {
+                "localName": "int",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "Int"
+              }
             },
             "hasDefaultValue": false,
             "defaultValue": null,
@@ -2391,6 +2495,7 @@
         "declaringType": "TestCases.ReadOnlyRecordPoint",
         "accessModifier": "Public",
         "isPrimary": true,
+        "hasArglistParameter": false,
         "parameters": [
           {
             "name": "X",
@@ -2442,6 +2547,7 @@
         "declaringType": "TestCases.ReadOnlyRecordPoint",
         "accessModifier": "Public",
         "isPrimary": false,
+        "hasArglistParameter": false,
         "parameters": [],
         "attributes": [],
         "localFunctions": []
@@ -2450,6 +2556,7 @@
     "staticConstructor": null,
     "operators": [
       {
+        "declaringType": "TestCases.ReadOnlyRecordPoint",
         "accessModifier": "Public",
         "inheritance": {
           "kind": "None"
@@ -2494,9 +2601,11 @@
           },
           "attributes": []
         },
+        "attributes": [],
         "localFunctions": []
       },
       {
+        "declaringType": "TestCases.ReadOnlyRecordPoint",
         "accessModifier": "Public",
         "inheritance": {
           "kind": "None"
@@ -2541,6 +2650,7 @@
           },
           "attributes": []
         },
+        "attributes": [],
         "localFunctions": []
       }
     ],
@@ -2587,7 +2697,8 @@
               }
             ]
           }
-        ]
+        ],
+        "attributes": []
       },
       {
         "name": "TVal",
@@ -2602,21 +2713,40 @@
         "hasConstructorConstraint": false,
         "hasAllowsRefStructConstraint": false,
         "hasDefaultConstraint": false,
-        "constraintTypes": []
+        "constraintTypes": [],
+        "attributes": []
       }
     ],
     "directInterfaces": [
       {
-        "localName": "IEquatable<GenericRecordPair>",
-        "nullability": "Oblivious",
+        "localName": "IEquatable<GenericRecordPair<TKey, TVal>>",
+        "nullability": "NonNullable",
         "usageKind": "BoundGeneric",
         "typeDefinition": "System.IEquatable<T>",
         "typeArguments": [
           {
-            "localName": "GenericRecordPair",
-            "nullability": "Oblivious",
-            "usageKind": "Plain",
-            "typeDefinition": "TestCases.GenericRecordPair<TKey, TVal>"
+            "localName": "GenericRecordPair<TKey, TVal>",
+            "nullability": "NonNullable",
+            "usageKind": "BoundGeneric",
+            "typeDefinition": "TestCases.GenericRecordPair<TKey, TVal>",
+            "typeArguments": [
+              {
+                "localName": "TKey",
+                "nullability": "NonNullable",
+                "usageKind": "Placeholder",
+                "placeholderName": "TKey",
+                "placeholderPosition": 0,
+                "placeholderSource": "TestCases.GenericRecordPair<TKey, TVal>"
+              },
+              {
+                "localName": "TVal",
+                "nullability": "NonNullable",
+                "usageKind": "Placeholder",
+                "placeholderName": "TVal",
+                "placeholderPosition": 1,
+                "placeholderSource": "TestCases.GenericRecordPair<TKey, TVal>"
+              }
+            ]
           }
         ]
       }
@@ -2687,14 +2817,19 @@
           {
             "name": "Key",
             "position": 0,
-            "modifiers": "Out, Scoped",
+            "modifiers": "Out",
             "type": {
-              "localName": "TKey",
-              "nullability": "NonNullable",
-              "usageKind": "Placeholder",
-              "placeholderName": "TKey",
-              "placeholderPosition": 0,
-              "placeholderSource": "TestCases.GenericRecordPair<TKey, TVal>"
+              "localName": "ref TKey",
+              "usageKind": "ByRef",
+              "isReadOnly": false,
+              "elementType": {
+                "localName": "TKey",
+                "nullability": "NonNullable",
+                "usageKind": "Placeholder",
+                "placeholderName": "TKey",
+                "placeholderPosition": 0,
+                "placeholderSource": "TestCases.GenericRecordPair<TKey, TVal>"
+              }
             },
             "hasDefaultValue": false,
             "defaultValue": null,
@@ -2703,14 +2838,19 @@
           {
             "name": "Value",
             "position": 1,
-            "modifiers": "Out, Scoped",
+            "modifiers": "Out",
             "type": {
-              "localName": "TVal",
-              "nullability": "NonNullable",
-              "usageKind": "Placeholder",
-              "placeholderName": "TVal",
-              "placeholderPosition": 1,
-              "placeholderSource": "TestCases.GenericRecordPair<TKey, TVal>"
+              "localName": "ref TVal",
+              "usageKind": "ByRef",
+              "isReadOnly": false,
+              "elementType": {
+                "localName": "TVal",
+                "nullability": "NonNullable",
+                "usageKind": "Placeholder",
+                "placeholderName": "TVal",
+                "placeholderPosition": 1,
+                "placeholderSource": "TestCases.GenericRecordPair<TKey, TVal>"
+              }
             },
             "hasDefaultValue": false,
             "defaultValue": null,
@@ -2907,6 +3047,7 @@
         "declaringType": "TestCases.GenericRecordPair<TKey, TVal>",
         "accessModifier": "Public",
         "isPrimary": true,
+        "hasArglistParameter": false,
         "parameters": [
           {
             "name": "Key",
@@ -2948,16 +3089,35 @@
         "declaringType": "TestCases.GenericRecordPair<TKey, TVal>",
         "accessModifier": "Protected",
         "isPrimary": false,
+        "hasArglistParameter": false,
         "parameters": [
           {
             "name": "original",
             "position": 0,
             "modifiers": "None",
             "type": {
-              "localName": "GenericRecordPair",
+              "localName": "GenericRecordPair<TKey, TVal>",
               "nullability": "NonNullable",
-              "usageKind": "Plain",
-              "typeDefinition": "TestCases.GenericRecordPair<TKey, TVal>"
+              "usageKind": "BoundGeneric",
+              "typeDefinition": "TestCases.GenericRecordPair<TKey, TVal>",
+              "typeArguments": [
+                {
+                  "localName": "TKey",
+                  "nullability": "NonNullable",
+                  "usageKind": "Placeholder",
+                  "placeholderName": "TKey",
+                  "placeholderPosition": 0,
+                  "placeholderSource": "TestCases.GenericRecordPair<TKey, TVal>"
+                },
+                {
+                  "localName": "TVal",
+                  "nullability": "NonNullable",
+                  "usageKind": "Placeholder",
+                  "placeholderName": "TVal",
+                  "placeholderPosition": 1,
+                  "placeholderSource": "TestCases.GenericRecordPair<TKey, TVal>"
+                }
+              ]
             },
             "hasDefaultValue": false,
             "defaultValue": null,
@@ -2971,6 +3131,7 @@
     "staticConstructor": null,
     "operators": [
       {
+        "declaringType": "TestCases.GenericRecordPair<TKey, TVal>",
         "accessModifier": "Public",
         "inheritance": {
           "kind": "None"
@@ -2983,10 +3144,28 @@
           "position": 0,
           "modifiers": "None",
           "type": {
-            "localName": "GenericRecordPair?",
+            "localName": "GenericRecordPair<TKey, TVal>?",
             "nullability": "Nullable",
-            "usageKind": "Plain",
-            "typeDefinition": "TestCases.GenericRecordPair<TKey, TVal>?"
+            "usageKind": "BoundGeneric",
+            "typeDefinition": "TestCases.GenericRecordPair<TKey, TVal>",
+            "typeArguments": [
+              {
+                "localName": "TKey",
+                "nullability": "NonNullable",
+                "usageKind": "Placeholder",
+                "placeholderName": "TKey",
+                "placeholderPosition": 0,
+                "placeholderSource": "TestCases.GenericRecordPair<TKey, TVal>"
+              },
+              {
+                "localName": "TVal",
+                "nullability": "NonNullable",
+                "usageKind": "Placeholder",
+                "placeholderName": "TVal",
+                "placeholderPosition": 1,
+                "placeholderSource": "TestCases.GenericRecordPair<TKey, TVal>"
+              }
+            ]
           },
           "hasDefaultValue": false,
           "defaultValue": null,
@@ -2997,10 +3176,28 @@
           "position": 1,
           "modifiers": "None",
           "type": {
-            "localName": "GenericRecordPair?",
+            "localName": "GenericRecordPair<TKey, TVal>?",
             "nullability": "Nullable",
-            "usageKind": "Plain",
-            "typeDefinition": "TestCases.GenericRecordPair<TKey, TVal>?"
+            "usageKind": "BoundGeneric",
+            "typeDefinition": "TestCases.GenericRecordPair<TKey, TVal>",
+            "typeArguments": [
+              {
+                "localName": "TKey",
+                "nullability": "NonNullable",
+                "usageKind": "Placeholder",
+                "placeholderName": "TKey",
+                "placeholderPosition": 0,
+                "placeholderSource": "TestCases.GenericRecordPair<TKey, TVal>"
+              },
+              {
+                "localName": "TVal",
+                "nullability": "NonNullable",
+                "usageKind": "Placeholder",
+                "placeholderName": "TVal",
+                "placeholderPosition": 1,
+                "placeholderSource": "TestCases.GenericRecordPair<TKey, TVal>"
+              }
+            ]
           },
           "hasDefaultValue": false,
           "defaultValue": null,
@@ -3015,9 +3212,11 @@
           },
           "attributes": []
         },
+        "attributes": [],
         "localFunctions": []
       },
       {
+        "declaringType": "TestCases.GenericRecordPair<TKey, TVal>",
         "accessModifier": "Public",
         "inheritance": {
           "kind": "None"
@@ -3030,10 +3229,28 @@
           "position": 0,
           "modifiers": "None",
           "type": {
-            "localName": "GenericRecordPair?",
+            "localName": "GenericRecordPair<TKey, TVal>?",
             "nullability": "Nullable",
-            "usageKind": "Plain",
-            "typeDefinition": "TestCases.GenericRecordPair<TKey, TVal>?"
+            "usageKind": "BoundGeneric",
+            "typeDefinition": "TestCases.GenericRecordPair<TKey, TVal>",
+            "typeArguments": [
+              {
+                "localName": "TKey",
+                "nullability": "NonNullable",
+                "usageKind": "Placeholder",
+                "placeholderName": "TKey",
+                "placeholderPosition": 0,
+                "placeholderSource": "TestCases.GenericRecordPair<TKey, TVal>"
+              },
+              {
+                "localName": "TVal",
+                "nullability": "NonNullable",
+                "usageKind": "Placeholder",
+                "placeholderName": "TVal",
+                "placeholderPosition": 1,
+                "placeholderSource": "TestCases.GenericRecordPair<TKey, TVal>"
+              }
+            ]
           },
           "hasDefaultValue": false,
           "defaultValue": null,
@@ -3044,10 +3261,28 @@
           "position": 1,
           "modifiers": "None",
           "type": {
-            "localName": "GenericRecordPair?",
+            "localName": "GenericRecordPair<TKey, TVal>?",
             "nullability": "Nullable",
-            "usageKind": "Plain",
-            "typeDefinition": "TestCases.GenericRecordPair<TKey, TVal>?"
+            "usageKind": "BoundGeneric",
+            "typeDefinition": "TestCases.GenericRecordPair<TKey, TVal>",
+            "typeArguments": [
+              {
+                "localName": "TKey",
+                "nullability": "NonNullable",
+                "usageKind": "Placeholder",
+                "placeholderName": "TKey",
+                "placeholderPosition": 0,
+                "placeholderSource": "TestCases.GenericRecordPair<TKey, TVal>"
+              },
+              {
+                "localName": "TVal",
+                "nullability": "NonNullable",
+                "usageKind": "Placeholder",
+                "placeholderName": "TVal",
+                "placeholderPosition": 1,
+                "placeholderSource": "TestCases.GenericRecordPair<TKey, TVal>"
+              }
+            ]
           },
           "hasDefaultValue": false,
           "defaultValue": null,
@@ -3062,6 +3297,7 @@
           },
           "attributes": []
         },
+        "attributes": [],
         "localFunctions": []
       }
     ],

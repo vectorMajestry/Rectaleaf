@@ -130,16 +130,22 @@ public interface ITupleElement<out TKind>
 
 /// <summary>
 /// Represents a tuple type usage (e.g., `<![CDATA[(int Code, string Message)]]>` or `<![CDATA[ValueTuple<int, string>]]>`).
-/// Both rich tuple syntax and explicit <see cref="System.ValueTuple"/> chain syntax map to this interface.
+/// Both rich tuple syntax and explicit <see cref="ValueTuple"/> chain syntax map to this interface.
 /// </summary>
 public interface ITupleType<out TKind> : IInnerType<TKind>, IHasNullability
     where TKind : IKnownOrNot
 {
     /// <summary>
-    /// Gets the bound generic struct type describing the underlying <see cref="System.ValueTuple"/> chain.
+    /// Gets the bound generic struct type describing the underlying <see cref="ValueTuple"/> chain.
     /// Can be queried even if the tuple was created via tuple syntax (e.g., `<![CDATA[(int Code, string Message)]]>`).
     /// </summary>
     IBoundGenericType<TKind, IStructType> UnderlyingValueTupleType { get; }
+
+    /// <summary>
+    /// Gets the collection of types contained within this tuple.
+    /// </summary>
+    [Obsolete($"Use '{nameof(TypeUsageMiscExtensions.GetElementTypes)}()' extension method instead.")]
+    IReadOnlyList<IComposableType<IKnownOrNot>> ElementTypesMixed { get; }
 }
 
 /// <summary>
@@ -155,28 +161,15 @@ public interface IRichTupleType<out TKind> : ITupleType<TKind>
 }
 
 /// <summary>
-/// Represents a tuple type usage that does not support element names or whose element names could not be resolved.
-/// </summary>
-public interface IChainTupleType<out TKind> : ITupleType<TKind>
-    where TKind : IKnownOrNot
-{
-    /// <summary>
-    /// Gets the collection of types contained within this tuple.
-    /// </summary>
-    [Obsolete("Use 'ElementTypes' extension property instead.")]
-    IReadOnlyList<IComposableType<IKnownOrNot>> ElementTypesMixed { get; }
-}
-
-/// <summary>
-/// Represents a tuple type usage created via explicit <see cref="System.ValueTuple"/> chain declaration syntax 
+/// Represents a tuple type usage created via explicit <see cref="ValueTuple"/> chain declaration syntax 
 /// (e.g., `<![CDATA[ValueTuple<int, string>]]>`).
 /// </summary>
-public interface IExplicitValueTupleType<out TKind> : IChainTupleType<TKind>
+public interface IExplicitValueTupleType<out TKind> : ITupleType<TKind>
     where TKind : IKnownOrNot;
 
 /// <summary>
-/// Represents a tuple type usage where the source analysis backend failed to determine whether explicit 
-/// tuple syntax or manual <see cref="System.ValueTuple"/> chain was used.
+/// Represents a tuple type usage where the source analysis backend failed to determine whether 
+/// tuple syntax or manual <see cref="ValueTuple"/> chain was used.
 /// </summary>
-public interface IObliviousTupleType<out TKind> : IChainTupleType<TKind>
+public interface IObliviousTupleType<out TKind> : ITupleType<TKind>
     where TKind : IKnownOrNot;

@@ -88,7 +88,7 @@
     ],
     "indexers": [
       {
-        "name": "this[]",
+        "name": "Item",
         "declaringType": "TestCases.IWorker",
         "type": {
           "localName": "int",
@@ -161,7 +161,7 @@
           "localName": "Action?",
           "nullability": "Nullable",
           "usageKind": "Plain",
-          "typeDefinition": "System.Action?"
+          "typeDefinition": "System.Action"
         },
         "accessModifier": "Public",
         "isStatic": false,
@@ -191,7 +191,7 @@
                 "localName": "Action?",
                 "nullability": "Nullable",
                 "usageKind": "Plain",
-                "typeDefinition": "System.Action?"
+                "typeDefinition": "System.Action"
               },
               "hasDefaultValue": false,
               "defaultValue": null,
@@ -220,7 +220,7 @@
                 "localName": "Action?",
                 "nullability": "Nullable",
                 "usageKind": "Plain",
-                "typeDefinition": "System.Action?"
+                "typeDefinition": "System.Action"
               },
               "hasDefaultValue": false,
               "defaultValue": null,
@@ -249,7 +249,7 @@
     "properties": [],
     "indexers": [
       {
-        "name": "this[]",
+        "name": "CustomInterfaceIndexer",
         "declaringType": "TestCases.ICustomInterfaceIndexer",
         "type": {
           "localName": "string",
@@ -277,16 +277,7 @@
             "attributes": []
           }
         ],
-        "attributes": [
-          {
-            "name": "IndexerNameAttribute",
-            "fullyQualifiedName": "System.Runtime.CompilerServices.IndexerNameAttribute",
-            "constructorArguments": [
-              "CustomInterfaceIndexer"
-            ],
-            "namedArguments": {}
-          }
-        ],
+        "attributes": [],
         "accessors": [
           {
             "kind": "get",
@@ -342,7 +333,7 @@
     "properties": [],
     "indexers": [
       {
-        "name": "this[]",
+        "name": "SecondaryEntries",
         "declaringType": "TestCases.ISecondaryIndexed",
         "type": {
           "localName": "double",
@@ -370,16 +361,7 @@
             "attributes": []
           }
         ],
-        "attributes": [
-          {
-            "name": "IndexerNameAttribute",
-            "fullyQualifiedName": "System.Runtime.CompilerServices.IndexerNameAttribute",
-            "constructorArguments": [
-              "SecondaryEntries"
-            ],
-            "namedArguments": {}
-          }
-        ],
+        "attributes": [],
         "accessors": [
           {
             "kind": "get",
@@ -481,19 +463,19 @@
     "directInterfaces": [
       {
         "localName": "IWorker",
-        "nullability": "Oblivious",
+        "nullability": "NonNullable",
         "usageKind": "Plain",
         "typeDefinition": "TestCases.IWorker"
       },
       {
         "localName": "ICustomInterfaceIndexer",
-        "nullability": "Oblivious",
+        "nullability": "NonNullable",
         "usageKind": "Plain",
         "typeDefinition": "TestCases.ICustomInterfaceIndexer"
       },
       {
         "localName": "IDisposable",
-        "nullability": "Oblivious",
+        "nullability": "NonNullable",
         "usageKind": "Plain",
         "typeDefinition": "System.IDisposable"
       }
@@ -501,7 +483,7 @@
     "fields": [],
     "methods": [
       {
-        "name": "System.IDisposable.Dispose",
+        "name": "Dispose",
         "declaringType": "TestCases.ExplicitWorkerImplementation",
         "returnInfo": {
           "type": {
@@ -526,7 +508,7 @@
         "localFunctions": []
       },
       {
-        "name": "TestCases.IWorker.PerformWork",
+        "name": "PerformWork",
         "declaringType": "TestCases.ExplicitWorkerImplementation",
         "returnInfo": {
           "type": {
@@ -602,7 +584,7 @@
         ]
       },
       {
-        "name": "TestCases.IWorker.WorkerName",
+        "name": "WorkerName",
         "declaringType": "TestCases.ExplicitWorkerImplementation",
         "type": {
           "localName": "string",
@@ -638,7 +620,7 @@
     ],
     "indexers": [
       {
-        "name": "TestCases.IWorker.this[]",
+        "name": "Item",
         "declaringType": "TestCases.ExplicitWorkerImplementation",
         "type": {
           "localName": "int",
@@ -703,7 +685,7 @@
         ]
       },
       {
-        "name": "this[]",
+        "name": "ClassIndexer",
         "declaringType": "TestCases.ExplicitWorkerImplementation",
         "type": {
           "localName": "int",
@@ -731,16 +713,7 @@
             "attributes": []
           }
         ],
-        "attributes": [
-          {
-            "name": "IndexerNameAttribute",
-            "fullyQualifiedName": "System.Runtime.CompilerServices.IndexerNameAttribute",
-            "constructorArguments": [
-              "ClassIndexer"
-            ],
-            "namedArguments": {}
-          }
-        ],
+        "attributes": [],
         "accessors": [
           {
             "kind": "get",
@@ -777,7 +750,7 @@
         ]
       },
       {
-        "name": "TestCases.ICustomInterfaceIndexer.this[]",
+        "name": "Item",
         "declaringType": "TestCases.ExplicitWorkerImplementation",
         "type": {
           "localName": "string",
@@ -844,13 +817,13 @@
     ],
     "events": [
       {
-        "name": "TestCases.IWorker.WorkCompleted",
+        "name": "WorkCompleted",
         "declaringType": "TestCases.ExplicitWorkerImplementation",
         "type": {
           "localName": "Action?",
           "nullability": "Nullable",
           "usageKind": "Plain",
-          "typeDefinition": "System.Action?"
+          "typeDefinition": "System.Action"
         },
         "accessModifier": "Private",
         "isStatic": false,
@@ -880,7 +853,7 @@
                 "localName": "Action?",
                 "nullability": "Nullable",
                 "usageKind": "Plain",
-                "typeDefinition": "System.Action?"
+                "typeDefinition": "System.Action"
               },
               "hasDefaultValue": false,
               "defaultValue": null,
@@ -909,7 +882,7 @@
                 "localName": "Action?",
                 "nullability": "Nullable",
                 "usageKind": "Plain",
-                "typeDefinition": "System.Action?"
+                "typeDefinition": "System.Action"
               },
               "hasDefaultValue": false,
               "defaultValue": null,
@@ -925,6 +898,7 @@
         "declaringType": "TestCases.ExplicitWorkerImplementation",
         "accessModifier": "Public",
         "isPrimary": false,
+        "hasArglistParameter": false,
         "parameters": [],
         "attributes": [],
         "localFunctions": []
@@ -1066,6 +1040,7 @@
         "declaringType": "TestCases.BaseWorker",
         "accessModifier": "Public",
         "isPrimary": false,
+        "hasArglistParameter": false,
         "parameters": [],
         "attributes": [],
         "localFunctions": []
@@ -1212,6 +1187,7 @@
         "declaringType": "TestCases.DerivedHidingWorker",
         "accessModifier": "Public",
         "isPrimary": false,
+        "hasArglistParameter": false,
         "parameters": [],
         "attributes": [],
         "localFunctions": []
@@ -1277,7 +1253,7 @@
     "directInterfaces": [
       {
         "localName": "IRootService",
-        "nullability": "Oblivious",
+        "nullability": "NonNullable",
         "usageKind": "Plain",
         "typeDefinition": "TestCases.IRootService"
       }
@@ -1328,7 +1304,7 @@
     "directInterfaces": [
       {
         "localName": "IRootService",
-        "nullability": "Oblivious",
+        "nullability": "NonNullable",
         "usageKind": "Plain",
         "typeDefinition": "TestCases.IRootService"
       }
@@ -1381,13 +1357,13 @@
     "directInterfaces": [
       {
         "localName": "IDataService",
-        "nullability": "Oblivious",
+        "nullability": "NonNullable",
         "usageKind": "Plain",
         "typeDefinition": "TestCases.IDataService"
       },
       {
         "localName": "ILoggingService",
-        "nullability": "Oblivious",
+        "nullability": "NonNullable",
         "usageKind": "Plain",
         "typeDefinition": "TestCases.ILoggingService"
       }
@@ -1478,6 +1454,7 @@
         "declaringType": "TestCases.DiamondServiceImplementation",
         "accessModifier": "Public",
         "isPrimary": false,
+        "hasArglistParameter": false,
         "parameters": [],
         "attributes": [],
         "localFunctions": []

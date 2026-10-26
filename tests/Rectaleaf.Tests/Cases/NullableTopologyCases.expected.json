@@ -18,7 +18,7 @@
         "attributes": [],
         "fieldKind": "Regular",
         "type": {
-          "localName": "Dictionary<string?, List<int[]?>>?",
+          "localName": "Dictionary<string?, List<int?[]?>>?",
           "nullability": "Nullable",
           "usageKind": "BoundGeneric",
           "typeDefinition": "System.Collections.Generic.Dictionary<TKey, TValue>",
@@ -30,19 +30,19 @@
               "predefinedKind": "String"
             },
             {
-              "localName": "List<int[]?>",
+              "localName": "List<int?[]?>",
               "nullability": "NonNullable",
               "usageKind": "BoundGeneric",
               "typeDefinition": "System.Collections.Generic.List<T>",
               "typeArguments": [
                 {
-                  "localName": "int[]?",
+                  "localName": "int?[]?",
                   "nullability": "Nullable",
                   "usageKind": "Array",
                   "rank": 1,
                   "elementType": {
-                    "localName": "int",
-                    "nullability": "NonNullable",
+                    "localName": "int?",
+                    "nullability": "Nullable",
                     "usageKind": "Predefined",
                     "predefinedKind": "Int"
                   }
@@ -102,7 +102,7 @@
         "attributes": [],
         "fieldKind": "Regular",
         "type": {
-          "localName": "KeyValuePair<string?, (int id, object? data)>",
+          "localName": "KeyValuePair<string?, (int? id, object? data)>",
           "nullability": "NonNullable",
           "usageKind": "BoundGeneric",
           "typeDefinition": "System.Collections.Generic.KeyValuePair<TKey, TValue>",
@@ -114,15 +114,15 @@
               "predefinedKind": "String"
             },
             {
-              "localName": "(int id, object? data)",
+              "localName": "(int? id, object? data)",
               "nullability": "NonNullable",
               "usageKind": "RichTuple",
               "elements": [
                 {
                   "name": "id",
                   "type": {
-                    "localName": "int",
-                    "nullability": "NonNullable",
+                    "localName": "int?",
+                    "nullability": "Nullable",
                     "usageKind": "Predefined",
                     "predefinedKind": "Int"
                   }
@@ -273,8 +273,8 @@
         "attributes": [],
         "fieldKind": "Regular",
         "type": {
-          "localName": "(string? text, object nonNullObj, (int id, string? name) nestedNullableTuple)",
-          "nullability": "NonNullable",
+          "localName": "(string? text, object nonNullObj, (int? id, string? name)? nestedNullableTuple)?",
+          "nullability": "Nullable",
           "usageKind": "RichTuple",
           "elements": [
             {
@@ -298,15 +298,15 @@
             {
               "name": "nestedNullableTuple",
               "type": {
-                "localName": "(int id, string? name)",
-                "nullability": "NonNullable",
+                "localName": "(int? id, string? name)?",
+                "nullability": "Nullable",
                 "usageKind": "RichTuple",
                 "elements": [
                   {
                     "name": "id",
                     "type": {
-                      "localName": "int",
-                      "nullability": "NonNullable",
+                      "localName": "int?",
+                      "nullability": "Nullable",
                       "usageKind": "Predefined",
                       "predefinedKind": "Int"
                     }
@@ -389,31 +389,36 @@
           {
             "name": "inputHeader",
             "position": 0,
-            "modifiers": "None",
+            "modifiers": "RefReadOnly",
             "type": {
-              "localName": "(string? id, object? state)",
-              "nullability": "NonNullable",
-              "usageKind": "RichTuple",
-              "elements": [
-                {
-                  "name": "id",
-                  "type": {
-                    "localName": "string?",
-                    "nullability": "Nullable",
-                    "usageKind": "Predefined",
-                    "predefinedKind": "String"
+              "localName": "ref readonly (string? id, object? state)?",
+              "usageKind": "ByRef",
+              "isReadOnly": true,
+              "elementType": {
+                "localName": "(string? id, object? state)?",
+                "nullability": "Nullable",
+                "usageKind": "RichTuple",
+                "elements": [
+                  {
+                    "name": "id",
+                    "type": {
+                      "localName": "string?",
+                      "nullability": "Nullable",
+                      "usageKind": "Predefined",
+                      "predefinedKind": "String"
+                    }
+                  },
+                  {
+                    "name": "state",
+                    "type": {
+                      "localName": "object?",
+                      "nullability": "Nullable",
+                      "usageKind": "Predefined",
+                      "predefinedKind": "Object"
+                    }
                   }
-                },
-                {
-                  "name": "state",
-                  "type": {
-                    "localName": "object?",
-                    "nullability": "Nullable",
-                    "usageKind": "Predefined",
-                    "predefinedKind": "Object"
-                  }
-                }
-              ]
+                ]
+              }
             },
             "hasDefaultValue": false,
             "defaultValue": null,
@@ -424,24 +429,29 @@
             "position": 1,
             "modifiers": "In",
             "type": {
-              "localName": "List<int[]?>",
-              "nullability": "NonNullable",
-              "usageKind": "BoundGeneric",
-              "typeDefinition": "System.Collections.Generic.List<T>",
-              "typeArguments": [
-                {
-                  "localName": "int[]?",
-                  "nullability": "Nullable",
-                  "usageKind": "Array",
-                  "rank": 1,
-                  "elementType": {
-                    "localName": "int",
-                    "nullability": "NonNullable",
-                    "usageKind": "Predefined",
-                    "predefinedKind": "Int"
+              "localName": "ref readonly List<int?[]?>",
+              "usageKind": "ByRef",
+              "isReadOnly": true,
+              "elementType": {
+                "localName": "List<int?[]?>",
+                "nullability": "NonNullable",
+                "usageKind": "BoundGeneric",
+                "typeDefinition": "System.Collections.Generic.List<T>",
+                "typeArguments": [
+                  {
+                    "localName": "int?[]?",
+                    "nullability": "Nullable",
+                    "usageKind": "Array",
+                    "rank": 1,
+                    "elementType": {
+                      "localName": "int?",
+                      "nullability": "Nullable",
+                      "usageKind": "Predefined",
+                      "predefinedKind": "Int"
+                    }
                   }
-                }
-              ]
+                ]
+              }
             },
             "hasDefaultValue": false,
             "defaultValue": null,
@@ -450,12 +460,17 @@
           {
             "name": "errorReason",
             "position": 2,
-            "modifiers": "Out, Scoped",
+            "modifiers": "Out",
             "type": {
-              "localName": "string?",
-              "nullability": "Nullable",
-              "usageKind": "Predefined",
-              "predefinedKind": "String"
+              "localName": "ref string?",
+              "usageKind": "ByRef",
+              "isReadOnly": false,
+              "elementType": {
+                "localName": "string?",
+                "nullability": "Nullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "String"
+              }
             },
             "hasDefaultValue": false,
             "defaultValue": null,
@@ -475,6 +490,7 @@
         "declaringType": "TestCases.NullableTopologyContainer",
         "accessModifier": "Public",
         "isPrimary": false,
+        "hasArglistParameter": false,
         "parameters": [],
         "attributes": [],
         "localFunctions": []
@@ -507,7 +523,8 @@
             "hasConstructorConstraint": false,
             "hasAllowsRefStructConstraint": false,
             "hasDefaultConstraint": false,
-            "constraintTypes": []
+            "constraintTypes": [],
+            "attributes": []
           },
           {
             "name": "TClassRef",
@@ -522,7 +539,8 @@
             "hasConstructorConstraint": false,
             "hasAllowsRefStructConstraint": false,
             "hasDefaultConstraint": false,
-            "constraintTypes": []
+            "constraintTypes": [],
+            "attributes": []
           }
         ],
         "directInterfaces": [],
@@ -621,7 +639,8 @@
                 "hasConstructorConstraint": false,
                 "hasAllowsRefStructConstraint": false,
                 "hasDefaultConstraint": false,
-                "constraintTypes": []
+                "constraintTypes": [],
+                "attributes": []
               }
             ],
             "attributes": [],
@@ -636,6 +655,7 @@
             "declaringType": "TestCases.NullableTopologyContainer.GenericNullableResolver<TUnconstrained, TClassRef>",
             "accessModifier": "Public",
             "isPrimary": false,
+            "hasArglistParameter": false,
             "parameters": [],
             "attributes": [],
             "localFunctions": []
@@ -796,6 +816,7 @@
         "declaringType": "TestCases.NullableObliviousContainer",
         "accessModifier": "Public",
         "isPrimary": false,
+        "hasArglistParameter": false,
         "parameters": [],
         "attributes": [],
         "localFunctions": []

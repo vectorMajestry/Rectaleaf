@@ -125,6 +125,7 @@ internal static class RoslynSymbolMapping
     public static bool IsCheckedOperator(string methodName)
         => methodName.StartsWith("op_Checked", StringComparison.Ordinal);
 
+    // TODO: add increment/decrement
     public static UnaryOperatorKind? ToUnaryOperatorKind(string methodName) => methodName switch
     {
         "op_UnaryPlus" => UnaryOperatorKind.Plus,
@@ -147,8 +148,8 @@ internal static class RoslynSymbolMapping
         "op_LeftShift" => BinaryOperatorKind.LeftShift,
         "op_RightShift" => BinaryOperatorKind.RightShift,
         "op_UnsignedRightShift" => BinaryOperatorKind.UnsignedRightShift,
-        "op_BitwiseAnd" => BinaryOperatorKind.And,
-        "op_BitwiseOr" => BinaryOperatorKind.Or,
+        "op_BitwiseAnd" => BinaryOperatorKind.BitwiseAnd,
+        "op_BitwiseOr" => BinaryOperatorKind.BitwiseOr,
         "op_ExclusiveOr" => BinaryOperatorKind.ExclusiveOr,
         "op_Equality" => BinaryOperatorKind.Equals,
         "op_Inequality" => BinaryOperatorKind.NotEquals,

@@ -25,6 +25,7 @@
         "declaringType": "TestCases.InlineByteArray16",
         "accessModifier": "Public",
         "isPrimary": false,
+        "hasArglistParameter": false,
         "parameters": [],
         "attributes": [],
         "localFunctions": []
@@ -34,11 +35,15 @@
     "operators": [],
     "attributes": [
       {
-        "name": "InlineArrayAttribute",
-        "fullyQualifiedName": "System.Runtime.CompilerServices.InlineArrayAttribute",
-        "constructorArguments": [
-          "16"
-        ],
+        "underlyingType": {
+          "localName": "InlineArrayAttribute",
+          "nullability": "NonNullable",
+          "usageKind": "Plain",
+          "typeDefinition": "System.Runtime.CompilerServices.InlineArrayAttribute"
+        },
+        "constructorArguments": {
+          "length": "16"
+        },
         "namedArguments": {}
       }
     ],
@@ -70,6 +75,7 @@
         "declaringType": "TestCases.InlineIntArray4",
         "accessModifier": "Public",
         "isPrimary": false,
+        "hasArglistParameter": false,
         "parameters": [],
         "attributes": [],
         "localFunctions": []
@@ -79,11 +85,15 @@
     "operators": [],
     "attributes": [
       {
-        "name": "InlineArrayAttribute",
-        "fullyQualifiedName": "System.Runtime.CompilerServices.InlineArrayAttribute",
-        "constructorArguments": [
-          "4"
-        ],
+        "underlyingType": {
+          "localName": "InlineArrayAttribute",
+          "nullability": "NonNullable",
+          "usageKind": "Plain",
+          "typeDefinition": "System.Runtime.CompilerServices.InlineArrayAttribute"
+        },
+        "constructorArguments": {
+          "length": "4"
+        },
         "namedArguments": {}
       }
     ],
@@ -152,6 +162,7 @@
         "declaringType": "TestCases.PlainRefStruct",
         "accessModifier": "Public",
         "isPrimary": false,
+        "hasArglistParameter": false,
         "parameters": [
           {
             "name": "value",
@@ -197,6 +208,7 @@
         "declaringType": "TestCases.PlainRefStruct",
         "accessModifier": "Public",
         "isPrimary": false,
+        "hasArglistParameter": false,
         "parameters": [],
         "attributes": [],
         "localFunctions": []
@@ -264,16 +276,22 @@
         "declaringType": "TestCases.ReadOnlyRefStructWithRefFields",
         "accessModifier": "Public",
         "isPrimary": false,
+        "hasArglistParameter": false,
         "parameters": [
           {
             "name": "mutableTarget",
             "position": 0,
             "modifiers": "Ref",
             "type": {
-              "localName": "int",
-              "nullability": "NonNullable",
-              "usageKind": "Predefined",
-              "predefinedKind": "Int"
+              "localName": "ref int",
+              "usageKind": "ByRef",
+              "isReadOnly": false,
+              "elementType": {
+                "localName": "int",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "Int"
+              }
             },
             "hasDefaultValue": false,
             "defaultValue": null,
@@ -282,12 +300,17 @@
           {
             "name": "readOnlyTarget",
             "position": 1,
-            "modifiers": "None",
+            "modifiers": "RefReadOnly",
             "type": {
-              "localName": "int",
-              "nullability": "NonNullable",
-              "usageKind": "Predefined",
-              "predefinedKind": "Int"
+              "localName": "ref readonly int",
+              "usageKind": "ByRef",
+              "isReadOnly": true,
+              "elementType": {
+                "localName": "int",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "Int"
+              }
             },
             "hasDefaultValue": false,
             "defaultValue": null,
@@ -301,6 +324,7 @@
         "declaringType": "TestCases.ReadOnlyRefStructWithRefFields",
         "accessModifier": "Public",
         "isPrimary": false,
+        "hasArglistParameter": false,
         "parameters": [],
         "attributes": [],
         "localFunctions": []
@@ -323,13 +347,13 @@
     "directInterfaces": [
       {
         "localName": "IDisposable",
-        "nullability": "Oblivious",
+        "nullability": "NonNullable",
         "usageKind": "Plain",
         "typeDefinition": "System.IDisposable"
       },
       {
         "localName": "IEquatable<InterfaceImplementingRefStruct>",
-        "nullability": "Oblivious",
+        "nullability": "NonNullable",
         "usageKind": "BoundGeneric",
         "typeDefinition": "System.IEquatable<T>",
         "typeArguments": [
@@ -436,6 +460,7 @@
         "declaringType": "TestCases.InterfaceImplementingRefStruct",
         "accessModifier": "Public",
         "isPrimary": false,
+        "hasArglistParameter": false,
         "parameters": [],
         "attributes": [],
         "localFunctions": []
@@ -536,6 +561,7 @@
         "declaringType": "TestCases.FixedBufferContainer",
         "accessModifier": "Public",
         "isPrimary": false,
+        "hasArglistParameter": false,
         "parameters": [],
         "attributes": [],
         "localFunctions": []
@@ -563,11 +589,15 @@
         "accessModifier": "Public",
         "attributes": [
           {
-            "name": "FieldOffsetAttribute",
-            "fullyQualifiedName": "System.Runtime.InteropServices.FieldOffsetAttribute",
-            "constructorArguments": [
-              "0"
-            ],
+            "underlyingType": {
+              "localName": "FieldOffsetAttribute",
+              "nullability": "NonNullable",
+              "usageKind": "Plain",
+              "typeDefinition": "System.Runtime.InteropServices.FieldOffsetAttribute"
+            },
+            "constructorArguments": {
+              "offset": "0"
+            },
             "namedArguments": {}
           }
         ],
@@ -589,11 +619,15 @@
         "accessModifier": "Public",
         "attributes": [
           {
-            "name": "FieldOffsetAttribute",
-            "fullyQualifiedName": "System.Runtime.InteropServices.FieldOffsetAttribute",
-            "constructorArguments": [
-              "0"
-            ],
+            "underlyingType": {
+              "localName": "FieldOffsetAttribute",
+              "nullability": "NonNullable",
+              "usageKind": "Plain",
+              "typeDefinition": "System.Runtime.InteropServices.FieldOffsetAttribute"
+            },
+            "constructorArguments": {
+              "offset": "0"
+            },
             "namedArguments": {}
           }
         ],
@@ -615,11 +649,15 @@
         "accessModifier": "Public",
         "attributes": [
           {
-            "name": "FieldOffsetAttribute",
-            "fullyQualifiedName": "System.Runtime.InteropServices.FieldOffsetAttribute",
-            "constructorArguments": [
-              "0"
-            ],
+            "underlyingType": {
+              "localName": "FieldOffsetAttribute",
+              "nullability": "NonNullable",
+              "usageKind": "Plain",
+              "typeDefinition": "System.Runtime.InteropServices.FieldOffsetAttribute"
+            },
+            "constructorArguments": {
+              "offset": "0"
+            },
             "namedArguments": {}
           }
         ],
@@ -641,11 +679,15 @@
         "accessModifier": "Public",
         "attributes": [
           {
-            "name": "FieldOffsetAttribute",
-            "fullyQualifiedName": "System.Runtime.InteropServices.FieldOffsetAttribute",
-            "constructorArguments": [
-              "1"
-            ],
+            "underlyingType": {
+              "localName": "FieldOffsetAttribute",
+              "nullability": "NonNullable",
+              "usageKind": "Plain",
+              "typeDefinition": "System.Runtime.InteropServices.FieldOffsetAttribute"
+            },
+            "constructorArguments": {
+              "offset": "1"
+            },
             "namedArguments": {}
           }
         ],
@@ -667,11 +709,15 @@
         "accessModifier": "Public",
         "attributes": [
           {
-            "name": "FieldOffsetAttribute",
-            "fullyQualifiedName": "System.Runtime.InteropServices.FieldOffsetAttribute",
-            "constructorArguments": [
-              "4"
-            ],
+            "underlyingType": {
+              "localName": "FieldOffsetAttribute",
+              "nullability": "NonNullable",
+              "usageKind": "Plain",
+              "typeDefinition": "System.Runtime.InteropServices.FieldOffsetAttribute"
+            },
+            "constructorArguments": {
+              "offset": "4"
+            },
             "namedArguments": {}
           }
         ],
@@ -697,6 +743,7 @@
         "declaringType": "TestCases.OverlappingUnionStruct",
         "accessModifier": "Public",
         "isPrimary": false,
+        "hasArglistParameter": false,
         "parameters": [],
         "attributes": [],
         "localFunctions": []
@@ -706,11 +753,15 @@
     "operators": [],
     "attributes": [
       {
-        "name": "StructLayoutAttribute",
-        "fullyQualifiedName": "System.Runtime.InteropServices.StructLayoutAttribute",
-        "constructorArguments": [
-          "LayoutKind.Explicit"
-        ],
+        "underlyingType": {
+          "localName": "StructLayoutAttribute",
+          "nullability": "NonNullable",
+          "usageKind": "Plain",
+          "typeDefinition": "System.Runtime.InteropServices.StructLayoutAttribute"
+        },
+        "constructorArguments": {
+          "layoutKind": "LayoutKind.Explicit"
+        },
         "namedArguments": {}
       }
     ],

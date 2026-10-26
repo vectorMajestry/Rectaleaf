@@ -140,11 +140,11 @@ public enum BinaryOperatorKind
     /// <summary>
     /// Represents the '&amp;' operator,
     /// </summary>
-    And,
+    BitwiseAnd,
     /// <summary>
     /// Represents the '|' operator.
     /// </summary>
-    Or,
+    BitwiseOr,
     /// <summary>
     /// Represents the '^' operator.
     /// </summary>
@@ -210,12 +210,22 @@ public enum UnaryOperatorKind
     Minus,
 
     /// <summary>
-    /// Represents the 'true' operator.
+    /// Represents the unary '++' operator.
+    /// </summary>
+    Increment,
+
+    /// <summary>
+    /// Represents the unary '--' operator.
+    /// </summary>
+    Decrement,
+
+    /// <summary>
+    /// Represents the 'true' operator (used to evaluate objects in conditionals).
     /// </summary>
     True,
 
     /// <summary>
-    /// Represents the 'false' operator.
+    /// Represents the 'false' operator (used to evaluate objects in conditionals).
     /// </summary>
     False,
 

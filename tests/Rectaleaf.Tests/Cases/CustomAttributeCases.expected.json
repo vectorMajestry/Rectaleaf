@@ -14,30 +14,39 @@
     "enumMembers": [
       {
         "name": "None",
-        "value": "0"
+        "value": "0",
+        "attributes": []
       },
       {
         "name": "Red",
-        "value": "1"
+        "value": "1",
+        "attributes": []
       },
       {
         "name": "Green",
-        "value": "2"
+        "value": "2",
+        "attributes": []
       },
       {
         "name": "Blue",
-        "value": "4"
+        "value": "4",
+        "attributes": []
       },
       {
         "name": "Alpha",
-        "value": "8"
+        "value": "8",
+        "attributes": []
       }
     ],
     "attributes": [
       {
-        "name": "FlagsAttribute",
-        "fullyQualifiedName": "System.FlagsAttribute",
-        "constructorArguments": [],
+        "underlyingType": {
+          "localName": "FlagsAttribute",
+          "nullability": "NonNullable",
+          "usageKind": "Plain",
+          "typeDefinition": "System.FlagsAttribute"
+        },
+        "constructorArguments": {},
         "namedArguments": {}
       }
     ],
@@ -105,6 +114,7 @@
         "declaringType": "TestCases.TypeArgAttribute",
         "accessModifier": "Public",
         "isPrimary": false,
+        "hasArglistParameter": false,
         "parameters": [
           {
             "name": "targetType",
@@ -129,11 +139,15 @@
     "operators": [],
     "attributes": [
       {
-        "name": "AttributeUsageAttribute",
-        "fullyQualifiedName": "System.AttributeUsageAttribute",
-        "constructorArguments": [
-          "AttributeTargets.All"
-        ],
+        "underlyingType": {
+          "localName": "AttributeUsageAttribute",
+          "nullability": "NonNullable",
+          "usageKind": "Plain",
+          "typeDefinition": "System.AttributeUsageAttribute"
+        },
+        "constructorArguments": {
+          "validOn": "AttributeTargets.All"
+        },
         "namedArguments": {
           "AllowMultiple": "True"
         }
@@ -215,6 +229,7 @@
         "declaringType": "TestCases.PrimitiveArrayAttribute",
         "accessModifier": "Public",
         "isPrimary": false,
+        "hasArglistParameter": false,
         "parameters": [
           {
             "name": "numbers",
@@ -245,11 +260,15 @@
     "operators": [],
     "attributes": [
       {
-        "name": "AttributeUsageAttribute",
-        "fullyQualifiedName": "System.AttributeUsageAttribute",
-        "constructorArguments": [
-          "AttributeTargets.All"
-        ],
+        "underlyingType": {
+          "localName": "AttributeUsageAttribute",
+          "nullability": "NonNullable",
+          "usageKind": "Plain",
+          "typeDefinition": "System.AttributeUsageAttribute"
+        },
+        "constructorArguments": {
+          "validOn": "AttributeTargets.All"
+        },
         "namedArguments": {}
       }
     ],
@@ -329,6 +348,7 @@
         "declaringType": "TestCases.HeterogeneousArrayAttribute",
         "accessModifier": "Public",
         "isPrimary": false,
+        "hasArglistParameter": false,
         "parameters": [
           {
             "name": "items",
@@ -359,11 +379,15 @@
     "operators": [],
     "attributes": [
       {
-        "name": "AttributeUsageAttribute",
-        "fullyQualifiedName": "System.AttributeUsageAttribute",
-        "constructorArguments": [
-          "AttributeTargets.All"
-        ],
+        "underlyingType": {
+          "localName": "AttributeUsageAttribute",
+          "nullability": "NonNullable",
+          "usageKind": "Plain",
+          "typeDefinition": "System.AttributeUsageAttribute"
+        },
+        "constructorArguments": {
+          "validOn": "AttributeTargets.All"
+        },
         "namedArguments": {}
       }
     ],
@@ -496,6 +520,7 @@
         "declaringType": "TestCases.EnumFlagAttribute",
         "accessModifier": "Public",
         "isPrimary": false,
+        "hasArglistParameter": false,
         "parameters": [
           {
             "name": "targets",
@@ -520,11 +545,15 @@
     "operators": [],
     "attributes": [
       {
-        "name": "AttributeUsageAttribute",
-        "fullyQualifiedName": "System.AttributeUsageAttribute",
-        "constructorArguments": [
-          "AttributeTargets.All"
-        ],
+        "underlyingType": {
+          "localName": "AttributeUsageAttribute",
+          "nullability": "NonNullable",
+          "usageKind": "Plain",
+          "typeDefinition": "System.AttributeUsageAttribute"
+        },
+        "constructorArguments": {
+          "validOn": "AttributeTargets.All"
+        },
         "namedArguments": {}
       }
     ],
@@ -592,6 +621,7 @@
         "declaringType": "TestCases.UndefinedBitFlagAttribute",
         "accessModifier": "Public",
         "isPrimary": false,
+        "hasArglistParameter": false,
         "parameters": [
           {
             "name": "flags",
@@ -616,11 +646,15 @@
     "operators": [],
     "attributes": [
       {
-        "name": "AttributeUsageAttribute",
-        "fullyQualifiedName": "System.AttributeUsageAttribute",
-        "constructorArguments": [
-          "AttributeTargets.All"
-        ],
+        "underlyingType": {
+          "localName": "AttributeUsageAttribute",
+          "nullability": "NonNullable",
+          "usageKind": "Plain",
+          "typeDefinition": "System.AttributeUsageAttribute"
+        },
+        "constructorArguments": {
+          "validOn": "AttributeTargets.All"
+        },
         "namedArguments": {}
       }
     ],
@@ -735,6 +769,7 @@
         "declaringType": "TestCases.ParamsConstructorAttribute",
         "accessModifier": "Public",
         "isPrimary": false,
+        "hasArglistParameter": false,
         "parameters": [
           {
             "name": "priority",
@@ -779,11 +814,15 @@
     "operators": [],
     "attributes": [
       {
-        "name": "AttributeUsageAttribute",
-        "fullyQualifiedName": "System.AttributeUsageAttribute",
-        "constructorArguments": [
-          "AttributeTargets.All"
-        ],
+        "underlyingType": {
+          "localName": "AttributeUsageAttribute",
+          "nullability": "NonNullable",
+          "usageKind": "Plain",
+          "typeDefinition": "System.AttributeUsageAttribute"
+        },
+        "constructorArguments": {
+          "validOn": "AttributeTargets.All"
+        },
         "namedArguments": {}
       }
     ],
@@ -1064,6 +1103,7 @@
         "declaringType": "TestCases.NamedPropertiesAttribute",
         "accessModifier": "Public",
         "isPrimary": false,
+        "hasArglistParameter": false,
         "parameters": [
           {
             "name": "id",
@@ -1088,11 +1128,15 @@
     "operators": [],
     "attributes": [
       {
-        "name": "AttributeUsageAttribute",
-        "fullyQualifiedName": "System.AttributeUsageAttribute",
-        "constructorArguments": [
-          "AttributeTargets.All"
-        ],
+        "underlyingType": {
+          "localName": "AttributeUsageAttribute",
+          "nullability": "NonNullable",
+          "usageKind": "Plain",
+          "typeDefinition": "System.AttributeUsageAttribute"
+        },
+        "constructorArguments": {
+          "validOn": "AttributeTargets.All"
+        },
         "namedArguments": {}
       }
     ],
@@ -1160,6 +1204,7 @@
         "declaringType": "TestCases.TypeParamTargetAttribute",
         "accessModifier": "Public",
         "isPrimary": false,
+        "hasArglistParameter": false,
         "parameters": [
           {
             "name": "description",
@@ -1184,11 +1229,15 @@
     "operators": [],
     "attributes": [
       {
-        "name": "AttributeUsageAttribute",
-        "fullyQualifiedName": "System.AttributeUsageAttribute",
-        "constructorArguments": [
-          "AttributeTargets.GenericParameter"
-        ],
+        "underlyingType": {
+          "localName": "AttributeUsageAttribute",
+          "nullability": "NonNullable",
+          "usageKind": "Plain",
+          "typeDefinition": "System.AttributeUsageAttribute"
+        },
+        "constructorArguments": {
+          "validOn": "AttributeTargets.GenericParameter"
+        },
         "namedArguments": {}
       }
     ],
@@ -1217,7 +1266,21 @@
         "hasConstructorConstraint": false,
         "hasAllowsRefStructConstraint": false,
         "hasDefaultConstraint": false,
-        "constraintTypes": []
+        "constraintTypes": [],
+        "attributes": [
+          {
+            "underlyingType": {
+              "localName": "TypeParamTargetAttribute",
+              "nullability": "NonNullable",
+              "usageKind": "Plain",
+              "typeDefinition": "TestCases.TypeParamTargetAttribute"
+            },
+            "constructorArguments": {
+              "description": "Generic parameter marker"
+            },
+            "namedArguments": {}
+          }
+        ]
       },
       {
         "name": "TValue",
@@ -1232,7 +1295,8 @@
         "hasConstructorConstraint": false,
         "hasAllowsRefStructConstraint": false,
         "hasDefaultConstraint": false,
-        "constraintTypes": []
+        "constraintTypes": [],
+        "attributes": []
       }
     ],
     "directInterfaces": [],
@@ -1243,11 +1307,15 @@
         "accessModifier": "Public",
         "attributes": [
           {
-            "name": "NamedPropertiesAttribute",
-            "fullyQualifiedName": "TestCases.NamedPropertiesAttribute",
-            "constructorArguments": [
-              "100"
-            ],
+            "underlyingType": {
+              "localName": "NamedPropertiesAttribute",
+              "nullability": "NonNullable",
+              "usageKind": "Plain",
+              "typeDefinition": "TestCases.NamedPropertiesAttribute"
+            },
+            "constructorArguments": {
+              "id": "100"
+            },
             "namedArguments": {
               "Title": "FieldMarker",
               "IsActive": "False"
@@ -1290,11 +1358,15 @@
           },
           "attributes": [
             {
-              "name": "TypeArgAttribute",
-              "fullyQualifiedName": "TestCases.TypeArgAttribute",
-              "constructorArguments": [
-                "IEnumerable"
-              ],
+              "underlyingType": {
+                "localName": "TypeArgAttribute",
+                "nullability": "NonNullable",
+                "usageKind": "Plain",
+                "typeDefinition": "TestCases.TypeArgAttribute"
+              },
+              "constructorArguments": {
+                "targetType": "IEnumerable"
+              },
               "namedArguments": {}
             }
           ]
@@ -1324,19 +1396,27 @@
             "defaultValue": null,
             "attributes": [
               {
-                "name": "TypeArgAttribute",
-                "fullyQualifiedName": "TestCases.TypeArgAttribute",
-                "constructorArguments": [
-                  "KeyValuePair"
-                ],
+                "underlyingType": {
+                  "localName": "TypeArgAttribute",
+                  "nullability": "NonNullable",
+                  "usageKind": "Plain",
+                  "typeDefinition": "TestCases.TypeArgAttribute"
+                },
+                "constructorArguments": {
+                  "targetType": "KeyValuePair"
+                },
                 "namedArguments": {}
               },
               {
-                "name": "NamedPropertiesAttribute",
-                "fullyQualifiedName": "TestCases.NamedPropertiesAttribute",
-                "constructorArguments": [
-                  "300"
-                ],
+                "underlyingType": {
+                  "localName": "NamedPropertiesAttribute",
+                  "nullability": "NonNullable",
+                  "usageKind": "Plain",
+                  "typeDefinition": "TestCases.NamedPropertiesAttribute"
+                },
+                "constructorArguments": {
+                  "id": "300"
+                },
                 "namedArguments": {
                   "Title": "ParameterMarker"
                 }
@@ -1357,12 +1437,16 @@
             "defaultValue": null,
             "attributes": [
               {
-                "name": "ParamsConstructorAttribute",
-                "fullyQualifiedName": "TestCases.ParamsConstructorAttribute",
-                "constructorArguments": [
-                  "99",
-                  "[inline_tag]"
-                ],
+                "underlyingType": {
+                  "localName": "ParamsConstructorAttribute",
+                  "nullability": "NonNullable",
+                  "usageKind": "Plain",
+                  "typeDefinition": "TestCases.ParamsConstructorAttribute"
+                },
+                "constructorArguments": {
+                  "priority": "99",
+                  "tags": "[inline_tag]"
+                },
                 "namedArguments": {}
               }
             ]
@@ -1371,11 +1455,15 @@
         "genericParameters": [],
         "attributes": [
           {
-            "name": "NamedPropertiesAttribute",
-            "fullyQualifiedName": "TestCases.NamedPropertiesAttribute",
-            "constructorArguments": [
-              "200"
-            ],
+            "underlyingType": {
+              "localName": "NamedPropertiesAttribute",
+              "nullability": "NonNullable",
+              "usageKind": "Plain",
+              "typeDefinition": "TestCases.NamedPropertiesAttribute"
+            },
+            "constructorArguments": {
+              "id": "200"
+            },
             "namedArguments": {
               "Title": "MethodReturn"
             }
@@ -1401,12 +1489,16 @@
         },
         "attributes": [
           {
-            "name": "ParamsConstructorAttribute",
-            "fullyQualifiedName": "TestCases.ParamsConstructorAttribute",
-            "constructorArguments": [
-              "5",
-              "[get_tag, prop_tag]"
-            ],
+            "underlyingType": {
+              "localName": "ParamsConstructorAttribute",
+              "nullability": "NonNullable",
+              "usageKind": "Plain",
+              "typeDefinition": "TestCases.ParamsConstructorAttribute"
+            },
+            "constructorArguments": {
+              "priority": "5",
+              "tags": "[get_tag, prop_tag]"
+            },
             "namedArguments": {}
           }
         ],
@@ -1468,6 +1560,7 @@
         "declaringType": "TestCases.AttributeDecoratedClass<TKey, TValue>",
         "accessModifier": "Public",
         "isPrimary": false,
+        "hasArglistParameter": false,
         "parameters": [],
         "attributes": [],
         "localFunctions": []
@@ -1477,70 +1570,102 @@
     "operators": [],
     "attributes": [
       {
-        "name": "TypeArgAttribute",
-        "fullyQualifiedName": "TestCases.TypeArgAttribute",
-        "constructorArguments": [
-          "Dictionary"
-        ],
+        "underlyingType": {
+          "localName": "TypeArgAttribute",
+          "nullability": "NonNullable",
+          "usageKind": "Plain",
+          "typeDefinition": "TestCases.TypeArgAttribute"
+        },
+        "constructorArguments": {
+          "targetType": "Dictionary"
+        },
         "namedArguments": {}
       },
       {
-        "name": "TypeArgAttribute",
-        "fullyQualifiedName": "TestCases.TypeArgAttribute",
-        "constructorArguments": [
-          "List<string>"
-        ],
+        "underlyingType": {
+          "localName": "TypeArgAttribute",
+          "nullability": "NonNullable",
+          "usageKind": "Plain",
+          "typeDefinition": "TestCases.TypeArgAttribute"
+        },
+        "constructorArguments": {
+          "targetType": "List<string>"
+        },
         "namedArguments": {}
       },
       {
-        "name": "PrimitiveArrayAttribute",
-        "fullyQualifiedName": "TestCases.PrimitiveArrayAttribute",
-        "constructorArguments": [
-          "[10, 20, 30, 40]"
-        ],
+        "underlyingType": {
+          "localName": "PrimitiveArrayAttribute",
+          "nullability": "NonNullable",
+          "usageKind": "Plain",
+          "typeDefinition": "TestCases.PrimitiveArrayAttribute"
+        },
+        "constructorArguments": {
+          "numbers": "[10, 20, 30, 40]"
+        },
         "namedArguments": {}
       },
       {
-        "name": "HeterogeneousArrayAttribute",
-        "fullyQualifiedName": "TestCases.HeterogeneousArrayAttribute",
-        "constructorArguments": [
-          "[1, test_string, void, True, 3.14]"
-        ],
+        "underlyingType": {
+          "localName": "HeterogeneousArrayAttribute",
+          "nullability": "NonNullable",
+          "usageKind": "Plain",
+          "typeDefinition": "TestCases.HeterogeneousArrayAttribute"
+        },
+        "constructorArguments": {
+          "items": "[1, test_string, void, True, 3.14]"
+        },
         "namedArguments": {}
       },
       {
-        "name": "EnumFlagAttribute",
-        "fullyQualifiedName": "TestCases.EnumFlagAttribute",
-        "constructorArguments": [
-          "AttributeTargets.Class | AttributeTargets.Struct"
-        ],
+        "underlyingType": {
+          "localName": "EnumFlagAttribute",
+          "nullability": "NonNullable",
+          "usageKind": "Plain",
+          "typeDefinition": "TestCases.EnumFlagAttribute"
+        },
+        "constructorArguments": {
+          "targets": "AttributeTargets.Class | AttributeTargets.Struct"
+        },
         "namedArguments": {
           "Colors": "CustomColorFlags.Red | CustomColorFlags.Blue"
         }
       },
       {
-        "name": "UndefinedBitFlagAttribute",
-        "fullyQualifiedName": "TestCases.UndefinedBitFlagAttribute",
-        "constructorArguments": [
-          "CustomColorFlags.Blue"
-        ],
+        "underlyingType": {
+          "localName": "UndefinedBitFlagAttribute",
+          "nullability": "NonNullable",
+          "usageKind": "Plain",
+          "typeDefinition": "TestCases.UndefinedBitFlagAttribute"
+        },
+        "constructorArguments": {
+          "flags": "CustomColorFlags.4660"
+        },
         "namedArguments": {}
       },
       {
-        "name": "ParamsConstructorAttribute",
-        "fullyQualifiedName": "TestCases.ParamsConstructorAttribute",
-        "constructorArguments": [
-          "1",
-          "[alpha, beta, gamma]"
-        ],
+        "underlyingType": {
+          "localName": "ParamsConstructorAttribute",
+          "nullability": "NonNullable",
+          "usageKind": "Plain",
+          "typeDefinition": "TestCases.ParamsConstructorAttribute"
+        },
+        "constructorArguments": {
+          "priority": "1",
+          "tags": "[alpha, beta, gamma]"
+        },
         "namedArguments": {}
       },
       {
-        "name": "NamedPropertiesAttribute",
-        "fullyQualifiedName": "TestCases.NamedPropertiesAttribute",
-        "constructorArguments": [
-          "42"
-        ],
+        "underlyingType": {
+          "localName": "NamedPropertiesAttribute",
+          "nullability": "NonNullable",
+          "usageKind": "Plain",
+          "typeDefinition": "TestCases.NamedPropertiesAttribute"
+        },
+        "constructorArguments": {
+          "id": "42"
+        },
         "namedArguments": {
           "Title": "PrimaryClass",
           "Weight": "9.5",

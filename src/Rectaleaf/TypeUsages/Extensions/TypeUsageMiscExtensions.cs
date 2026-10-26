@@ -16,15 +16,15 @@ public static class TypeUsageMiscExtensions
         public IReadOnlyList<IComposableType<IKnownOrNot>> TypeArguments => boundGeneric.TypeArgumentsMixed;
     }
 
-    extension(IChainTupleType<IKnown> chainTuple)
+    extension(ITupleType<IKnown> chainTuple)
     {
-        public IReadOnlyList<IComposableType<IKnown>> ElementTypes
+        public IReadOnlyList<IComposableType<IKnown>> GetElementTypes()
             => Unsafe.As<IReadOnlyList<IComposableType<IKnown>>>(chainTuple.ElementTypesMixed);
     }
 
-    extension(IChainTupleType<IIncomplete> chainTuple)
+    extension(ITupleType<IKnownOrNot> chainTuple)
     {
-        public IReadOnlyList<IComposableType<IKnownOrNot>> ElementTypes => chainTuple.ElementTypesMixed;
+        public IReadOnlyList<IComposableType<IKnownOrNot>> GetElementTypes() => chainTuple.ElementTypesMixed;
     }
 #pragma warning restore CS0618
 

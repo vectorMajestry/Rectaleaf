@@ -10,7 +10,7 @@
   "directInterfaces": [
     {
       "localName": "IEquatable<Vector2D>",
-      "nullability": "Oblivious",
+      "nullability": "NonNullable",
       "usageKind": "BoundGeneric",
       "typeDefinition": "System.IEquatable<T>",
       "typeArguments": [
@@ -174,6 +174,7 @@
       "declaringType": "TestCases.Vector2D",
       "accessModifier": "Public",
       "isPrimary": false,
+      "hasArglistParameter": false,
       "parameters": [
         {
           "name": "x",
@@ -211,6 +212,7 @@
       "declaringType": "TestCases.Vector2D",
       "accessModifier": "Public",
       "isPrimary": false,
+      "hasArglistParameter": false,
       "parameters": [],
       "attributes": [],
       "localFunctions": []
@@ -219,6 +221,7 @@
   "staticConstructor": null,
   "operators": [
     {
+      "declaringType": "TestCases.Vector2D",
       "accessModifier": "Public",
       "inheritance": {
         "kind": "None"
@@ -263,9 +266,11 @@
         },
         "attributes": []
       },
+      "attributes": [],
       "localFunctions": []
     },
     {
+      "declaringType": "TestCases.Vector2D",
       "accessModifier": "Public",
       "inheritance": {
         "kind": "None"
@@ -310,9 +315,11 @@
         },
         "attributes": []
       },
+      "attributes": [],
       "localFunctions": []
     },
     {
+      "declaringType": "TestCases.Vector2D",
       "accessModifier": "Public",
       "inheritance": {
         "kind": "None"
@@ -357,9 +364,11 @@
         },
         "attributes": []
       },
+      "attributes": [],
       "localFunctions": []
     },
     {
+      "declaringType": "TestCases.Vector2D",
       "accessModifier": "Public",
       "inheritance": {
         "kind": "None"
@@ -404,9 +413,11 @@
         },
         "attributes": []
       },
+      "attributes": [],
       "localFunctions": []
     },
     {
+      "declaringType": "TestCases.Vector2D",
       "accessModifier": "Public",
       "inheritance": {
         "kind": "None"
@@ -451,9 +462,11 @@
         },
         "attributes": []
       },
+      "attributes": [],
       "localFunctions": []
     },
     {
+      "declaringType": "TestCases.Vector2D",
       "accessModifier": "Public",
       "inheritance": {
         "kind": "None"
@@ -498,9 +511,11 @@
         },
         "attributes": []
       },
+      "attributes": [],
       "localFunctions": []
     },
     {
+      "declaringType": "TestCases.Vector2D",
       "accessModifier": "Public",
       "inheritance": {
         "kind": "None"
@@ -545,9 +560,11 @@
         },
         "attributes": []
       },
+      "attributes": [],
       "localFunctions": []
     },
     {
+      "declaringType": "TestCases.Vector2D",
       "accessModifier": "Public",
       "inheritance": {
         "kind": "None"
@@ -592,9 +609,11 @@
         },
         "attributes": []
       },
+      "attributes": [],
       "localFunctions": []
     },
     {
+      "declaringType": "TestCases.Vector2D",
       "accessModifier": "Public",
       "inheritance": {
         "kind": "None"
@@ -639,9 +658,11 @@
         },
         "attributes": []
       },
+      "attributes": [],
       "localFunctions": []
     },
     {
+      "declaringType": "TestCases.Vector2D",
       "accessModifier": "Public",
       "inheritance": {
         "kind": "None"
@@ -686,9 +707,11 @@
         },
         "attributes": []
       },
+      "attributes": [],
       "localFunctions": []
     },
     {
+      "declaringType": "TestCases.Vector2D",
       "accessModifier": "Public",
       "inheritance": {
         "kind": "None"
@@ -719,9 +742,11 @@
         },
         "attributes": []
       },
+      "attributes": [],
       "localFunctions": []
     },
     {
+      "declaringType": "TestCases.Vector2D",
       "accessModifier": "Public",
       "inheritance": {
         "kind": "None"
@@ -752,9 +777,11 @@
         },
         "attributes": []
       },
+      "attributes": [],
       "localFunctions": []
     },
     {
+      "declaringType": "TestCases.Vector2D",
       "accessModifier": "Public",
       "inheritance": {
         "kind": "None"
@@ -785,9 +812,81 @@
         },
         "attributes": []
       },
+      "attributes": [],
       "localFunctions": []
     },
     {
+      "declaringType": "TestCases.Vector2D",
+      "accessModifier": "Public",
+      "inheritance": {
+        "kind": "None"
+      },
+      "operatorKind": "Unary",
+      "unaryKind": "Increment",
+      "isChecked": false,
+      "operand": {
+        "name": "a",
+        "position": 0,
+        "modifiers": "None",
+        "type": {
+          "localName": "Vector2D",
+          "nullability": "NonNullable",
+          "usageKind": "Plain",
+          "typeDefinition": "TestCases.Vector2D"
+        },
+        "hasDefaultValue": false,
+        "defaultValue": null,
+        "attributes": []
+      },
+      "returnInfo": {
+        "type": {
+          "localName": "Vector2D",
+          "nullability": "NonNullable",
+          "usageKind": "Plain",
+          "typeDefinition": "TestCases.Vector2D"
+        },
+        "attributes": []
+      },
+      "attributes": [],
+      "localFunctions": []
+    },
+    {
+      "declaringType": "TestCases.Vector2D",
+      "accessModifier": "Public",
+      "inheritance": {
+        "kind": "None"
+      },
+      "operatorKind": "Unary",
+      "unaryKind": "Decrement",
+      "isChecked": false,
+      "operand": {
+        "name": "a",
+        "position": 0,
+        "modifiers": "None",
+        "type": {
+          "localName": "Vector2D",
+          "nullability": "NonNullable",
+          "usageKind": "Plain",
+          "typeDefinition": "TestCases.Vector2D"
+        },
+        "hasDefaultValue": false,
+        "defaultValue": null,
+        "attributes": []
+      },
+      "returnInfo": {
+        "type": {
+          "localName": "Vector2D",
+          "nullability": "NonNullable",
+          "usageKind": "Plain",
+          "typeDefinition": "TestCases.Vector2D"
+        },
+        "attributes": []
+      },
+      "attributes": [],
+      "localFunctions": []
+    },
+    {
+      "declaringType": "TestCases.Vector2D",
       "accessModifier": "Public",
       "inheritance": {
         "kind": "None"
@@ -818,9 +917,11 @@
         },
         "attributes": []
       },
+      "attributes": [],
       "localFunctions": []
     },
     {
+      "declaringType": "TestCases.Vector2D",
       "accessModifier": "Public",
       "inheritance": {
         "kind": "None"
@@ -851,9 +952,81 @@
         },
         "attributes": []
       },
+      "attributes": [],
       "localFunctions": []
     },
     {
+      "declaringType": "TestCases.Vector2D",
+      "accessModifier": "Public",
+      "inheritance": {
+        "kind": "None"
+      },
+      "operatorKind": "Unary",
+      "unaryKind": "Increment",
+      "isChecked": true,
+      "operand": {
+        "name": "a",
+        "position": 0,
+        "modifiers": "None",
+        "type": {
+          "localName": "Vector2D",
+          "nullability": "NonNullable",
+          "usageKind": "Plain",
+          "typeDefinition": "TestCases.Vector2D"
+        },
+        "hasDefaultValue": false,
+        "defaultValue": null,
+        "attributes": []
+      },
+      "returnInfo": {
+        "type": {
+          "localName": "Vector2D",
+          "nullability": "NonNullable",
+          "usageKind": "Plain",
+          "typeDefinition": "TestCases.Vector2D"
+        },
+        "attributes": []
+      },
+      "attributes": [],
+      "localFunctions": []
+    },
+    {
+      "declaringType": "TestCases.Vector2D",
+      "accessModifier": "Public",
+      "inheritance": {
+        "kind": "None"
+      },
+      "operatorKind": "Unary",
+      "unaryKind": "Decrement",
+      "isChecked": true,
+      "operand": {
+        "name": "a",
+        "position": 0,
+        "modifiers": "None",
+        "type": {
+          "localName": "Vector2D",
+          "nullability": "NonNullable",
+          "usageKind": "Plain",
+          "typeDefinition": "TestCases.Vector2D"
+        },
+        "hasDefaultValue": false,
+        "defaultValue": null,
+        "attributes": []
+      },
+      "returnInfo": {
+        "type": {
+          "localName": "Vector2D",
+          "nullability": "NonNullable",
+          "usageKind": "Plain",
+          "typeDefinition": "TestCases.Vector2D"
+        },
+        "attributes": []
+      },
+      "attributes": [],
+      "localFunctions": []
+    },
+    {
+      "declaringType": "TestCases.Vector2D",
       "accessModifier": "Public",
       "inheritance": {
         "kind": "None"
@@ -898,9 +1071,11 @@
         },
         "attributes": []
       },
+      "attributes": [],
       "localFunctions": []
     },
     {
+      "declaringType": "TestCases.Vector2D",
       "accessModifier": "Public",
       "inheritance": {
         "kind": "None"
@@ -945,9 +1120,11 @@
         },
         "attributes": []
       },
+      "attributes": [],
       "localFunctions": []
     },
     {
+      "declaringType": "TestCases.Vector2D",
       "accessModifier": "Public",
       "inheritance": {
         "kind": "None"
@@ -992,9 +1169,11 @@
         },
         "attributes": []
       },
+      "attributes": [],
       "localFunctions": []
     },
     {
+      "declaringType": "TestCases.Vector2D",
       "accessModifier": "Public",
       "inheritance": {
         "kind": "None"
@@ -1039,9 +1218,11 @@
         },
         "attributes": []
       },
+      "attributes": [],
       "localFunctions": []
     },
     {
+      "declaringType": "TestCases.Vector2D",
       "accessModifier": "Public",
       "inheritance": {
         "kind": "None"
@@ -1072,9 +1253,11 @@
         },
         "attributes": []
       },
+      "attributes": [],
       "localFunctions": []
     },
     {
+      "declaringType": "TestCases.Vector2D",
       "accessModifier": "Public",
       "inheritance": {
         "kind": "None"
@@ -1105,9 +1288,11 @@
         },
         "attributes": []
       },
+      "attributes": [],
       "localFunctions": []
     },
     {
+      "declaringType": "TestCases.Vector2D",
       "accessModifier": "Public",
       "inheritance": {
         "kind": "None"
@@ -1137,9 +1322,11 @@
         },
         "attributes": []
       },
+      "attributes": [],
       "localFunctions": []
     },
     {
+      "declaringType": "TestCases.Vector2D",
       "accessModifier": "Public",
       "inheritance": {
         "kind": "None"
@@ -1188,9 +1375,11 @@
         },
         "attributes": []
       },
+      "attributes": [],
       "localFunctions": []
     },
     {
+      "declaringType": "TestCases.Vector2D",
       "accessModifier": "Public",
       "inheritance": {
         "kind": "None"
@@ -1220,9 +1409,11 @@
         },
         "attributes": []
       },
+      "attributes": [],
       "localFunctions": []
     },
     {
+      "declaringType": "TestCases.Vector2D",
       "accessModifier": "Public",
       "inheritance": {
         "kind": "None"
@@ -1252,9 +1443,11 @@
         },
         "attributes": []
       },
+      "attributes": [],
       "localFunctions": []
     },
     {
+      "declaringType": "TestCases.Vector2D",
       "accessModifier": "Public",
       "inheritance": {
         "kind": "None"
@@ -1284,6 +1477,7 @@
         },
         "attributes": []
       },
+      "attributes": [],
       "localFunctions": []
     }
   ],

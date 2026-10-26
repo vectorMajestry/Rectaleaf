@@ -154,7 +154,7 @@ public static class TypeUsageMaxNameExtensions
                 string baseName = tuple switch
                 {
                     IRichTupleType<IIncomplete> rich => WrapperNameFormatter.RichTupleName(rich.Elements.Select(e => (e.Type.MaximumQualifiedName, e.Name))),
-                    IChainTupleType<IIncomplete> => tuple.UnderlyingValueTupleType.MaximumQualifiedName,
+                    IExplicitValueTupleType<IIncomplete> or IObliviousTupleType<IIncomplete> => tuple.UnderlyingValueTupleType.MaximumQualifiedName,
                     _ => throw new InvalidOperationException("Unreachable case.")
                 };
 

@@ -5,5 +5,5 @@ namespace Rectaleaf.Metadata.TypeUsages.CommonTypeUsageImpl;
 
 public sealed class ExplicitValueTupleType<TKind>(
     IBoundGenericType<TKind, IStructType> underlyingValueTupleType,
-    NullabilityKind nullability) : ChainTupleType<TKind>(underlyingValueTupleType, nullability), IExplicitValueTupleType<TKind>
+    NullabilityKind nullability) : TupleType<TKind>(underlyingValueTupleType, nullability), IExplicitValueTupleType<TKind>
     where TKind : IKnownOrNot;

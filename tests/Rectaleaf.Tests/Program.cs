@@ -1,13 +1,12 @@
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text.Json;
-using System.Text.Json.Nodes;
-using Rectaleaf.Metadata.DeclaredTypes;
 using Rectaleaf.Reflection;
 using Rectaleaf.Roslyn;
 using Rectaleaf.Tests.Infrastructure;
+using System.CommandLine;
+using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
+using System.Text.Encodings.Web;
+using System.Text.Json;
+using System.Text.Json.Nodes;
 
 namespace Rectaleaf.Tests;
 
@@ -15,408 +14,548 @@ public static class Program
 {
     public static int Main(string[] args)
     {
-        ConsoleReporter.PrintHeader("Rectaleaf Test Runner");
-
-        if (args.Length == 0)
-        {
-            PrintUsageError("No command specified.");
-            return 1;
-        }
-
-        // 1. Synthetic test flag
-        if (args.Any(a => a.Equals("--synthetic-test", StringComparison.OrdinalIgnoreCase)))
-        {
-            return RunSyntheticTest();
-        }
-
-        // 2. Snapshot update flag
-        int updateIndex = Array.FindIndex(args, a => a.Equals("--update-snapshots", StringComparison.OrdinalIgnoreCase));
-        if (updateIndex >= 0)
-        {
-            if (updateIndex + 2 >= args.Length)
-            {
-                PrintUsageError("--update-snapshots requires <backend> and <filename.cs|all> arguments.\nExample: --update-snapshots roslyn MyCase.cs\nExample: --update-snapshots reflection all");
-                return 1;
-            }
-
-            string backend = args[updateIndex + 1].ToLowerInvariant();
-            string targetFile = args[updateIndex + 2];
-
-            if (backend is not ("roslyn" or "reflection"))
-            {
-                PrintUsageError($"Invalid backend '{backend}'. Must be 'roslyn' or 'reflection'.");
-                return 1;
-            }
-
-            return UpdateSnapshots(backend, targetFile);
-        }
-
-        // 3. Comparison flag
-        int compareIndex = Array.FindIndex(args, a => a.Equals("--compare", StringComparison.OrdinalIgnoreCase));
-        if (compareIndex >= 0)
-        {
-            if (compareIndex + 2 >= args.Length)
-            {
-                PrintUsageError("--compare requires two targets.\nExamples:\n  --compare roslyn expected\n  --compare reflection expected\n  --compare roslyn reflection");
-                return 1;
-            }
-
-            string targetA = args[compareIndex + 1].ToLowerInvariant();
-            string targetB = args[compareIndex + 2].ToLowerInvariant();
-
-            string? caseFilter = null;
-            int caseFilterIndex = Array.FindIndex(args, a => a.Equals("--case", StringComparison.OrdinalIgnoreCase));
-            if (caseFilterIndex >= 0 && caseFilterIndex + 1 < args.Length)
-            {
-                caseFilter = args[caseFilterIndex + 1];
-            }
-
-            return RunComparison(targetA, targetB, caseFilter);
-        }
-
-        PrintUsageError($"Unrecognized arguments: {string.Join(" ", args)}");
-        return 1;
+        ConsoleWriter console = new();
+        console.WriteLine("\n=== Rectaleaf Test Runner ===", ConsoleColor.Cyan);
+        RootCommand rootCommand = BuildCommandLine(console);
+        return rootCommand.Parse(args).Invoke();
     }
 
-    static void PrintUsageError(string error)
+    static Dictionary<string, TargetBackend> backendMap = new(StringComparer.OrdinalIgnoreCase)
     {
-        Console.ForegroundColor = ConsoleColor.Red;
-        Console.WriteLine($"Error: {error}\n");
-        Console.ResetColor();
+        { "roslyn", TargetBackend.Roslyn },
+        { "reflection", TargetBackend.Reflection }
+    };
 
-        Console.WriteLine("Usage:");
-        Console.WriteLine("  dotnet run --project tests/Rectaleaf.Tests -- --compare <source> <target> [--case <name>]");
-        Console.WriteLine("    Valid comparison combinations:");
-        Console.WriteLine("      --compare roslyn expected");
-        Console.WriteLine("      --compare reflection expected");
-        Console.WriteLine("      --compare roslyn reflection");
-        Console.WriteLine();
-        Console.WriteLine("  dotnet run --project tests/Rectaleaf.Tests -- --update-snapshots <roslyn|reflection> <filename.cs|all>");
-        Console.WriteLine();
-        Console.WriteLine("  dotnet run --project tests/Rectaleaf.Tests -- --synthetic-test");
+    static string validBackendsString = $"'{string.Join("', '", backendMap.Keys)}'";
+
+    static RootCommand BuildCommandLine(ConsoleWriter console)
+    {
+        Option<DirectoryInfo> casesDirOption = new("--cases-dir")
+        {
+            Description = "Directory containing test cases (defaults to 'Cases' directory in the app directory)",
+            DefaultValueFactory = _ => new DirectoryInfo(Path.Combine(AppContext.BaseDirectory, "Cases"))
+        };
+
+        Option<OutputVerbosity> verbosityOption = new("--verbosity", "-v")
+        {
+            Description = "Output verbosity: quiet, normal, detailed",
+            DefaultValueFactory = _ => OutputVerbosity.Normal
+        };
+
+        Option<string[]> casesOption = new("--cases", "-c")
+        {
+            Description = "Test cases to run (comma-separated or multiple arguments, defaults to all)",
+            AllowMultipleArgumentsPerToken = true
+        };
+        casesOption.Aliases.Add("--case");
+
+        // 'verify' command
+        Argument<string> verifyBackendArg = new("backend")
+        {
+            Description = "Backend to verify against expected snapshots (roslyn, reflection)"
+        };
+
+        Command verifyCommand = new("verify", "Verify a backend's output against expected snapshots.")
+        {
+            verifyBackendArg,
+            casesOption,
+            casesDirOption,
+            verbosityOption
+        };
+        verifyCommand.Aliases.Add("--verify");
+
+        verifyCommand.SetAction(parseResult =>
+        {
+            string backend = parseResult.GetValue(verifyBackendArg)!;
+            DirectoryInfo casesDir = parseResult.GetValue(casesDirOption)!;
+            OutputVerbosity verbosity = parseResult.GetValue(verbosityOption);
+            string[]? rawCases = parseResult.GetValue(casesOption);
+
+            ref TargetBackend targetBackendRef = ref CollectionsMarshal.GetValueRefOrNullRef(backendMap, backend);
+            bool backendInvalid = false;
+            if (Unsafe.IsNullRef(ref targetBackendRef))
+            {
+                console.WriteErrorLine($"error: Invalid backend '{backend}'. Pick from {validBackendsString}.");
+                backendInvalid = true;
+            }
+
+            IReadOnlyList<TestCase> selectedCases;
+            if (rawCases is null or { Length: 0 })
+            {
+                if (TryGetAllCases(casesDir, console) is not TestCasesSearchSuccess foundCases || backendInvalid)
+                    return 1;
+
+                selectedCases = foundCases.TestCases;
+            }
+            else
+            {
+                HashSet<string> requestedCases = ParseRequestedCases(rawCases);
+                if (TryGetRequestedCases(casesDir, requestedCases, console) is not TestCasesSearchSuccess foundCases || backendInvalid)
+                    return 1;
+
+                if (foundCases.TestCases.Count < requestedCases.Count)
+                    PrintMissingCasesWarning(console, requestedCases
+                        .Except(foundCases.TestCases.Select(c => c.Name), StringComparer.OrdinalIgnoreCase)
+                        .ToList());
+
+                selectedCases = foundCases.TestCases;
+            }
+
+            var verifiedCases = selectedCases.OfType<VerifiedTestCase>().ToList();
+            if (verifiedCases.Count < selectedCases.Count)
+                PrintUnverifiedCasesWarning(console, selectedCases
+                    .OfType<NotVerifiedTestCase>()
+                    .Select(c => c.Name));
+
+            if (verifiedCases.Count == 0)
+            {
+                console.WriteErrorLine("error: All specified cases are not verified.");
+                return 1;
+            }
+
+            DiffAnalysisFormatter formatter = new(console, verbosity);
+            ProcessLogger logger = new(console, verbosity);
+
+            return CompareBackendToExpected(targetBackendRef, verifiedCases, formatter, logger);
+        });
+
+        // 'compare' command
+        Argument<string> targetArg = new("target")
+        {
+            Description = "Source backend to test (roslyn, reflection)"
+        };
+
+        Argument<string> baselineArg = new("baseline")
+        {
+            Description = "Baseline backend to compare against (roslyn, reflection)"
+        };
+
+        Command compareCommand = new("compare", "Compare test outputs between backends.")
+        {
+            targetArg,
+            baselineArg,
+            casesOption,
+            casesDirOption,
+            verbosityOption
+        };
+        compareCommand.Aliases.Add("--compare");
+
+        compareCommand.SetAction(parseResult =>
+        {
+            string targetBackendName = parseResult.GetValue(targetArg)!;
+            string baselineBackendName = parseResult.GetValue(baselineArg)!;
+            DirectoryInfo casesDir = parseResult.GetValue(casesDirOption)!;
+            OutputVerbosity verbosity = parseResult.GetValue(verbosityOption);
+            string[]? rawCases = parseResult.GetValue(casesOption);
+
+            List<string> invalidBackends = [];
+
+            ref TargetBackend baselineBackend =
+                ref CollectionsMarshal.GetValueRefOrNullRef(backendMap, baselineBackendName);
+            ref TargetBackend targetBackend =
+                ref CollectionsMarshal.GetValueRefOrNullRef(backendMap, targetBackendName);
+
+            if (Unsafe.IsNullRef(ref targetBackend))
+                invalidBackends.Add(targetBackendName);
+            if (Unsafe.IsNullRef(ref baselineBackend))
+                invalidBackends.Add(baselineBackendName);
+
+            bool backendInvalid = false;
+            if (invalidBackends.Count > 0)
+            {
+                string errorListString = $"'{string.Join("', '", invalidBackends)}'";
+                console.WriteErrorLine(
+                    $"error: Invalid backend{(invalidBackends.Count == 1 ? "" : "s:")} {errorListString}. " +
+                    $"Pick from {validBackendsString}.");
+                backendInvalid = true;
+            }
+
+            IReadOnlyList<TestCase> selectedCases;
+            if (rawCases is null or { Length: 0 })
+            {
+                if (TryGetAllCases(casesDir, console) is not TestCasesSearchSuccess foundCases || backendInvalid)
+                    return 1;
+
+                selectedCases = foundCases.TestCases;
+            }
+            else
+            {
+                HashSet<string> requestedCases = ParseRequestedCases(rawCases);
+                if (TryGetRequestedCases(casesDir, requestedCases, console) is not TestCasesSearchSuccess foundCases || backendInvalid)
+                    return 1;
+
+                if (foundCases.TestCases.Count < requestedCases.Count)
+                    PrintMissingCasesWarning(console, requestedCases
+                        .Except(foundCases.TestCases.Select(c => c.Name), StringComparer.OrdinalIgnoreCase)
+                        .ToList());
+
+                selectedCases = foundCases.TestCases;
+            }
+
+            DiffAnalysisFormatter formatter = new(console, verbosity);
+            ProcessLogger logger = new(console, verbosity);
+
+            return CompareBackendToBackend(targetBackend, baselineBackend, selectedCases, formatter, logger);
+        });
+
+        // 'update-snapshots' command
+        Argument<string> backendArg = new("backend")
+        {
+            Description = "Backend to generate snapshots from (roslyn, reflection)"
+        };
+
+        Argument<string> targetCaseArg = new("target")
+        {
+            Description = "Test case name(s) (comma-separated) or 'all' to update snapshots"
+        };
+
+        Argument<DirectoryInfo> outputDirArg = new("output-dir")
+        {
+            Description = "Output directory where expected snapshots will be saved"
+        };
+
+        Option<bool> yesOption = new("--yes", "-y")
+        {
+            Description = "Automatically confirm updating all snapshots"
+        };
+
+        Command updateCommand = new("update-snapshots", "Update expected output files from a backend")
+        {
+            backendArg,
+            targetCaseArg,
+            outputDirArg,
+            casesDirOption,
+            yesOption,
+            verbosityOption
+        };
+        updateCommand.Aliases.Add("--update-snapshots");
+
+        updateCommand.SetAction(parseResult =>
+        {
+            string backend = parseResult.GetValue(backendArg)!;
+            string targetCase = parseResult.GetValue(targetCaseArg)!;
+            DirectoryInfo outputDir = parseResult.GetValue(outputDirArg)!;
+            DirectoryInfo casesDir = parseResult.GetValue(casesDirOption)!;
+            bool autoConfirm = parseResult.GetValue(yesOption);
+            OutputVerbosity verbosity = parseResult.GetValue(verbosityOption);
+
+            ref TargetBackend targetBackendRef = ref CollectionsMarshal.GetValueRefOrNullRef(backendMap, backend);
+
+            bool backendInvalid = false;
+            if (Unsafe.IsNullRef(ref targetBackendRef))
+            {
+                console.WriteErrorLine($"error: Invalid backend '{backend}'. Pick from {validBackendsString}.");
+                backendInvalid = true;
+            }
+
+            bool isAll = targetCase.Equals("all", StringComparison.OrdinalIgnoreCase);
+            ProcessLogger logger = new(console, verbosity);
+
+            if (isAll)
+            {
+                if (TryGetAllCases(casesDir, console) is not TestCasesSearchSuccess foundCases || backendInvalid)
+                    return 1;
+
+                if (!autoConfirm)
+                {
+                    console.Write($"Overwrite expected snapshots for all {foundCases.TestCases.Count} test cases using '{backend}'? (y/N): ", ConsoleColor.Cyan);
+                    string? response = console.ReadLine();
+                    if (!string.Equals(response, "y", StringComparison.OrdinalIgnoreCase) &&
+                        !string.Equals(response, "yes", StringComparison.OrdinalIgnoreCase))
+                    {
+                        console.WriteLine("Update aborted.");
+                        return 0;
+                    }
+                }
+
+                return UpdateSnapshots(targetBackendRef, outputDir, foundCases.TestCases, logger);
+            }
+            else
+            {
+                HashSet<string> requestedCases = ParseRequestedCases([targetCase]);
+
+                if (TryGetRequestedCases(casesDir, requestedCases, console) is not TestCasesSearchSuccess foundCases || backendInvalid)
+                    return 1;
+
+                if (foundCases.TestCases.Count < requestedCases.Count)
+                {
+                    PrintMissingCasesWarning(console, requestedCases
+                        .Except(foundCases.TestCases.Select(c => c.Name), StringComparer.OrdinalIgnoreCase)
+                        .ToList());
+                }
+
+                return UpdateSnapshots(targetBackendRef, outputDir, foundCases.TestCases, logger);
+            }
+        });
+
+        return new RootCommand("Rectaleaf Specification Conformance Test Runner")
+        {
+            verifyCommand,
+            compareCommand,
+            updateCommand
+        };
+
+        static HashSet<string> ParseRequestedCases(IEnumerable<string> rawCases) => rawCases
+            .SelectMany(c => c.Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries))
+            .ToHashSet(StringComparer.OrdinalIgnoreCase);
+
+        static void PrintCasesDirNotFound(ConsoleWriter console, string path)
+            => console.WriteErrorLine($"error: Test cases directory not found at '{path}'.");
+
+        static void PrintMissingCasesWarning(ConsoleWriter console, IEnumerable<string> names)
+            => console.WriteLine($"warning: Test case(s) not found: {string.Join(", ", names)}", ConsoleColor.Yellow);
+
+        static void PrintUnverifiedCasesWarning(ConsoleWriter console, IEnumerable<string> names)
+            => console.WriteLine($"warning: Skipping test case(s) without expected snapshots: {string.Join(", ", names)}", ConsoleColor.Yellow);
+
+        static void PrintNoCasesFound(ConsoleWriter console, string path)
+            => console.WriteErrorLine($"error: No test cases found in '{path}'.");
+
+        static void PrintNoMatchingCases(ConsoleWriter console, IEnumerable<string> requestedCasesNames)
+            => console.WriteErrorLine($"error: No test cases found matching: {string.Join(", ", requestedCasesNames)}.");
+
+        static TestCasesSearchResult TryGetRequestedCases(DirectoryInfo casesDir, HashSet<string> requestedCases, ConsoleWriter console)
+        {
+            if (TryGetAllCases(casesDir, console) is not TestCasesSearchSuccess foundCases)
+                return new TestCasesSearchFailure();
+
+            var selectedCases = foundCases.TestCases
+                .Where(c => requestedCases.Contains(c.Name))
+                .ToList();
+
+            if (selectedCases.Count == 0)
+            {
+                PrintNoMatchingCases(console, requestedCases);
+                return new TestCasesSearchFailure();
+            }
+
+            return new TestCasesSearchSuccess(selectedCases);
+        }
+
+        static TestCasesSearchResult TryGetAllCases(DirectoryInfo casesDir, ConsoleWriter console)
+        {
+            if (!casesDir.Exists)
+            {
+                PrintCasesDirNotFound(console, casesDir.FullName);
+                return new TestCasesSearchFailure();
+            }
+
+            IReadOnlyList<TestCase> allCases = CaseDiscovery.DiscoverCases(casesDir);
+            if (allCases.Count == 0)
+            {
+                PrintNoCasesFound(console, casesDir.FullName);
+                return new TestCasesSearchFailure();
+            }
+
+            return new TestCasesSearchSuccess(allCases);
+        }
     }
 
-    static int RunSyntheticTest()
+    abstract record TestCasesSearchResult;
+    record TestCasesSearchSuccess(IReadOnlyList<TestCase> TestCases) : TestCasesSearchResult;
+    record TestCasesSearchFailure : TestCasesSearchResult;
+
+    static int CompareNodes<TCase>(
+        IEnumerable<TCase> cases,
+        Func<TCase, (JsonNode? Baseline, JsonNode? Target)> getNodes,
+        string baselineLabel,
+        string targetLabel,
+        DiffAnalysisFormatter formatter,
+        ProcessLogger logger)
+        where TCase : TestCase
     {
-        ConsoleReporter.PrintHeader("Running Synthetic Tree Differ Verification Test");
-
-        // Construct Expected node tree
-        var expectedTree = new JsonObject
+        using IEnumerator<TCase> caseEnumerator = cases.GetEnumerator();
+        if (!caseEnumerator.MoveNext())
         {
-            ["kind"] = "Struct",
-            ["localName"] = "MyTypeName",
-            ["nestedTypes"] = new JsonArray
-            {
-                new JsonObject
-                {
-                    ["kind"] = "Struct",
-                    ["localName"] = "yNestedType",
-                    ["methods"] = new JsonArray
-                    {
-                        new JsonObject
-                        {
-                            ["name"] = "MyMethod",
-                            ["returnInfo"] = new JsonObject
-                            {
-                                ["type"] = new JsonObject { ["localName"] = "int" }
-                            },
-                            ["localFunctions"] = new JsonArray
-                            {
-                                new JsonObject
-                                {
-                                    ["name"] = "MyLocalFuncA",
-                                    ["localFunctions"] = new JsonArray
-                                    {
-                                        new JsonObject
-                                        {
-                                            ["name"] = "MyLocalFuncB",
-                                            ["parameters"] = new JsonArray
-                                            {
-                                                new JsonObject
-                                                {
-                                                    ["name"] = "paramName",
-                                                    ["position"] = 3,
-                                                    ["modifiers"] = "scoped ref",
-                                                    ["type"] = new JsonObject { ["localName"] = "int" }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        };
-
-        // Construct Actual node tree with intentional discrepancies:
-        // 1. Parameter 3 modifiers: "ref" instead of "scoped ref"
-        // 2. MyMethod return type: "string" instead of "int"
-        // 3. Unexpected property: "extraDebugField" on root
-        var actualTree = new JsonObject
-        {
-            ["kind"] = "Struct",
-            ["localName"] = "MyTypeName",
-            ["extraDebugField"] = "unexpected",
-            ["nestedTypes"] = new JsonArray
-            {
-                new JsonObject
-                {
-                    ["kind"] = "Struct",
-                    ["localName"] = "yNestedType",
-                    ["methods"] = new JsonArray
-                    {
-                        new JsonObject
-                        {
-                            ["name"] = "MyMethod",
-                            ["returnInfo"] = new JsonObject
-                            {
-                                ["type"] = new JsonObject { ["localName"] = "string" }
-                            },
-                            ["localFunctions"] = new JsonArray
-                            {
-                                new JsonObject
-                                {
-                                    ["name"] = "MyLocalFuncA",
-                                    ["localFunctions"] = new JsonArray
-                                    {
-                                        new JsonObject
-                                        {
-                                            ["name"] = "MyLocalFuncB",
-                                            ["parameters"] = new JsonArray
-                                            {
-                                                new JsonObject
-                                                {
-                                                    ["name"] = "paramName",
-                                                    ["position"] = 3,
-                                                    ["modifiers"] = "ref",
-                                                    ["type"] = new JsonObject { ["localName"] = "int" }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        };
-
-        var report = SemanticTreeDiffer.Compare(expectedTree, actualTree, "MyTypeName");
-
-        ConsoleReporter.PrintDifferences(report.Differences);
-
-        bool hasParamMismatch = report.Differences.Any(d =>
-            d.Message.Contains("Parameter 3 of MyTypeName.yNestedType.MyMethod.MyLocalFuncA.MyLocalFuncB has to be 'scoped ref int paramName'; got 'ref int paramName'."));
-
-        bool hasReturnTypeMismatch = report.Differences.Any(d =>
-            d.Path.Contains("returnInfo") && d.Actual == "string");
-
-        bool hasExtraProperty = report.Differences.Any(d =>
-            d.Path.Contains("extraDebugField"));
-
-        if (hasParamMismatch && hasReturnTypeMismatch && hasExtraProperty)
-        {
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("\n[SYNTHETIC TEST VERIFIED] SemanticTreeDiffer correctly detected and formatted all discrepancies with exact breadcrumbs.");
-            Console.ResetColor();
+            logger.Warning("No test cases specified.");
             return 0;
         }
 
-        Console.ForegroundColor = ConsoleColor.Red;
-        Console.WriteLine("\n[SYNTHETIC TEST FAILED] One or more expected discrepancies were not formatted as expected.");
-        Console.ResetColor();
-        return 1;
-    }
+        int totalCases = 0, passed = 0, failed = 0, totalDiffs = 0;
 
-    static int RunComparison(string targetA, string targetB, string? caseFilter)
-    {
-        var validTargets = new HashSet<string> { "roslyn", "reflection", "expected" };
-        if (!validTargets.Contains(targetA) || !validTargets.Contains(targetB) || targetA == targetB)
+        do
         {
-            PrintUsageError($"Invalid comparison pair '{targetA}' vs '{targetB}'. Choose two distinct targets from: roslyn, reflection, expected.");
-            return 1;
-        }
+            totalCases++;
+            TCase caseInfo = caseEnumerator.Current;
 
-        var cases = CaseDiscovery.DiscoverCases();
-        if (!string.IsNullOrEmpty(caseFilter))
-        {
-            cases = cases.Where(c => c.Name.Contains(caseFilter, StringComparison.OrdinalIgnoreCase)).ToList();
-        }
+            formatter.FormatCaseStart(caseInfo.Name, baselineLabel, targetLabel);
 
-        if (cases.Count == 0)
-        {
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine($"No test cases found in assembly embedded resources{(caseFilter != null ? $" matching filter '{caseFilter}'" : "")}.");
-            Console.ResetColor();
-            return 0;
-        }
-
-        int passed = 0;
-        int failed = 0;
-        int totalDiffs = 0;
-
-        foreach (var testCase in cases)
-        {
-            Console.WriteLine($"\nRunning Case: {testCase.Name} (Comparing {targetA} vs {targetB})...");
-
+            int diffs = 0;
             try
             {
-                using var compResult = CompilationHarness.Compile(testCase.SourceCode, testCase.Name);
+                (JsonNode? baselineNode, JsonNode? targetNode) = getNodes(caseInfo);
 
-                JsonNode? nodeA = GetTargetNode(targetA, testCase, compResult);
-                JsonNode? nodeB = GetTargetNode(targetB, testCase, compResult);
-
-                if (nodeA == null || nodeB == null)
+                if (targetNode is null || baselineNode is null)
                 {
-                    ConsoleReporter.PrintCaseFailure(testCase.Name, 1);
+                    formatter.FormatCaseError(caseInfo.Name, "Failed to produce JSON node for comparison.");
                     failed++;
                     continue;
                 }
 
-                // The second argument (targetB) is the correct baseline; the first argument (targetA) is compared against it.
-                var diffReport = SemanticTreeDiffer.Compare(nodeB, nodeA, testCase.Name);
-                if (diffReport.HasDifferences)
-                {
-                    failed++;
-                    totalDiffs += diffReport.Differences.Count;
-                    ConsoleReporter.PrintCaseFailure(testCase.Name, diffReport.Differences.Count);
-                    ConsoleReporter.PrintDifferences(diffReport.Differences, targetB, targetA);
-                }
-                else
-                {
-                    passed++;
-                    ConsoleReporter.PrintCaseSuccess(testCase.Name);
-                }
+                DiffReport diffReport = SemanticTreeDiffer.Compare(baselineNode, targetNode, caseInfo.Name);
+                formatter.FormatCaseResult(caseInfo.Name, diffReport, baselineLabel, targetLabel);
+                diffs = diffReport.Differences.Count;
             }
             catch (Exception ex)
             {
                 failed++;
-                ConsoleReporter.PrintCaseFailure(testCase.Name, 1);
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine($"      Exception: {ex.Message}");
-                Console.ResetColor();
-            }
-        }
-
-        ConsoleReporter.PrintSummary(cases.Count, passed, failed, totalDiffs);
-        return failed == 0 ? 0 : 1;
-    }
-
-    static JsonNode? GetTargetNode(string target, TestCase testCase, CompilationResult compResult)
-    {
-        switch (target)
-        {
-            case "expected":
-                if (string.IsNullOrWhiteSpace(testCase.ExpectedJson))
-                {
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine($"      Missing expected snapshot for '{testCase.Name}'. Run with --update-snapshots to create it.");
-                    Console.ResetColor();
-                    return null;
-                }
-                return JsonNode.Parse(testCase.ExpectedJson);
-
-            case "roslyn":
-                var roslynRoots = new JsonArray();
-                foreach (var sym in compResult.RoslynTopLevelTypes)
-                {
-                    var declaredType = RectaleafRoslyn.FromSymbol(sym);
-                    roslynRoots.Add(DeclaredTypeTreeSerializer.Serialize(declaredType));
-                }
-                return roslynRoots.Count == 1 ? roslynRoots[0] : roslynRoots;
-
-            case "reflection":
-                var reflRoots = new JsonArray();
-                foreach (var t in compResult.ReflectionTopLevelTypes)
-                {
-                    var declaredType = RectaleafReflection.FromDeclaredType(t);
-                    reflRoots.Add(DeclaredTypeTreeSerializer.Serialize(declaredType));
-                }
-                return reflRoots.Count == 1 ? reflRoots[0] : reflRoots;
-
-            default:
-                throw new InvalidOperationException($"Unknown target '{target}'.");
-        }
-    }
-
-    static int UpdateSnapshots(string backend, string targetFile)
-    {
-        var cases = CaseDiscovery.DiscoverCases();
-
-        if (targetFile.Equals("all", StringComparison.OrdinalIgnoreCase))
-        {
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.Write($"Are you sure you want to update ALL {cases.Count} snapshot(s) using backend '{backend}'? (Y/N): ");
-            Console.ResetColor();
-
-            var response = Console.ReadLine()?.Trim();
-            if (!string.Equals(response, "y", StringComparison.OrdinalIgnoreCase))
-            {
-                Console.WriteLine("Snapshot update aborted by user.");
-                return 0;
-            }
-        }
-        else
-        {
-            cases = cases.Where(c => c.Name.Equals(targetFile, StringComparison.OrdinalIgnoreCase)
-                || c.Name.Equals(Path.GetFileName(targetFile), StringComparison.OrdinalIgnoreCase)).ToList();
-
-            if (cases.Count == 0)
-            {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine($"No test case found matching '{targetFile}'.");
-                Console.ResetColor();
-                return 1;
-            }
-        }
-
-        int updatedCount = 0;
-        foreach (var testCase in cases)
-        {
-            if (string.IsNullOrEmpty(testCase.DiskExpectedFilePath))
-            {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine($"Cannot update snapshot for '{testCase.Name}': disk destination path could not be determined.");
-                Console.ResetColor();
+                formatter.FormatCaseError(caseInfo.Name, ex.Message);
+                logger.Detail($"Exception details for '{caseInfo.Name}': {ex}");
                 continue;
             }
 
+            if (diffs == 0)
+            {
+                passed++;
+            }
+            else
+            {
+                failed++;
+                totalDiffs += diffs;
+            }
+        }
+        while (caseEnumerator.MoveNext());
+
+        formatter.FormatSummary(totalCases, passed, failed, totalDiffs);
+        return failed == 0 ? 0 : 1;
+    }
+
+    static int CompareBackendToBackend(
+        TargetBackend target,
+        TargetBackend baseline,
+        IEnumerable<TestCase> cases,
+        DiffAnalysisFormatter formatter,
+        ProcessLogger logger)
+    {
+        if (target == baseline)
+        {
+            logger.Error($"Cannot compare backend '{target}' against itself.");
+            return 1;
+        }
+
+        return CompareNodes(
+            cases,
+            testCase =>
+            {
+                using CompilationResult comp = CompilationHarness.Compile(ReadSourceCode(testCase), testCase.Name);
+                return (GetTargetNode(baseline, comp), GetTargetNode(target, comp));
+            },
+            baseline.ToString().ToLowerInvariant(),
+            target.ToString().ToLowerInvariant(),
+            formatter,
+            logger);
+    }
+
+    static int CompareBackendToExpected(
+        TargetBackend backend,
+        IEnumerable<VerifiedTestCase> cases,
+        DiffAnalysisFormatter formatter,
+        ProcessLogger logger)
+    {
+        return CompareNodes(
+            cases,
+            testCase =>
+            {
+                using CompilationResult comp = CompilationHarness.Compile(ReadSourceCode(testCase), testCase.Name);
+                return (GetExpectedNode(testCase), GetTargetNode(backend, comp));
+            },
+            "expected",
+            backend.ToString().ToLowerInvariant(),
+            formatter,
+            logger);
+    }
+
+    static JsonNode? GetExpectedNode(VerifiedTestCase testCase)
+    {
+        using FileStream stream = testCase.SnapshotFile.OpenRead();
+        return JsonNode.Parse(stream);
+    }
+
+    enum TargetBackend
+    {
+        Roslyn,
+        Reflection,
+    }
+
+    static JsonNode? GetTargetNode(TargetBackend backend, CompilationResult compResult)
+    {
+        switch (backend)
+        {
+            case TargetBackend.Roslyn:
+                if (compResult.RoslynTopLevelTypes.Count == 1)
+                    return DeclaredTypeTreeSerializer.Serialize(RectaleafRoslyn.FromSymbol(compResult.RoslynTopLevelTypes[0]));
+
+                return new JsonArray([.. compResult.RoslynTopLevelTypes
+                        .Select(t => DeclaredTypeTreeSerializer.Serialize(RectaleafRoslyn.FromSymbol(t)))]);
+
+            case TargetBackend.Reflection:
+                if (compResult.ReflectionTopLevelTypes.Count == 1)
+                    return DeclaredTypeTreeSerializer.Serialize(RectaleafReflection.FromDeclaredType(compResult.ReflectionTopLevelTypes[0]));
+
+                return new JsonArray([.. compResult.ReflectionTopLevelTypes
+                        .Select(t => DeclaredTypeTreeSerializer.Serialize(RectaleafReflection.FromDeclaredType(t)))]);
+
+            default:
+                throw new InvalidOperationException($"Unknown target '{backend}'.");
+        }
+    }
+
+    static int UpdateSnapshots(TargetBackend backend, DirectoryInfo outputDirectory, IEnumerable<TestCase> cases, ProcessLogger logger)
+    {
+        using IEnumerator<TestCase> caseEnumerator = cases.GetEnumerator();
+
+        if (!caseEnumerator.MoveNext())
+        {
+            logger.Error("No test cases specified.");
+            return 1;
+        }
+
+        if (!outputDirectory.Exists)
+            outputDirectory.Create();
+
+        JsonSerializerOptions options = new()
+        {
+            WriteIndented = true,
+            Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping
+        };
+
+        int updatedCount = 0;
+        do
+        {
+            TestCase testCase = caseEnumerator.Current;
             try
             {
-                using var compResult = CompilationHarness.Compile(testCase.SourceCode, testCase.Name);
-                var targetNode = GetTargetNode(backend, testCase, compResult);
+                using CompilationResult compResult = CompilationHarness.Compile(ReadSourceCode(testCase), testCase.Name);
+                JsonNode? targetNode = GetTargetNode(backend, compResult);
 
-                    var options = new JsonSerializerOptions
-                    {
-                        WriteIndented = true,
-                        Encoder = System.Text.Encodings.Web.JavaScriptEncoder.UnsafeRelaxedJsonEscaping
-                    };
-                    if (targetNode == null)
-                    {
-                        Console.ForegroundColor = ConsoleColor.Red;
-                        Console.WriteLine($"  [FAILED] Failed updating snapshot for '{testCase.Name}': null target node");
-                        Console.ResetColor();
-                        continue;
-                    }
-                    string json = targetNode.ToJsonString(options);
-                    File.WriteAllText(testCase.DiskExpectedFilePath, json);
-                    Console.ForegroundColor = ConsoleColor.Green;
-                    Console.WriteLine($"  [UPDATED] Snapshot saved to: {testCase.DiskExpectedFilePath}");
-                    Console.ResetColor();
-                    updatedCount++;
+                if (targetNode is null)
+                {
+                    logger.Error($"Failed updating snapshot for '{testCase.Name}': target backend '{backend.ToString().ToLowerInvariant()}' produced null node.");
+                    continue;
+                }
+
+                string snapshotPath = Path.Combine(outputDirectory.FullName, $"{testCase.Name}.expected.json");
+                string json = targetNode.ToJsonString(options);
+                File.WriteAllText(snapshotPath, json);
+
+                logger.Info($"  [UPDATED] Snapshot saved to: {snapshotPath}");
+                updatedCount++;
             }
             catch (Exception ex)
             {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine($"  [FAILED] Failed updating snapshot for '{testCase.Name}': {ex.Message}");
-                Console.ResetColor();
+                logger.Error($"Failed updating snapshot for '{testCase.Name}': {ex.Message}");
             }
         }
+        while (caseEnumerator.MoveNext());
 
-        Console.WriteLine($"\nUpdated {updatedCount} snapshot file(s).");
+        logger.Info($"\nUpdated {updatedCount} snapshot file(s) in '{outputDirectory.FullName}'.");
         return 0;
     }
+
+    static string ReadSourceCode(TestCase testCase) => testCase switch
+    {
+        VerifiedTestCase v => File.ReadAllText(v.CodeFile.FullName),
+        NotVerifiedTestCase nv => File.ReadAllText(nv.CodeFile.FullName),
+        _ => throw new InvalidOperationException($"Unknown test case type: {testCase.GetType()}")
+    };
 }

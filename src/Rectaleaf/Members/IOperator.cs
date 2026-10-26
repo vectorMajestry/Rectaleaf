@@ -1,4 +1,4 @@
-﻿using Rectaleaf.Metadata.TypeUsages.Interfaces;
+using Rectaleaf.Metadata.TypeUsages.Interfaces;
 using Rectaleaf.Components;
 
 namespace Rectaleaf.Metadata.Members;
@@ -8,8 +8,10 @@ namespace Rectaleaf.Metadata.Members;
 /// </summary>
 public interface IOperator : IHasLocalFunctions
 {
+    IHasOperators DeclaringType { get; }
     AccessModifier AccessModifier { get; }
     IInheritanceKind<IOperator> Inheritance { get; }
+    IReadOnlyList<IAttribute> GetAttributes();
 }
 
 /// <summary>

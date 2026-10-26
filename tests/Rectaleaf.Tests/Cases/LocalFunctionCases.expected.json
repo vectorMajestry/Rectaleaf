@@ -185,7 +185,8 @@
                       "hasConstructorConstraint": true,
                       "hasAllowsRefStructConstraint": false,
                       "hasDefaultConstraint": false,
-                      "constraintTypes": []
+                      "constraintTypes": [],
+                      "attributes": []
                     }
                   ],
                   "attributes": [],
@@ -413,6 +414,7 @@
       "declaringType": "TestCases.LocalFunctionContainer",
       "accessModifier": "Public",
       "isPrimary": false,
+      "hasArglistParameter": false,
       "parameters": [
         {
           "name": "initial",
@@ -472,6 +474,7 @@
   "staticConstructor": null,
   "operators": [
     {
+      "declaringType": "TestCases.LocalFunctionContainer",
       "accessModifier": "Public",
       "inheritance": {
         "kind": "None"
@@ -516,6 +519,7 @@
         },
         "attributes": []
       },
+      "attributes": [],
       "localFunctions": [
         {
           "name": "CombineStates",

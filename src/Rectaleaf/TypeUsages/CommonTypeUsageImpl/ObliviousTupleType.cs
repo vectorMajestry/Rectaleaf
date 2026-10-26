@@ -5,5 +5,5 @@ namespace Rectaleaf.Metadata.TypeUsages.CommonTypeUsageImpl;
 
 public sealed class ObliviousTupleType<TKind>(
     IBoundGenericType<TKind, IStructType> underlyingValueTupleType,
-    NullabilityKind nullability) : ChainTupleType<TKind>(underlyingValueTupleType, nullability), IObliviousTupleType<TKind>
+    NullabilityKind nullability) : TupleType<TKind>(underlyingValueTupleType, nullability), IObliviousTupleType<TKind>
     where TKind : IKnownOrNot;

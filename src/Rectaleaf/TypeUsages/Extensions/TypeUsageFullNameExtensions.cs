@@ -141,7 +141,7 @@ public static class TypeUsageFullNameExtensions
                 string baseName = tuple switch
                 {
                     IRichTupleType<IKnown> rich => WrapperNameFormatter.RichTupleName(rich.Elements.Select(e => (e.Type.FullyQualifiedName, e.Name))),
-                    IChainTupleType<IKnown> => tuple.UnderlyingValueTupleType.FullyQualifiedName,
+                    IExplicitValueTupleType<IKnown> or IObliviousTupleType<IKnown> => tuple.UnderlyingValueTupleType.FullyQualifiedName,
                     _ => throw new InvalidOperationException("Unreachable case.")
                 };
 

@@ -1,10 +1,4 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using Microsoft.CodeAnalysis;
-using Rectaleaf.Components;
-using Rectaleaf.Members;
-using Rectaleaf.Metadata;
 using Rectaleaf.Metadata.DeclaredTypes;
 using Rectaleaf.Metadata.Members;
 using Rectaleaf.Metadata.TypeUsages.CommonTypeUsageImpl;

@@ -80,7 +80,7 @@ public sealed class TypeUsageEqualityComparer : IEqualityComparer<ITypeUsage<IKn
                 : HashCode.Combine(PlaceholderDiscriminator, (int)p.Nullability, p.Info.Position, p.Info.Source),
         IBoundGenericType<IIncomplete, IHasGenericParameters> bg => GetHashCodeIncompleteBoundGeneric(bg),
         IRichTupleType<IIncomplete> rich => GetHashCodeIncompleteRichTuple(rich),
-        IChainTupleType<IIncomplete> chain => GetHashCodeIncompleteChainTuple(chain),
+        ITupleType<IIncomplete> chain => GetHashCodeIncompleteChainTuple(chain),
         IManagedFunctionPointerType<IIncomplete> man => GetHashCodeIncompleteManagedFuncPtr(man),
         IUnmanagedFunctionPointerType<IIncomplete> unman => GetHashCodeIncompleteUnmanagedFuncPtr(unman),
         _ => throw new InvalidOperationException("Unreachable case.")
@@ -116,14 +116,14 @@ public sealed class TypeUsageEqualityComparer : IEqualityComparer<ITypeUsage<IKn
         return hash.ToHashCode();
     }
 
-    internal int GetHashCodeIncompleteChainTuple(IChainTupleType<IIncomplete> chain)
+    internal int GetHashCodeIncompleteChainTuple(ITupleType<IIncomplete> chain)
     {
         var hash = new HashCode();
         hash.Add(ChainOrObliviousTupleDiscriminator);
         if (!ignoreNullability)
             hash.Add(chain.Nullability);
 
-        foreach (var elem in chain.ElementTypes)
+        foreach (var elem in chain.GetElementTypes())
             hash.Add(GetHashCode(elem));
 
         return hash.ToHashCode();
@@ -232,8 +232,8 @@ public sealed class TypeUsageEqualityComparer : IEqualityComparer<ITypeUsage<IKn
                 && xBg.TypeArguments.ZipAndCompare(yBg.TypeArguments, Equals),
             (IRichTupleType<IKnown> xRich, IRichTupleType<IKnown> yRich)
                 => xRich.Elements.ZipAndCompare(yRich.Elements, TupleElementEquals),
-            (IChainTupleType<IKnown> xChain, IChainTupleType<IKnown> yChain)
-                => xChain.ElementTypes.ZipAndCompare(yChain.ElementTypes, Equals),
+            (ITupleType<IKnown> xChain, ITupleType<IKnown> yChain) when xChain is not IRichTupleType<IKnown> && yChain is not IRichTupleType<IKnown>
+                => xChain.GetElementTypes().ZipAndCompare(yChain.GetElementTypes(), Equals),
             (IFunctionPointerType<IKnown> xFp, IFunctionPointerType<IKnown> yFp)
                 => FunctionPointerEquals(xFp, yFp),
             _ => false
@@ -248,8 +248,8 @@ public sealed class TypeUsageEqualityComparer : IEqualityComparer<ITypeUsage<IKn
                 && xBg.TypeArguments.ZipAndCompare(yBg.TypeArguments, Equals),
             (IRichTupleType<IIncomplete> xRich, IRichTupleType<IIncomplete> yRich)
                 => xRich.Elements.ZipAndCompare(yRich.Elements, TupleElementEquals),
-            (IChainTupleType<IIncomplete> xChain, IChainTupleType<IIncomplete> yChain)
-                => xChain.ElementTypes.ZipAndCompare(yChain.ElementTypes, Equals),
+            (ITupleType<IIncomplete> xChain, ITupleType<IIncomplete> yChain) when xChain is not IRichTupleType<IIncomplete> && yChain is not IRichTupleType<IIncomplete>
+                => xChain.GetElementTypes().ZipAndCompare(yChain.GetElementTypes(), Equals),
             (IFunctionPointerType<IIncomplete> xFp, IFunctionPointerType<IIncomplete> yFp)
                 => FunctionPointerEquals(xFp, yFp),
             _ => false

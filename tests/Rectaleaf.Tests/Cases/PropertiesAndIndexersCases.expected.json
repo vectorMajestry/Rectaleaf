@@ -54,7 +54,7 @@
           "localName": "EventHandler?",
           "nullability": "Nullable",
           "usageKind": "Plain",
-          "typeDefinition": "System.EventHandler?"
+          "typeDefinition": "System.EventHandler"
         },
         "isReadOnly": false,
         "isVolatile": false,
@@ -550,7 +550,7 @@
     ],
     "indexers": [
       {
-        "name": "this[]",
+        "name": "Grid",
         "declaringType": "TestCases.PropertyAndIndexerContainer",
         "type": {
           "localName": "int",
@@ -592,16 +592,7 @@
             "attributes": []
           }
         ],
-        "attributes": [
-          {
-            "name": "IndexerNameAttribute",
-            "fullyQualifiedName": "System.Runtime.CompilerServices.IndexerNameAttribute",
-            "constructorArguments": [
-              "Grid"
-            ],
-            "namedArguments": {}
-          }
-        ],
+        "attributes": [],
         "accessors": [
           {
             "kind": "get",
@@ -712,7 +703,7 @@
         ]
       },
       {
-        "name": "this[]",
+        "name": "Grid",
         "declaringType": "TestCases.PropertyAndIndexerContainer",
         "type": {
           "localName": "int",
@@ -740,16 +731,7 @@
             "attributes": []
           }
         ],
-        "attributes": [
-          {
-            "name": "IndexerNameAttribute",
-            "fullyQualifiedName": "System.Runtime.CompilerServices.IndexerNameAttribute",
-            "constructorArguments": [
-              "Grid"
-            ],
-            "namedArguments": {}
-          }
-        ],
+        "attributes": [],
         "accessors": [
           {
             "kind": "get",
@@ -840,7 +822,7 @@
           "localName": "Action?",
           "nullability": "Nullable",
           "usageKind": "Plain",
-          "typeDefinition": "System.Action?"
+          "typeDefinition": "System.Action"
         },
         "accessModifier": "Public",
         "isStatic": false,
@@ -870,7 +852,7 @@
                 "localName": "Action?",
                 "nullability": "Nullable",
                 "usageKind": "Plain",
-                "typeDefinition": "System.Action?"
+                "typeDefinition": "System.Action"
               },
               "hasDefaultValue": false,
               "defaultValue": null,
@@ -899,7 +881,7 @@
                 "localName": "Action?",
                 "nullability": "Nullable",
                 "usageKind": "Plain",
-                "typeDefinition": "System.Action?"
+                "typeDefinition": "System.Action"
               },
               "hasDefaultValue": false,
               "defaultValue": null,
@@ -991,6 +973,7 @@
         "declaringType": "TestCases.PropertyAndIndexerContainer",
         "accessModifier": "Public",
         "isPrimary": false,
+        "hasArglistParameter": false,
         "parameters": [],
         "attributes": [],
         "localFunctions": []
@@ -1041,7 +1024,7 @@
     "properties": [],
     "indexers": [
       {
-        "name": "this[]",
+        "name": "Measurements",
         "declaringType": "TestCases.OptionalParamIndexerContainer",
         "type": {
           "localName": "double",
@@ -1097,16 +1080,7 @@
             "attributes": []
           }
         ],
-        "attributes": [
-          {
-            "name": "IndexerNameAttribute",
-            "fullyQualifiedName": "System.Runtime.CompilerServices.IndexerNameAttribute",
-            "constructorArguments": [
-              "Measurements"
-            ],
-            "namedArguments": {}
-          }
-        ],
+        "attributes": [],
         "accessors": [
           {
             "kind": "get",
@@ -1251,6 +1225,7 @@
         "declaringType": "TestCases.OptionalParamIndexerContainer",
         "accessModifier": "Public",
         "isPrimary": false,
+        "hasArglistParameter": false,
         "parameters": [],
         "attributes": [],
         "localFunctions": []

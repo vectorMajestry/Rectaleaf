@@ -5,10 +5,10 @@ using System.Runtime.CompilerServices;
 
 namespace Rectaleaf.Metadata.TypeUsages.CommonTypeUsageImpl;
 
-public abstract class ChainTupleType<TKind> : TypeUsage<TKind>, IChainTupleType<TKind>
+public abstract class TupleType<TKind> : TypeUsage<TKind>, ITupleType<TKind>
     where TKind : IKnownOrNot
 {
-    public ChainTupleType(IBoundGenericType<TKind, IStructType> underlyingValueTupleType, NullabilityKind nullability)
+    public TupleType(IBoundGenericType<TKind, IStructType> underlyingValueTupleType, NullabilityKind nullability)
     {
         UnderlyingValueTupleType = underlyingValueTupleType;
         Nullability = nullability;

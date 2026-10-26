@@ -54,6 +54,7 @@
         "declaringType": "TestCases.ModPoint",
         "accessModifier": "Public",
         "isPrimary": false,
+        "hasArglistParameter": false,
         "parameters": [
           {
             "name": "x",
@@ -91,6 +92,7 @@
         "declaringType": "TestCases.ModPoint",
         "accessModifier": "Public",
         "isPrimary": false,
+        "hasArglistParameter": false,
         "parameters": [],
         "attributes": [],
         "localFunctions": []
@@ -221,8 +223,8 @@
         "attributes": [],
         "fieldKind": "Regular",
         "type": {
-          "localName": "nint",
-          "nullability": "NonNullable",
+          "localName": "nint?",
+          "nullability": "Nullable",
           "usageKind": "Predefined",
           "predefinedKind": "NInt"
         },
@@ -395,10 +397,15 @@
             "position": 0,
             "modifiers": "In",
             "type": {
-              "localName": "ModPoint",
-              "nullability": "NonNullable",
-              "usageKind": "Plain",
-              "typeDefinition": "TestCases.ModPoint"
+              "localName": "ref readonly ModPoint",
+              "usageKind": "ByRef",
+              "isReadOnly": true,
+              "elementType": {
+                "localName": "ModPoint",
+                "nullability": "NonNullable",
+                "usageKind": "Plain",
+                "typeDefinition": "TestCases.ModPoint"
+              }
             },
             "hasDefaultValue": false,
             "defaultValue": null,
@@ -407,12 +414,17 @@
           {
             "name": "refReadOnlyPoint",
             "position": 1,
-            "modifiers": "None",
+            "modifiers": "RefReadOnly",
             "type": {
-              "localName": "ModPoint",
-              "nullability": "NonNullable",
-              "usageKind": "Plain",
-              "typeDefinition": "TestCases.ModPoint"
+              "localName": "ref readonly ModPoint",
+              "usageKind": "ByRef",
+              "isReadOnly": true,
+              "elementType": {
+                "localName": "ModPoint",
+                "nullability": "NonNullable",
+                "usageKind": "Plain",
+                "typeDefinition": "TestCases.ModPoint"
+              }
             },
             "hasDefaultValue": false,
             "defaultValue": null,
@@ -423,10 +435,15 @@
             "position": 2,
             "modifiers": "Ref",
             "type": {
-              "localName": "ModPoint",
-              "nullability": "NonNullable",
-              "usageKind": "Plain",
-              "typeDefinition": "TestCases.ModPoint"
+              "localName": "ref ModPoint",
+              "usageKind": "ByRef",
+              "isReadOnly": false,
+              "elementType": {
+                "localName": "ModPoint",
+                "nullability": "NonNullable",
+                "usageKind": "Plain",
+                "typeDefinition": "TestCases.ModPoint"
+              }
             },
             "hasDefaultValue": false,
             "defaultValue": null,
@@ -435,12 +452,17 @@
           {
             "name": "outPoint",
             "position": 3,
-            "modifiers": "Out, Scoped",
+            "modifiers": "Out",
             "type": {
-              "localName": "ModPoint",
-              "nullability": "NonNullable",
-              "usageKind": "Plain",
-              "typeDefinition": "TestCases.ModPoint"
+              "localName": "ref ModPoint",
+              "usageKind": "ByRef",
+              "isReadOnly": false,
+              "elementType": {
+                "localName": "ModPoint",
+                "nullability": "NonNullable",
+                "usageKind": "Plain",
+                "typeDefinition": "TestCases.ModPoint"
+              }
             },
             "hasDefaultValue": false,
             "defaultValue": null,
@@ -477,10 +499,15 @@
             "position": 0,
             "modifiers": "Ref, Scoped",
             "type": {
-              "localName": "ModPoint",
-              "nullability": "NonNullable",
-              "usageKind": "Plain",
-              "typeDefinition": "TestCases.ModPoint"
+              "localName": "ref ModPoint",
+              "usageKind": "ByRef",
+              "isReadOnly": false,
+              "elementType": {
+                "localName": "ModPoint",
+                "nullability": "NonNullable",
+                "usageKind": "Plain",
+                "typeDefinition": "TestCases.ModPoint"
+              }
             },
             "hasDefaultValue": false,
             "defaultValue": null,
@@ -491,10 +518,15 @@
             "position": 1,
             "modifiers": "In, Scoped",
             "type": {
-              "localName": "ModPoint",
-              "nullability": "NonNullable",
-              "usageKind": "Plain",
-              "typeDefinition": "TestCases.ModPoint"
+              "localName": "ref readonly ModPoint",
+              "usageKind": "ByRef",
+              "isReadOnly": true,
+              "elementType": {
+                "localName": "ModPoint",
+                "nullability": "NonNullable",
+                "usageKind": "Plain",
+                "typeDefinition": "TestCases.ModPoint"
+              }
             },
             "hasDefaultValue": false,
             "defaultValue": null,
@@ -531,10 +563,15 @@
             "position": 0,
             "modifiers": "In, Scoped",
             "type": {
-              "localName": "ModPoint",
-              "nullability": "NonNullable",
-              "usageKind": "Plain",
-              "typeDefinition": "TestCases.ModPoint"
+              "localName": "ref readonly ModPoint",
+              "usageKind": "ByRef",
+              "isReadOnly": true,
+              "elementType": {
+                "localName": "ModPoint",
+                "nullability": "NonNullable",
+                "usageKind": "Plain",
+                "typeDefinition": "TestCases.ModPoint"
+              }
             },
             "hasDefaultValue": false,
             "defaultValue": null,
@@ -557,12 +594,17 @@
           {
             "name": "absoluteMagnitude",
             "position": 2,
-            "modifiers": "Out, Scoped",
+            "modifiers": "Out",
             "type": {
-              "localName": "nuint",
-              "nullability": "NonNullable",
-              "usageKind": "Predefined",
-              "predefinedKind": "NUint"
+              "localName": "ref nuint",
+              "usageKind": "ByRef",
+              "isReadOnly": false,
+              "elementType": {
+                "localName": "nuint",
+                "nullability": "NonNullable",
+                "usageKind": "Predefined",
+                "predefinedKind": "NUint"
+              }
             },
             "hasDefaultValue": false,
             "defaultValue": null,
@@ -582,6 +624,7 @@
         "declaringType": "TestCases.ModifiersAndNativeContainer",
         "accessModifier": "Public",
         "isPrimary": false,
+        "hasArglistParameter": false,
         "parameters": [],
         "attributes": [],
         "localFunctions": []

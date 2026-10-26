@@ -54,6 +54,7 @@
         "declaringType": "TestCases.ExtPoint",
         "accessModifier": "Public",
         "isPrimary": false,
+        "hasArglistParameter": false,
         "parameters": [
           {
             "name": "x",
@@ -91,6 +92,7 @@
         "declaringType": "TestCases.ExtPoint",
         "accessModifier": "Public",
         "isPrimary": false,
+        "hasArglistParameter": false,
         "parameters": [],
         "attributes": [],
         "localFunctions": []
@@ -119,16 +121,33 @@
       {
         "declaringType": "TestCases.GeometryExtensions",
         "isStatic": false,
+        "isGeneric": false,
+        "extendedType": {
+          "localName": "ref ExtPoint",
+          "usageKind": "ByRef",
+          "isReadOnly": false,
+          "elementType": {
+            "localName": "ExtPoint",
+            "nullability": "NonNullable",
+            "usageKind": "Plain",
+            "typeDefinition": "TestCases.ExtPoint"
+          }
+        },
         "genericParameters": [],
         "receiver": {
           "name": "pt",
           "position": 0,
           "modifiers": "Ref",
           "type": {
-            "localName": "ExtPoint",
-            "nullability": "NonNullable",
-            "usageKind": "Plain",
-            "typeDefinition": "TestCases.ExtPoint"
+            "localName": "ref ExtPoint",
+            "usageKind": "ByRef",
+            "isReadOnly": false,
+            "elementType": {
+              "localName": "ExtPoint",
+              "nullability": "NonNullable",
+              "usageKind": "Plain",
+              "typeDefinition": "TestCases.ExtPoint"
+            }
           },
           "hasDefaultValue": false,
           "defaultValue": null,
@@ -265,16 +284,33 @@
       {
         "declaringType": "TestCases.GeometryExtensions",
         "isStatic": false,
+        "isGeneric": false,
+        "extendedType": {
+          "localName": "ref readonly ExtPoint",
+          "usageKind": "ByRef",
+          "isReadOnly": true,
+          "elementType": {
+            "localName": "ExtPoint",
+            "nullability": "NonNullable",
+            "usageKind": "Plain",
+            "typeDefinition": "TestCases.ExtPoint"
+          }
+        },
         "genericParameters": [],
         "receiver": {
           "name": "pt",
           "position": 0,
           "modifiers": "In",
           "type": {
-            "localName": "ExtPoint",
-            "nullability": "NonNullable",
-            "usageKind": "Plain",
-            "typeDefinition": "TestCases.ExtPoint"
+            "localName": "ref readonly ExtPoint",
+            "usageKind": "ByRef",
+            "isReadOnly": true,
+            "elementType": {
+              "localName": "ExtPoint",
+              "nullability": "NonNullable",
+              "usageKind": "Plain",
+              "typeDefinition": "TestCases.ExtPoint"
+            }
           },
           "hasDefaultValue": false,
           "defaultValue": null,
@@ -322,16 +358,33 @@
       {
         "declaringType": "TestCases.GeometryExtensions",
         "isStatic": false,
+        "isGeneric": false,
+        "extendedType": {
+          "localName": "ref ExtPoint",
+          "usageKind": "ByRef",
+          "isReadOnly": false,
+          "elementType": {
+            "localName": "ExtPoint",
+            "nullability": "NonNullable",
+            "usageKind": "Plain",
+            "typeDefinition": "TestCases.ExtPoint"
+          }
+        },
         "genericParameters": [],
         "receiver": {
           "name": "pt",
           "position": 0,
           "modifiers": "Ref, Scoped",
           "type": {
-            "localName": "ExtPoint",
-            "nullability": "NonNullable",
-            "usageKind": "Plain",
-            "typeDefinition": "TestCases.ExtPoint"
+            "localName": "ref ExtPoint",
+            "usageKind": "ByRef",
+            "isReadOnly": false,
+            "elementType": {
+              "localName": "ExtPoint",
+              "nullability": "NonNullable",
+              "usageKind": "Plain",
+              "typeDefinition": "TestCases.ExtPoint"
+            }
           },
           "hasDefaultValue": false,
           "defaultValue": null,
@@ -370,6 +423,13 @@
       {
         "declaringType": "TestCases.GeometryExtensions",
         "isStatic": false,
+        "isGeneric": false,
+        "extendedType": {
+          "localName": "string",
+          "nullability": "NonNullable",
+          "usageKind": "Predefined",
+          "predefinedKind": "String"
+        },
         "genericParameters": [],
         "receiver": {
           "name": "s",
@@ -453,13 +513,15 @@
       {
         "declaringType": "TestCases.GeometryExtensions",
         "isStatic": true,
-        "genericParameters": [],
+        "isGeneric": false,
         "extendedType": {
           "localName": "ExtPoint",
           "nullability": "NonNullable",
           "usageKind": "Plain",
           "typeDefinition": "TestCases.ExtPoint"
         },
+        "genericParameters": [],
+        "receiverAttributes": [],
         "methods": [
           {
             "name": "Create",
@@ -591,6 +653,31 @@
       {
         "declaringType": "TestCases.GeometryExtensions",
         "isStatic": false,
+        "isGeneric": true,
+        "extendedType": {
+          "localName": "Dictionary<TKey, TValue>",
+          "nullability": "NonNullable",
+          "usageKind": "BoundGeneric",
+          "typeDefinition": "System.Collections.Generic.Dictionary<TKey, TValue>",
+          "typeArguments": [
+            {
+              "localName": "TKey",
+              "nullability": "NonNullable",
+              "usageKind": "Placeholder",
+              "placeholderName": "TKey",
+              "placeholderPosition": 0,
+              "placeholderSource": "ExtensionBlock"
+            },
+            {
+              "localName": "TValue",
+              "nullability": "NonNullable",
+              "usageKind": "Placeholder",
+              "placeholderName": "TValue",
+              "placeholderPosition": 1,
+              "placeholderSource": "ExtensionBlock"
+            }
+          ]
+        },
         "genericParameters": [
           {
             "name": "TKey",
@@ -605,7 +692,8 @@
             "hasConstructorConstraint": false,
             "hasAllowsRefStructConstraint": false,
             "hasDefaultConstraint": false,
-            "constraintTypes": []
+            "constraintTypes": [],
+            "attributes": []
           },
           {
             "name": "TValue",
@@ -620,7 +708,8 @@
             "hasConstructorConstraint": false,
             "hasAllowsRefStructConstraint": false,
             "hasDefaultConstraint": false,
-            "constraintTypes": []
+            "constraintTypes": [],
+            "attributes": []
           }
         ],
         "receiver": {
@@ -758,6 +847,23 @@
       {
         "declaringType": "TestCases.GeometryExtensions",
         "isStatic": false,
+        "isGeneric": true,
+        "extendedType": {
+          "localName": "List<T>",
+          "nullability": "NonNullable",
+          "usageKind": "BoundGeneric",
+          "typeDefinition": "System.Collections.Generic.List<T>",
+          "typeArguments": [
+            {
+              "localName": "T",
+              "nullability": "NonNullable",
+              "usageKind": "Placeholder",
+              "placeholderName": "T",
+              "placeholderPosition": 0,
+              "placeholderSource": "ExtensionBlock"
+            }
+          ]
+        },
         "genericParameters": [
           {
             "name": "T",
@@ -772,7 +878,8 @@
             "hasConstructorConstraint": false,
             "hasAllowsRefStructConstraint": false,
             "hasDefaultConstraint": false,
-            "constraintTypes": []
+            "constraintTypes": [],
+            "attributes": []
           }
         ],
         "receiver": {

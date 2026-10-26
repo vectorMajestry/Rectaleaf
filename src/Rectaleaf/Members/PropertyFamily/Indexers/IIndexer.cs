@@ -1,5 +1,5 @@
-﻿using Rectaleaf.Metadata.TypeUsages.Interfaces;
-using Rectaleaf.Components;
+﻿using Rectaleaf.Components;
+using Rectaleaf.Metadata.TypeUsages.Interfaces;
 
 namespace Rectaleaf.Metadata.Members.PropertyFamily.Indexers;
 

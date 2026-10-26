@@ -28,6 +28,11 @@ public sealed class RichTupleType<TKind> : TypeUsage<TKind>, IRichTupleType<TKin
 
     public NullabilityKind Nullability { get; }
 
+#pragma warning disable CS0618
+    public IReadOnlyList<IComposableType<IKnownOrNot>> ElementTypesMixed
+        => field ??= Elements.Select(e => (IComposableType<IKnownOrNot>)e.Type).ToArray();
+#pragma warning restore CS0618
+
     string GetNotNullName() =>
         $"({string.Join(", ", Elements.Select(e => e.Name is not null ? $"{e.Type.LocalName} {e.Name}" : e.Type.LocalName))})";
 }

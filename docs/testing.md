@@ -1,18 +1,24 @@
+docs-unslop conformant.
+
 # Rectaleaf test suite
 
 The test runner verifies that Rectaleaf backends follow the specification. It passes a premade set of numerous C# type declarations to the chosen backend (e.g., Rectaleaf.Reflection) and compares the model it produces to the expected type structure. It is a console application that can be executed with `dotnet run --project tests/Rectaleaf.Tests -- <command>`. The following commands are supported:
 
+#### Verify
+`verify <backend> [--case <case name>]`
+
+Verifies the model produced by the specified backend against its expected snapshot and displays any differences found.
+
+`<backend>` has to be either `roslyn` or `reflection`.
+
 #### Compare
-`--compare <subject> <baseline> [--case <file.cs>]`
+`--compare <subject> <baseline> [--case <case name>]`
 
-Compares the model produced by the specified backend against a certain baseline and displays any differences found.
+Compares the models produced by two specified backends and displays any differences found.
 
-`<subject>` and `<baseline>` can be one of the following: 
-- `expected`: pulls data from '[case_name].expected.json'. This file must be set up beforehand. See "Test case structure" section for details.
-- `roslyn`: compiles the test case and passes acquired ITypeSymbol to the Rectaleaf.Roslyn to create the type model. 
-- `reflection`: compiles the test case and passes acquired IType to the Rectaleaf.Reflection to create the type model. 
+`<subject>` and `<baseline>` can to be either `roslyn` or `reflection`.
 
-Append `--case <file.cs>` to run a single test case instead of all discovered cases.
+Append `--case <case name>` to run a single test case instead of all discovered cases.
 
 The exit code will be `0` if the two models match, or `1` if any discrepancy is detected.
 
@@ -21,23 +27,23 @@ When two models diverge, the differences are accumulated and printed as a struct
 ```text
   #1 Parameter 3 of MyTypeName.yNestedType.MyMethod.MyLocalFuncA.MyLocalFuncB
       Path:         MyTypeName.nestedTypes.yNestedType.methods.MyMethod.localFunctions.MyLocalFuncA.localFunctions.MyLocalFuncB.parameters.paramName
-      Expected:     [AttribName] scoped ref int paramName
+      Reflection:   [AttribName] scoped ref int paramName
       Roslyn:       [AttribName] ref int paramName
 ```
 
-The first label displays the output of the `<baseline>` . The second label displays the output of the `<subject>`.
+The first label displays the output of the `<baseline>`. The second label displays the output of the `<subject>`.
 
 ---
 
 #### Update snapshots
 
-`--update-snapshots <backend> <file.cs|all>`
+`--update-snapshots <backend> <case name|all>`
 
 Generates or overwrites `.expected.json` snapshot files on disk with data from the models produced by the specified backend.
 
  `<backend>` has to be either `roslyn` or `reflection`.
 
-Pass a specific test case file name to update one corresponding snapshot. Pass `all` to update all test cases. When passing `all`, confirmation is required.
+Pass a specific test case name to update one corresponding snapshot. Pass `all` to update all test cases. When passing `all`, confirmation is required.
 
 
 ## Test case structure

@@ -7,7 +7,6 @@ using Rectaleaf.Metadata.Members.PropertyFamily.Events;
 using Rectaleaf.Metadata.Members.PropertyFamily.Indexers;
 using Rectaleaf.Metadata.Members.PropertyFamily.Properties;
 using Rectaleaf.Metadata.TypeUsages.Interfaces;
-using System.Diagnostics.CodeAnalysis;
 using System.Text.Json.Nodes;
 
 namespace Rectaleaf.Tests.Infrastructure;
@@ -18,7 +17,7 @@ public static class DeclaredTypeTreeSerializer
     {
         ArgumentNullException.ThrowIfNull(type, nameof(type));
 
-        var node = new JsonObject
+        JsonObject node = new()
         {
             ["kind"] = GetTypeKind(type),
             ["localName"] = type.LocalName,
@@ -71,13 +70,14 @@ public static class DeclaredTypeTreeSerializer
 
             case IEnumType enumType:
                 node["underlyingType"] = SerializeTypeUsage(enumType.GetUnderlyingType());
-                var membersArr = new JsonArray();
+                JsonArray membersArr = new();
 
-                foreach (var m in enumType.Members)
+                foreach (IEnumMember m in enumType.Members)
                     membersArr.Add(new JsonObject
                     {
                         ["name"] = m.Name,
-                        ["value"] = m.Value?.ToString()
+                        ["value"] = m.Value?.ToString(),
+                        ["attributes"] = SerializeAttributes(m.GetAttributes())
                     });
 
                 node["enumMembers"] = membersArr;
@@ -149,7 +149,7 @@ public static class DeclaredTypeTreeSerializer
 
     static JsonObject SerializeField(IField<IKnownOrNot> field)
     {
-        var node = new JsonObject
+        JsonObject node = new()
         {
             ["name"] = field.Name,
             ["declaringType"] = field.DeclaringType.FullyQualifiedName,
@@ -197,7 +197,7 @@ public static class DeclaredTypeTreeSerializer
 
     static JsonObject SerializeMethod(IMethod method)
     {
-        var node = new JsonObject
+        JsonObject node = new()
         {
             ["name"] = method.Name,
             ["declaringType"] = method.DeclaringType.FullyQualifiedName,
@@ -253,7 +253,7 @@ public static class DeclaredTypeTreeSerializer
         _ => throw new InvalidOperationException($"Unrecognized declaring entity: {entity.GetType().FullName}")
     };
 
-    static JsonObject SerializeLocalFunction(ILocalFunction lf) => new JsonObject
+    static JsonObject SerializeLocalFunction(ILocalFunction lf) => new()
     {
         ["name"] = lf.Name,
         ["ordinal"] = lf.Ordinal,
@@ -279,18 +279,18 @@ public static class DeclaredTypeTreeSerializer
         bool isStatic = prop is IStaticProperty<IKnownOrNot, IAccess>
             || prop is IStaticRefProperty<IKnownOrNot, IMutOrNot>;
 
-        var node = new JsonObject
+        JsonObject node = new()
         {
             ["name"] = prop.Name,
             ["declaringType"] = prop.DeclaringType.FullyQualifiedName,
-            ["type"] = typeUsage != null ? SerializeTypeUsage(typeUsage) : null,
+            ["type"] = typeUsage is not null ? SerializeTypeUsage(typeUsage) : null,
             ["accessModifier"] = prop.AccessModifier.ToString(),
             ["isStatic"] = isStatic,
             ["inheritance"] = SerializeInheritance(prop.Inheritance),
             ["attributes"] = SerializeAttributes(prop.GetAttributes())
         };
 
-        var accessors = new List<JsonNode?>();
+        List<JsonNode?> accessors = [];
 #pragma warning disable CS0612
         if (prop.Accessors is IGet g) accessors.Add(SerializeAccessor("get", g.Getter));
         if (prop.Accessors is ISet s) accessors.Add(SerializeAccessor("set", s.Setter));
@@ -298,7 +298,7 @@ public static class DeclaredTypeTreeSerializer
 #pragma warning restore CS0612
         node["accessors"] = accessors.ToJsonArray();
 
-        if (prop is IRegularProperty<IKnownOrNot, IAccess> regProp && regProp.BackingField != null)
+        if (prop is IRegularProperty<IKnownOrNot, IAccess> regProp && regProp.BackingField is not null)
         {
             node["backingFieldName"] = regProp.BackingField.Name;
         }
@@ -315,18 +315,18 @@ public static class DeclaredTypeTreeSerializer
             _ => null
         };
 
-        var node = new JsonObject
+        JsonObject node = new()
         {
             ["name"] = idx.Name,
             ["declaringType"] = idx.DeclaringType.FullyQualifiedName,
-            ["type"] = typeUsage != null ? SerializeTypeUsage(typeUsage) : null,
+            ["type"] = typeUsage is not null ? SerializeTypeUsage(typeUsage) : null,
             ["accessModifier"] = idx.AccessModifier.ToString(),
             ["inheritance"] = SerializeInheritance(idx.Inheritance),
             ["parameters"] = SerializeParameters(idx.GetParameters()),
             ["attributes"] = SerializeAttributes(idx.GetAttributes())
         };
 
-        var accessors = new List<JsonNode?>();
+        List<JsonNode?> accessors = [];
 #pragma warning disable CS0612
         if (idx.Accessors is IGet g) accessors.Add(SerializeAccessor("get", g.Getter));
         if (idx.Accessors is ISet s) accessors.Add(SerializeAccessor("set", s.Setter));
@@ -339,7 +339,7 @@ public static class DeclaredTypeTreeSerializer
 
     static JsonObject SerializeEvent(IEvent<IKnownOrNot> evt)
     {
-        var node = new JsonObject
+        JsonObject node = new()
         {
             ["name"] = evt.Name,
             ["declaringType"] = evt.DeclaringType.FullyQualifiedName,
@@ -350,9 +350,9 @@ public static class DeclaredTypeTreeSerializer
             ["attributes"] = SerializeAttributes(evt.GetAttributes())
         };
 
-        var accessors = new List<JsonNode?>();
-        if (evt.AddAccessor != null) accessors.Add(SerializeAccessor("add", evt.AddAccessor));
-        if (evt.RemoveAccessor != null) accessors.Add(SerializeAccessor("remove", evt.RemoveAccessor));
+        List<JsonNode?> accessors = [];
+        if (evt.AddAccessor is not null) accessors.Add(SerializeAccessor("add", evt.AddAccessor));
+        if (evt.RemoveAccessor is not null) accessors.Add(SerializeAccessor("remove", evt.RemoveAccessor));
         node["accessors"] = accessors.ToJsonArray();
 
         return node;
@@ -360,7 +360,7 @@ public static class DeclaredTypeTreeSerializer
 
     static JsonObject SerializeAccessor(string kind, IAccessor<IKnownOrNot> accessor)
     {
-        var node = new JsonObject
+        JsonObject node = new()
         {
             ["kind"] = kind,
             ["isReadOnly"] = accessor.IsReadOnly,
@@ -400,6 +400,7 @@ public static class DeclaredTypeTreeSerializer
             ["declaringType"] = ctor.DeclaringType.FullyQualifiedName,
             ["accessModifier"] = ctor.AccessModifier.ToString(),
             ["isPrimary"] = ctor.IsPrimary,
+            ["hasArglistParameter"] = ctor.HasArglistParameter,
             ["parameters"] = SerializeParameters(ctor.GetParameters()),
             ["attributes"] = SerializeAttributes(ctor.GetAttributes()),
             ["localFunctions"] = ctor.GetLocalFunctions().Select(SerializeLocalFunction).ToJsonArray()
@@ -418,8 +419,9 @@ public static class DeclaredTypeTreeSerializer
 
     static JsonObject SerializeOperator(IOperator op)
     {
-        var node = new JsonObject
+        JsonObject node = new()
         {
+            ["declaringType"] = op.DeclaringType.FullyQualifiedName,
             ["accessModifier"] = op.AccessModifier.ToString(),
             ["inheritance"] = SerializeInheritance(op.Inheritance)
         };
@@ -453,16 +455,19 @@ public static class DeclaredTypeTreeSerializer
             throw new InvalidOperationException($"Unrecognized operator kind: {op.GetType().FullName}");
         }
 
+        node["attributes"] = SerializeAttributes(op.GetAttributes());
         node["localFunctions"] = op.GetLocalFunctions().Select(SerializeLocalFunction).ToJsonArray();
         return node;
     }
 
     static JsonObject SerializeExtensionBlock(IExtensionsBlock ext)
     {
-        var node = new JsonObject
+        JsonObject node = new()
         {
             ["declaringType"] = ext.DeclaringType.FullyQualifiedName,
             ["isStatic"] = ext is IStaticExtensionsBlock,
+            ["isGeneric"] = ext.IsGeneric,
+            ["extendedType"] = SerializeTypeUsage(ext.ExtendedType),
             ["genericParameters"] = SerializeGenericParameters(ext.GetGenericParameters())
         };
 
@@ -472,7 +477,7 @@ public static class DeclaredTypeTreeSerializer
         }
         else if (ext is IStaticExtensionsBlock statExt)
         {
-            node["extendedType"] = SerializeTypeUsage(statExt.ExtendedType);
+            node["receiverAttributes"] = SerializeAttributes(statExt.GetReceiverAttributes());
         }
 
         node["methods"] = ext.GetMethods().Select(SerializeMethod).ToJsonArray();
@@ -496,7 +501,7 @@ public static class DeclaredTypeTreeSerializer
 
     static JsonObject SerializeParameter(IParameter param, int position)
     {
-        bool hasDef = param.TryGetDefaultValue(out var defVal);
+        bool hasDef = param.TryGetDefaultValue(out object? defVal);
         return new JsonObject
         {
             ["name"] = param.Name,
@@ -538,12 +543,13 @@ public static class DeclaredTypeTreeSerializer
                 ConstraintPlaceholderType placeholder => (JsonNode)SerializeTypeUsage(placeholder.Type),
                 ConstraintDeclaredType decl => (JsonNode)SerializeTypeUsage(decl.Type),
                 _ => throw new InvalidOperationException($"Unrecognized constraint type: {c.GetType().FullName}")
-            }).ToJsonArray()
+            }).ToJsonArray(),
+            ["attributes"] = SerializeAttributes(gp.GetAttributes())
         }).ToJsonArray();
 
     public static JsonObject SerializeTypeUsage(ITypeUsage<IKnownOrNot> usage)
     {
-        var node = new JsonObject
+        JsonObject node = new()
         {
             ["localName"] = usage.LocalName
         };
@@ -630,10 +636,17 @@ public static class DeclaredTypeTreeSerializer
                 }).ToJsonArray();
                 break;
 
-            case IChainTupleType<IKnownOrNot> chainTuple:
-                node["usageKind"] = chainTuple is IExplicitValueTupleType<IKnownOrNot> ? "ExplicitValueTuple" : "ObliviousTuple";
+            case IExplicitValueTupleType<IKnownOrNot> explicitTuple:
+                node["usageKind"] = "ExplicitValueTuple";
 #pragma warning disable CS0618
-                node["elementTypes"] = chainTuple.ElementTypesMixed.Select(SerializeTypeUsage).ToJsonArray();
+                node["elementTypes"] = explicitTuple.ElementTypesMixed.Select(SerializeTypeUsage).ToJsonArray();
+#pragma warning restore CS0618
+                break;
+
+            case IObliviousTupleType<IKnownOrNot> obliviousTuple:
+                node["usageKind"] = "ObliviousTuple";
+#pragma warning disable CS0618
+                node["elementTypes"] = obliviousTuple.ElementTypesMixed.Select(SerializeTypeUsage).ToJsonArray();
 #pragma warning restore CS0618
                 break;
 
@@ -645,13 +658,26 @@ public static class DeclaredTypeTreeSerializer
     }
 
     static JsonArray SerializeAttributes(IReadOnlyList<IAttribute> attributes)
-        => attributes.Select(attr => (JsonNode)new JsonObject
+        => attributes.Select(attr => (JsonNode)SerializeAttribute(attr)).ToJsonArray();
+
+    static JsonObject SerializeAttribute(IAttribute attr)
+    {
+        IReadOnlyList<IParameter> ctorParams = attr.UsedConstructor.GetParameters();
+        JsonObject ctorArgs = new();
+        for (int i = 0; i < attr.ConstructorArguments.Count; i++)
         {
-            ["name"] = attr.Name,
-            ["fullyQualifiedName"] = attr.FullyQualifiedName,
-            ["constructorArguments"] = attr.ConstructorArguments.Select(arg => (JsonNode)FormatAttributeValue(arg)).ToJsonArray(),
-            ["namedArguments"] = new JsonObject(attr.NamedArguments.Select(kv => KeyValuePair.Create<string, JsonNode?>(kv.Key, FormatAttributeValue(kv.Value))))
-        }).ToJsonArray();
+            string paramName = i < ctorParams.Count ? ctorParams[i].Name : $"{i}";
+            ctorArgs[paramName] = FormatAttributeValue(attr.ConstructorArguments[i]);
+        }
+
+        return new JsonObject
+        {
+            ["underlyingType"] = SerializeTypeUsage(attr.UnderlyingType),
+            ["constructorArguments"] = ctorArgs,
+            ["namedArguments"] = new JsonObject(
+                attr.NamedArguments.Select(kv => KeyValuePair.Create<string, JsonNode?>(kv.Key, FormatAttributeValue(kv.Value))))
+        };
+    }
 
     static string FormatAttributeValue(AttributeValue val) => val switch
     {
@@ -667,7 +693,7 @@ public static class DeclaredTypeTreeSerializer
         if (enumVal.MemberValue is null)
             return $"{enumVal.EnumType.LocalName}.null";
 
-        var matchingMember = enumVal.EnumType.Members.FirstOrDefault(m => Equals(m.Value, enumVal.MemberValue));
+        IEnumMember? matchingMember = enumVal.EnumType.Members.FirstOrDefault(m => Equals(m.Value, enumVal.MemberValue));
         if (matchingMember is not null)
             return $"{enumVal.EnumType.LocalName}.{matchingMember.Name}";
 
@@ -676,17 +702,19 @@ public static class DeclaredTypeTreeSerializer
             ulong numericVal = Convert.ToUInt64(enumVal.MemberValue);
             if (numericVal != 0)
             {
-                var flagNames = new List<string>();
-                foreach (var m in enumVal.EnumType.Members)
+                List<string> flagNames = [];
+                ulong accumulated = 0;
+                foreach (IEnumMember m in enumVal.EnumType.Members)
                 {
                     ulong memberVal = Convert.ToUInt64(m.Value);
                     if (memberVal != 0 && (numericVal & memberVal) == memberVal && (memberVal & (memberVal - 1)) == 0)
                     {
                         flagNames.Add($"{enumVal.EnumType.LocalName}.{m.Name}");
+                        accumulated |= memberVal;
                     }
                 }
 
-                if (flagNames.Count > 0)
+                if (accumulated == numericVal && flagNames.Count > 0)
                     return string.Join(" | ", flagNames);
             }
         }
@@ -699,7 +727,7 @@ public static class DeclaredTypeTreeSerializer
     }
 
     static JsonObject SerializeInheritance<T>(IInheritanceKind<T> inheritance) where T : class
-        => new JsonObject
+        => new()
         {
             ["kind"] = inheritance switch
             {
