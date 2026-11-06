@@ -12,8 +12,16 @@ namespace Rectaleaf.Roslyn.Symbols;
 
 internal sealed class RoslynAttribute(AttributeData data) : IAttribute
 {
+    IDeclTypeUsage<IKnownOrNot, IRegularClassType>? underlyingType;
+    IInstanceConstructor? usedConstructor;
     IReadOnlyList<AttributeValue>? constructorArguments;
     IReadOnlyDictionary<string, AttributeValue>? namedArguments;
+
+    public IDeclTypeUsage<IKnownOrNot, IRegularClassType> UnderlyingType
+        => underlyingType ??= (IDeclTypeUsage<IKnownOrNot, IRegularClassType>)RoslynTypeUsageFactory.Create(data.AttributeClass!, NullableAnnotation.NotAnnotated);
+
+    public IInstanceConstructor UsedConstructor
+        => usedConstructor ??= (IInstanceConstructor)RectaleafRoslyn.FromConstructor(data.AttributeConstructor!);
 
     public string Name => data.AttributeClass?.Name ?? string.Empty;
 
@@ -36,6 +44,7 @@ internal sealed class RoslynAttribute(AttributeData data) : IAttribute
         if (name is "NullableAttribute"
             or "NullableContextAttribute"
             or "TupleElementNamesAttribute"
+            or "IndexerNameAttribute"
             or "IsReadOnlyAttribute"
             or "IsByRefLikeAttribute"
             or "IsUnmanagedAttribute"
@@ -65,7 +74,7 @@ internal sealed class RoslynAttribute(AttributeData data) : IAttribute
         return false;
     }
 
-    public static IReadOnlyList<IAttribute> FilterAndCreate(ImmutableArray<AttributeData> attributes)
+    public static IReadOnlyList<IAttribute> FilterAndCreate(ImmutableArray<AttributeData> attributes, bool excludeDefaultMember = false)
     {
         if (attributes.IsDefaultOrEmpty)
             return Array.Empty<IAttribute>();
@@ -73,8 +82,11 @@ internal sealed class RoslynAttribute(AttributeData data) : IAttribute
         List<IAttribute>? list = null;
         for (int i = 0; i < attributes.Length; i++)
         {
-            var attr = attributes[i];
+            AttributeData attr = attributes[i];
             if (IsCompilerInternalAttribute(attr))
+                continue;
+
+            if (excludeDefaultMember && attr.AttributeClass?.Name == "DefaultMemberAttribute")
                 continue;
 
             list ??= new List<IAttribute>(attributes.Length - i);
@@ -91,7 +103,7 @@ internal sealed class RoslynAttribute(AttributeData data) : IAttribute
 
         if (constant.Kind == TypedConstantKind.Enum)
         {
-            var enumType = constant.Type is INamedTypeSymbol nts ? RectaleafRoslyn.FromSymbol(nts) as IEnumType : null;
+            var enumType = constant.Type is INamedTypeSymbol nts ? RectaleafRoslyn.FromTypeDefinition(nts) as IEnumType : null;
             return new AttributeValueEnum(enumType!, constant.Value);
         }
 

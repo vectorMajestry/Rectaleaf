@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Rectaleaf.Tests": {
+      "commandName": "Project",
+      "commandLineArgs": "--verify roslyn"
+    }
+  }
+}

@@ -483,10 +483,10 @@ public static class Program
         {
             case TargetBackend.Roslyn:
                 if (compResult.RoslynTopLevelTypes.Count == 1)
-                    return DeclaredTypeTreeSerializer.Serialize(RectaleafRoslyn.FromSymbol(compResult.RoslynTopLevelTypes[0]));
+                    return DeclaredTypeTreeSerializer.Serialize(RectaleafRoslyn.FromTypeDefinition(compResult.RoslynTopLevelTypes[0]));
 
                 return new JsonArray([.. compResult.RoslynTopLevelTypes
-                        .Select(t => DeclaredTypeTreeSerializer.Serialize(RectaleafRoslyn.FromSymbol(t)))]);
+                        .Select(t => DeclaredTypeTreeSerializer.Serialize(RectaleafRoslyn.FromTypeDefinition(t)))]);
 
             case TargetBackend.Reflection:
                 if (compResult.ReflectionTopLevelTypes.Count == 1)

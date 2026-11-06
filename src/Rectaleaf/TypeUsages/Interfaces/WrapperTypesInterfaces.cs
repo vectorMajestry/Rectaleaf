@@ -14,4 +14,3 @@ public interface IArrayType<out TKind, out TRankKind> : IWrapperType<TKind>, IHa
 {
     public int Rank { get; }
 }
-

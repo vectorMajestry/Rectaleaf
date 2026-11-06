@@ -38,10 +38,10 @@ internal sealed class RoslynInstanceConstructor(
     bool? isPrimary;
 
     public override IDeclaredType DeclaringType
-        => (resolvedDeclaringType ??= (RectaleafRoslyn.FromSymbol(symbol.ContainingType) as IHasInstanceConstructors)!);
+        => (resolvedDeclaringType ??= (RectaleafRoslyn.FromTypeDefinition(symbol.ContainingType) as IHasInstanceConstructors)!);
 
     IHasInstanceConstructors IInstanceConstructor.DeclaringType
-        => resolvedDeclaringType ??= (RectaleafRoslyn.FromSymbol(symbol.ContainingType) as IHasInstanceConstructors)!;
+        => resolvedDeclaringType ??= (RectaleafRoslyn.FromTypeDefinition(symbol.ContainingType) as IHasInstanceConstructors)!;
 
     public AccessModifier AccessModifier => RoslynSymbolMapping.ToAccessModifier(symbol);
 
@@ -72,8 +72,8 @@ internal sealed class RoslynStaticConstructor(
     IHasStaticConstructor? resolvedDeclaringType = declaringType;
 
     public override IDeclaredType DeclaringType
-        => (resolvedDeclaringType ??= (RectaleafRoslyn.FromSymbol(symbol.ContainingType) as IHasStaticConstructor)!);
+        => (resolvedDeclaringType ??= (RectaleafRoslyn.FromTypeDefinition(symbol.ContainingType) as IHasStaticConstructor)!);
 
     IHasStaticConstructor IStaticConstructor.DeclaringType
-        => resolvedDeclaringType ??= (RectaleafRoslyn.FromSymbol(symbol.ContainingType) as IHasStaticConstructor)!;
+        => resolvedDeclaringType ??= (RectaleafRoslyn.FromTypeDefinition(symbol.ContainingType) as IHasStaticConstructor)!;
 }

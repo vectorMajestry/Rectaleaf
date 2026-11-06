@@ -316,6 +316,37 @@
       "isRequired": false
     },
     {
+      "name": "UnmanagedDuplicatedConventions",
+      "declaringType": "TestCases.FunctionPointerTestContainer",
+      "accessModifier": "Public",
+      "attributes": [],
+      "fieldKind": "Regular",
+      "type": {
+        "localName": "delegate* unmanaged[Cdecl, Cdecl, SuppressGCTransition, MemberFunction, Stdcall, Cdecl]<void>",
+        "usageKind": "UnmanagedFunctionPointer",
+        "callingConventionFlags": "Cdecl, Stdcall, MemberFunction, SuppressGCTransition",
+        "callingConventions": [
+          "Cdecl",
+          "Cdecl",
+          "SuppressGCTransition",
+          "MemberFunction",
+          "Stdcall",
+          "Cdecl"
+        ],
+        "returnType": {
+          "localName": "void",
+          "nullability": "NonNullable",
+          "usageKind": "Predefined",
+          "predefinedKind": "Void"
+        },
+        "parameters": []
+      },
+      "isReadOnly": false,
+      "isVolatile": false,
+      "isStatic": false,
+      "isRequired": false
+    },
+    {
       "name": "ManagedWithRefModifiers",
       "declaringType": "TestCases.FunctionPointerTestContainer",
       "accessModifier": "Public",

@@ -27,7 +27,29 @@ internal abstract class RoslynIndexer<TKind, TAccess>(
     IReadOnlyList<IAttribute>? attributes;
     IReadOnlyList<IParameter>? parameters;
 
-    public string Name => symbol.Name;
+    public string Name => ResolveIndexerName(symbol);
+
+    static string ResolveIndexerName(IPropertySymbol indexer)
+    {
+        if (indexer.ExplicitInterfaceImplementations.Length > 0)
+            return "Item";
+
+        foreach (AttributeData attr in indexer.GetAttributes())
+        {
+            if (attr.AttributeClass?.Name == "IndexerNameAttribute" &&
+                attr.ConstructorArguments.Length > 0 &&
+                attr.ConstructorArguments[0].Value is string customName &&
+                !string.IsNullOrEmpty(customName))
+            {
+                return customName;
+            }
+        }
+
+        if (!string.IsNullOrEmpty(indexer.MetadataName) && indexer.MetadataName != "this[]")
+            return indexer.MetadataName;
+
+        return "Item";
+    }
 
     public IHasIndexers DeclaringType => resolvedDeclaringType ??= ResolveDeclaringType();
 
@@ -39,7 +61,7 @@ internal abstract class RoslynIndexer<TKind, TAccess>(
             containing = containing.ContainingType;
         }
 
-        return (containing is not null ? RectaleafRoslyn.FromSymbol(containing) as IHasIndexers : null)!;
+        return (containing is not null ? RectaleafRoslyn.FromTypeDefinition(containing) as IHasIndexers : null)!;
     }
 
     public AccessModifier AccessModifier => RoslynSymbolMapping.ToAccessModifier(symbol);
@@ -80,7 +102,7 @@ internal abstract class RoslynIndexer<TKind, TAccess>(
 
     public static IIndexer<IKnownOrNot, IAccess> Create(IPropertySymbol symbol, IHasIndexers? declaringType = null)
     {
-        var typeUsage = RoslynTypeUsageFactory.Create(symbol.Type, symbol.NullableAnnotation);
+        var typeUsage = RoslynTypeUsageFactory.Create(symbol.Type, symbol.NullableAnnotation, RoslynTypeUsageFactory.ExtractTypeSyntax(symbol));
         bool isIncomplete = typeUsage is ITypeUsage<IIncomplete>;
 
         return isIncomplete
@@ -93,7 +115,7 @@ internal abstract class RoslynIndexer<TKind, TAccess>(
     {
         if (symbol.ReturnsByRef || symbol.ReturnsByRefReadonly)
         {
-            var elemType = (IComposableType<TTargetKind>)RoslynTypeUsageFactory.Create(symbol.Type, symbol.NullableAnnotation);
+            var elemType = (IComposableType<TTargetKind>)RoslynTypeUsageFactory.Create(symbol.Type, symbol.NullableAnnotation, RoslynTypeUsageFactory.ExtractTypeSyntax(symbol));
 
             if (symbol.ReturnsByRefReadonly)
             {
@@ -151,7 +173,7 @@ internal sealed class RoslynRegularIndexer<TKind, TAccess>(
     IComposableType<TKind>? type;
 
     public IComposableType<TKind> Type
-        => type ??= (IComposableType<TKind>)RoslynTypeUsageFactory.Create(symbol.Type, symbol.NullableAnnotation);
+        => type ??= (IComposableType<TKind>)RoslynTypeUsageFactory.Create(symbol.Type, symbol.NullableAnnotation, RoslynTypeUsageFactory.ExtractTypeSyntax(symbol));
 }
 
 internal sealed class RoslynRefIndexer<TKind, TMutability>(

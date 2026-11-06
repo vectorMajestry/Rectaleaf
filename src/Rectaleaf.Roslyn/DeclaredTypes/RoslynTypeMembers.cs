@@ -98,12 +98,15 @@ internal sealed class RoslynTypeMembers(INamedTypeSymbol symbol, IDeclaredType d
     public IReadOnlyList<IDeclaredType> GetNestedTypes()
         => nestedTypes ??= symbol.GetTypeMembers()
             .Where(tm => tm.TypeKind != TypeKind.Extension && !tm.Name.StartsWith("<") && !tm.IsImplicitlyDeclared)
-            .Select(tm => RectaleafRoslyn.FromSymbol(tm))
+            .Select(tm => RectaleafRoslyn.FromTypeDefinition(tm))
             .ToList();
 
     public IReadOnlyList<IDeclTypeUsage<IKnownOrNot, IInterfaceType>> GetDirectInterfaces()
         => directInterfaces ??= symbol.Interfaces
-            .Select(iface => (IDeclTypeUsage<IKnownOrNot, IInterfaceType>)RoslynTypeUsageFactory.Create(iface, iface.NullableAnnotation))
+            .Select(iface => (IDeclTypeUsage<IKnownOrNot, IInterfaceType>)RoslynTypeUsageFactory.Create(
+                iface,
+                NullableAnnotation.NotAnnotated,
+                defaultNonNullable: symbol.IsRecord && iface.OriginalDefinition.Name == "IEquatable"))
             .ToList();
 
     public IReadOnlyList<IGenericParameter> GetGenericParameters()
@@ -115,7 +118,7 @@ internal sealed class RoslynTypeMembers(INamedTypeSymbol symbol, IDeclaredType d
         => operators ??= symbol.GetMembers()
             .OfType<IMethodSymbol>()
             .Where(m => m.MethodKind is MethodKind.UserDefinedOperator or MethodKind.Conversion)
-            .Select(m => RoslynOperator.Create(m)!)
+            .Select(m => RoslynOperator.Create(m, declaringType as IHasOperators)!)
             .Where(op => op is not null)
             .ToList();
 

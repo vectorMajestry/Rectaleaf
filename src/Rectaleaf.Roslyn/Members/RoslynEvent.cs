@@ -24,9 +24,11 @@ internal abstract class RoslynEvent(IEventSymbol symbol, IHasEvents? declaringTy
     IEventAddAccessor<IKnownOrNot>? addAccessor;
     IEventRemoveAccessor<IKnownOrNot>? removeAccessor;
 
-    public string Name => symbol.Name;
+    public string Name => symbol.ExplicitInterfaceImplementations.Length > 0
+        ? symbol.ExplicitInterfaceImplementations[0].Name
+        : symbol.Name;
 
-    public IHasEvents DeclaringType => resolvedDeclaringType ??= (RectaleafRoslyn.FromSymbol(symbol.ContainingType) as IHasEvents)!;
+    public IHasEvents DeclaringType => resolvedDeclaringType ??= (RectaleafRoslyn.FromTypeDefinition(symbol.ContainingType) as IHasEvents)!;
 
     public IDeclTypeUsage<IKnownOrNot, IDelegateType> Type => type ??= ResolveType();
 

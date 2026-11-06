@@ -1,5 +1,5 @@
-using Rectaleaf.Metadata.DeclaredTypes;
 using Rectaleaf.Helpers;
+using Rectaleaf.Metadata.DeclaredTypes;
 
 namespace Rectaleaf.Metadata.TypeUsages.Interfaces;
 

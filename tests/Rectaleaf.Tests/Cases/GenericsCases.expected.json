@@ -837,7 +837,7 @@
               "usageKind": "Placeholder",
               "placeholderName": "TItem",
               "placeholderPosition": 0,
-              "placeholderSource": "TestCases.IDefaultConstraintInterface<System.String>.HandleItem"
+              "placeholderSource": "HandleItem"
             },
             "hasDefaultValue": false,
             "defaultValue": null,
@@ -849,7 +849,7 @@
             "name": "TItem",
             "position": 0,
             "variance": "Invariant",
-            "source": "TestCases.IDefaultConstraintInterface<System.String>.HandleItem",
+            "source": "HandleItem",
             "hasReferenceTypeConstraint": false,
             "hasNullableReferenceTypeConstraint": false,
             "hasNotNullConstraint": false,

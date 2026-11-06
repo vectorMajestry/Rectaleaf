@@ -1,42 +1,119 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection.Metadata;
 using Microsoft.CodeAnalysis;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Rectaleaf.Components;
 using Rectaleaf.Metadata;
 using Rectaleaf.Metadata.DeclaredTypes;
 using Rectaleaf.Metadata.TypeUsages.CommonTypeUsageImpl;
 using Rectaleaf.Metadata.TypeUsages.Interfaces;
 using Rectaleaf.Roslyn.Symbols;
+using System.Reflection.Metadata;
 
 namespace Rectaleaf.Roslyn.TypeUsages;
 
 internal static class RoslynTypeUsageFactory
 {
-    public static ITypeUsage<IKnownOrNot> Create(ITypeSymbol symbol, NullableAnnotation nullableAnnotation = NullableAnnotation.None)
+    public static TypeSyntax? ExtractTypeSyntax(ISymbol symbol)
+    {
+        foreach (SyntaxReference synRef in symbol.DeclaringSyntaxReferences)
+        {
+            SyntaxNode node = synRef.GetSyntax();
+            TypeSyntax? found = node switch
+            {
+                VariableDeclaratorSyntax { Parent: VariableDeclarationSyntax vds } => vds.Type,
+                PropertyDeclarationSyntax pds => pds.Type,
+                IndexerDeclarationSyntax ids => ids.Type,
+                EventDeclarationSyntax eds => eds.Type,
+                ParameterSyntax ps => ps.Type,
+                FunctionPointerParameterSyntax fpps => fpps.Type,
+                _ => null
+            };
+            if (found is not null)
+                return found;
+        }
+
+        return null;
+    }
+
+    public static TypeSyntax? ExtractReturnTypeSyntax(IMethodSymbol method)
+    {
+        if (method.AssociatedSymbol is IPropertySymbol prop)
+            return ExtractTypeSyntax(prop);
+
+        if (method.MethodKind == MethodKind.DelegateInvoke && method.ContainingType is not null)
+        {
+            foreach (SyntaxReference synRef in method.ContainingType.DeclaringSyntaxReferences)
+            {
+                if (synRef.GetSyntax() is DelegateDeclarationSyntax dds)
+                    return dds.ReturnType;
+            }
+        }
+
+        foreach (SyntaxReference synRef in method.DeclaringSyntaxReferences)
+        {
+            SyntaxNode node = synRef.GetSyntax();
+            TypeSyntax? found = node switch
+            {
+                MethodDeclarationSyntax mds => mds.ReturnType,
+                LocalFunctionStatementSyntax lfs => lfs.ReturnType,
+                OperatorDeclarationSyntax ods => ods.ReturnType,
+                ConversionOperatorDeclarationSyntax cods => cods.Type,
+                DelegateDeclarationSyntax dds => dds.ReturnType,
+                _ => null
+            };
+            if (found is not null)
+                return found;
+        }
+
+        return null;
+    }
+
+    public static ITypeUsage<IKnownOrNot> Create(
+        ITypeSymbol symbol,
+        NullableAnnotation nullableAnnotation = NullableAnnotation.None,
+        TypeSyntax? syntax = null,
+        bool isNullableValueType = false,
+        bool defaultNonNullable = false)
     {
         if (symbol is null)
             throw new ArgumentNullException(nameof(symbol));
 
+        if (syntax is RefTypeSyntax rts)
+            syntax = rts.Type;
+
         // Handle System.Nullable<T>
         if (symbol is INamedTypeSymbol namedNullable && namedNullable.OriginalDefinition.SpecialType == SpecialType.System_Nullable_T)
         {
-            var innerType = namedNullable.TypeArguments[0];
-            return Create(innerType, NullableAnnotation.Annotated);
+            ITypeSymbol innerType = namedNullable.TypeArguments[0];
+            TypeSyntax? innerSyntax = syntax switch
+            {
+                NullableTypeSyntax nts => nts.ElementType,
+                GenericNameSyntax { TypeArgumentList.Arguments.Count: 1 } gns => gns.TypeArgumentList.Arguments[0],
+                QualifiedNameSyntax { Right: GenericNameSyntax { TypeArgumentList.Arguments.Count: 1 } qgns } => qgns.TypeArgumentList.Arguments[0],
+                _ => null
+            };
+            return Create(innerType, NullableAnnotation.Annotated, innerSyntax, isNullableValueType: true, defaultNonNullable: defaultNonNullable);
         }
 
-        var nullability = RoslynSymbolMapping.ToNullabilityKind(
-            nullableAnnotation != NullableAnnotation.None ? nullableAnnotation : symbol.NullableAnnotation);
+        if (syntax is NullableTypeSyntax refNts)
+            syntax = refNts.ElementType;
 
-        if (symbol.IsValueType && symbol.TypeKind != TypeKind.TypeParameter)
+        NullableAnnotation effectiveAnnotation = nullableAnnotation != NullableAnnotation.None
+            ? nullableAnnotation
+            : symbol.NullableAnnotation;
+
+        if (effectiveAnnotation == NullableAnnotation.None && defaultNonNullable)
+            effectiveAnnotation = NullableAnnotation.NotAnnotated;
+
+        NullabilityKind nullability = RoslynSymbolMapping.ToNullabilityKind(effectiveAnnotation);
+
+        if (!isNullableValueType && symbol.IsValueType && symbol.TypeKind != TypeKind.TypeParameter)
             nullability = NullabilityKind.NonNullable;
 
         // Special / Predefined types
         if (symbol.SpecialType == SpecialType.System_Void)
             return new PredefinedType(PredefinedTypeKind.Void, NullabilityKind.NonNullable);
 
-        var predefinedKind = RoslynSymbolMapping.ToPredefinedTypeKind(symbol.SpecialType);
+        PredefinedTypeKind? predefinedKind = RoslynSymbolMapping.ToPredefinedTypeKind(symbol.SpecialType);
         if (predefinedKind.HasValue)
             return new PredefinedType(predefinedKind.Value, nullability);
 
@@ -46,11 +123,11 @@ internal static class RoslynTypeUsageFactory
 
         // Array
         if (symbol is IArrayTypeSymbol arraySymbol)
-            return CreateArray(arraySymbol, nullability);
+            return CreateArray(arraySymbol, nullability, syntax, defaultNonNullable);
 
         // Pointer
         if (symbol is IPointerTypeSymbol pointerSymbol)
-            return CreatePointer(pointerSymbol);
+            return CreatePointer(pointerSymbol, syntax, defaultNonNullable);
 
         // Function Pointer
         if (symbol is IFunctionPointerTypeSymbol fpSymbol)
@@ -60,24 +137,30 @@ internal static class RoslynTypeUsageFactory
         if (symbol is INamedTypeSymbol namedType)
         {
             if (namedType.IsTupleType)
-                return CreateRichTuple(namedType, nullability);
+            {
+                bool isExplicitValueTuple = syntax is not null and not TupleTypeSyntax;
+                return isExplicitValueTuple
+                    ? CreateExplicitValueTuple(namedType, nullability, syntax, defaultNonNullable)
+                    : CreateRichTuple(namedType, nullability, syntax as TupleTypeSyntax, defaultNonNullable);
+            }
 
-            if (!namedType.IsTupleType && namedType.Name == "ValueTuple" && namedType.ContainingNamespace?.ToDisplayString() == "System")
-                return CreateExplicitValueTuple(namedType, nullability);
+            if (namedType.Name == "ValueTuple" && namedType.ContainingNamespace?.ToDisplayString() == "System" && namedType.TypeArguments.Length > 0)
+                return CreateExplicitValueTuple(namedType, nullability, syntax, defaultNonNullable);
 
-            if (namedType.IsGenericType && !namedType.IsUnboundGenericType && namedType.TypeArguments.Length > 0 && !SymbolEqualityComparer.Default.Equals(namedType, namedType.OriginalDefinition))
-                return CreateBoundGeneric(namedType, nullability);
+            if (namedType.IsGenericType && !namedType.IsUnboundGenericType && namedType.TypeArguments.Length > 0)
+                return CreateBoundGeneric(namedType, nullability, syntax, defaultNonNullable);
 
-            var decl = RectaleafRoslyn.FromSymbol(namedType.IsUnboundGenericType ? namedType.OriginalDefinition : namedType);
+            IDeclaredType decl = RectaleafRoslyn.FromTypeDefinition(namedType.IsUnboundGenericType ? namedType.OriginalDefinition : namedType);
             return CreatePlainType(decl, nullability);
         }
 
         throw new NotSupportedException($"Unsupported Roslyn type symbol: {symbol} (Kind: {symbol.TypeKind})");
     }
 
-    static ITypeUsage<IKnownOrNot> CreateArray(IArrayTypeSymbol arraySymbol, NullabilityKind nullability)
+    static ITypeUsage<IKnownOrNot> CreateArray(IArrayTypeSymbol arraySymbol, NullabilityKind nullability, TypeSyntax? syntax, bool defaultNonNullable)
     {
-        var elemUsage = (IComposableType<IKnownOrNot>)Create(arraySymbol.ElementType, arraySymbol.ElementNullableAnnotation);
+        TypeSyntax? elemSyntax = syntax is ArrayTypeSyntax ats && ats.RankSpecifiers.Count <= 1 ? ats.ElementType : null;
+        var elemUsage = (IComposableType<IKnownOrNot>)Create(arraySymbol.ElementType, arraySymbol.ElementNullableAnnotation, elemSyntax, defaultNonNullable: defaultNonNullable);
 
         if (arraySymbol.IsSZArray || arraySymbol.Rank == 1)
         {
@@ -99,9 +182,10 @@ internal static class RoslynTypeUsageFactory
         return new RectArrayType<IKnownOrNot>(elemUsage, arraySymbol.Rank, nullability);
     }
 
-    static ITypeUsage<IKnownOrNot> CreatePointer(IPointerTypeSymbol pointerSymbol)
+    static ITypeUsage<IKnownOrNot> CreatePointer(IPointerTypeSymbol pointerSymbol, TypeSyntax? syntax, bool defaultNonNullable)
     {
-        var elemUsage = (IComposableType<IKnownOrNot>)Create(pointerSymbol.PointedAtType, pointerSymbol.PointedAtType.NullableAnnotation);
+        TypeSyntax? elemSyntax = syntax is PointerTypeSyntax pts ? pts.ElementType : null;
+        var elemUsage = (IComposableType<IKnownOrNot>)Create(pointerSymbol.PointedAtType, pointerSymbol.PointedAtType.NullableAnnotation, elemSyntax, defaultNonNullable: defaultNonNullable);
 
         if (elemUsage is IComposableType<IKnown> knownElem)
             return new PointerType<IKnown>(knownElem);
@@ -122,21 +206,28 @@ internal static class RoslynTypeUsageFactory
         {
             returnType = fpSymbol.Signature.RefKind switch
             {
-                RefKind.Ref => (ITypeUsage<IKnownOrNot>)CreateByRef(composable, isReadOnly: false),
-                RefKind.RefReadOnly or RefKind.In => (ITypeUsage<IKnownOrNot>)CreateByRef(composable, isReadOnly: true),
+                RefKind.Ref => CreateByRef(composable, isReadOnly: false),
+                RefKind.RefReadOnly or RefKind.In => CreateByRef(composable, isReadOnly: true),
                 _ => rawReturnType
             };
         }
 
-        if (fpSymbol.Signature.CallingConvention == SignatureCallingConvention.Unmanaged)
+        if (fpSymbol.Signature.CallingConvention != SignatureCallingConvention.Default)
         {
-            var convs = fpSymbol.Signature.UnmanagedCallingConventionTypes
-                .Select(t => RoslynSymbolMapping.ToCallConvKind(t.Name))
-                .Where(k => k.HasValue)
-                .Select(k => k!.Value)
-                .ToList();
+            IReadOnlyList<CallConvKind> convs = fpSymbol.Signature.CallingConvention switch
+            {
+                SignatureCallingConvention.CDecl => [CallConvKind.Cdecl],
+                SignatureCallingConvention.StdCall => [CallConvKind.Stdcall],
+                SignatureCallingConvention.ThisCall => [CallConvKind.Thiscall],
+                SignatureCallingConvention.FastCall => [CallConvKind.Fastcall],
+                _ => fpSymbol.Signature.UnmanagedCallingConventionTypes
+                    .Select(t => RoslynSymbolMapping.ToCallConvKind(t.Name))
+                    .Where(k => k.HasValue)
+                    .Select(k => k!.Value)
+                    .ToList()
+            };
 
-            var flags = RoslynSymbolMapping.ToCallConvFlags(convs);
+            CallConvFlags flags = RoslynSymbolMapping.ToCallConvFlags(convs);
 
             if (returnType is ITypeUsage<IKnown> knownReturn)
                 return new UnmanagedFunctionPointerType<IKnown>(knownReturn, parameters, convs, flags);
@@ -156,7 +247,7 @@ internal static class RoslynTypeUsageFactory
         return new ManagedFunctionPointerType<IKnownOrNot>(returnType, parameters);
     }
 
-    static object CreateByRef(IComposableType<IKnownOrNot> element, bool isReadOnly)
+    internal static ITypeUsage<IKnownOrNot> CreateByRef(IComposableType<IKnownOrNot> element, bool isReadOnly)
     {
         if (isReadOnly)
         {
@@ -180,19 +271,22 @@ internal static class RoslynTypeUsageFactory
         }
     }
 
-    static ITypeUsage<IKnownOrNot> CreateRichTuple(INamedTypeSymbol namedType, NullabilityKind nullability)
+    static ITypeUsage<IKnownOrNot> CreateRichTuple(INamedTypeSymbol namedType, NullabilityKind nullability, TupleTypeSyntax? tupleSyntax, bool defaultNonNullable)
     {
-        var elementsRaw = namedType.TupleElements.Select(te =>
+        var elementsRaw = namedType.TupleElements.Select((te, idx) =>
         {
-            var elemType = (IComposableType<IKnownOrNot>)Create(te.Type, te.NullableAnnotation);
-            string? elemName = te.CorrespondingTupleField is not null ? te.Name : null;
+            TypeSyntax? elemSyntax = tupleSyntax is not null && idx < tupleSyntax.Elements.Count
+                ? tupleSyntax.Elements[idx].Type
+                : null;
+            var elemType = (IComposableType<IKnownOrNot>)Create(te.Type, te.NullableAnnotation, elemSyntax, defaultNonNullable: defaultNonNullable);
+            string? elemName = te.IsExplicitlyNamedTupleElement ? te.Name : null;
             return (elemType, elemName);
         }).ToList();
 
         bool isIncomplete = elementsRaw.Any(e => e.elemType is IComposableType<IIncomplete>);
 
         var underlying = namedType.TupleUnderlyingType is not null
-            ? CreateBoundGeneric(namedType.TupleUnderlyingType, NullabilityKind.NonNullable)
+            ? CreateBoundGeneric(namedType.TupleUnderlyingType, NullabilityKind.NonNullable, syntax: null, defaultNonNullable: defaultNonNullable)
             : null;
 
         if (isIncomplete)
@@ -209,9 +303,10 @@ internal static class RoslynTypeUsageFactory
         }
     }
 
-    static ITypeUsage<IKnownOrNot> CreateExplicitValueTuple(INamedTypeSymbol namedType, NullabilityKind nullability)
+    static ITypeUsage<IKnownOrNot> CreateExplicitValueTuple(INamedTypeSymbol namedType, NullabilityKind nullability, TypeSyntax? syntax, bool defaultNonNullable)
     {
-        var boundGeneric = CreateBoundGeneric(namedType, NullabilityKind.NonNullable);
+        INamedTypeSymbol underlyingTuple = namedType.TupleUnderlyingType ?? namedType;
+        var boundGeneric = CreateBoundGeneric(underlyingTuple, NullabilityKind.NonNullable, syntax, defaultNonNullable);
         bool isIncomplete = boundGeneric is IBoundGenericType<IIncomplete, IHasGenericParameters>;
 
         return isIncomplete
@@ -219,14 +314,31 @@ internal static class RoslynTypeUsageFactory
             : (ITypeUsage<IKnownOrNot>)new ExplicitValueTupleType<IKnown>((IBoundGenericType<IKnown, IStructType>)boundGeneric, nullability);
     }
 
-    static ITypeUsage<IKnownOrNot> CreateBoundGeneric(INamedTypeSymbol namedType, NullabilityKind nullability)
+    static ITypeUsage<IKnownOrNot> CreateBoundGeneric(INamedTypeSymbol namedType, NullabilityKind nullability, TypeSyntax? syntax, bool defaultNonNullable)
     {
-        var typeArgs = namedType.TypeArguments
-            .Select(ta => (IComposableType<IKnownOrNot>)Create(ta, ta.NullableAnnotation))
-            .ToList();
+        SeparatedSyntaxList<TypeSyntax>? typeArgSyntaxes = syntax switch
+        {
+            GenericNameSyntax gns => gns.TypeArgumentList.Arguments,
+            QualifiedNameSyntax { Right: GenericNameSyntax qgns } => qgns.TypeArgumentList.Arguments,
+            AliasQualifiedNameSyntax { Name: GenericNameSyntax agns } => agns.TypeArgumentList.Arguments,
+            _ => null
+        };
+
+        var typeArgs = new List<IComposableType<IKnownOrNot>>(namedType.TypeArguments.Length);
+        for (int i = 0; i < namedType.TypeArguments.Length; i++)
+        {
+            ITypeSymbol ta = namedType.TypeArguments[i];
+            NullableAnnotation taAnnotation = i < namedType.TypeArgumentNullableAnnotations.Length && namedType.TypeArgumentNullableAnnotations[i] != NullableAnnotation.None
+                ? namedType.TypeArgumentNullableAnnotations[i]
+                : ta.NullableAnnotation;
+            TypeSyntax? taSyntax = typeArgSyntaxes.HasValue && i < typeArgSyntaxes.Value.Count
+                ? typeArgSyntaxes.Value[i]
+                : null;
+            typeArgs.Add((IComposableType<IKnownOrNot>)Create(ta, taAnnotation, taSyntax, defaultNonNullable: defaultNonNullable));
+        }
 
         bool isIncomplete = typeArgs.Any(a => a is IComposableType<IIncomplete>);
-        var decl = RectaleafRoslyn.FromSymbol(namedType.OriginalDefinition);
+        IDeclaredType decl = RectaleafRoslyn.FromTypeDefinition(namedType.OriginalDefinition);
 
         return CreateBoundGenericType(decl, typeArgs, nullability, isIncomplete);
     }
@@ -236,33 +348,33 @@ internal static class RoslynTypeUsageFactory
         IReadOnlyList<IComposableType<IKnownOrNot>> typeArgs,
         NullabilityKind nullability,
         bool isIncomplete) => (decl, isIncomplete) switch
-    {
-        (IRegularClassType reg, true) => new BoundGenericType<IIncomplete, IRegularClassType>(reg, typeArgs, nullability),
-        (IRegularClassType reg, false) => new BoundGenericType<IKnown, IRegularClassType>(reg, typeArgs, nullability),
+        {
+            (IRegularClassType reg, true) => new BoundGenericType<IIncomplete, IRegularClassType>(reg, typeArgs, nullability),
+            (IRegularClassType reg, false) => new BoundGenericType<IKnown, IRegularClassType>(reg, typeArgs, nullability),
 
-        (IAbstractClassType abs, true) => new BoundGenericType<IIncomplete, IAbstractClassType>(abs, typeArgs, nullability),
-        (IAbstractClassType abs, false) => new BoundGenericType<IKnown, IAbstractClassType>(abs, typeArgs, nullability),
+            (IAbstractClassType abs, true) => new BoundGenericType<IIncomplete, IAbstractClassType>(abs, typeArgs, nullability),
+            (IAbstractClassType abs, false) => new BoundGenericType<IKnown, IAbstractClassType>(abs, typeArgs, nullability),
 
-        (IRecordClassType recCls, true) => new BoundGenericType<IIncomplete, IRecordClassType>(recCls, typeArgs, nullability),
-        (IRecordClassType recCls, false) => new BoundGenericType<IKnown, IRecordClassType>(recCls, typeArgs, nullability),
+            (IRecordClassType recCls, true) => new BoundGenericType<IIncomplete, IRecordClassType>(recCls, typeArgs, nullability),
+            (IRecordClassType recCls, false) => new BoundGenericType<IKnown, IRecordClassType>(recCls, typeArgs, nullability),
 
-        (IStructType str, true) => new BoundGenericType<IIncomplete, IStructType>(str, typeArgs, nullability),
-        (IStructType str, false) => new BoundGenericType<IKnown, IStructType>(str, typeArgs, nullability),
+            (IStructType str, true) => new BoundGenericType<IIncomplete, IStructType>(str, typeArgs, nullability),
+            (IStructType str, false) => new BoundGenericType<IKnown, IStructType>(str, typeArgs, nullability),
 
-        (IRecordStructType recStr, true) => new BoundGenericType<IIncomplete, IRecordStructType>(recStr, typeArgs, nullability),
-        (IRecordStructType recStr, false) => new BoundGenericType<IKnown, IRecordStructType>(recStr, typeArgs, nullability),
+            (IRecordStructType recStr, true) => new BoundGenericType<IIncomplete, IRecordStructType>(recStr, typeArgs, nullability),
+            (IRecordStructType recStr, false) => new BoundGenericType<IKnown, IRecordStructType>(recStr, typeArgs, nullability),
 
-        (IRefStructType refStr, true) => new BoundGenericType<IIncomplete, IRefStructType>(refStr, typeArgs, nullability),
-        (IRefStructType refStr, false) => new BoundGenericType<IKnown, IRefStructType>(refStr, typeArgs, nullability),
+            (IRefStructType refStr, true) => new BoundGenericType<IIncomplete, IRefStructType>(refStr, typeArgs, nullability),
+            (IRefStructType refStr, false) => new BoundGenericType<IKnown, IRefStructType>(refStr, typeArgs, nullability),
 
-        (IInterfaceType iface, true) => new BoundGenericType<IIncomplete, IInterfaceType>(iface, typeArgs, nullability),
-        (IInterfaceType iface, false) => new BoundGenericType<IKnown, IInterfaceType>(iface, typeArgs, nullability),
+            (IInterfaceType iface, true) => new BoundGenericType<IIncomplete, IInterfaceType>(iface, typeArgs, nullability),
+            (IInterfaceType iface, false) => new BoundGenericType<IKnown, IInterfaceType>(iface, typeArgs, nullability),
 
-        (IDelegateType del, true) => new BoundGenericType<IIncomplete, IDelegateType>(del, typeArgs, nullability),
-        (IDelegateType del, false) => new BoundGenericType<IKnown, IDelegateType>(del, typeArgs, nullability),
+            (IDelegateType del, true) => new BoundGenericType<IIncomplete, IDelegateType>(del, typeArgs, nullability),
+            (IDelegateType del, false) => new BoundGenericType<IKnown, IDelegateType>(del, typeArgs, nullability),
 
-        _ => throw new InvalidOperationException($"Type {decl.GetType().Name} cannot be used as a bound generic type definition.")
-    };
+            _ => throw new InvalidOperationException($"Type {decl.GetType().Name} cannot be used as a bound generic type definition.")
+        };
 
     public static ITypeUsage<IKnown> CreatePlainType(IDeclaredType decl, NullabilityKind nullability) => decl switch
     {

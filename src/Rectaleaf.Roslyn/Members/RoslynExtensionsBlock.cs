@@ -129,9 +129,11 @@ internal sealed class RoslynStaticExtensionsBlock(
     INamedTypeSymbol symbol,
     IStaticClassType declaringType) : RoslynExtensionsBlock(symbol, declaringType), IStaticExtensionsBlock
 {
-    ITypeUsage<IKnownOrNot>? extendedType;
+    IComposableType<IKnownOrNot>? extendedType;
 
-    public override ITypeUsage<IKnownOrNot> ExtendedType => extendedType ??= ResolveExtendedType();
+    public override ITypeUsage<IKnownOrNot> ExtendedType => ((IStaticExtensionsBlock)this).ExtendedType;
+
+    IComposableType<IKnownOrNot> IStaticExtensionsBlock.ExtendedType => extendedType ??= (IComposableType<IKnownOrNot>)ResolveExtendedType();
 
     ITypeUsage<IKnownOrNot> ResolveExtendedType()
     {

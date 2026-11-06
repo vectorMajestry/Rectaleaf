@@ -1,6 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using Microsoft.CodeAnalysis;
 using Rectaleaf.Components;
 using Rectaleaf.Metadata.DeclaredTypes;
@@ -8,7 +5,7 @@ using Rectaleaf.Metadata.Members;
 using Rectaleaf.Metadata.Members.PropertyFamily;
 using Rectaleaf.Metadata.Members.PropertyFamily.Events;
 using Rectaleaf.Metadata.Members.PropertyFamily.Indexers;
-using Rectaleaf.Metadata.Members.PropertyFamily.Properties;
+using Rectaleaf.Metadata.Members.PropertyFamily.Properties;gene
 using Rectaleaf.Metadata.TypeUsages.Interfaces;
 using Rectaleaf.Roslyn.TypeUsages;
 

@@ -1,5 +1,3 @@
-using System;
-using System.Linq;
 using Microsoft.CodeAnalysis;
 using Rectaleaf.Components;
 using Rectaleaf.Metadata.DeclaredTypes;
@@ -12,62 +10,54 @@ using Rectaleaf.Metadata.TypeUsages.Interfaces;
 using Rectaleaf.Roslyn.DeclaredTypes;
 using Rectaleaf.Roslyn.Members;
 using Rectaleaf.Roslyn.Symbols;
-using Rectaleaf.Roslyn.TypeUsages;
 
 namespace Rectaleaf.Roslyn;
 
 public static class RectaleafRoslyn
 {
-    public static IDeclaredType FromSymbol(INamedTypeSymbol symbol)
-    {
-        if (symbol is null)
-            throw new ArgumentNullException(nameof(symbol));
-
-        if (symbol.TypeKind == TypeKind.Error)
-            throw new ArgumentException("Error type symbols are not supported.", nameof(symbol));
-
-        if (symbol.TypeKind is TypeKind.Pointer or TypeKind.Array or TypeKind.FunctionPointer or TypeKind.TypeParameter)
-            throw new ArgumentException($"Expected nominal type definition, but received type usage: {symbol.TypeKind}", nameof(symbol));
-
-        if (symbol.TypeKind == TypeKind.Delegate)
-            return new RoslynDelegateType(symbol);
-
-        if (symbol.TypeKind == TypeKind.Enum)
-            return RoslynEnumType.Create(symbol);
-
-        if (symbol.TypeKind == TypeKind.Interface)
-            return new RoslynInterfaceType(symbol);
-
-        if (symbol.TypeKind == TypeKind.Struct)
+    public static IDeclaredType FromTypeDefinition(INamedTypeSymbol symbol)
+        => (symbol ?? throw new ArgumentNullException(nameof(symbol)))
+            .TypeKind switch
         {
-            if (symbol.GetAttributes().Any(a => a.AttributeClass?.Name == "InlineArrayAttribute"))
-                return new RoslynInlineArrayType(symbol);
+            TypeKind.Error
+                => throw new ArgumentException("Error type symbols are not supported.", nameof(symbol)),
 
-            if (symbol.IsRecord)
-                return new RoslynRecordStructType(symbol);
+            TypeKind.Pointer or TypeKind.Array or TypeKind.FunctionPointer or TypeKind.TypeParameter
+                => throw new ArgumentException(
+                    $"Expected nominal type definition, but received type usage: {symbol.TypeKind}", nameof(symbol)),
 
-            if (symbol.IsRefLikeType)
-                return new RoslynRefStructType(symbol);
+            _ when symbol.IsGenericType && !symbol.IsDefinition
+                => throw new ArgumentException(
+                    $"Expected nominal type definition, but received generic type usage.", nameof(symbol)),
 
-            return new RoslynStructType(symbol);
-        }
+            TypeKind.Delegate => new RoslynDelegateType(symbol),
+            TypeKind.Enum => RoslynEnumType.Create(symbol),
+            TypeKind.Interface => new RoslynInterfaceType(symbol),
+            TypeKind.Struct => ResolveStructDefinition(symbol),
+            TypeKind.Class => ResolveClassDefinition(symbol),
 
-        if (symbol.TypeKind == TypeKind.Class)
+            _ => throw new NotSupportedException(
+                $"Unsupported declared type symbol: {symbol} (TypeKind: {symbol.TypeKind})")
+        };
+
+    static IDeclaredType ResolveStructDefinition(INamedTypeSymbol structSymbol)
+        => structSymbol switch
         {
-            if (symbol.IsStatic)
-                return new RoslynStaticClassType(symbol);
+            _ when structSymbol.GetAttributes().Any(a => a.AttributeClass?.Name == "InlineArrayAttribute")
+                => new RoslynInlineArrayType(structSymbol),
+            { IsRecord: true } => new RoslynRecordStructType(structSymbol),
+            { IsRefLikeType: true } => new RoslynRefStructType(structSymbol),
+            _ => new RoslynStructType(structSymbol),
+        };
 
-            if (symbol.IsRecord)
-                return new RoslynRecordClassType(symbol);
-
-            if (symbol.IsAbstract)
-                return new RoslynAbstractClassType(symbol);
-
-            return new RoslynRegularClassType(symbol);
-        }
-
-        throw new NotSupportedException($"Unsupported declared type symbol: {symbol} (TypeKind: {symbol.TypeKind})");
-    }
+    static IDeclaredType ResolveClassDefinition(INamedTypeSymbol classSymbol)
+        => classSymbol switch
+        {
+            { IsStatic: true } => new RoslynStaticClassType(classSymbol),
+            { IsRecord: true } => new RoslynRecordClassType(classSymbol),
+            { IsAbstract: true } => new RoslynAbstractClassType(classSymbol),
+            _ => new RoslynRegularClassType(classSymbol),
+        };
 
     public static IMethod FromMethod(IMethodSymbol method)
     {
@@ -75,7 +65,7 @@ public static class RectaleafRoslyn
             throw new ArgumentNullException(nameof(method));
 
         return method.IsStatic
-            ? (IMethod)new RoslynStaticMethod(method)
+            ? new RoslynStaticMethod(method)
             : new RoslynInstanceMethod(method);
     }
 
@@ -139,7 +129,7 @@ public static class RectaleafRoslyn
             throw new ArgumentNullException(nameof(constructor));
 
         return constructor.IsStatic
-            ? (IConstructor)new RoslynStaticConstructor(constructor)
+            ? new RoslynStaticConstructor(constructor)
             : new RoslynInstanceConstructor(constructor);
     }
 
@@ -150,13 +140,5 @@ public static class RectaleafRoslyn
 
         return RoslynOperator.Create(@operator)
             ?? throw new ArgumentException("The method symbol is not a user-defined operator or conversion operator.", nameof(@operator));
-    }
-
-    public static ITypeUsage<IKnownOrNot> FromTypeUsage(ITypeSymbol symbol, NullableAnnotation nullableAnnotation = NullableAnnotation.None)
-    {
-        if (symbol is null)
-            throw new ArgumentNullException(nameof(symbol));
-
-        return RoslynTypeUsageFactory.Create(symbol, nullableAnnotation);
     }
 }

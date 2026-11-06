@@ -25,7 +25,9 @@ internal abstract class RoslynProperty<TKind, TAccess>(
     IInheritanceKind<IProperty<TKind, TAccess>>? inheritance;
     IReadOnlyList<IAttribute>? attributes;
 
-    public string Name => symbol.Name;
+    public string Name => symbol.ExplicitInterfaceImplementations.Length > 0
+        ? symbol.ExplicitInterfaceImplementations[0].Name
+        : symbol.Name;
 
     public IHasProperties DeclaringType => resolvedDeclaringType ??= ResolveDeclaringType();
 
@@ -37,7 +39,7 @@ internal abstract class RoslynProperty<TKind, TAccess>(
             containing = containing.ContainingType;
         }
 
-        return (containing is not null ? RectaleafRoslyn.FromSymbol(containing) as IHasProperties : null)!;
+        return (containing is not null ? RectaleafRoslyn.FromTypeDefinition(containing) as IHasProperties : null)!;
     }
 
     public AccessModifier AccessModifier => RoslynSymbolMapping.ToAccessModifier(symbol);
@@ -75,7 +77,7 @@ internal abstract class RoslynProperty<TKind, TAccess>(
 
     public static IProperty<IKnownOrNot, IAccess> Create(IPropertySymbol symbol, IHasProperties? declaringType = null)
     {
-        var typeUsage = RoslynTypeUsageFactory.Create(symbol.Type, symbol.NullableAnnotation);
+        var typeUsage = RoslynTypeUsageFactory.Create(symbol.Type, symbol.NullableAnnotation, RoslynTypeUsageFactory.ExtractTypeSyntax(symbol));
         bool isIncomplete = typeUsage is ITypeUsage<IIncomplete>;
 
         return isIncomplete
@@ -88,7 +90,7 @@ internal abstract class RoslynProperty<TKind, TAccess>(
     {
         if (symbol.ReturnsByRef || symbol.ReturnsByRefReadonly)
         {
-            var elemType = (IComposableType<TTargetKind>)RoslynTypeUsageFactory.Create(symbol.Type, symbol.NullableAnnotation);
+            var elemType = (IComposableType<TTargetKind>)RoslynTypeUsageFactory.Create(symbol.Type, symbol.NullableAnnotation, RoslynTypeUsageFactory.ExtractTypeSyntax(symbol));
 
             if (symbol.ReturnsByRefReadonly)
             {
@@ -169,7 +171,7 @@ internal abstract class RoslynRegularProperty<TKind, TAccess>(
     bool backingFieldResolved;
 
     public IComposableType<TKind> Type
-        => type ??= (IComposableType<TKind>)RoslynTypeUsageFactory.Create(symbol.Type, symbol.NullableAnnotation);
+        => type ??= (IComposableType<TKind>)RoslynTypeUsageFactory.Create(symbol.Type, symbol.NullableAnnotation, RoslynTypeUsageFactory.ExtractTypeSyntax(symbol));
 
     public IRegularField<TKind>? BackingField
     {

@@ -1,5 +1,3 @@
-using System;
-using System.Collections.Generic;
 using Microsoft.CodeAnalysis;
 using Rectaleaf.Metadata;
 using Rectaleaf.Metadata.Members;
@@ -21,7 +19,7 @@ internal abstract class RoslynField<TKind>(IFieldSymbol symbol, IHasFields? decl
 
     public AccessModifier AccessModifier => RoslynSymbolMapping.ToAccessModifier(symbol);
 
-    public IHasFields DeclaringType => resolvedDeclaringType ??= (RectaleafRoslyn.FromSymbol(symbol.ContainingType) as IHasFields)!;
+    public IHasFields DeclaringType => resolvedDeclaringType ??= (RectaleafRoslyn.FromTypeDefinition(symbol.ContainingType) as IHasFields)!;
 
     public IReadOnlyList<IAttribute> GetAttributes()
         => attributes ??= RoslynAttribute.FilterAndCreate(symbol.GetAttributes());
@@ -38,7 +36,7 @@ internal abstract class RoslynField<TKind>(IFieldSymbol symbol, IHasFields? decl
         if (symbol.IsFixedSizeBuffer)
             return new RoslynFixedSizeBufferField(symbol, declaringType);
 
-        var typeUsage = RoslynTypeUsageFactory.Create(symbol.Type, symbol.NullableAnnotation);
+        var typeUsage = RoslynTypeUsageFactory.Create(symbol.Type, symbol.NullableAnnotation, RoslynTypeUsageFactory.ExtractTypeSyntax(symbol));
         bool isIncomplete = typeUsage is ITypeUsage<IIncomplete>;
 
         if (symbol.RefKind != RefKind.None)
@@ -63,7 +61,7 @@ internal abstract class RoslynField<TKind>(IFieldSymbol symbol, IHasFields? decl
     static IField<TTargetKind> CreateRefField<TTargetKind>(IFieldSymbol symbol, IHasFields? declaringType)
         where TTargetKind : IKnownOrNot
     {
-        var elemUsage = (IComposableType<TTargetKind>)RoslynTypeUsageFactory.Create(symbol.Type, symbol.NullableAnnotation);
+        var elemUsage = (IComposableType<TTargetKind>)RoslynTypeUsageFactory.Create(symbol.Type, symbol.NullableAnnotation, RoslynTypeUsageFactory.ExtractTypeSyntax(symbol));
 
         if (symbol.RefKind == RefKind.RefReadOnly)
             return new RoslynRefField<TTargetKind, IReadOnly>(symbol, new ByRefType<TTargetKind, IReadOnly>(elemUsage), declaringType);
@@ -78,7 +76,7 @@ internal sealed class RoslynConstField(IFieldSymbol symbol, IHasFields? declarin
     IComposableType<IKnown>? type;
 
     public IComposableType<IKnown> Type
-        => type ??= (IComposableType<IKnown>)RoslynTypeUsageFactory.Create(symbol.Type, symbol.NullableAnnotation);
+        => type ??= (IComposableType<IKnown>)RoslynTypeUsageFactory.Create(symbol.Type, symbol.NullableAnnotation, RoslynTypeUsageFactory.ExtractTypeSyntax(symbol));
 
     public object GetConstantValue() => symbol.ConstantValue!;
 }
@@ -118,7 +116,7 @@ internal sealed class RoslynStaticField<TKind>(IFieldSymbol symbol, IHasFields? 
     IComposableType<TKind>? type;
 
     public IComposableType<TKind> Type
-        => type ??= (IComposableType<TKind>)RoslynTypeUsageFactory.Create(symbol.Type, symbol.NullableAnnotation);
+        => type ??= (IComposableType<TKind>)RoslynTypeUsageFactory.Create(symbol.Type, symbol.NullableAnnotation, RoslynTypeUsageFactory.ExtractTypeSyntax(symbol));
 
     public bool IsReadOnly => symbol.IsReadOnly;
 
@@ -132,7 +130,7 @@ internal sealed class RoslynInstanceField<TKind>(IFieldSymbol symbol, IHasFields
     IComposableType<TKind>? type;
 
     public IComposableType<TKind> Type
-        => type ??= (IComposableType<TKind>)RoslynTypeUsageFactory.Create(symbol.Type, symbol.NullableAnnotation);
+        => type ??= (IComposableType<TKind>)RoslynTypeUsageFactory.Create(symbol.Type, symbol.NullableAnnotation, RoslynTypeUsageFactory.ExtractTypeSyntax(symbol));
 
     public bool IsReadOnly => symbol.IsReadOnly;
 

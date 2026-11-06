@@ -3,6 +3,7 @@ using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Rectaleaf.Components;
 using Rectaleaf.Metadata;
 using Rectaleaf.Metadata.DeclaredTypes;
+using Rectaleaf.Metadata.Members;
 using Rectaleaf.Metadata.TypeUsages.Interfaces;
 using Rectaleaf.Roslyn.TypeUsages;
 
@@ -14,6 +15,7 @@ internal sealed class RoslynGenericParameter(
 {
     GenericParameterSource? source;
     IReadOnlyList<ConstraintType>? constraintTypes;
+    IReadOnlyList<IAttribute>? attributes;
 
     public string Name => symbol.Name;
 
@@ -58,6 +60,9 @@ internal sealed class RoslynGenericParameter(
 
     public GenericParameterSource Source => source ??= (sourceResolver?.Invoke() ?? ResolveDefaultSource(symbol));
 
+    public IReadOnlyList<IAttribute> GetAttributes()
+        => attributes ??= RoslynAttribute.FilterAndCreate(symbol.GetAttributes());
+
     public override bool Equals(object? obj)
         => obj is IGenericParameter other && GenericParameterEqualityComparer.Default.Equals(this, other);
 
@@ -66,23 +71,36 @@ internal sealed class RoslynGenericParameter(
 
     static bool CheckDefaultConstraint(ITypeParameterSymbol typeParam)
     {
-        foreach (var synRef in typeParam.DeclaringSyntaxReferences)
+        foreach (SyntaxReference synRef in typeParam.DeclaringSyntaxReferences)
         {
-            var node = synRef.GetSyntax();
-            var parent = node.Parent;
-            while (parent is not null && parent is not MemberDeclarationSyntax and not TypeDeclarationSyntax)
+            SyntaxNode? parent = synRef.GetSyntax().Parent;
+            while (parent is not null)
             {
-                if (parent is TypeParameterConstraintClauseSyntax clause)
+                SyntaxList<TypeParameterConstraintClauseSyntax>? clauses = parent switch
                 {
-                    if (clause.Name.Identifier.Text == typeParam.Name)
+                    MethodDeclarationSyntax m => m.ConstraintClauses,
+                    LocalFunctionStatementSyntax lf => lf.ConstraintClauses,
+                    TypeDeclarationSyntax t => t.ConstraintClauses,
+                    DelegateDeclarationSyntax d => d.ConstraintClauses,
+                    _ => null
+                };
+
+                if (clauses.HasValue)
+                {
+                    foreach (TypeParameterConstraintClauseSyntax clause in clauses.Value)
                     {
-                        foreach (var c in clause.Constraints)
+                        if (clause.Name.Identifier.ValueText == typeParam.Name)
                         {
-                            if (c is DefaultConstraintSyntax)
-                                return true;
+                            foreach (TypeParameterConstraintSyntax c in clause.Constraints)
+                            {
+                                if (c is DefaultConstraintSyntax)
+                                    return true;
+                            }
                         }
                     }
+                    break;
                 }
+
                 parent = parent.Parent;
             }
         }
@@ -99,12 +117,12 @@ internal sealed class RoslynGenericParameter(
             if (nts.TypeKind == TypeKind.Extension)
             {
                 var declaringStatic = nts.ContainingType is not null
-                    ? RectaleafRoslyn.FromSymbol(nts.ContainingType) as IStaticClassType
+                    ? RectaleafRoslyn.FromTypeDefinition(nts.ContainingType) as IStaticClassType
                     : null;
                 return new GenericExtensionBlock(Roslyn.Members.RoslynExtensionsBlock.Create(nts, declaringStatic!));
             }
 
-            return new GenericType(RectaleafRoslyn.FromSymbol(nts));
+            return new GenericType(RectaleafRoslyn.FromTypeDefinition(nts));
         }
 
         if (containing is IMethodSymbol ms)

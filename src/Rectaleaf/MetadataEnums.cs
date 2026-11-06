@@ -54,6 +54,31 @@ public enum FixedSizeBufferTypeEnum
     Double = PredefinedTypeKind.Double
 }
 
+public enum ValuePrimitiveTypeEnum
+{
+    Bool = PredefinedTypeKind.Bool,
+    Byte = PredefinedTypeKind.Byte,
+    SByte = PredefinedTypeKind.SByte,
+    Short = PredefinedTypeKind.Short,
+    UShort = PredefinedTypeKind.UShort,
+    Int = PredefinedTypeKind.Int,
+    UInt = PredefinedTypeKind.UInt,
+    Long = PredefinedTypeKind.Long,
+    ULong = PredefinedTypeKind.ULong,
+    NInt = PredefinedTypeKind.NInt,
+    NUint = PredefinedTypeKind.NUint,
+    Char = PredefinedTypeKind.Char,
+    Float = PredefinedTypeKind.Float,
+    Double = PredefinedTypeKind.Double,
+    Decimal = PredefinedTypeKind.Decimal
+}
+
+public enum ReferencePrimitiveTypeEnum
+{
+    Object = PredefinedTypeKind.Object,
+    String = PredefinedTypeKind.String
+}
+
 public enum EnumUnderlyingTypeEnum
 {
     Byte = PredefinedTypeKind.Byte,

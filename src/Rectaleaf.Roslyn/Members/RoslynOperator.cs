@@ -9,15 +9,23 @@ using Rectaleaf.Roslyn.Symbols;
 
 namespace Rectaleaf.Roslyn.Members;
 
-internal abstract class RoslynOperator(IMethodSymbol symbol) : IOperator
+internal abstract class RoslynOperator(IMethodSymbol symbol, IHasOperators? declaringType = null) : IOperator
 {
     protected readonly IMethodSymbol symbol = symbol;
+    IHasOperators? resolvedDeclaringType = declaringType;
     IInheritanceKind<IOperator>? inheritance;
+    IReadOnlyList<IAttribute>? attributes;
     IReadOnlyList<ILocalFunction>? localFunctions;
+
+    public IHasOperators DeclaringType
+        => resolvedDeclaringType ??= (RectaleafRoslyn.FromTypeDefinition(symbol.ContainingType) as IHasOperators)!;
 
     public AccessModifier AccessModifier => RoslynSymbolMapping.ToAccessModifier(symbol);
 
     public IInheritanceKind<IOperator> Inheritance => inheritance ??= ResolveInheritance();
+
+    public IReadOnlyList<IAttribute> GetAttributes()
+        => attributes ??= RoslynAttribute.FilterAndCreate(symbol.GetAttributes());
 
     public IReadOnlyList<ILocalFunction> GetLocalFunctions()
         => localFunctions ??= RoslynLocalFunctionHelper.ExtractLocalFunctions(symbol, this);
@@ -36,25 +44,25 @@ internal abstract class RoslynOperator(IMethodSymbol symbol) : IOperator
         return RoslynInheritanceNone<IOperator>.Instance;
     }
 
-    public static IOperator? Create(IMethodSymbol symbol)
+    public static IOperator? Create(IMethodSymbol symbol, IHasOperators? declaringType = null)
     {
         var unaryKind = RoslynSymbolMapping.ToUnaryOperatorKind(symbol.Name);
         if (unaryKind.HasValue)
-            return new RoslynUnaryOperator(symbol, unaryKind.Value);
+            return new RoslynUnaryOperator(symbol, unaryKind.Value, declaringType);
 
         var binaryKind = RoslynSymbolMapping.ToBinaryOperatorKind(symbol.Name);
         if (binaryKind.HasValue)
-            return new RoslynBinaryOperator(symbol, binaryKind.Value);
+            return new RoslynBinaryOperator(symbol, binaryKind.Value, declaringType);
 
         var convKind = RoslynSymbolMapping.ToConversionOperatorKind(symbol.Name);
         if (convKind.HasValue)
-            return new RoslynConversionOperator(symbol, convKind.Value);
+            return new RoslynConversionOperator(symbol, convKind.Value, declaringType);
 
         return null;
     }
 }
 
-internal sealed class RoslynUnaryOperator(IMethodSymbol symbol, UnaryOperatorKind kind) : RoslynOperator(symbol), IUnaryOperator
+internal sealed class RoslynUnaryOperator(IMethodSymbol symbol, UnaryOperatorKind kind, IHasOperators? declaringType = null) : RoslynOperator(symbol, declaringType), IUnaryOperator
 {
     IParameter? operand;
     IReturnInfo<IKnownOrNot>? returnInfo;
@@ -68,7 +76,7 @@ internal sealed class RoslynUnaryOperator(IMethodSymbol symbol, UnaryOperatorKin
     public IReturnInfo<IKnownOrNot> ReturnInfo => returnInfo ??= new RoslynReturnInfo<IKnownOrNot>(symbol);
 }
 
-internal sealed class RoslynBinaryOperator(IMethodSymbol symbol, BinaryOperatorKind kind) : RoslynOperator(symbol), IBinaryOperator
+internal sealed class RoslynBinaryOperator(IMethodSymbol symbol, BinaryOperatorKind kind, IHasOperators? declaringType = null) : RoslynOperator(symbol, declaringType), IBinaryOperator
 {
     IParameter? leftOperand;
     IParameter? rightOperand;
@@ -85,7 +93,7 @@ internal sealed class RoslynBinaryOperator(IMethodSymbol symbol, BinaryOperatorK
     public IReturnInfo<IKnownOrNot> ReturnInfo => returnInfo ??= new RoslynReturnInfo<IKnownOrNot>(symbol);
 }
 
-internal sealed class RoslynConversionOperator(IMethodSymbol symbol, ConversionOperatorKind kind) : RoslynOperator(symbol), IConversionOperator
+internal sealed class RoslynConversionOperator(IMethodSymbol symbol, ConversionOperatorKind kind, IHasOperators? declaringType = null) : RoslynOperator(symbol, declaringType), IConversionOperator
 {
     IParameter? operand;
     IReturnInfo<IKnownOrNot>? returnInfo;

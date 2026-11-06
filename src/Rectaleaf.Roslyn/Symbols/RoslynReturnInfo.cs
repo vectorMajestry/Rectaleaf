@@ -45,7 +45,10 @@ internal sealed class RoslynReturnInfo<TKind> : IReturnInfo<TKind>
         if (methodSymbol is null)
             throw new InvalidOperationException("Type must be provided when method symbol is null.");
 
-        var rawType = RoslynTypeUsageFactory.Create(methodSymbol.ReturnType, methodSymbol.ReturnNullableAnnotation);
+        var rawType = RoslynTypeUsageFactory.Create(
+            methodSymbol.ReturnType,
+            methodSymbol.ReturnNullableAnnotation,
+            RoslynTypeUsageFactory.ExtractReturnTypeSyntax(methodSymbol));
 
         if (rawType is not IComposableType<TKind> composable)
             return (ITypeUsage<TKind>)rawType;

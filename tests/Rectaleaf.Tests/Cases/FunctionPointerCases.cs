@@ -29,6 +29,9 @@ public unsafe class FunctionPointerTestContainer
     // Reversed order with SuppressGCTransition first
     public delegate* unmanaged[SuppressGCTransition, Stdcall]<int, int> UnmanagedSuppressGcFirst;
 
+    // Unmanaged function pointer with duplicated and conflicting calling conventions
+    public delegate* unmanaged[Cdecl, Cdecl, SuppressGCTransition, MemberFunction, Stdcall, Cdecl]<void> UnmanagedDuplicatedConventions;
+
     // Function pointer with ref, in, and out parameter modifiers
     public delegate*<ref int, in double, out byte, void> ManagedWithRefModifiers;
 

@@ -21,7 +21,9 @@ internal abstract class RoslynMethod(IMethodSymbol symbol, IHasMethods? declarin
     IReadOnlyList<IAttribute>? attributes;
     IReadOnlyList<ILocalFunction>? localFunctions;
 
-    public string Name => symbol.Name;
+    public string Name => symbol.ExplicitInterfaceImplementations.Length > 0
+        ? symbol.ExplicitInterfaceImplementations[0].Name
+        : symbol.Name;
 
     public IReturnInfo<IKnownOrNot> ReturnInfo => returnInfo ??= new RoslynReturnInfo<IKnownOrNot>(symbol);
 
@@ -35,7 +37,7 @@ internal abstract class RoslynMethod(IMethodSymbol symbol, IHasMethods? declarin
             containing = containing.ContainingType;
         }
 
-        return (containing is not null ? RectaleafRoslyn.FromSymbol(containing) as IHasMethods : null)!;
+        return (containing is not null ? RectaleafRoslyn.FromTypeDefinition(containing) as IHasMethods : null)!;
     }
 
     public bool IsGeneric => symbol.IsGenericMethod;
